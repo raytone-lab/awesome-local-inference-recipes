@@ -190,4 +190,15 @@ class ExploreGuideLink(unittest.TestCase):
         self.assertIn("${LANG=='en'?'':'.'+LANG}.md", src)
         self.assertNotIn("${LANG=='zh-CN'?'.zh-CN':''}.md", src)
 
+
+class GuideLocales(unittest.TestCase):
+    def test_every_guide_has_three_langs(self):
+        import json
+        ids = json.loads((R / 'data/guides.json').read_text(encoding='utf-8'))
+        if isinstance(ids, dict):
+            ids = ids.get('ids') or ids.get('guides') or list(ids)
+        for gid in ids:
+            for suf in ('', '.zh-CN', '.ja'):
+                self.assertTrue((R / 'recipes' / f'{gid}{suf}.md').is_file(), f'missing recipes/{gid}{suf}.md')
+
 if __name__ == '__main__': unittest.main()
