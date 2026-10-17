@@ -35,11 +35,33 @@ class SiteStatic(unittest.TestCase):
 
 class LandingWording(unittest.TestCase):
     def test_summary_matches_data(self):
-        import importlib.util
+        import importlib.util, re, sys
+        sys.path.insert(0, str(R/'scripts'))
         spec = importlib.util.spec_from_file_location('gs', R/'scripts/gen_site.py'); gs = importlib.util.module_from_spec(spec); spec.loader.exec_module(gs)
-        for p in list((R/'hw').glob('*.html')) + list((R/'model').glob('*.html')):
-            s = p.read_text(encoding='utf-8')
-            if 'none is first-hand yet' in s: self.assertIn(' 0 of them measured', s, p.name)
+        from hardware_index import HW
+        checks = []
+        for key, name, rx, qt in HW:
+            rows = [r for r in gs.D if re.search(rx, r['hardware'])]
+            if rows: checks.append(('hw', key, rows))
+        for f in sorted({r['model_family'] for r in gs.D if r['model_family'] != 'Other'}):
+            rows = [r for r in gs.D if r['model_family'] == f]
+            checks.append(('model', gs.slug(f), rows))
+        for kind, file, rows in checks:
+            nmeas = sum(1 for r in rows if r['source_level'] == '实测' and not gs.selfrep(r))
+            for lang, none_s, has_s in [
+                ('', 'None is first-hand yet', '1 was measured by the poster' if nmeas == 1 else f'{nmeas} were measured by the poster'),
+                ('zh-CN', '尚无一手实测', f'实测 {nmeas} 条'),
+                ('ja', '投稿者自身の実測はまだありません', f'投稿者実測は {nmeas} 件'),
+            ]:
+                path = R / kind / ((lang + '/') if lang else '') / f'{file}.html'
+                s = path.read_text(encoding='utf-8')
+                if nmeas == 0:
+                    self.assertIn(none_s, s, str(path.relative_to(R)))
+                else:
+                    self.assertNotIn(none_s, s, str(path.relative_to(R)))
+                    self.assertIn(has_s, s, str(path.relative_to(R)))
+                if lang == 'ja':
+                    self.assertIn(f'のレシピが <b>{len(rows)} 件</b>あります', s, str(path.relative_to(R)))
         for r in gs.D:
             if 'multi-GPU' in r['tags'] or gs.selfrep(r) or gs.COMPARE.search(r['hardware']):
                 self.assertFalse(gs.meas_text(r) and gs.single(r), f"{r['id']}: headline must not cite multi-device, comparison or self-reported rows")
@@ -68,10 +90,37 @@ class GuidesIndexI18n(unittest.TestCase):
                 self.assertIn(f'href="../../guides/{lang}/index.html">{nav}</a>', s, g.name)
 
     def test_index_relative_hrefs_resolve(self):
-        for idx in [R/'guides/index.html', R/'guides/zh-CN/index.html', R/'guides/ja/index.html']:
-            for href in re.findall(r'href="([^"]+)"', idx.read_text(encoding='utf-8')):
+        for page in (R/'guides').rglob('*.html'):
+            for href in re.findall(r'href="([^"]+)"', page.read_text(encoding='utf-8')):
                 if href.startswith(('http', '#', 'mailto')): continue
-                self.assertTrue((idx.parent / href).resolve().exists(), f'{idx.name} -> {href}')
+                path = href.split('#', 1)[0].split('?', 1)[0]
+                if not path: continue
+                self.assertTrue((page.parent / path).resolve().exists(), f'{page.relative_to(R)} -> {href}')
+
+
+    def test_landing_relative_hrefs_resolve(self):
+        for page in list((R/'hw').rglob('*.html')) + list((R/'model').rglob('*.html')):
+            for href in re.findall(r'href="([^"]+)"', page.read_text(encoding='utf-8')):
+                if href.startswith(('http', '#', 'mailto')): continue
+                path = href.split('#', 1)[0].split('?', 1)[0]
+                if not path: continue
+                self.assertTrue((page.parent / path).resolve().exists(), f'{page.relative_to(R)} -> {href}')
+
+    def test_landing_pages_exist_in_three_langs(self):
+        for kind in ('hw', 'model'):
+            en = {p.name for p in (R/kind).glob('*.html')}
+            for lang in ('zh-CN', 'ja'):
+                got = {p.name for p in (R/kind/lang).glob('*.html')}
+                self.assertEqual(en, got, f'{kind}/{lang}')
+
+
+class MetaDesc(unittest.TestCase):
+    def test_meta_desc_not_double_escaped(self):
+        for page in list((R/'hw').rglob('*.html')) + list((R/'model').rglob('*.html')):
+            s = page.read_text(encoding='utf-8')
+            for m in re.finditer(r'content="([^"]*)"', s):
+                self.assertNotIn('&amp;#', m.group(1), str(page.relative_to(R)))
+                self.assertNotIn('&amp;quot;', m.group(1), str(page.relative_to(R)))
 
 if __name__ == '__main__':
     unittest.main()

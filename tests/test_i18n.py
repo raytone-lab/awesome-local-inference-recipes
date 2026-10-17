@@ -1,3 +1,4 @@
+import unittest
 import json, re, subprocess, unittest
 from pathlib import Path
 R = Path(__file__).resolve().parent.parent
@@ -76,6 +77,12 @@ class ChineseAndJapaneseUI(unittest.TestCase):
         b = lang_blocks((R/'speed.html').read_text(encoding='utf-8'))
         self.assertEqual(keys(b['en']) - keys(b['ja']), set(), 'speed.html ja')
 
+    def test_every_english_ui_key_has_a_japanese_string(self):
+        for f in ['i18n.js', 'app.js', 'landing.js', 'submit.html', 'speed.html']:
+            b = lang_blocks((R/f).read_text(encoding='utf-8'))
+            self.assertIn('ja', b, f)
+            self.assertEqual(keys(b['en']) - keys(b['ja']), set(), f)
+
     def test_static_markup_keys_exist_in_chinese(self):
         zh = set()
         for f in ['i18n.js', 'app.js', 'landing.js', 'submit.html']: zh |= keys(lang_blocks((R/f).read_text(encoding='utf-8'))['zh-CN'])
@@ -85,19 +92,58 @@ class ChineseAndJapaneseUI(unittest.TestCase):
         sp = keys(lang_blocks((R/'speed.html').read_text(encoding='utf-8'))['zh-CN'])
         for k in re.findall(r'data-(?:t|i18n)="([^"]+)"', (R/'speed.html').read_text(encoding='utf-8')): self.assertIn(k, sp, f'speed.html: {k}')
 
+    def test_static_zh_ja_landing_chrome(self):
+        for lang, brand, nav in [('zh-CN', '本地推理配方', '指南'), ('ja', 'ローカル推論レシピ', 'ガイド')]:
+            samples = list((R/'hw'/lang).glob('*.html'))[:2] + list((R/'model'/lang).glob('*.html'))[:2]
+            self.assertTrue(samples, lang)
+            for p in samples:
+                s = p.read_text(encoding='utf-8')
+                self.assertIn(brand, s, p.name)
+                self.assertIn(f'guides/{lang}/index.html', s, p.name)
+                self.assertNotIn('Local Inference Recipes</a>', s, p.name)
+
     def test_static_chinese_and_japanese_guide_chrome(self):
         for lang, brand in [('zh-CN', '本地推理配方'), ('ja', 'ローカル推論レシピ')]:
             for p in (R/'guides'/lang).glob('*.html'):
                 s = (R/p).read_text(encoding='utf-8'); self.assertIn(brand, s, p.name); self.assertNotIn('Local Inference Recipes</a>', s, p.name)
 
     def test_japanese_pages_have_no_simplified_chinese(self):
-        pages = [*(R/'guides'/'ja').glob('*.html'), *(R/'recipes').glob('*.ja.md'), R/'README.ja.md', *(R/'hw').glob('*ja*'), *(R/'model').glob('*ja*')]
+        pages = [*(R/'guides'/'ja').rglob('*.html'), *(R/'recipes').glob('*.ja.md'), R/'README.ja.md',
+                 *(R/'hw'/'ja').glob('*.html'), *(R/'model'/'ja').glob('*.html')]
         self.assertGreater(len(pages), 10)
         for p in pages:
             t = visible(p.read_text(encoding='utf-8')).replace('简体中文', '')
             self.assertEqual(sorted({c for c in t if c in SIMPLIFIED_ONLY}), [], p.name)
         ja = lang_blocks((R/'speed.html').read_text(encoding='utf-8'))['ja']
         self.assertEqual(sorted({c for c in ja if c in SIMPLIFIED_ONLY}), [], 'speed.html ja dictionary')
+
+    def test_placeholder_sets_match_across_langs(self):
+        def string_entries(block):
+            out = {}
+            for m in re.finditer(r"([{,]\s*)([A-Za-z_]\w*)\s*:\s*(['\"])((?:\\.|(?!\3).)*)\3", block):
+                out[m.group(2)] = m.group(4)
+            return out
+        def placeholders(s):
+            return sorted(set(re.findall(r'\{[A-Za-z_]+\}', s)))
+        for f in ['i18n.js', 'app.js', 'landing.js', 'submit.html', 'speed.html']:
+            blocks = {lang: string_entries(text) for lang, text in lang_blocks((R / f).read_text(encoding='utf-8')).items()}
+            base = blocks.get('en') or blocks.get('zh-CN')
+            self.assertTrue(base, f)
+            bad = []
+            for lang, d in blocks.items():
+                if lang == 'en':
+                    continue
+                for k, v in base.items():
+                    if k not in d:
+                        continue
+                    a, b = placeholders(v), placeholders(d[k])
+                    if a != b:
+                        bad.append(f'{lang}.{k}:en{a} vs{b}')
+            self.assertEqual(bad, [], f)
+
+    def test_japanese_localize_recipe_has_no_cjk(self):
+        bad = node("const out=[];for(const r of D){const o=localizeRecipe(r,'ja');for(const k of %s)if(typeof o[k]=='string'&&/[\u3000-\u303f\u3040-\u30ff\u3400-\u9fff\uff00-\uffef]/.test(o[k]))out.push(r.id+' '+k)}process.stdout.write(JSON.stringify(out))" % json.dumps(EN_FIELDS))
+        self.assertEqual(bad, [])
 
 class SpeedPage(unittest.TestCase):
     def setUp(self): self.s = (R/'speed.html').read_text(encoding='utf-8')
@@ -130,5 +176,21 @@ class SpeedPage(unittest.TestCase):
                 self.assertFalse(src[i].get('superseded_by'), i)
                 self.assertNotRegex((src[i].get('metric') or '') + ' ' + str(src[i].get('concurrency') or ''), r'并发|aggregate|总吞吐|自称', i)
                 self.assertIsNone(CJK.search(hw + ' ' + model), f'{lang} {i}')
+
+
+class ExploreGuideLink(unittest.TestCase):
+    def test_guide_href_uses_active_lang(self):
+        src = (R / 'app.js').read_text(encoding='utf-8')
+        self.assertIn("${LANG=='en'?'':'.'+LANG}.md", src)
+        self.assertNotIn("${LANG=='zh-CN'?'.zh-CN':''}.md", src)
+
+
+class GuideLocales(unittest.TestCase):
+    def test_every_guide_has_three_langs(self):
+        import json
+        ids = json.loads((R / 'data/guides.json').read_text(encoding='utf-8'))
+        for gid in ids:
+            for suf in ('', '.zh-CN', '.ja'):
+                self.assertTrue((R / 'recipes' / f'{gid}{suf}.md').is_file(), f'missing recipes/{gid}{suf}.md')
 
 if __name__ == '__main__': unittest.main()

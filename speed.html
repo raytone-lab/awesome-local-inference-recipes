@@ -94,7 +94,7 @@ ja:{f_data:'データ CC BY 4.0 · コード MIT',derived:'推算',stop_:'。',t
 const P=new URLSearchParams(location.search);
 const NL=(navigator.language||'').toLowerCase(); let SAVED=null; try{SAVED=localStorage.getItem('lang')}catch(e){}
 let LANG=P.get('lang')||(P.has('embed')?null:SAVED)||(NL.startsWith('ja')?'ja':NL.startsWith('zh')?'zh-CN':'en');
-if(['en','zh-CN'].includes(P.get('lang'))&&!P.has('embed'))try{localStorage.setItem('lang',P.get('lang'))}catch(e){}  // only values the other pages understand  // shared with the other pages (i18n.js)
+if(['en','zh-CN','ja'].includes(P.get('lang'))&&!P.has('embed'))try{localStorage.setItem('lang',P.get('lang'))}catch(e){}
 if(!I18N[LANG])LANG='en'; const T=I18N[LANG]; document.documentElement.lang=LANG;document.title=T.title;
 document.querySelectorAll('[data-t]').forEach(e=>e.textContent=T[e.dataset.t]);
 // shared header/footer use data-i18n (same markup as the other pages); the language switch is added here, as i18n.js does elsewhere
