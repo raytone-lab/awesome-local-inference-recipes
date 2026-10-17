@@ -2,7 +2,7 @@
 """Static, crawlable parts of the Pages site (no JS needed to read them). Source of truth: data/recipes.json + recipes/*.md.
 - explore.html: full static fallback table
 - guides/<id>.html (+ zh-CN/ ja/): recipe guides from recipes/*.md; matching index.html per language; self-canonical + hreflang
-- hw/<slug>.html, model/<slug>.html: landing pages
+- hw|model/{,zh-CN/,ja/}<slug>.html: landing pages
 - sitemap.xml
 Run: python3 scripts/gen_site.py"""
 import json, re, html
@@ -99,7 +99,7 @@ def shell(title, desc, canon, body, depth, lang='en', alts=None, noindex=False):
 <link rel="canonical" href="{canon}">{alt}{'<meta name="robots" content="noindex,follow">' if noindex else ''}
 <meta property="og:type" content="article"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{PAGES}docs/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="{up}style.css"><script src="{up}theme.js"></script></head><body>
-<header class="site-hd"><div class="hd-in"><a class="brand" href="{up}index.html">⚡ {CHROME[lang][3]}</a><nav class="static-links"><a href="{up}explore.html{'?lang='+lang if lang!='en' else ''}">{CHROME[lang][0]}</a> · <a href="{up}{gidx}">{CHROME[lang][1]}</a> · <a href="{REPO}">GitHub</a></nav></div></header>
+<header class="site-hd"><div class="hd-in"><a class="brand" href="{up}index.html{'?lang='+lang if lang!='en' else ''}">⚡ {CHROME[lang][3]}</a><nav class="static-links"><a href="{up}explore.html{'?lang='+lang if lang!='en' else ''}">{CHROME[lang][0]}</a> · <a href="{up}{gidx}">{CHROME[lang][1]}</a> · <a href="{REPO}">GitHub</a></nav></div></header>
 <main class="doc static-page">
 {body}
 </main><footer class="site-ft"><div class="ft-in">{CHROME[lang][2]} {ASOF} · <a href="{REPO}">GitHub</a> · {CHROME[lang][4]}</div></footer></body></html>
@@ -167,7 +167,7 @@ def landing(kind, key, name, rows, qterm=None):
             lab=lambda r, k: r.get(k) or '',
             met=lambda r: r.get('metric') or ''),
         'ja': dict(
-            nrec=lambda n: f'{n} 件のレシピ',
+            nrec=lambda n: f'{n} 件',
             q=(f'{name}：ローカル推論速度（tok/s）、出典付き' if kind == 'model'
                else f'{name} の構成：ローカル推論速度（tok/s）、出典付き'),
             th=('モデル', 'エンジン', 'ハードウェア', 'tok/s', '指標', '出典レベル', '日付', '出典'),
@@ -212,17 +212,16 @@ def landing(kind, key, name, rows, qterm=None):
                 summ += (f'其中 {len(dates)} 条有日期' + (f'（{dates[0]}）。' if dates[0] == dates[-1] else f'，从 {dates[0]} 到 {dates[-1]}。'))
             return summ
         if lang == 'ja':
-            count = len(rows)
             if best:
                 eng = '' if best['engine'] == 'Unspecified' else f'、エンジン {e(best["engine"])}'
-                summ = (f'{ASOF} 時点で、このデータセットには {e(name)} のレシピが <b>{count} 件</b>あります。投稿者実測は {nmeas} 件です。'
+                summ = (f'{ASOF} 時点で、このデータセットには {e(name)} のレシピが <b>{n}</b>あります。投稿者実測は {nmeas} 件です。'
                         f'単一デバイス・シングルストリームのテキスト実測の最速は <b>{best["tok_s"]:g} tok/s</b>（{e(fen(best, "model"))}{eng}、{e(fen(best, "hardware"))}、'
                         f'実測{"、" + e(best["date"]) if best.get("date") else ""}、<a href="{e(best["source_url"])}" rel="nofollow noopener">出典</a>）。')
             else:
                 if nmeas:
-                    summ = f'{ASOF} 時点で、このデータセットには {e(name)} のレシピが <b>{count} 件</b>あります。投稿者実測は {nmeas} 件です。'
+                    summ = f'{ASOF} 時点で、このデータセットには {e(name)} のレシピが <b>{n}</b>あります。投稿者実測は {nmeas} 件です。'
                 else:
-                    summ = (f'{ASOF} 時点で、このデータセットには {e(name)} のレシピが <b>{count} 件</b>あります。'
+                    summ = (f'{ASOF} 時点で、このデータセットには {e(name)} のレシピが <b>{n}</b>あります。'
                             f'投稿者自身の実測はまだありません。以下は公式・主張・伝聞として読んでください。')
                 if all_media:
                     summ += '画像・動画・音声の結果です。速度は tok/s ではなく指標列にあります。'
@@ -263,9 +262,12 @@ def landing(kind, key, name, rows, qterm=None):
         canon = f'{PAGES}{kind}/{PRE[lang]}{file}.html'
         alts = [(hl, f'{PAGES}{kind}/{PRE[hl]}{file}.html') for hl in ORDER]
         alts.append(('x-default', f'{PAGES}{kind}/{file}.html'))
-        write(R/kind/f'{PRE[lang]}{file}.html', shell(C['q'], re.sub('<[^>]+>', '', summ)[:300], canon, body, depth, lang, alts, noidx))
+        desc = html.unescape(re.sub('<[^>]+>', '', summ))
+        if len(desc) > 300:
+            desc = desc[:300].rsplit(' ', 1)[0] or desc[:300]
+        write(R/kind/f'{PRE[lang]}{file}.html', shell(C['q'], desc, canon, body, depth, lang, alts, noidx))
         canons.append(canon)
-    return canons[0], noidx, len(rows), canons
+    return noidx, len(rows), canons
 
 def main():
     for d in ('guides', 'hw', 'model'):
@@ -275,13 +277,13 @@ def main():
     for key, name, rx, qt in HW:
         rows = [r for r in D if re.search(rx, r['hardware'])]
         if rows:
-            en_c, noidx, n, all_c = landing('hw', key, name, rows, qt)
-            pages.append(('hw', key, name, en_c, noidx, n, all_c))
+            noidx, n, all_c = landing('hw', key, name, rows, qt)
+            pages.append(('hw', key, name, all_c[0], noidx, n, all_c))
     fams = sorted({r['model_family'] for r in D if r['model_family'] != 'Other'})
     for f in fams:
         rows = [r for r in D if r['model_family'] == f]
-        en_c, noidx, n, all_c = landing('model', f, f, rows)
-        pages.append(('model', f, f, en_c, noidx, n, all_c))
+        noidx, n, all_c = landing('model', f, f, rows)
+        pages.append(('model', f, f, all_c[0], noidx, n, all_c))
     li = lambda items: '<ul>' + ''.join(items) + '</ul>'
     byid = {r['id']: r for r in D}
     LANG_LABEL = {'en': 'English', 'zh-CN': '中文', 'ja': '日本語'}

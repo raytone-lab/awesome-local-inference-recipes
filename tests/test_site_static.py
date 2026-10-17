@@ -113,5 +113,14 @@ class GuidesIndexI18n(unittest.TestCase):
                 got = {p.name for p in (R/kind/lang).glob('*.html')}
                 self.assertEqual(en, got, f'{kind}/{lang}')
 
+
+class MetaDesc(unittest.TestCase):
+    def test_meta_desc_not_double_escaped(self):
+        for page in list((R/'hw').rglob('*.html')) + list((R/'model').rglob('*.html')):
+            s = page.read_text(encoding='utf-8')
+            for m in re.finditer(r'content="([^"]*)"', s):
+                self.assertNotIn('&amp;#', m.group(1), str(page.relative_to(R)))
+                self.assertNotIn('&amp;quot;', m.group(1), str(page.relative_to(R)))
+
 if __name__ == '__main__':
     unittest.main()
