@@ -32,7 +32,7 @@ window.applyI18n=()=>{
   const href=a.getAttribute('href'); const i=href.indexOf('#');
   const path=i<0?href:href.slice(0,i); const hash=i<0?'':'#'+href.slice(i+1);
   if(!/(?:^|\/)guides\/(?:zh-CN\/|ja\/)?index\.html$/.test(path)) return;
-  a.href='guides/'+(L==='en'?'':L+'/')+'index.html'+hash;
+  a.href=path.replace(/guides\/(?:zh-CN\/|ja\/)?index\.html$/,'guides/'+(L==='en'?'':L+'/')+'index.html')+hash;
  });
 };
 })();

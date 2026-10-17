@@ -60,6 +60,8 @@ class LandingWording(unittest.TestCase):
                 else:
                     self.assertNotIn(none_s, s, str(path.relative_to(R)))
                     self.assertIn(has_s, s, str(path.relative_to(R)))
+                if lang == 'ja':
+                    self.assertIn(f'のレシピが <b>{len(rows)} 件</b>あります', s, str(path.relative_to(R)))
         for r in gs.D:
             if 'multi-GPU' in r['tags'] or gs.selfrep(r) or gs.COMPARE.search(r['hardware']):
                 self.assertFalse(gs.meas_text(r) and gs.single(r), f"{r['id']}: headline must not cite multi-device, comparison or self-reported rows")
