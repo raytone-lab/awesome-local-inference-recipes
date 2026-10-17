@@ -1,3 +1,4 @@
+import unittest
 import json, re, subprocess, unittest
 from pathlib import Path
 R = Path(__file__).resolve().parent.parent
@@ -181,5 +182,12 @@ class SpeedPage(unittest.TestCase):
                 self.assertFalse(src[i].get('superseded_by'), i)
                 self.assertNotRegex((src[i].get('metric') or '') + ' ' + str(src[i].get('concurrency') or ''), r'并发|aggregate|总吞吐|自称', i)
                 self.assertIsNone(CJK.search(hw + ' ' + model), f'{lang} {i}')
+
+
+class ExploreGuideLink(unittest.TestCase):
+    def test_guide_href_uses_active_lang(self):
+        src = (R / 'app.js').read_text(encoding='utf-8')
+        self.assertIn("${LANG=='en'?'':'.'+LANG}.md", src)
+        self.assertNotIn("${LANG=='zh-CN'?'.zh-CN':''}.md", src)
 
 if __name__ == '__main__': unittest.main()

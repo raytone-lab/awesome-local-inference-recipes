@@ -170,7 +170,7 @@ def landing(kind, key, name, rows, qterm=None):
                else f'{name} の構成：ローカル推論速度（tok/s）、出典付き'),
             th=('モデル', 'エンジン', 'ハードウェア', 'tok/s', '指標', '出典レベル', '日付', '出典'),
             link='リンク', selfrep='（自己申告）', filter_='エクスプローラーで絞り込む →',
-            note='数値は各出典のものです。本プロジェクトでは再計測していません。行ごとにモデルと設定が異なります。出典レベル：公式 = プロジェクトまたはベンダー；実測 = 投稿者が実行；伝聞 = 二次情報；主張 = 予測または再現手順なし。',
+            note='数値は各出典のものです。本プロジェクトでは再計測していません。行ごとにモデルと設定が異なります。出典レベル：公式 = プロジェクトまたはベンダー、実測 = 投稿者が実行、伝聞 = 二次情報、主張 = 予測または再現手順なし。',
             lv=LVL['ja'], lab=lambda r, k: fen(r, k) if k != 'engine' else r.get('engine'),
             met=lambda r: met_en(r) or '',
             summ=None),
@@ -215,8 +215,8 @@ def landing(kind, key, name, rows, qterm=None):
                 b = max(meas, key=lambda r: (r['tok_s'], r['id']))
                 eng = '' if b['engine'] == 'Unspecified' else f'、エンジン {e(b["engine"])}'
                 summ = (f'{ASOF} 時点で、このデータセットの {e(name)} は <b>{n}</b> です。投稿者実測は {nmeas} 件です。'
-                        f'単一デバイス・シングルストリームのテキスト実測の最速は <b>{b["tok_s"]:g} tok/s</b>（{e(fen(b, "model"))}{eng}、{e(fen(b, "hardware"))}；'
-                        f'実測{"；" + e(b["date"]) if b.get("date") else ""}；<a href="{e(b["source_url"])}" rel="nofollow noopener">出典</a>）。')
+                        f'単一デバイス・シングルストリームのテキスト実測の最速は <b>{b["tok_s"]:g} tok/s</b>（{e(fen(b, "model"))}{eng}、{e(fen(b, "hardware"))}、'
+                        f'実測{"、" + e(b["date"]) if b.get("date") else ""}、<a href="{e(b["source_url"])}" rel="nofollow noopener">出典</a>）。')
             else:
                 if nmeas:
                     summ = f'{ASOF} 時点で、このデータセットの {e(name)} は <b>{n}</b> です。投稿者実測は {nmeas} 件です。'
