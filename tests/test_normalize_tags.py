@@ -46,6 +46,8 @@ class TestTags(unittest.TestCase):
         self.assertIn('3bit', t)
         t = T.tags(rec(model='DeepSeek-V4.1-Flash', quant='GPTQ 1.75/2.25/3.44-bit tiers', engine='ds41'))
         self.assertNotIn('4bit', t)
+        self.assertNotIn('3bit', T.tags(rec(model='GLM-5.3-Flash', quant='EXL3 2.3bpw', engine='vLLM')))
+        self.assertNotIn('3bit', T.tags(rec(model='GLM-5.3-Flash', quant='2.3-bit mix', engine='vLLM')))
     def test_mtp_not_multi_gpu(self):
         t = T.tags(rec(model='Qwen3.8-Flash-Next', quant='NVFP4 + MTP2', engine='vLLM', hardware='RTX PRO 6000 Blackwell 96GB'))
         self.assertNotIn('multi-GPU', t)

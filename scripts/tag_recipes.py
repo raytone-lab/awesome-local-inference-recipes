@@ -16,7 +16,7 @@ QUANT = [
     ('1bit', r'1-bit|\b1bit|\bI?Q1_'),
     ('ternary', r'ternary|\bTQ[12]_0'),
     ('2bit', r'\bI?Q2|2-bit|\b2bit|\b2\.\d+\s?bpw|\bW2\b|-W2'),
-    ('3bit', r'\bI?Q3|3-bit|\b3bit|\b3(\.\d+)?\s?bpw|q3_k'),
+    ('3bit', r'\bI?Q3|(?<![\d.])3-bit|\b3bit|(?<![\d.])3(\.\d+)?\s?bpw|q3_k'),
     ('4bit', r'\bI?Q4|(?<![\d.])4-bit|\b4bit|\bint4|MXFP4|NVFP4|\bFP4|\b4\.\d+\s?bpw|mixed-4|oQ4'),
     ('5bit', r'\bQ5|5-bit|\b5bit'),
     ('6bit', r'\bQ6|6-bit|\b6bit|mix6|\bINT6'),
