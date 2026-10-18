@@ -33,6 +33,8 @@ RULES = [
     (r'^halogen', 'Halogen'),
     (r'^Osaurus', 'Osaurus'),
     (r'^ExLlama', 'ExLlama'),
+    (r'^Infernix', 'Infernix'),
+    (r'^ds41\b', 'ds41'),
 ]
 INFER = [
     (r'Halogen', 'Halogen'), (r'\bSplash\b', 'Splash'), (r'sparkinfer', 'sparkinfer'),
