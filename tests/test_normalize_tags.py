@@ -41,6 +41,11 @@ class TestTags(unittest.TestCase):
         self.assertEqual(t, ['4bit', 'dense'])
         t = T.tags(rec(category='image', model='Z-Image Turbo', quant='int8 · 25 步', engine='ComfyUI'))
         self.assertEqual(t, ['8bit', 'few-step'])
+    def test_bpw_and_bit_suffixes(self):
+        t = T.tags(rec(model='DeepSeek-V4.1-Flash', quant='EXL3 3bpw', engine='vLLM'))
+        self.assertIn('3bit', t)
+        t = T.tags(rec(model='DeepSeek-V4.1-Flash', quant='GPTQ 1.75/2.25/3.44-bit tiers', engine='ds41'))
+        self.assertNotIn('4bit', t)
     def test_mtp_not_multi_gpu(self):
         t = T.tags(rec(model='Qwen3.8-Flash-Next', quant='NVFP4 + MTP2', engine='vLLM', hardware='RTX PRO 6000 Blackwell 96GB'))
         self.assertNotIn('multi-GPU', t)

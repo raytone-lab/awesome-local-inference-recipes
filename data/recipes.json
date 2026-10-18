@@ -11479,6 +11479,7 @@
     "date": "2026-09-18",
     "model_family": "DeepSeek",
     "tags": [
+      "3bit",
       "multi-GPU"
     ],
     "measured_by": null,
@@ -13630,7 +13631,7 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
     "hardware_cost_usd": 13900,
-    "metric": "单路解码（6 次构建中位，思考关）：散文 56.8 / 代码 92.2；思考开 54.2 / 71.6；同机同权重 vLLM（MiaAI kit）27.0 / 39.9；4 路合计 散文 94.4 / 代码 140.3；冷 prefill 32K 2,165（5 次中位，2,065–2,201）；1,035,020 token 针测通过（TTFT 13.6 分钟）",
+    "metric": "单路解码（6 次构建中位，思考关）：散文 56.8 / 代码 92.2；思考开 54.2 / 71.6；同机同权重 vLLM（MiaAI kit）27.0 / 39.9；合计（已发布引擎）2/3/4 路 散文 73.5 / 82.3 / 94.4、4 路代码 140.3；冷 prefill 32K 2,165（5 次中位，2,065–2,201）；1,035,020 token 针测通过（TTFT 13.6 分钟）",
     "tok_s": 56.8,
     "concurrency": "单路（另测 1–4 路合计）",
     "context": "1,048,576",
@@ -13640,7 +13641,7 @@
     "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "Elevatormusic",
-    "metric_en": "Single-stream decode (median of 6 engine builds, thinking off): prose 56.8 / code 92.2; thinking on 54.2 / 71.6; vLLM (MiaAI kit) on the same pair and weights 27.0 / 39.9; 4-stream aggregate prose 94.4 / code 140.3; cold prefill 32K 2,165 (median of 5, 2,065–2,201); needle passed at 1,035,020 tokens (TTFT 13.6 min)",
+    "metric_en": "Single-stream decode (median of 6 engine builds, thinking off): prose 56.8 / code 92.2; thinking on 54.2 / 71.6; vLLM (MiaAI kit) on the same pair and weights 27.0 / 39.9; aggregate (released engine) prose 73.5 / 82.3 / 94.4 at 2/3/4 streams, code 140.3 at 4; cold prefill 32K 2,165 (median of 5, 2,065–2,201); needle passed at 1,035,020 tokens (TTFT 13.6 min)",
     "en": {
       "quant": "LibertAIDAI EXL3 2.9bpw + official 1017 Engram (TP=2, DSpark 5 drafts)",
       "hardware": "2× DGX Spark (GB10, direct CX7 link)",
@@ -13661,8 +13662,12 @@
     "engine_note": "TensorFold（Elevatormusic 分支 @92aa710b：TensorFold 0.6.6 + bertholomus V4.1 TP2 引擎 + PR #1–#4）",
     "streams": [
       {
-        "n": 1,
-        "tok_s": 56.8
+        "n": 2,
+        "tok_s": 73.5
+      },
+      {
+        "n": 3,
+        "tok_s": 82.3
       },
       {
         "n": 4,
@@ -13885,7 +13890,7 @@
     "id": "comm-043",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
-    "quant": "PixelML EXL3 3.0bpw 专家 + int4 Engram（TP2，DSpark，MXFP4 drafter）",
+    "quant": "PixelML EXL3 3bpw 专家 + int4 Engram（TP2，DSpark，MXFP4 drafter）",
     "engine": "vLLM",
     "hardware": "2× RTX PRO 6000 Blackwell Max-Q 96GB（PCIe，无 NVLink）+ ~245GiB 内存",
     "hardware_family": "其他",
@@ -13903,7 +13908,7 @@
     "measured_by": "cliecy",
     "metric_en": "Single-stream decode 89–112 tok/s (2K–890K prompts, DSpark); aggregate 117–141 at 2 streams, 132–162 at 4; prefill ~5,000; needle 15/15 from 24K to 1.0M",
     "en": {
-      "quant": "PixelML EXL3 3.0bpw experts + int4 Engram (TP2, DSpark, MXFP4 drafter)",
+      "quant": "PixelML EXL3 3bpw experts + int4 Engram (TP2, DSpark, MXFP4 drafter)",
       "hardware": "2× RTX PRO 6000 Blackwell Max-Q 96GB (PCIe, no NVLink) + ~245GiB RAM",
       "concurrency": "Single stream (2/4-stream aggregates also measured)",
       "context": "~1.07M (fp8 KV pool)",
@@ -14076,7 +14081,7 @@
       "quant": "GSQ-RCO IQ3_S native pack",
       "hardware": "RX 7900 XTX 24GB + 96GB DDR5-6400 + Ryzen 9 9950X (PCIe 4.0 x16, Linux)",
       "concurrency": "Single stream",
-      "engine_note": "Strata 0.1.45 HIP source build (commit 477ac13c, ROCm 7.2.4, gfx1100); MTP --spec 4 --spec-min-p 0.5; --kv k8v4; --expert-cache 7700; --pcie-frac 0",
+      "engine_note": "Strata 0.1.45 HIP source build (commit 477ac13c, ROCm 7.2.4, gfx1100); MTP (--mtp <rt> --spec 4 --spec-min-p 0.5); --kv k8v4; --expert-cache 7700; --pcie-frac 0",
       "source_note": "Strata issue #2938 community benchmark (destroyor, engine log lines included; placeholders such as <pack> and <rt> in the launch command are verbatim from the issue)",
       "hardware_cost_text": "≈$1,007 (lowest average price in Oct)"
     },
@@ -14089,8 +14094,8 @@
       "abliterated"
     ],
     "source_id": "src-b849edcecf",
-    "engine_raw": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；MTP --spec 4 --spec-min-p 0.5；--kv k8v4；--expert-cache 7700；--pcie-frac 0",
-    "engine_note": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；MTP --spec 4 --spec-min-p 0.5；--kv k8v4；--expert-cache 7700；--pcie-frac 0"
+    "engine_raw": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；MTP（--mtp <rt> --spec 4 --spec-min-p 0.5）；--kv k8v4；--expert-cache 7700；--pcie-frac 0",
+    "engine_note": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；MTP（--mtp <rt> --spec 4 --spec-min-p 0.5）；--kv k8v4；--expert-cache 7700；--pcie-frac 0"
   },
   {
     "id": "comm-048",
@@ -14102,7 +14107,7 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "$6,950（128GB，2026-10-11）",
     "hardware_cost_usd": 6950,
-    "metric": "spark-arena llama-benchy（第三方，128 输出）：1 用户 42.2 tok/s、prefill 2,158；16K 33.4；100K 29.5；16K 2 用户合计 60.6｜作者自测：25 提示中位 65.1（15.35 ms/token）；质量 vs BF16 恢复 99.3–101.2%",
+    "metric": "spark-arena 排行榜 llama-benchy（128 输出）：1 用户 42.2 tok/s、prefill 2,158；100K 29.5；16K 2 用户合计 60.6｜作者自测：25 提示中位 65.1（15.35 ms/token）；质量 vs BF16 恢复 99.3–101.2%",
     "tok_s": 42.2,
     "concurrency": "1 用户（另测 2 用户合计）",
     "context": "100K（测至）",
@@ -14112,7 +14117,7 @@
     "source_level": "实测",
     "date": "2026-10-17",
     "measured_by": "spark-arena",
-    "metric_en": "spark-arena llama-benchy (third party, 128 output): 1 user 42.2 tok/s, prefill 2,158; 16K 33.4; 100K 29.5; 16K 2-user aggregate 60.6 | author's own: 25-prompt median 65.1 (15.35 ms/token); quality vs BF16 99.3–101.2% recovery",
+    "metric_en": "spark-arena leaderboard llama-benchy (128 output): 1 user 42.2 tok/s, prefill 2,158; 100K 29.5; 16K 2-user aggregate 60.6 | author's own: 25-prompt median 65.1 (15.35 ms/token); quality vs BF16 99.3–101.2% recovery",
     "en": {
       "quant": "Unsloth NVFP4 + DFlash2 (10 drafts, Chisel NVFP4 drafter)",
       "concurrency": "1 user (2-user aggregate also measured)",
