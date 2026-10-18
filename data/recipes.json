@@ -330,7 +330,7 @@
     "context": null,
     "launch_command": null,
     "source_url": "https://x.com/yume_arasaki/status/2107293459556225446",
-    "source_note": "@yume_arasaki 转述 5000e12；2026-10-18 同为 4090 + 64GB 的 u/Distinct-Pie2389 报告 Strata 0.1.45 IQ3_S 110–126 tok/s（见 comm-044），本行 60 可能对应较早版本",
+    "source_note": "@yume_arasaki 转述 5000e12；同为 4090 + 64GB 的 Strata 0.1.45 IQ3_S 新数据见 comm-044（110–126 tok/s，MTP spec 4）",
     "source_level": "转述",
     "date": null,
     "model_family": "Qwen",
@@ -341,7 +341,7 @@
     "metric_en": "60 tok/s; 2,500 PP",
     "en": {
       "hardware_cost_text": "≈$2,214 (used, sold 2026-10-06)",
-      "source_note": "@yume_arasaki relaying 5000e12; on 2026-10-18 u/Distinct-Pie2389 on the same 4090 + 64GB reported Strata 0.1.45 IQ3_S at 110–126 tok/s (see comm-044), so this 60 may reflect an older build"
+      "source_note": "@yume_arasaki relaying 5000e12; newer Strata 0.1.45 IQ3_S data on the same 4090 + 64GB in comm-044 (110–126 tok/s, MTP spec 4)"
     }
   },
   {
@@ -462,7 +462,7 @@
     "context": "256K",
     "launch_command": null,
     "source_url": "https://x.com/needmorevram/status/2106963233802498262",
-    "source_note": "@needmorevram；Strata #2453（另一用户，5060 Ti 16GB + 128GB，IQ3_S）：0.1.42 约 69.2，0.1.44.1 回退到 55–58.8，0.1.45 回到 65.8–69.3；本行版本未注明",
+    "source_note": "@needmorevram；Strata #2453（github.com/Niko1221/Strata/issues/2453，另一用户，5060 Ti 16GB + 128GB，IQ3_S）：0.1.42 约 69.2，0.1.44.1 回退到 55–58.8，0.1.45 回到 65.8–69.3；本行版本未注明",
     "source_level": "实测",
     "date": null,
     "model_family": "Qwen",
@@ -474,7 +474,7 @@
     "metric_en": "68.3 tok/s; 1,623 PP",
     "en": {
       "quant": "Strata · IQ3_S (GSQ-RCO)",
-      "source_note": "@needmorevram; Strata #2453 (another user, 5060 Ti 16GB + 128GB, IQ3_S): 0.1.42 ~69.2, 0.1.44.1 regressed to 55–58.8, 0.1.45 back to 65.8–69.3; this row's version not stated"
+      "source_note": "@needmorevram; Strata #2453 (github.com/Niko1221/Strata/issues/2453, another user, 5060 Ti 16GB + 128GB, IQ3_S): 0.1.42 ~69.2, 0.1.44.1 regressed to 55–58.8, 0.1.45 back to 65.8–69.3; this row's version not stated"
     }
   },
   {
@@ -750,7 +750,7 @@
     "hardware_cost_usd": 6950,
     "metric": "单流散文 63.6；4 流合计 114.5",
     "tok_s": 63.6,
-    "concurrency": "5 流",
+    "concurrency": "单流（配方 5 流；另测 4 流合计）",
     "context": "262K",
     "launch_command": null,
     "source_url": "https://x.com/yume_arasaki/status/2106837882870886438",
@@ -765,7 +765,7 @@
     "metric_en": "single-stream prose 63.6; 4 streams total 114.5",
     "en": {
       "quant": "Mia TensorFold recipe",
-      "concurrency": "5 streams",
+      "concurrency": "Single stream (recipe runs 5 streams; 4-stream aggregate also measured)",
       "hardware_cost_text": "$6,950 (128GB, 2026-10-11)",
       "source_note": "@yume_arasaki (Mia data + reproduction); Mia posted an NVIDIA FP4 QAD variant on 10-18 (see x-087)"
     },
@@ -2471,7 +2471,7 @@
     "context": "559K（针测 12/12 至 548K）",
     "launch_command": null,
     "source_url": "https://x.com/yume_arasaki/status/2099966865326170554",
-    "source_note": "@yume_arasaki 自测（原帖确认：35K agent 提示 48.5、代码 clamp 51.5；Mia 上游散文 31.6）；与 @Tech2Wild 4× Spark vLLM 1017 的 48.5 是不同测量",
+    "source_note": "@yume_arasaki 自测（原帖：跑 Mia AI Lab 的 EXL3 2.9bpw 配方，TP=2、DSpark k=3；35K agent 提示 48.5、代码 clamp 51.5；Mia 上游散文 31.6）；该配方即 github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks，README 写明为 vLLM 服务；与 @Tech2Wild 4× Spark vLLM 1017 的 48.5 是另一次测量",
     "source_level": "实测",
     "date": null,
     "model_family": "DeepSeek",
@@ -2487,7 +2487,7 @@
       "quant": "Mia EXL3 2.9bpw · DSpark k=3 (TP=2)",
       "context": "559K (needle test 12/12 up to 548K)",
       "hardware_cost_text": "≈$13,900 (2×$6,950, computed)",
-      "source_note": "@yume_arasaki self-tested (original post confirms: 35K agent prompt 48.5, code clamp 51.5; Mia upstream prose 31.6); unrelated to @Tech2Wild's 4× Spark vLLM 1017 figure of 48.5",
+      "source_note": "@yume_arasaki self-tested (original post: runs Mia AI Lab's EXL3 2.9bpw recipe, TP=2, DSpark k=3; 35K agent prompt 48.5, code clamp 51.5; Mia upstream prose 31.6); that recipe is github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks, whose README describes a vLLM serve; @Tech2Wild's 4× Spark vLLM 1017 figure of 48.5 is a separate measurement",
       "engine_note": "vLLM (MiaAI-Lab DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks serving kit)"
     },
     "engine_raw": "vLLM（MiaAI-Lab DeepSeek-v4.1-Flash-EXL3-2x-DGX-Sparks 服务套件）",
@@ -13630,7 +13630,7 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
     "hardware_cost_usd": 13900,
-    "metric": "单路解码（6 次构建中位，思考关）：散文 56.8 / 代码 92.2；思考开 54.2 / 71.6；同机同权重 vLLM（MiaAI kit）27.0 / 39.9；4 路代码合计 140.3；冷 prefill 32K 2,165（5 次中位，2,065–2,201）；1,035,020 token 针测通过（TTFT 13.6 分钟）",
+    "metric": "单路解码（6 次构建中位，思考关）：散文 56.8 / 代码 92.2；思考开 54.2 / 71.6；同机同权重 vLLM（MiaAI kit）27.0 / 39.9；4 路合计 散文 94.4 / 代码 140.3；冷 prefill 32K 2,165（5 次中位，2,065–2,201）；1,035,020 token 针测通过（TTFT 13.6 分钟）",
     "tok_s": 56.8,
     "concurrency": "单路（另测 1–4 路合计）",
     "context": "1,048,576",
@@ -13640,7 +13640,7 @@
     "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "Elevatormusic",
-    "metric_en": "Single-stream decode (median of 6 engine builds, thinking off): prose 56.8 / code 92.2; thinking on 54.2 / 71.6; vLLM (MiaAI kit) on the same pair and weights 27.0 / 39.9; 4-stream code aggregate 140.3; cold prefill 32K 2,165 (median of 5, 2,065–2,201); needle passed at 1,035,020 tokens (TTFT 13.6 min)",
+    "metric_en": "Single-stream decode (median of 6 engine builds, thinking off): prose 56.8 / code 92.2; thinking on 54.2 / 71.6; vLLM (MiaAI kit) on the same pair and weights 27.0 / 39.9; 4-stream aggregate prose 94.4 / code 140.3; cold prefill 32K 2,165 (median of 5, 2,065–2,201); needle passed at 1,035,020 tokens (TTFT 13.6 min)",
     "en": {
       "quant": "LibertAIDAI EXL3 2.9bpw + official 1017 Engram (TP=2, DSpark 5 drafts)",
       "hardware": "2× DGX Spark (GB10, direct CX7 link)",
@@ -13658,7 +13658,17 @@
     ],
     "source_id": "src-aadacbe251",
     "engine_raw": "TensorFold（Elevatormusic 分支 @92aa710b：TensorFold 0.6.6 + bertholomus V4.1 TP2 引擎 + PR #1–#4）",
-    "engine_note": "TensorFold（Elevatormusic 分支 @92aa710b：TensorFold 0.6.6 + bertholomus V4.1 TP2 引擎 + PR #1–#4）"
+    "engine_note": "TensorFold（Elevatormusic 分支 @92aa710b：TensorFold 0.6.6 + bertholomus V4.1 TP2 引擎 + PR #1–#4）",
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 56.8
+      },
+      {
+        "n": 4,
+        "tok_s": 94.4
+      }
+    ]
   },
   {
     "id": "comm-039",
@@ -13698,7 +13708,25 @@
     ],
     "source_id": "src-4e90f7fa11",
     "engine_raw": "TensorFold Python 0.6.0 + Jay Leaton DeepSeek 补丁 + 本仓 1017 补丁（调优版）",
-    "engine_note": "TensorFold Python 0.6.0 + Jay Leaton DeepSeek 补丁 + 本仓 1017 补丁（调优版）"
+    "engine_note": "TensorFold Python 0.6.0 + Jay Leaton DeepSeek 补丁 + 本仓 1017 补丁（调优版）",
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 59.1
+      },
+      {
+        "n": 2,
+        "tok_s": 85.0
+      },
+      {
+        "n": 4,
+        "tok_s": 110.1
+      },
+      {
+        "n": 8,
+        "tok_s": 139.1
+      }
+    ]
   },
   {
     "id": "comm-040",
@@ -13713,7 +13741,7 @@
     "metric": "8 slots、400K 池、含视觉塔：1 路 散文 55.4 / 代码 103.5 / 结构化 62.7 / 列表 70.9；合计 2 路 81.5 / 126.2，4 路 108.8 / 163.8，8 路 134.8 / 202.7（散文 / 代码）；首字 0.19–0.26 s；不含视觉塔代码 1 / 4 路 98.1 / 158.5",
     "tok_s": 55.4,
     "concurrency": "1 路（另测 2/4/8 路合计）",
-    "context": null,
+    "context": "400K（KV 池，8 slots）",
     "launch_command": "scripts/stage.sh setup && scripts/stage.sh all && scripts/stage.sh start",
     "source_url": "https://github.com/BobClawblaw/deepseek-v41-flash-1017-2x-dgx-sparks",
     "source_note": "BobClawblaw 仓库 README（recipe-harness，含图像/视频输入）",
@@ -13727,17 +13755,37 @@
       "concurrency": "1 stream (2/4/8-stream aggregates also measured)",
       "engine_note": "TensorFold main 9ccf4727 + Jay Leaton DS-V4.1 series (#727) + kit engine 9131e10a + repo patches (vision, video)",
       "source_note": "BobClawblaw repo README (recipe-harness; image and video input)",
-      "hardware_cost_text": "≈$13,900 (2×$6,950, computed)"
+      "hardware_cost_text": "≈$13,900 (2×$6,950, computed)",
+      "context": "400K (KV pool, 8 slots)"
     },
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "long-context",
       "speculative",
       "multi-GPU"
     ],
     "source_id": "src-aa56c5a652",
     "engine_raw": "TensorFold main 9ccf4727 + Jay Leaton DS-V4.1 系列（#727）+ kit 引擎 9131e10a + 本仓补丁（视觉/视频）",
-    "engine_note": "TensorFold main 9ccf4727 + Jay Leaton DS-V4.1 系列（#727）+ kit 引擎 9131e10a + 本仓补丁（视觉/视频）"
+    "engine_note": "TensorFold main 9ccf4727 + Jay Leaton DS-V4.1 系列（#727）+ kit 引擎 9131e10a + 本仓补丁（视觉/视频）",
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 55.4
+      },
+      {
+        "n": 2,
+        "tok_s": 81.5
+      },
+      {
+        "n": 4,
+        "tok_s": 108.8
+      },
+      {
+        "n": 8,
+        "tok_s": 134.8
+      }
+    ]
   },
   {
     "id": "comm-041",
@@ -13778,19 +13826,29 @@
     ],
     "source_id": "src-c8b21274ce",
     "engine_raw": "TensorFold（bertholomus deepseek-v41-zig-tp4 @5940208 + 3 补丁，Zig 引擎）",
-    "engine_note": "TensorFold（bertholomus deepseek-v41-zig-tp4 @5940208 + 3 补丁，Zig 引擎）"
+    "engine_note": "TensorFold（bertholomus deepseek-v41-zig-tp4 @5940208 + 3 补丁，Zig 引擎）",
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 89.8
+      },
+      {
+        "n": 6,
+        "tok_s": 202.9
+      }
+    ]
   },
   {
     "id": "comm-042",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
-    "quant": "ds41 2-bit（专家 GPTQ 1.75/2.25/3.44-bit 分层，均 2.03 bpw；dense Q8_0）",
+    "quant": "ds41 2-bit（专家 GPTQ 1.75 / 2.25 / 3.44 bpw 分层，均 2.03 bpw；dense Q8_0）",
     "engine": "ds41",
     "hardware": "2× RTX 3090（PCIe 4.0 x16 + 3.0 x4）+ 128GB DDR4-3200 + i7-12700K + NVMe",
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "≈$2,412–2,998（2×3090，仅显卡）",
     "hardware_cost_usd": 2412,
-    "metric": "通用散文解码 22–24 tok/s；3,000-token agent 提示（引擎基准）31.5；prefill 3,000 token 340；vs FP8 KL 0.462 / top-1 71.5%",
+    "metric": "通用散文解码 22–24 tok/s；3,000-token agent 提示 31.5（引擎基准，热专家按 agentic 负载排序，偏乐观）；prefill 3,000 token 340；vs FP8 KL 0.462 / top-1 71.5%",
     "tok_s": 22.0,
     "concurrency": "单路",
     "context": "131,072",
@@ -13800,9 +13858,9 @@
     "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "lxe",
-    "metric_en": "General prose decode 22–24 tok/s; 3,000-token agent prompt (engine benchmark) 31.5; prefill 3,000 tokens 340; vs FP8 KL 0.462 / top-1 71.5%",
+    "metric_en": "General prose decode 22–24 tok/s; 3,000-token agent prompt 31.5 (engine benchmark, hot experts ranked on agentic text, optimistic); prefill 3,000 tokens 340; vs FP8 KL 0.462 / top-1 71.5%",
     "en": {
-      "quant": "ds41 2-bit (per-expert GPTQ 1.75/2.25/3.44-bit tiers, 2.03 bpw average; dense Q8_0)",
+      "quant": "ds41 2-bit (per-expert GPTQ tiers at 1.75 / 2.25 / 3.44 bpw, 2.03 bpw average; dense Q8_0)",
       "hardware": "2× RTX 3090 (PCIe 4.0 x16 + 3.0 x4) + 128GB DDR4-3200 + i7-12700K + NVMe",
       "concurrency": "Single stream",
       "engine_note": "ds41 (Rust + CUDA engine for this one model; hot experts in VRAM, rest in a 104 GB RAM arena on CPU)",
@@ -13812,7 +13870,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
-      "4bit",
+      "3bit",
       "8bit",
       "MoE",
       "long-context",
@@ -13827,11 +13885,11 @@
     "id": "comm-043",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
-    "quant": "PixelML EXL3 3bpw 专家 + int4 Engram（TP2，DSpark，MXFP4 drafter）",
+    "quant": "PixelML EXL3 3.0bpw 专家 + int4 Engram（TP2，DSpark，MXFP4 drafter）",
     "engine": "vLLM",
     "hardware": "2× RTX PRO 6000 Blackwell Max-Q 96GB（PCIe，无 NVLink）+ ~245GiB 内存",
     "hardware_family": "其他",
-    "hardware_cost_text": "≈$32,000–33,000（2×Max-Q，$15,999 最低追踪价 / Newegg Max-Q $16,499.99，计算值，仅显卡）⚠️超$30k",
+    "hardware_cost_text": "≈$33,000（2×Max-Q，Newegg $16,499.99，计算值，仅显卡）⚠️超$30k",
     "hardware_cost_usd": null,
     "metric": "单路解码 89–112 tok/s（2K–890K 提示，DSpark）；合计 2 路 117–141、4 路 132–162；prefill 约 5,000；针测 24K–1.0M 15/15",
     "tok_s": 89.0,
@@ -13845,16 +13903,17 @@
     "measured_by": "cliecy",
     "metric_en": "Single-stream decode 89–112 tok/s (2K–890K prompts, DSpark); aggregate 117–141 at 2 streams, 132–162 at 4; prefill ~5,000; needle 15/15 from 24K to 1.0M",
     "en": {
-      "quant": "PixelML EXL3 3bpw experts + int4 Engram (TP2, DSpark, MXFP4 drafter)",
+      "quant": "PixelML EXL3 3.0bpw experts + int4 Engram (TP2, DSpark, MXFP4 drafter)",
       "hardware": "2× RTX PRO 6000 Blackwell Max-Q 96GB (PCIe, no NVLink) + ~245GiB RAM",
       "concurrency": "Single stream (2/4-stream aggregates also measured)",
       "context": "~1.07M (fp8 KV pool)",
       "engine_note": "vLLM nightly-5555a2d8 + vllm-exl3 + ExLlamaV3 + diffbot recipe (rootless bubblewrap)",
       "source_note": "cliecy repo README + results/ (combines the diffbot recipe and PixelML 1017 quant; author states no new engine; NCCL_P2P_DISABLE=1)",
-      "hardware_cost_text": "≈$32,000–33,000 (2× Max-Q, $15,999 lowest tracked / Newegg Max-Q $16,499.99, computed, card only) ⚠️ over $30k"
+      "hardware_cost_text": "≈$33,000 (2× Max-Q, Newegg $16,499.99, computed, card only) ⚠️ over $30k"
     },
     "model_family": "DeepSeek",
     "tags": [
+      "3bit",
       "4bit",
       "MoE",
       "long-context",
@@ -13975,7 +14034,7 @@
       "hardware": "RTX 5090 32GB (600W) + 128GB DDR5-6000 + Core Ultra 7 270K Plus (Windows 11)",
       "concurrency": "Single stream (max-concurrency 1)",
       "context": "131,072 cap (tested up to 128K)",
-      "engine_note": "Infernix windows-2026.10.11 (25790c8); --spec mtp --draft-tokens 4; --lm-head-draft; prefill chunk 4096; KV int8",
+      "engine_note": "Infernix windows-2026.10.11 (25790c8); MTP (--spec mtp --draft-tokens 4); --lm-head-draft; prefill chunk 4096; KV int8",
       "source_note": "u/OddElection1729 row K (paired with Strata NVFP4 row J on the same machine)",
       "hardware_cost_text": "$5,400–6,995 (new card street price, 2026-10-11; MSRP $1,999)"
     },
@@ -13985,17 +14044,18 @@
       "8bit",
       "MoE",
       "long-context",
-      "speculative"
+      "speculative",
+      "MTP"
     ],
     "source_id": "src-eb824901ec",
-    "engine_raw": "Infernix windows-2026.10.11（25790c8）；--spec mtp --draft-tokens 4；--lm-head-draft；prefill chunk 4096；KV int8",
-    "engine_note": "Infernix windows-2026.10.11（25790c8）；--spec mtp --draft-tokens 4；--lm-head-draft；prefill chunk 4096；KV int8"
+    "engine_raw": "Infernix windows-2026.10.11（25790c8）；MTP（--spec mtp --draft-tokens 4）；--lm-head-draft；prefill chunk 4096；KV int8",
+    "engine_note": "Infernix windows-2026.10.11（25790c8）；MTP（--spec mtp --draft-tokens 4）；--lm-head-draft；prefill chunk 4096；KV int8"
   },
   {
     "id": "comm-047",
     "category": "text",
-    "model": "Qwen3.8-Flash-Next",
-    "quant": "GSQ-RCO IQ3_S 原生包（abliterated 版本）",
+    "model": "Qwen3.8-Flash-Next Abliterated",
+    "quant": "GSQ-RCO IQ3_S 原生包",
     "engine": "Strata",
     "hardware": "RX 7900 XTX 24GB + 96GB DDR5-6400 + Ryzen 9 9950X（PCIe 4.0 x16，Linux）",
     "hardware_family": "AMD",
@@ -14007,27 +14067,30 @@
     "context": "262,144",
     "launch_command": "strata --serve --pack <pack> --native <IQ3_S-00001-of-00002.gguf> --ple-gguf <IQ3_S-00002-of-00002.gguf> --expert-profile data/expert-profile.bin --expert-cache 7700 --prefill auto:32768 --spec 4 --spec-min-p 0.5 --mtp <rt> --max-context 262144 --kv k8v4 --kv-resident 32768 --vram-reserve-mib 700 --adapt-every 0 --pcie-frac 0 --pool-workers 15 --vision --prompt-cache 16 --prompt-cache-every 16384 --conversation-cache-slots 8 --conversation-cache-mib 16384 --conversation-cache-min-tokens 32768",
     "source_url": "https://github.com/Niko1221/Strata/issues/2938",
-    "source_note": "Strata issue #2938 社区基准（destroyor，附引擎日志）",
+    "source_note": "Strata issue #2938 社区基准（destroyor，附引擎日志；启动命令中 <pack>、<rt> 等占位符为 issue 原文）",
     "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "destroyor",
     "metric_en": "Short prompt (1,457 tokens) decode 82.5 tok/s (median of 3), prefill 521; 98K: prefill 1,809.5 / decode 77.4; 260K (single run): prefill 1,479.6 / decode 79.9; decode drops to 48.6 with --pcie-frac 0.5",
     "en": {
-      "quant": "GSQ-RCO IQ3_S native pack (abliterated variant)",
+      "quant": "GSQ-RCO IQ3_S native pack",
       "hardware": "RX 7900 XTX 24GB + 96GB DDR5-6400 + Ryzen 9 9950X (PCIe 4.0 x16, Linux)",
       "concurrency": "Single stream",
-      "engine_note": "Strata 0.1.45 HIP source build (commit 477ac13c, ROCm 7.2.4, gfx1100); --spec 4 --spec-min-p 0.5; --kv k8v4; --expert-cache 7700; --pcie-frac 0",
-      "source_note": "Strata issue #2938 community benchmark (destroyor, engine log lines included)",
+      "engine_note": "Strata 0.1.45 HIP source build (commit 477ac13c, ROCm 7.2.4, gfx1100); MTP --spec 4 --spec-min-p 0.5; --kv k8v4; --expert-cache 7700; --pcie-frac 0",
+      "source_note": "Strata issue #2938 community benchmark (destroyor, engine log lines included; placeholders such as <pack> and <rt> in the launch command are verbatim from the issue)",
       "hardware_cost_text": "≈$1,007 (lowest average price in Oct)"
     },
     "model_family": "Qwen",
     "tags": [
       "3bit",
-      "long-context"
+      "long-context",
+      "speculative",
+      "MTP",
+      "abliterated"
     ],
     "source_id": "src-b849edcecf",
-    "engine_raw": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；--spec 4 --spec-min-p 0.5；--kv k8v4；--expert-cache 7700；--pcie-frac 0",
-    "engine_note": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；--spec 4 --spec-min-p 0.5；--kv k8v4；--expert-cache 7700；--pcie-frac 0"
+    "engine_raw": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；MTP --spec 4 --spec-min-p 0.5；--kv k8v4；--expert-cache 7700；--pcie-frac 0",
+    "engine_note": "Strata 0.1.45 HIP 源码构建（commit 477ac13c，ROCm 7.2.4，gfx1100）；MTP --spec 4 --spec-min-p 0.5；--kv k8v4；--expert-cache 7700；--pcie-frac 0"
   },
   {
     "id": "comm-048",
@@ -14039,7 +14102,7 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "$6,950（128GB，2026-10-11）",
     "hardware_cost_usd": 6950,
-    "metric": "spark-arena llama-benchy（128 输出）：1 用户 42.2 tok/s、prefill 2,158；16K 33.4；100K 29.5；16K 2 用户合计 60.6；作者自测 25 提示中位 65.1（15.35 ms/token）；质量 vs BF16 恢复 99.3–101.2%",
+    "metric": "spark-arena llama-benchy（第三方，128 输出）：1 用户 42.2 tok/s、prefill 2,158；16K 33.4；100K 29.5；16K 2 用户合计 60.6｜作者自测：25 提示中位 65.1（15.35 ms/token）；质量 vs BF16 恢复 99.3–101.2%",
     "tok_s": 42.2,
     "concurrency": "1 用户（另测 2 用户合计）",
     "context": "100K（测至）",
@@ -14049,7 +14112,7 @@
     "source_level": "实测",
     "date": "2026-10-17",
     "measured_by": "spark-arena",
-    "metric_en": "spark-arena llama-benchy (128 output): 1 user 42.2 tok/s, prefill 2,158; 16K 33.4; 100K 29.5; 16K 2-user aggregate 60.6; author's own 25-prompt median 65.1 (15.35 ms/token); quality vs BF16 99.3–101.2% recovery",
+    "metric_en": "spark-arena llama-benchy (third party, 128 output): 1 user 42.2 tok/s, prefill 2,158; 16K 33.4; 100K 29.5; 16K 2-user aggregate 60.6 | author's own: 25-prompt median 65.1 (15.35 ms/token); quality vs BF16 99.3–101.2% recovery",
     "en": {
       "quant": "Unsloth NVFP4 + DFlash2 (10 drafts, Chisel NVFP4 drafter)",
       "concurrency": "1 user (2-user aggregate also measured)",
@@ -14158,15 +14221,9 @@
     "launch_command": null,
     "source_url": "https://x.com/MiaAI_lab/status/2111540267840901174",
     "source_note": "@MiaAI_lab 配方作者发布（另有 int4 版更快，帖内未给数）",
-    "source_level": "官方",
+    "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "MiaAI_lab",
-    "streams": [
-      {
-        "n": 5,
-        "tok_s": 132
-      }
-    ],
     "metric_en": "Single-stream prose 46–55 tok/s; 5-stream prose aggregate 132; prefill 2,000–2,300; 1.1M FP8 KV",
     "en": {
       "concurrency": "Single stream (5-stream aggregate also measured)",
@@ -14178,6 +14235,16 @@
       "4bit",
       "long-context"
     ],
-    "source_id": "src-4a6231530d"
+    "source_id": "src-4a6231530d",
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 46
+      },
+      {
+        "n": 5,
+        "tok_s": 132
+      }
+    ]
   }
 ]

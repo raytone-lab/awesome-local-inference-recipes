@@ -40,6 +40,8 @@ class EngineRuleOrder(unittest.TestCase):
 
     def test_ds41_rule_leaves_ds41rt_alone(self):
         self.assertEqual(N.canon('DS41RT'), 'DS41RT')
+        row = {'engine': '其他/未注明', 'quant': 'DS41RT 2-bit', 'source_url': 'https://example.com/ds41rt'}
+        self.assertEqual(N.normalize([row])[0]['engine'], 'DS41RT')
 
     def test_canonical_fork_names_are_kept_verbatim(self):
         self.assertEqual(N.canon('llama.cpp (Radiance fork)'), 'llama.cpp (Radiance fork)')
