@@ -17,6 +17,7 @@ RAW_ENGINE_SAMPLES = {
     'mlx-serve': 'mlx-serve 26.8.11', 'MLX Swift': 'MLX Swift 0.21', 'MLX': 'mlx-lm 0.30.7', 'edge0': 'edge0 runtime',
     'SGLang': 'SGLang 0.5', 'vLLM': 'vLLM 0.11', 'Splash': 'Splash 1.2', 'Project Maya': 'Project Maya alpha',
     'Halogen': 'halogen flash server', 'Osaurus': 'Osaurus 1.0', 'ExLlama': 'ExLlamaV3',
+    'Infernix': 'Infernix windows-2026.10.11', 'ds41': 'ds41 Rust + CUDA',
 }
 
 
@@ -36,6 +37,9 @@ class EngineRuleOrder(unittest.TestCase):
 
     def test_strata_mlx_is_not_swallowed_by_strata(self):
         self.assertEqual(N.canon('STRATA-MLX'), 'strata-mlx')
+
+    def test_ds41_rule_leaves_ds41rt_alone(self):
+        self.assertEqual(N.canon('DS41RT'), 'DS41RT')
 
     def test_canonical_fork_names_are_kept_verbatim(self):
         self.assertEqual(N.canon('llama.cpp (Radiance fork)'), 'llama.cpp (Radiance fork)')
