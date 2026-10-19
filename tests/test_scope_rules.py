@@ -55,19 +55,19 @@ class Violations(unittest.TestCase):
         self.assertEqual({r['id']: v for r in D if (v := S.violations(r))}, {})
 
     def test_sxm2_to_pcie_adapter_builds_are_allowed(self):
-        for hw in ('2× Tesla V100 SXM2 + SXM2-to-PCIe adapter', '2× V100 SXM2 转 PCIe 转接卡 + 64GB RAM', 'V100 SXM2 adapter in a desktop', '2× V100 SXM2-PCIe adapter'):
+        for hw in ('2× Tesla V100 SXM2 + SXM2-to-PCIe adapter', '2× V100 SXM2 转 PCIe 转接卡 + 64GB RAM', 'V100 SXM2 adapter in a desktop', '2× V100 SXM2-PCIe adapter', '4× V100 SXM2-to-PCIe adapter + EPYC 7543 server motherboard'):
             self.assertEqual(S.violations(row(hw)), [], hw)
         for hw in ('4× V100 SXM2 server board', '4× V100 SXM2 server board + SXM2-to-PCIe adapter', '2× A100 SXM4 转 PCIe 转接卡', '4× H100 SXM5 to PCIe', '4× V100 SXM2 server motherboard + SXM2 adapter', '4× V100 SXM2 baseboard + SXM2 adapter', '4× V100 SXM2 サーバー用マザーボード + SXM2 変換'):
             self.assertTrue(S.violations(row(hw)), hw)
 
     def test_server_motherboard_in_a_tower_is_allowed(self):
-        for hw in ('4× RTX 3090 + EPYC 7543 server motherboard', '4× RTX 3090 + Xeon W serverboard', '2× RTX 3090 + ASRock Rack ROMED8-2T'):
+        for hw in ('4× RTX 3090 + EPYC 7543 server motherboard', '4× RTX 3090 + Xeon W serverboard', '2× RTX 3090 + ASRock Rack ROMED8-2T', '2× RTX 3090 + ASRock-Rack ROMED8-2T'):
             self.assertEqual(S.violations(row(hw)), [], hw)
 
     def test_factory_aio_consumer_cards_are_allowed(self):
-        for hw in ('RTX 5090 Suprim Liquid（AIO liquid cooled）', 'RTX 4090（出厂一体式水冷）', 'RTX 5090 factory AIO', 'RTX 4090（簡易水冷）', 'RTX 4090（一体水冷）', 'RTX 5090（一体式液冷）', 'RTX 4090 liquid-cooled (AIO)', 'RTX 4090（AIO 水冷）', 'RTX 4090 AIO水冷', 'RTX 5090 水冷（AIO）', 'RTX 5090 AIO 360mm liquid cooled', 'RTX 4090 all in one liquid cooler', 'RTX 4090 + AIO CPU cooler', 'RTX 4090 + 360mm AIO liquid cooler', 'RTX 4090 + Corsair H150i (AIO liquid cooler)', '4090 AIO liquid cooled', 'RTX 4090 一體式水冷'):
+        for hw in ('RTX 5090 Suprim Liquid（AIO liquid cooled）', 'RTX 4090（出厂一体式水冷）', 'RTX 5090 factory AIO', 'RTX 4090（簡易水冷）', 'RTX 4090（一体水冷）', 'RTX 5090（一体式液冷）', 'RTX 4090 liquid-cooled (AIO)', 'RTX 4090（AIO 水冷）', 'RTX 4090 AIO水冷', 'RTX 5090 水冷（AIO）', 'RTX 5090 AIO 360mm liquid cooled', 'RTX 4090 all in one liquid cooler', 'RTX 4090 + AIO CPU cooler', 'RTX 4090 + 360mm AIO liquid cooler', 'RTX 4090 + Corsair H150i (AIO liquid cooler)', '4090 AIO liquid cooled', 'RTX 4090 一體式水冷', 'RTX 4090 + ASUS H770-PLUS (360mm AIO liquid cooler)', 'Arc A770 AIO liquid cooled', '4× A100 + AIO water cooling'):
             self.assertEqual(S.violations(row(hw)), [], hw)
-        for hw in ('2× RTX 3090 custom loop', 'RTX 4090（分体式水冷）', '4× A100 liquid cooled', '4× A100 liquid cooled + AIO CPU cooler', 'H100 NVL liquid-cooled all-in-one server', '2× RTX 3090 water block', '2× RTX 3090 hardline loop', '4× A100 AIO liquid-cooled', 'H100 all-in-one liquid cooled server', '2× Radeon Instinct MI50 AIO liquid cooled', 'RTX A6000 AIO liquid cooled', 'RTX PRO 6000 Server Edition AIO liquid cooled', '4× A100 watercooled', '2× RTX 3090 custom watercooling loop', '2× RTX 3090 非一体式水冷'):
+        for hw in ('2× RTX 3090 custom loop', 'RTX 4090（分体式水冷）', '4× A100 liquid cooled', '4× A100 liquid cooled + AIO CPU cooler', 'H100 NVL liquid-cooled all-in-one server', '2× RTX 3090 water block', '2× RTX 3090 hardline loop', '4× A100 AIO liquid-cooled', 'H100 all-in-one liquid cooled server', '2× Radeon Instinct MI50 AIO liquid cooled', 'RTX A6000 AIO liquid cooled', 'RTX PRO 6000 Server Edition AIO liquid cooled', 'RTX 6000 Ada AIO liquid cooled', 'Radeon Pro W7900 AIO liquid cooled', '4× A100 + all-in-one liquid cooled server', '4× A100 watercooled', '2× RTX 3090 custom watercooling loop', '2× RTX 3090 非一体式水冷'):
             self.assertTrue(S.violations(row(hw)), hw)
 
 
