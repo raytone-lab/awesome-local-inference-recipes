@@ -2389,37 +2389,6 @@
     }
   },
   {
-    "id": "text-076",
-    "category": "text",
-    "model": "GLM-5.3-Flash",
-    "quant": "EXL3（@BrandonMusicKy 权重）+ DS 引擎 coordinator",
-    "engine": "Unspecified",
-    "hardware": "4× DGX Spark + RTX 5090",
-    "hardware_family": "DGX Spark",
-    "hardware_cost_text": "≈$33,200+（4×Spark+5090，计算值）⚠️超$30k",
-    "hardware_cost_usd": null,
-    "metric": "124 tok/s 解码；5.3K PP",
-    "tok_s": 124.0,
-    "concurrency": null,
-    "context": null,
-    "launch_command": null,
-    "source_url": "https://x.com/dangerm00se/status/2104876537367728325",
-    "source_note": "@dangerm00se",
-    "source_level": "实测",
-    "date": null,
-    "engine_raw": "其他/未注明",
-    "model_family": "GLM",
-    "tags": [
-      "multi-GPU"
-    ],
-    "source_id": "src-930b946323",
-    "metric_en": "124 tok/s decode; 5.3K PP",
-    "en": {
-      "quant": "EXL3 (@BrandonMusicKy weights) + DS engine coordinator",
-      "hardware_cost_text": "≈$33,200+ (4×Spark+5090, computed) ⚠️ over $30k"
-    }
-  },
-  {
     "id": "text-077",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash（510GB 权重）",
@@ -2595,42 +2564,6 @@
       "concurrency": "32 requests",
       "hardware_cost_text": "≈$27,800 (4×$6,950, computed)",
       "source_note": "@hardfanaticos (media relay); see also comm-035: Aroochacha with knapcio SGLang TP4+DSpark on a 100GbE switch at 16 slots did not reproduce this row's relayed 494 peak (theirs ~293 code / ~228 prose)"
-    }
-  },
-  {
-    "id": "text-082",
-    "category": "text",
-    "model": "DeepSeek-V4.1-Flash（含 Engram 769B）",
-    "quant": "DS41RT AFD 引擎，coordinator 在 5090",
-    "engine": "DS41RT",
-    "hardware": "4× DGX Spark + RTX 5090",
-    "hardware_family": "DGX Spark",
-    "hardware_cost_text": "≈$33,200+（4×Spark+5090，计算值）⚠️超$30k",
-    "hardware_cost_usd": null,
-    "metric": "73–85 tok/s 解码；2,000 PP",
-    "tok_s": 73.0,
-    "concurrency": "8 个 1M 并发",
-    "context": "1M（KV 池 7.79M）",
-    "launch_command": null,
-    "source_url": "https://x.com/dangerm00se/status/2099311734226075967",
-    "source_note": "@dangerm00se",
-    "source_level": "实测",
-    "date": null,
-    "engine_raw": "其他/未注明",
-    "model_family": "DeepSeek",
-    "tags": [
-      "dense",
-      "long-context",
-      "multi-GPU"
-    ],
-    "source_id": "src-ab69395b83",
-    "metric_en": "73–85 tok/s decode; 2,000 PP",
-    "en": {
-      "quant": "DS41RT AFD engine, coordinator on 5090",
-      "model": "DeepSeek-V4.1-Flash (with Engram 769B)",
-      "context": "1M (KV pool 7.79M)",
-      "concurrency": "8 concurrent 1M",
-      "hardware_cost_text": "≈$33,200+ (4×Spark+5090, computed) ⚠️ over $30k"
     }
   },
   {
@@ -11189,58 +11122,6 @@
     }
   },
   {
-    "id": "comm-006",
-    "category": "text",
-    "model": "Qwen3.8-Flash-Next",
-    "quant": "GPTQ-INT4 · int8 KV",
-    "engine": "vLLM",
-    "hardware": "6× RTX 3090 + 7950X + 187GB RAM（4 卡走 Thunderbolt）",
-    "hardware_family": "NVIDIA 消费级",
-    "hardware_cost_text": "≈$7,236–8,994（6×$1,206–1,499，计算值）",
-    "hardware_cost_usd": 7236,
-    "metric": "250K 上下文：单会话解码 57.6 tok/s，prefill 6,574（TTFT 37.8 s）；5 会话 37.9/190；7 会话 29.4/206（同机 llama.cpp-multigpu：33.7 / 2,111）",
-    "tok_s": 57.6,
-    "concurrency": null,
-    "context": "262K",
-    "launch_command": null,
-    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x3wjzf/qwen38flashnext_on_six_3090s_with_vllm_7_users_at/",
-    "source_note": "r/LocalLLaMA u/flynth92（自带 vLLM 分支，PLE 表放 SSD）",
-    "source_level": "实测",
-    "date": "2026-10-12",
-    "model_family": "Qwen",
-    "tags": [
-      "4bit",
-      "8bit",
-      "long-context",
-      "multi-GPU"
-    ],
-    "measured_by": "flynth92",
-    "engine_raw": "vLLM 分支（流水线并行）",
-    "engine_note": "vLLM 分支（流水线并行）",
-    "streams": [
-      {
-        "n": 1,
-        "tok_s": 57.6
-      },
-      {
-        "n": 5,
-        "tok_s": 190
-      },
-      {
-        "n": 7,
-        "tok_s": 206
-      }
-    ],
-    "source_id": "src-9432734c78",
-    "metric_en": "250K context: single-session decode 57.6 tok/s, prefill 6,574 (TTFT 37.8 s); 5 sessions 37.9/190; 7 sessions 29.4/206 (same machine llama.cpp-multigpu: 33.7 / 2,111)",
-    "en": {
-      "hardware": "6× RTX 3090 + 7950X + 187GB RAM (4 cards over Thunderbolt)",
-      "engine_note": "vLLM fork (pipeline parallel)",
-      "hardware_cost_text": "≈$7,236–8,994 (6×$1,206–1,499, computed)",
-      "source_note": "r/LocalLLaMA u/flynth92 (own vLLM fork, PLE table on SSD)"
-    }
-  },
-  {
     "id": "comm-007",
     "category": "text",
     "model": "Qwen3.8-27B",
@@ -12492,40 +12373,6 @@
     "source_id": "src-98e6a11f87"
   },
   {
-    "id": "text-125",
-    "category": "text",
-    "model": "Muse Spark Open 816B-A42B",
-    "quant": "NVFP4",
-    "engine": "MLX",
-    "hardware": "4× Mac Studio M5 Ultra 512GB（tensor）",
-    "hardware_family": "Mac",
-    "hardware_cost_text": "4× Mac Studio M5 Ultra 512GB；512GB 版价格 Apple 尚未公布（截至 2026-10-16，官方称 10 月下旬推出），多机无法合计；按 256GB 版最低价 $9,499 计，4 台已 ≥$37,996（计算值下限）⚠️超$30k",
-    "hardware_cost_usd": null,
-    "metric": "解码 36.73 tok/s（Table 3，~8K ctx，128 gen）",
-    "tok_s": 36.73,
-    "concurrency": null,
-    "context": "~8K",
-    "launch_command": null,
-    "source_url": "https://machinelearning.apple.com/research/mlx-distributed-inference",
-    "source_note": "Apple MLX distributed inference 文章 Table 3（~8K ctx，128 gen）",
-    "source_level": "官方",
-    "date": "2026-10-15",
-    "metric_en": "decode 36.73 tok/s (Table 3, ~8K ctx, 128 gen)",
-    "en": {
-      "hardware": "4× Mac Studio M5 Ultra 512GB (tensor)",
-      "hardware_cost_text": "4× Mac Studio M5 Ultra 512GB; 512GB price not yet published by Apple (as of 2026-10-16; Apple says late October), so no multi-machine total; at the lowest 256GB price of $9,499, 4 machines already cost ≥$37,996 (computed lower bound) ⚠️ over $30k",
-      "source_note": "Apple MLX distributed inference article Table 3 (~8K ctx, 128 gen)",
-      "context": "~8K"
-    },
-    "model_family": "Other",
-    "tags": [
-      "4bit",
-      "MoE",
-      "multi-GPU"
-    ],
-    "source_id": "src-98e6a11f87"
-  },
-  {
     "id": "text-126",
     "category": "text",
     "model": "Mistral Medium 3.5 128B",
@@ -12624,40 +12471,6 @@
     "source_id": "src-98e6a11f87"
   },
   {
-    "id": "text-129",
-    "category": "text",
-    "model": "Mistral Medium 3.5 128B",
-    "quant": "FP8",
-    "engine": "MLX",
-    "hardware": "4× Mac Studio M5 Ultra 512GB（tensor）",
-    "hardware_family": "Mac",
-    "hardware_cost_text": "4× Mac Studio M5 Ultra 512GB；512GB 版价格 Apple 尚未公布（截至 2026-10-16，官方称 10 月下旬推出），多机无法合计；按 256GB 版最低价 $9,499 计，4 台已 ≥$37,996（计算值下限）⚠️超$30k",
-    "hardware_cost_usd": null,
-    "metric": "解码 23.37 tok/s（Table 3，~8K ctx，128 gen）",
-    "tok_s": 23.37,
-    "concurrency": null,
-    "context": "~8K",
-    "launch_command": null,
-    "source_url": "https://machinelearning.apple.com/research/mlx-distributed-inference",
-    "source_note": "Apple MLX distributed inference 文章 Table 3（~8K ctx，128 gen）",
-    "source_level": "官方",
-    "date": "2026-10-15",
-    "metric_en": "decode 23.37 tok/s (Table 3, ~8K ctx, 128 gen)",
-    "en": {
-      "hardware_cost_text": "4× Mac Studio M5 Ultra 512GB; 512GB price not yet published by Apple (as of 2026-10-16; Apple says late October), so no multi-machine total; at the lowest 256GB price of $9,499, 4 machines already cost ≥$37,996 (computed lower bound) ⚠️ over $30k",
-      "source_note": "Apple MLX distributed inference article Table 3 (~8K ctx, 128 gen)",
-      "context": "~8K",
-      "hardware": "4× Mac Studio M5 Ultra 512GB (tensor)"
-    },
-    "model_family": "Mistral",
-    "tags": [
-      "8bit",
-      "dense",
-      "multi-GPU"
-    ],
-    "source_id": "src-98e6a11f87"
-  },
-  {
     "id": "text-130",
     "category": "text",
     "model": "Qwen3.8-27B",
@@ -12746,40 +12559,6 @@
       "source_note": "Apple MLX distributed inference article Table 3 (~8K ctx, 128 gen)",
       "context": "~8K",
       "hardware": "2× Mac Studio M5 Ultra 512GB (tensor)"
-    },
-    "model_family": "Qwen",
-    "tags": [
-      "bf16",
-      "dense",
-      "multi-GPU"
-    ],
-    "source_id": "src-98e6a11f87"
-  },
-  {
-    "id": "text-133",
-    "category": "text",
-    "model": "Qwen3.8-27B",
-    "quant": "BF16",
-    "engine": "MLX",
-    "hardware": "4× Mac Studio M5 Ultra 512GB（tensor）",
-    "hardware_family": "Mac",
-    "hardware_cost_text": "4× Mac Studio M5 Ultra 512GB；512GB 版价格 Apple 尚未公布（截至 2026-10-16，官方称 10 月下旬推出），多机无法合计；按 256GB 版最低价 $9,499 计，4 台已 ≥$37,996（计算值下限）⚠️超$30k",
-    "hardware_cost_usd": null,
-    "metric": "解码 50.89 tok/s（Table 3，~8K ctx，128 gen）",
-    "tok_s": 50.89,
-    "concurrency": null,
-    "context": "~8K",
-    "launch_command": null,
-    "source_url": "https://machinelearning.apple.com/research/mlx-distributed-inference",
-    "source_note": "Apple MLX distributed inference 文章 Table 3（~8K ctx，128 gen）",
-    "source_level": "官方",
-    "date": "2026-10-15",
-    "metric_en": "decode 50.89 tok/s (Table 3, ~8K ctx, 128 gen)",
-    "en": {
-      "hardware_cost_text": "4× Mac Studio M5 Ultra 512GB; 512GB price not yet published by Apple (as of 2026-10-16; Apple says late October), so no multi-machine total; at the lowest 256GB price of $9,499, 4 machines already cost ≥$37,996 (computed lower bound) ⚠️ over $30k",
-      "source_note": "Apple MLX distributed inference article Table 3 (~8K ctx, 128 gen)",
-      "context": "~8K",
-      "hardware": "4× Mac Studio M5 Ultra 512GB (tensor)"
     },
     "model_family": "Qwen",
     "tags": [
@@ -13441,40 +13220,6 @@
     "source_id": "src-0342f39bef"
   },
   {
-    "id": "text-146",
-    "category": "text",
-    "model": "Kolibri-1 78B-A3.46B",
-    "quant": "Q4_K_M（45 GiB）",
-    "engine": "llama.cpp",
-    "hardware": "4× A800",
-    "hardware_family": "其他",
-    "hardware_cost_text": null,
-    "hardware_cost_usd": null,
-    "metric": "tg512 生成 106.01 tok/s；pp2048 2558.18 tok/s（上游作者转换测试）",
-    "tok_s": 106.01,
-    "concurrency": null,
-    "context": "报道称验证至 1,048,576；服务建议 ≤262,144",
-    "launch_command": null,
-    "source_url": "https://7minai.com/news/kolibri-1-llama-cpp-b11709-gguf/",
-    "source_note": "数字来自 llama.cpp PR #30673 / b11709 上游作者转换测试，经 7minAI 转述",
-    "source_level": "转述",
-    "date": "2026-10-17",
-    "metric_en": "tg512 generation 106.01 tok/s; pp2048 2558.18 tok/s (upstream author conversion test)",
-    "en": {
-      "quant": "Q4_K_M (45 GiB)",
-      "context": "reported verified to 1,048,576; serving recommended ≤262,144",
-      "source_note": "numbers from llama.cpp PR #30673 / b11709 upstream author conversion test, relayed by 7minAI"
-    },
-    "model_family": "Other",
-    "tags": [
-      "4bit",
-      "MoE",
-      "long-context",
-      "multi-GPU"
-    ],
-    "source_id": "src-9b9b94725f"
-  },
-  {
     "id": "text-147",
     "category": "text",
     "model": "Qwen3.8-27B ASCII-Condensed",
@@ -13885,49 +13630,6 @@
     "source_id": "src-4c95b14431",
     "engine_raw": "ds41（专用 Rust + CUDA 引擎；热专家在显存，其余在 104GB 内存 arena 由 CPU 计算）",
     "engine_note": "ds41（专用 Rust + CUDA 引擎；热专家在显存，其余在 104GB 内存 arena 由 CPU 计算）"
-  },
-  {
-    "id": "comm-043",
-    "category": "text",
-    "model": "DeepSeek-V4.1-Flash-1017",
-    "quant": "PixelML EXL3 3bpw 专家 + int4 Engram（TP2，DSpark，MXFP4 drafter）",
-    "engine": "vLLM",
-    "hardware": "2× RTX PRO 6000 Blackwell Max-Q 96GB（PCIe，无 NVLink）+ ~245GiB 内存",
-    "hardware_family": "其他",
-    "hardware_cost_text": "≈$33,000（2×Max-Q，Newegg $16,499.99，计算值，仅显卡）⚠️超$30k",
-    "hardware_cost_usd": null,
-    "metric": "单路解码 89–112 tok/s（2K–890K 提示，DSpark）；合计 2 路 117–141、4 路 132–162；prefill 约 5,000；针测 24K–1.0M 15/15",
-    "tok_s": 89.0,
-    "concurrency": "单路（另测 2/4 路合计）",
-    "context": "约 1.07M（fp8 KV 池）",
-    "launch_command": "hf download cliecy/DeepSeek-V4.1-Flash-1017-EXL3-3bpw-2xRTXPRO6000 --local-dir dsv41-1017 && bash dsv41-1017/run.sh",
-    "source_url": "https://github.com/cliecy/DeepSeek-V4.1-Flash-1017-2xRTXPRO6000",
-    "source_note": "cliecy 仓库 README + results/（组合 diffbot 配方与 PixelML 1017 量化，作者说明无新引擎；NCCL_P2P_DISABLE=1）",
-    "source_level": "实测",
-    "date": "2026-10-18",
-    "measured_by": "cliecy",
-    "metric_en": "Single-stream decode 89–112 tok/s (2K–890K prompts, DSpark); aggregate 117–141 at 2 streams, 132–162 at 4; prefill ~5,000; needle 15/15 from 24K to 1.0M",
-    "en": {
-      "quant": "PixelML EXL3 3bpw experts + int4 Engram (TP2, DSpark, MXFP4 drafter)",
-      "hardware": "2× RTX PRO 6000 Blackwell Max-Q 96GB (PCIe, no NVLink) + ~245GiB RAM",
-      "concurrency": "Single stream (2/4-stream aggregates also measured)",
-      "context": "~1.07M (fp8 KV pool)",
-      "engine_note": "vLLM nightly-5555a2d8 + vllm-exl3 + ExLlamaV3 + diffbot recipe (rootless bubblewrap)",
-      "source_note": "cliecy repo README + results/ (combines the diffbot recipe and PixelML 1017 quant; author states no new engine; NCCL_P2P_DISABLE=1)",
-      "hardware_cost_text": "≈$33,000 (2× Max-Q, Newegg $16,499.99, computed, card only) ⚠️ over $30k"
-    },
-    "model_family": "DeepSeek",
-    "tags": [
-      "3bit",
-      "4bit",
-      "MoE",
-      "long-context",
-      "speculative",
-      "multi-GPU"
-    ],
-    "source_id": "src-afc7714d0f",
-    "engine_raw": "vLLM nightly-5555a2d8 + vllm-exl3 + ExLlamaV3 + diffbot 配方（rootless bubblewrap）",
-    "engine_note": "vLLM nightly-5555a2d8 + vllm-exl3 + ExLlamaV3 + diffbot 配方（rootless bubblewrap）"
   },
   {
     "id": "comm-044",
