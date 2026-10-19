@@ -3,6 +3,7 @@
 import json, re
 from pathlib import Path
 from dataset_constants import BUDGET_TIER_BOUNDS_USD, DATA_ASOF
+from scope_text import SCOPE, SEP
 import hardware_index
 R = Path(__file__).resolve().parent.parent
 D = json.load(open(R/'data/recipes.json'))
@@ -18,20 +19,6 @@ CJK_CHAR = re.compile(r'[\u3000-\u303f\u3400-\u9fff\uff00-\uffef]')
 CJK_OR_CURLY_QUOTE = re.compile(r'[\u3000-\u303f\u3400-\u9fff\uff00-\uffef“”]')
 L = {
  'en': dict(file='README.md', tpl='readme_static.en.md',
-   scope_h='Scope', scope='\n'.join([
-     'This list is for setups that one person, a desktop user or a small studio can build. Datacenter setups are out of scope.',
-     '',
-     'A setup is in scope only when it meets all of these conditions:',
-     '',
-     '- The hardware costs $30,000 or less.',
-     '- It has at most 4 GPUs or 4 machines in total. For example: 4 GPUs in one PC, or 4 DGX Sparks.',
-     '- It runs on ordinary home or office power: about 2 kW in total, with no special wiring.',
-     '- It uses no rack, no SXM or HGX server board and no liquid cooling.',
-     '- It uses at most one desktop-class network switch.',
-     '',
-     'A setup that fails one condition is out of scope, even when it costs less than $30,000.',
-     '',
-     'Prices are recorded on the date we add the recipe. When a price goes up later, we update the price note only. We do not remove the recipe.']),
    tiers=['Tier 1 · up to $2.5k','Tier 2 · $2.5k–7k','Tier 3 · $7k–14k','Tier 4 · $14k–30k'],
    tdesc=['Used 3090/4090, MI50/V100 cards, Strix Halo, R9700','One RTX 5090, one DGX Spark, Mac Studio Max','Two Sparks, Mac Studio Ultra','3–4 Spark clusters, multi-GPU workstations'],
    cats={'text':'📝 Text','image':'🖼️ Image','video-audio':'🎬 Video & Audio'},
@@ -43,20 +30,6 @@ L = {
    th='| Project | ⭐ Stars | Live | Last push | What |', site='*(site/blog)*', desc='desc',
    note='⭐ Snapshot updated {u} (UTC) by `scripts/update_stars.py` · *Live* badges are rendered by shields.io at view time.'),
  'zh': dict(file='README.zh-CN.md', tpl='readme_static.zh-CN.md',
-   scope_h='收录范围', scope='\n'.join([
-     '本清单只收个人、桌面用户或小型工作室能搭起来的配置。数据中心配置不收录。',
-     '',
-     '配置必须同时满足以下条件：',
-     '',
-     '- 硬件总价不超过 3 万美元。',
-     '- GPU 或整机合计不超过 4 个。例如：一台 PC 装 4 张卡，或 4 台 DGX Spark。',
-     '- 用普通家用或办公室电源即可运行：总功率约 2 kW 以内，不需要专门布线。',
-     '- 不用机架，不用 SXM 或 HGX 服务器主板，不用液冷。',
-     '- 最多用一台桌面级网络交换机。',
-     '',
-     '不满足任一条件的配置不收录，即使总价低于 3 万美元。',
-     '',
-     '价格按收录当天记录。之后涨价时，只更新价格说明，不删除条目。']),
    tiers=['第 1 档 · 2,500 美元以内','第 2 档 · 2,500–7,000 美元','第 3 档 · 7,000–14,000 美元','第 4 档 · 14,000–30,000 美元'],
    tdesc=['二手 3090/4090、MI50/V100、Strix Halo、R9700','单张 RTX 5090、单台 DGX Spark、Mac Studio Max','双 Spark、Mac Studio Ultra','3–4 台 Spark 集群、多卡工作站'],
    cats={'text':'📝 文字','image':'🖼️ 图像','video-audio':'🎬 影音'},
@@ -68,20 +41,6 @@ L = {
    th='| 项目 | ⭐ Star | 实时 | 最后推送 | 简介 |', site='*（网站/博客）*', desc='desc_zh',
    note='⭐ 快照由 `scripts/update_stars.py` 更新于 {u}（UTC）· 「实时」徽章由 shields.io 在打开页面时实时渲染。'),
  'ja': dict(file='README.ja.md', tpl='readme_static.ja.md',
-   scope_h='収録範囲', scope='\n'.join([
-     'このリストは、個人、デスクトップ利用者、小規模スタジオが組める構成だけを収録します。データセンター構成は対象外です。',
-     '',
-     '次の条件をすべて満たす構成だけを収録します：',
-     '',
-     '- ハードウェアの合計価格が 3 万ドル以下。',
-     '- GPU またはマシンが合計 4 台以下。例：PC 1 台に GPU 4 枚、または DGX Spark 4 台。',
-     '- 一般的な家庭用・オフィス用の電源で動く：合計約 2 kW 以内で、専用の配線工事が不要。',
-     '- ラック、SXM / HGX サーバーボード、液冷を使わない。',
-     '- ネットワークスイッチはデスクトップ型 1 台まで。',
-     '',
-     '1 つでも満たさない構成は、3 万ドル未満でも対象外です。',
-     '',
-     '価格は収録日の価格を記録します。後で値上がりしても、価格メモだけを更新し、レシピは削除しません。']),
    tiers=['第 1 段階 · 2,500 ドルまで','第 2 段階 · 2,500〜7,000 ドル','第 3 段階 · 7,000〜14,000 ドル','第 4 段階 · 14,000〜30,000 ドル'],
    tdesc=['中古の 3090/4090、MI50/V100、Strix Halo、R9700','RTX 5090 1 枚、DGX Spark 1 台、Mac Studio Max','DGX Spark 2 台、Mac Studio Ultra','Spark 3〜4 台のクラスター、マルチ GPU ワークステーション'],
    cats={'text':'📝 テキスト','image':'🖼️ 画像','video-audio':'🎬 動画・音声'},
@@ -98,6 +57,9 @@ SPEED={'en':('How fast is X tok/s?','Same answer, real Qwen3 tokens, streamed at
        'ja':('X tok/s ってどれくらい速い？','同じ回答を実際の Qwen3 トークンで 10 / 20 / 50 / 100 / 200 / 500 tok/s（対数間隔）で表示し、黙読の速さ（英語で約 5 tok/s、Brysbaert 2019）やクラウド API の中央値（Artificial Analysis）と比較。','インタラクティブ版を試す →')}
 IMGSUF={'en':'','zh':'.zh-CN','ja':'.ja'}
 BALT={'en':'Bar chart: fastest measured and claimed text setup in each budget tier','zh':'条形图：各预算档最快的实测与宣称文字配置','ja':'棒グラフ：予算帯ごとの最速テキスト構成（実測と公称）'}
+def scope_md(lang):
+    S=SCOPE[lang]
+    return '\n\n'.join([f"## {S['h']}", SEP[lang].join(S['intro']), S['lead'], '\n'.join('- '+i for i in S['items']), *S['outro']])
 def clip(s,n=90): s=(s or '').replace('|','/').replace('\n',' '); return s if len(s)<=n else s[:n-1]+'…'
 def en(s, cjk=CJK_OR_CURLY_QUOTE, strip=' ·+/,'):
     if not s: return s
@@ -295,8 +257,8 @@ def build(lang):
         return '\n'.join(rows)+(f"\n\n<sub>{T['note'].format(u=UPD)}</sub>" if UPD else '')
     tpl=open(R/'scripts'/T['tpl']).read(); head,tail=tpl.split('<!--RECIPES-->')
     n={c:sum(r['category']==c for r in D) for c in T['cats']}
-    toc=[f"- [{x}](#{slug(x)})" for x in (T['legend'],T['scope_h'])]+toc+[f"- [{x}](#{slug(x)})" for x in (T['eng'],T['rel'],T['lic'])]
-    head=head.replace('{{HERO}}',hero(lang,E)).replace('{{SCOPE}}',f"## {T['scope_h']}\n\n{T['scope']}").replace('{{TOC}}','\n'.join(toc)).replace('{{N}}',str(len(D))).replace('{{NT}}',str(n['text'])).replace('{{NI}}',str(n['image'])).replace('{{NV}}',str(n['video-audio']))
+    toc=[f"- [{x}](#{slug(x)})" for x in (T['legend'],SCOPE[lang]['h'])]+toc+[f"- [{x}](#{slug(x)})" for x in (T['eng'],T['rel'],T['lic'])]
+    head=head.replace('{{HERO}}',hero(lang,E)).replace('{{SCOPE}}',scope_md(lang)).replace('{{TOC}}','\n'.join(toc)).replace('{{N}}',str(len(D))).replace('{{NT}}',str(n['text'])).replace('{{NI}}',str(n['image'])).replace('{{NV}}',str(n['video-audio']))
     tail=tail.replace('<!--ENGINES-->',rtable('engines')).replace('<!--RELATED-->',rtable('related'))
     txt=head+'\n'.join(out)+'\n'+tail
     for pg in ('explore.html','submit.html'):

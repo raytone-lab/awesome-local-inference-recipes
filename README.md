@@ -60,19 +60,21 @@
 
 ## Scope
 
-This list is for setups that one person, a desktop user or a small studio can build. Datacenter setups are out of scope.
+This list is for setups that one person, a home or office desktop user, or a small studio can build. Datacenter setups are out of scope. Used datacenter cards in a desktop PC are in scope.
 
 A setup is in scope only when it meets all of these conditions:
 
 - The hardware costs $30,000 or less.
-- It has at most 4 GPUs or 4 machines in total. For example: 4 GPUs in one PC, or 4 DGX Sparks.
+- It has at most 4 GPUs or 4 machines. Count each GPU, and each machine without a separate GPU. For example: 4 GPUs in one PC count as 4, 4 DGX Sparks count as 4, and 4 DGX Sparks plus 1 PC with an RTX 5090 count as 5.
 - It runs on ordinary home or office power: about 2 kW in total, with no special wiring.
 - It uses no rack, no SXM or HGX server board and no liquid cooling.
 - It uses at most one desktop-class network switch.
 
 A setup that fails one condition is out of scope, even when it costs less than $30,000.
 
-Prices are recorded on the date we add the recipe. When a price goes up later, we update the price note only. We do not remove the recipe.
+We record the price on the date that we add the recipe. When the price goes up later, we update only the price note (`hardware_cost_text`). We do not remove the recipe.
+
+`python3 scripts/scope_rules.py` lists the recipes that fail the cost, count or server-hardware check. Some older recipes fail a condition. The maintainer decides on each of them.
 
 ## Quick answers
 
