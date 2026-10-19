@@ -35,15 +35,16 @@ class DeviceCount(unittest.TestCase):
     def test_multiplier_forms(self):
         for hw, n in [('RTX 3090 ×5', 5), ('RTX 3090 x5', 5), ('4x4090', 4), ('4xRTX 3090', 4), ('8 卡 4090', 8),
                       ('HP Z8（6× RTX A6000）', 6), ('1× DGX Spark（对照 4090）', 1), ('5× 4090显卡', 5), ('6×3090卡', 6),
-                      ('Dual RTX 3090', 2), ('4 GPUs', 4), ('4× B580', 4), ('P102-100 ×6', 6), ('2× 7900XTX', 2),
-                      ('3× 9070XT', 3), ('2× 4090D', 2), ('6× 3090s', 6)]:
+                      ('4 GPUs', 4), ('4× B580', 4), ('P102-100 ×6', 6), ('2× 7900XTX', 2),
+                      ('3× 9070XT', 3), ('2× 4090D', 2), ('6× 3090s', 6), ('2× 4060Tis', 2), ('2× 7900XTXs', 2)]:
             self.assertEqual(S.device_count(hw), n, hw)
 
     def test_model_numbers_and_lanes_are_not_multipliers(self):
         for hw in ('AMD RX 7900 XTX 24GB', 'AMD RX 9070 XT 16GB', 'RX 7900 XTX + Ryzen 9 9950X（PCIe 4.0 x16）',
                    'RTX 3090 PCIe 4.0 x16', 'i9-10900K + RTX 3090', 'RTX 5080 16GB（外置 M.2×2 RAID0 SSD）',
                    'RTX 5090 卡', 'RTX 3090 Gen4 x16', 'RTX 3090 @ x8', '7800X3D + B650 + RTX 4070', 'H610 + A620 + RTX 4060',
-                   'ASUS Dual RTX 4060 Ti', 'Dual-slot RTX 4090', 'Dual Xeon workstation with RTX A6000'):
+                   'ASUS Dual RTX 4060 Ti', 'Dual-slot RTX 4090', 'Dual Xeon workstation with RTX A6000',
+                   'A520 + RTX 3060', 'A320 + RTX 3060', 'Dual 2690 v4 workstation with RTX 3090'):
             self.assertEqual(S.device_count(hw), 1, hw)
 
 
