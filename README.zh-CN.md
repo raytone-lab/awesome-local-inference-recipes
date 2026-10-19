@@ -74,7 +74,7 @@
 
 价格按收录当天记录。之后涨价时，只更新价格说明（`hardware_cost_text`），不删除条目。
 
-`python3 scripts/scope_rules.py` 会列出未通过价格、数量或服务器硬件检查的条目。
+`python3 scripts/scope_rules.py` 会列出未通过价格、数量或硬件类型检查的条目。
 
 ## 快速问答
 

@@ -11,12 +11,13 @@ DEVICE = re.compile(
     r'RTX|GTX|Radeon|\bRX ?\d|R9700|Instinct|\bMI\d{2,3}|Tesla|\b[VPAHLB](?:\d{2}|[1-9]00)S?s?(?![A-Za-z0-9])|\bA\d{4}s?(?![A-Za-z0-9])|\b(?:A(?:310|380|580|750|770)|B5[78]0|P10[246])s?(?![A-Za-z0-9])|CMP|DGX|Spark|GB10|Ascent|AI TOP'
     r'|Strix Halo|Ryzen AI Max|Framework Desktop|\bMac\b|MacBook|\bM\d (?:Pro|Max|Ultra)\b|\bArc\b|(?<![A-Za-z])GPU'
     r'|(?<![\d-])[1-9]0[5-9]0(?:S|Ti|D)?s?(?![A-Za-z0-9])|\b7900(?:XTX|XT|GRE)?s?(?![A-Za-z0-9])|\b9070(?:XT|GRE)?s?(?![A-Za-z0-9])')
-SERVER_ONLY = re.compile(r'SXM|HGX|\brack|\b[124]U\b|server[- ]board|机架|机柜|服务器主板|サーバーボード', re.I)
-LIQUID = re.compile(r'液冷|水冷|liquid[- ]cool|water[- ]cool', re.I)
-CUSTOM_LOOP = re.compile(r'custom[- ](?:water[- ])?loop|hardline|water[- ]?block|分体式?水冷|自定义水冷|水冷头|カスタムループ|本格水冷', re.I)
-SXM2_ADAPTER = re.compile(r'SXM2\s*(?:-?to-?|→|转)\s*PCIe|SXM2\s*(?:PCIe\s*)?(?:adapter|转接|変換)', re.I)
+SERVER_ONLY = re.compile(r'SXM|HGX|\brack|\b[124]U\b|server[- ]?(?:mother)?board|baseboard|机架|机柜|服务器主板|サーバー用?(?:マザー)?ボード', re.I)
+LIQUID = re.compile(r'液冷|水冷|liquid[- ]?cool|water[- ]?cool', re.I)
+CUSTOM_LOOP = re.compile(r'custom[- ]?(?:water|liquid)?[- ]?(?:cool(?:ing|ed)?[- ]?)?loop|hardline|water[- ]?block|分体式?水冷|非一体|自定义水冷|カスタムループ|本格水冷', re.I)
+SXM2_ADAPTER = re.compile(r'SXM2\s*(?:-?to-?|→|转)\s*PCIe|SXM2[\s-]*(?:PCIe[\s-]*)?(?:adapter|转接|変換)', re.I)
 SXM2 = re.compile(r'SXM2(?!\d)', re.I)
-FACTORY_AIO = re.compile(r'\b(?:AIO|all-in-one)(?:\s*(?:liquid|water)[- ]cool(?:ed|ing|er)?)?|一体式?(?:水冷|液冷)|一体型(?:水冷|液冷)|簡易水冷', re.I)
+FACTORY_AIO = re.compile(r'(?<![A-Za-z])AIO(?![A-Za-z])|all[- ]in[- ]one|一体式?(?:水冷|液冷)|一体型|簡易水冷', re.I)
+CONSUMER_GPU = re.compile(r'RTX|GTX|Radeon|\bRX ?\d|\bArc\b', re.I)
 PARENS = re.compile(r'（([^）]*)）|\(([^)]*)\)')
 ALTERNATIVES = re.compile(r'/|\bvs\.?\b')
 PCIE_LANES = re.compile(r'(?:PCIe|Gen\s?\d|@)[\s\d.]*[xX]\d+')
@@ -41,7 +42,8 @@ def device_count(hardware):
 
 def server_only(hardware):
     hw = SXM2.sub('', hardware) if SXM2_ADAPTER.search(hardware) else hardware
-    return bool(SERVER_ONLY.search(hw) or LIQUID.search(FACTORY_AIO.sub('', hw)) or CUSTOM_LOOP.search(hw))
+    liquid = any(LIQUID.search(p) and not (FACTORY_AIO.search(p) and CONSUMER_GPU.search(p)) for p in hw.split('+'))
+    return bool(SERVER_ONLY.search(hw) or liquid or CUSTOM_LOOP.search(hw))
 
 def violations(r):
     out = []
@@ -52,7 +54,7 @@ def violations(r):
     if n > MAX_DEVICES:
         out.append(f'{n} GPUs or machines (max {MAX_DEVICES})')
     if server_only(r['hardware']):
-        out.append('out-of-scope hardware (rack, server board, SXM/HGX, custom-loop or server liquid cooling)')
+        out.append('out-of-scope hardware type (rack, server board, SXM/HGX, custom-loop or server liquid cooling)')
     return out
 
 if __name__ == '__main__':

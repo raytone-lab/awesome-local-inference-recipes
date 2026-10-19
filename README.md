@@ -74,7 +74,7 @@ A setup that fails one condition is out of scope, even when it costs less than $
 
 We record the price on the date that we add the recipe. When the price goes up later, we update only the price note (`hardware_cost_text`). We do not remove the recipe.
 
-`python3 scripts/scope_rules.py` lists the recipes that fail the cost, count or server-hardware check.
+`python3 scripts/scope_rules.py` lists the recipes that fail the cost, count or hardware-type check.
 
 ## Quick answers
 
