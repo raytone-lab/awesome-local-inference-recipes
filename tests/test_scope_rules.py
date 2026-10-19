@@ -52,17 +52,18 @@ class Violations(unittest.TestCase):
 
     def test_every_recipe_is_in_scope(self):
         D = json.loads(read('data/recipes.json'))
-        self.assertEqual({r['id']: S.violations(r) for r in D if S.violations(r)}, {})
+        self.assertEqual({r['id']: v for r in D if (v := S.violations(r))}, {})
 
     def test_sxm2_to_pcie_adapter_builds_are_allowed(self):
         for hw in ('2× Tesla V100 SXM2 + SXM2-to-PCIe adapter', '2× V100 SXM2 转 PCIe 转接卡 + 64GB RAM', 'V100 SXM2 adapter in a desktop'):
             self.assertEqual(S.violations(row(hw)), [], hw)
-        self.assertTrue(S.violations(row('4× V100 SXM2 server board')))
+        for hw in ('4× V100 SXM2 server board', '4× V100 SXM2 server board + SXM2-to-PCIe adapter', '2× A100 SXM4 转 PCIe 转接卡', '4× H100 SXM5 to PCIe'):
+            self.assertTrue(S.violations(row(hw)), hw)
 
     def test_factory_aio_consumer_cards_are_allowed(self):
-        for hw in ('RTX 5090 Suprim Liquid（AIO liquid cooled）', 'RTX 4090（出厂一体式水冷）', 'RTX 5090 factory AIO', 'RTX 4090（簡易水冷）'):
+        for hw in ('RTX 5090 Suprim Liquid（AIO liquid cooled）', 'RTX 4090（出厂一体式水冷）', 'RTX 5090 factory AIO', 'RTX 4090（簡易水冷）', 'RTX 4090（一体水冷）', 'RTX 5090（一体式液冷）'):
             self.assertEqual(S.violations(row(hw)), [], hw)
-        for hw in ('2× RTX 3090 custom loop', 'RTX 4090（分体式水冷）', '4× A100 liquid cooled'):
+        for hw in ('2× RTX 3090 custom loop', 'RTX 4090（分体式水冷）', '4× A100 liquid cooled', '4× A100 liquid cooled + AIO CPU cooler', 'H100 NVL liquid-cooled all-in-one server', '2× RTX 3090 water block', '2× RTX 3090 hardline loop'):
             self.assertTrue(S.violations(row(hw)), hw)
 
 

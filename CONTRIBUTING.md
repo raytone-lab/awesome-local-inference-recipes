@@ -8,7 +8,7 @@ This list is for setups that one person, a home or office desktop user, or a sma
 
 - The hardware costs $30,000 or less.
 - It has at most 4 GPUs or 4 machines. Count each GPU, and each machine without a separate GPU. For example: 4 GPUs in one PC count as 4, 4 DGX Sparks count as 4, and 4 DGX Sparks plus 1 PC with an RTX 5090 count as 5.
-- It runs on ordinary home or office power: about 2 kW in total, from one or two ordinary outlets, with no special wiring. One US 120 V / 15 A circuit gives about 1.44 kW continuous, and one Japanese outlet gives about 1.5 kW.
+- It runs on ordinary home or office power: about 2 kW in total, from up to two ordinary outlets, with no special wiring. If you use two outlets, put them on separate circuits. One US 120 V / 15 A circuit gives about 1.44 kW continuous. One Japanese 100 V / 15 A outlet is rated at about 1.5 kW.
 - It uses no rack, no SXM or HGX server board, no custom liquid-cooling loop and no server liquid cooling. A DIY SXM2-to-PCIe adapter build that fits in a desktop is in scope. A consumer GPU with a factory all-in-one (AIO) liquid cooler is in scope.
 - It uses at most one desktop-class network switch.
 
@@ -31,7 +31,7 @@ A setup that fails one condition is out of scope, even when it costs less than $
 
 - 硬件总价不超过 3 万美元。
 - GPU 或整机合计不超过 4 个。每张 GPU 算 1 个；没有独立 GPU 的整机每台算 1 个。例如：一台 PC 装 4 张卡算 4 个，4 台 DGX Spark 算 4 个，4 台 DGX Spark 加一台装 RTX 5090 的 PC 算 5 个。
-- 用普通家用或办公室电源即可运行：总功率约 2 kW 以内，最多分接两个普通插座，不需要专门布线。美国一路 120 V / 15 A 电路持续供电约 1.44 kW，日本一个插座约 1.5 kW。
+- 用普通家用或办公室电源即可运行：总功率约 2 kW 以内，最多分接两个普通插座，不需要专门布线。用两个插座时，两个插座要在不同电路上。美国一路 120 V / 15 A 电路持续供电约 1.44 kW；日本一个 100 V / 15 A 插座额定约 1.5 kW。
 - 不用机架，不用 SXM 或 HGX 服务器主板，不用分体式水冷或服务器液冷。装得进桌面机箱的 DIY SXM2 转 PCIe 转接方案可以收录。出厂自带一体式水冷（AIO）的消费级显卡可以收录。
 - 最多用一台桌面级网络交换机。
 
@@ -56,7 +56,7 @@ Maintainers: Hugging Face candidate ingestion is described in [docs/sources.md](
 
 - ハードウェアの合計価格が 3 万ドル以下。
 - GPU 4 枚またはマシン 4 台まで。GPU は 1 枚ずつ、独立 GPU のないマシンは 1 台ずつ数えます。例：PC 1 台に GPU 4 枚は 4、DGX Spark 4 台は 4、DGX Spark 4 台と RTX 5090 搭載 PC 1 台は 5。
-- 一般的な家庭用・オフィス用の電源で動く：合計約 2 kW 以内で、ふつうのコンセント 2 口までに分けてよく、専用の配線工事は不要。米国の 120 V / 15 A 回路 1 本は連続で約 1.44 kW、日本のコンセント 1 口は約 1.5 kW。
+- 一般的な家庭用・オフィス用の電源で動く：合計約 2 kW 以内で、ふつうのコンセント 2 口までに分けてよく、専用の配線工事は不要。2 口を使うときは、別々の回路のコンセントにする。米国の 120 V / 15 A 回路 1 本は連続で約 1.44 kW、日本の 100 V / 15 A コンセント 1 口は定格で約 1.5 kW。
 - ラック、SXM / HGX サーバーボード、カスタムループ水冷、サーバー用液冷を使わない。デスクトップに収まる DIY の SXM2→PCIe 変換構成は対象。メーカー出荷時から簡易水冷（AIO）付きのコンシューマー GPU も対象。
 - ネットワークスイッチはデスクトップ型 1 台まで。
 

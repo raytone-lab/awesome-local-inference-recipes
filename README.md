@@ -66,7 +66,7 @@ A setup is in scope only when it meets all of these conditions:
 
 - The hardware costs $30,000 or less.
 - It has at most 4 GPUs or 4 machines. Count each GPU, and each machine without a separate GPU. For example: 4 GPUs in one PC count as 4, 4 DGX Sparks count as 4, and 4 DGX Sparks plus 1 PC with an RTX 5090 count as 5.
-- It runs on ordinary home or office power: about 2 kW in total, from one or two ordinary outlets, with no special wiring. One US 120 V / 15 A circuit gives about 1.44 kW continuous, and one Japanese outlet gives about 1.5 kW.
+- It runs on ordinary home or office power: about 2 kW in total, from up to two ordinary outlets, with no special wiring. If you use two outlets, put them on separate circuits. One US 120 V / 15 A circuit gives about 1.44 kW continuous. One Japanese 100 V / 15 A outlet is rated at about 1.5 kW.
 - It uses no rack, no SXM or HGX server board, no custom liquid-cooling loop and no server liquid cooling. A DIY SXM2-to-PCIe adapter build that fits in a desktop is in scope. A consumer GPU with a factory all-in-one (AIO) liquid cooler is in scope.
 - It uses at most one desktop-class network switch.
 

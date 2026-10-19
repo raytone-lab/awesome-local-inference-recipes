@@ -229,7 +229,7 @@
       "followers": null,
       "focus": "多卡/单卡长上下文对比、引擎 A/B（Strata vs Infernix、vLLM vs llama.cpp）",
       "why": "帖主常给完整表格（中位数、上下文、量化），可作独立复现来源",
-      "sample_post": "https://www.reddit.com/r/LocalLLaMA/comments/1x8l18e/",
+      "sample_post": "https://www.reddit.com/r/LocalLLaMA/comments/1x217go/qwen_flash_next_137_toks_3497_toks_prefill_w_512k/",
       "tier": "B"
     },
     {
