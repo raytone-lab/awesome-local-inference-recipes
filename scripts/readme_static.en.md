@@ -12,6 +12,8 @@
 | ✅ **Measured** | author ran it, with log or screenshot | **tok/s** = single-stream generation (not prefill, not aggregate) |
 | 🔁 **Relayed** | second-hand, verify upstream | Tiers use the lowest published hardware price (USD) |
 | 📣 **Claimed** | projection, no reproduction | Unknown values are never estimated |
+
+{{SCOPE}}
 <!--RECIPES-->
 
 ## Engines & Tools

@@ -34,6 +34,7 @@
 ## Contents
 
 - [Legend](#legend)
+- [Scope](#scope)
 - [Quick answers](#quick-answers)
 - [Popular on X](#popular-on-x)
 - [Browse by Hardware](#browse-by-hardware)
@@ -56,6 +57,22 @@
 | ✅ **Measured**   | author ran it, with log or screenshot | **tok/s** = single-stream generation (not prefill, not aggregate)       |
 | 🔁 **Relayed**   | second-hand, verify upstream          | Tiers use the lowest published hardware price (USD)                     |
 | 📣 **Claimed**   | projection, no reproduction           | Unknown values are never estimated                                      |
+
+## Scope
+
+This list is for setups that one person, a desktop user or a small studio can build. Datacenter setups are out of scope.
+
+A setup is in scope only when it meets all of these conditions:
+
+- The hardware costs $30,000 or less.
+- It has at most 4 GPUs or 4 machines in total. For example: 4 GPUs in one PC, or 4 DGX Sparks.
+- It runs on ordinary home or office power: about 2 kW in total, with no special wiring.
+- It uses no rack, no SXM or HGX server board and no liquid cooling.
+- It uses at most one desktop-class network switch.
+
+A setup that fails one condition is out of scope, even when it costs less than $30,000.
+
+Prices are recorded on the date we add the recipe. When a price goes up later, we update the price note only. We do not remove the recipe.
 
 ## Quick answers
 
