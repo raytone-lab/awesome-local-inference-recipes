@@ -3,6 +3,7 @@
 import json, re
 from pathlib import Path
 from dataset_constants import BUDGET_TIER_BOUNDS_USD, DATA_ASOF
+from scope_text import SCOPE, SEP
 import hardware_index
 R = Path(__file__).resolve().parent.parent
 D = json.load(open(R/'data/recipes.json'))
@@ -56,6 +57,9 @@ SPEED={'en':('How fast is X tok/s?','Same answer, real Qwen3 tokens, streamed at
        'ja':('X tok/s ってどれくらい速い？','同じ回答を実際の Qwen3 トークンで 10 / 20 / 50 / 100 / 200 / 500 tok/s（対数間隔）で表示し、黙読の速さ（英語で約 5 tok/s、Brysbaert 2019）やクラウド API の中央値（Artificial Analysis）と比較。','インタラクティブ版を試す →')}
 IMGSUF={'en':'','zh':'.zh-CN','ja':'.ja'}
 BALT={'en':'Bar chart: fastest measured and claimed text setup in each budget tier','zh':'条形图：各预算档最快的实测与宣称文字配置','ja':'棒グラフ：予算帯ごとの最速テキスト構成（実測と公称）'}
+def scope_md(lang):
+    S=SCOPE[lang]
+    return '\n\n'.join([f"## {S['h']}", SEP[lang].join(S['intro']), S['lead'], '\n'.join('- '+i for i in S['items']), *S['outro']])
 def clip(s,n=90): s=(s or '').replace('|','/').replace('\n',' '); return s if len(s)<=n else s[:n-1]+'…'
 def en(s, cjk=CJK_OR_CURLY_QUOTE, strip=' ·+/,'):
     if not s: return s
@@ -253,8 +257,8 @@ def build(lang):
         return '\n'.join(rows)+(f"\n\n<sub>{T['note'].format(u=UPD)}</sub>" if UPD else '')
     tpl=open(R/'scripts'/T['tpl']).read(); head,tail=tpl.split('<!--RECIPES-->')
     n={c:sum(r['category']==c for r in D) for c in T['cats']}
-    toc=[f"- [{T['legend']}](#{slug(T['legend'])})"]+toc+[f"- [{x}](#{slug(x)})" for x in (T['eng'],T['rel'],T['lic'])]
-    head=head.replace('{{HERO}}',hero(lang,E)).replace('{{TOC}}','\n'.join(toc)).replace('{{N}}',str(len(D))).replace('{{NT}}',str(n['text'])).replace('{{NI}}',str(n['image'])).replace('{{NV}}',str(n['video-audio']))
+    toc=[f"- [{x}](#{slug(x)})" for x in (T['legend'],SCOPE[lang]['h'])]+toc+[f"- [{x}](#{slug(x)})" for x in (T['eng'],T['rel'],T['lic'])]
+    head=head.replace('{{HERO}}',hero(lang,E)).replace('{{SCOPE}}',scope_md(lang)).replace('{{TOC}}','\n'.join(toc)).replace('{{N}}',str(len(D))).replace('{{NT}}',str(n['text'])).replace('{{NI}}',str(n['image'])).replace('{{NV}}',str(n['video-audio']))
     tail=tail.replace('<!--ENGINES-->',rtable('engines')).replace('<!--RELATED-->',rtable('related'))
     txt=head+'\n'.join(out)+'\n'+tail
     for pg in ('explore.html','submit.html'):
