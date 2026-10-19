@@ -36,7 +36,8 @@ class DeviceCount(unittest.TestCase):
         for hw, n in [('RTX 3090 ×5', 5), ('RTX 3090 x5', 5), ('4x4090', 4), ('4xRTX 3090', 4), ('8 卡 4090', 8),
                       ('HP Z8（6× RTX A6000）', 6), ('1× DGX Spark（对照 4090）', 1), ('5× 4090显卡', 5), ('6×3090卡', 6),
                       ('4 GPUs', 4), ('4× B580', 4), ('P102-100 ×6', 6), ('2× 7900XTX', 2),
-                      ('3× 9070XT', 3), ('2× 4090D', 2), ('6× 3090s', 6), ('2× 4060Tis', 2), ('2× 7900XTXs', 2)]:
+                      ('3× 9070XT', 3), ('2× 4090D', 2), ('6× 3090s', 6), ('2× 4060Tis', 2), ('2× 7900XTXs', 2), ('4× P40s', 4), ('2× A6000s', 2),
+                      ('2× B570s', 2)]:
             self.assertEqual(S.device_count(hw), n, hw)
 
     def test_model_numbers_and_lanes_are_not_multipliers(self):

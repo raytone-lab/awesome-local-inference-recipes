@@ -8,7 +8,7 @@ MAX_COST_USD = BUDGET_TIER_BOUNDS_USD[-1][1]
 OVER_BUDGET_MARK = f'⚠️超${MAX_COST_USD // 1000}k'
 MANUAL_CHECKS = ('total power about 2 kW with no special wiring', 'at most one desktop-class network switch')
 DEVICE = re.compile(
-    r'RTX|GTX|Radeon|\bRX ?\d|R9700|Instinct|\bMI\d{2,3}|Tesla|\b[VPAHLB](?:\d{2}|[1-9]00)S?(?![A-Za-z0-9])|\bA\d{4}(?![A-Za-z0-9])|\b(?:A(?:310|380|580|750|770)|B5[78]0|P10[246])(?![A-Za-z0-9])|CMP|DGX|Spark|GB10|Ascent|AI TOP'
+    r'RTX|GTX|Radeon|\bRX ?\d|R9700|Instinct|\bMI\d{2,3}|Tesla|\b[VPAHLB](?:\d{2}|[1-9]00)S?s?(?![A-Za-z0-9])|\bA\d{4}s?(?![A-Za-z0-9])|\b(?:A(?:310|380|580|750|770)|B5[78]0|P10[246])s?(?![A-Za-z0-9])|CMP|DGX|Spark|GB10|Ascent|AI TOP'
     r'|Strix Halo|Ryzen AI Max|Framework Desktop|\bMac\b|MacBook|\bM\d (?:Pro|Max|Ultra)\b|\bArc\b|(?<![A-Za-z])GPU'
     r'|(?<![\d-])[1-9]0[5-9]0(?:S|Ti|D)?s?(?![A-Za-z0-9])|\b7900(?:XTX|XT|GRE)?s?(?![A-Za-z0-9])|\b9070(?:XT|GRE)?s?(?![A-Za-z0-9])')
 SERVER_ONLY = re.compile(r'SXM|HGX|\brack|\b[124]U\b|机架|机柜|液冷|水冷|liquid[- ]cool|water[- ]cool', re.I)
