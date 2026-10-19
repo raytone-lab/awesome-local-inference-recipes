@@ -8,23 +8,27 @@ MAX_COST_USD = BUDGET_TIER_BOUNDS_USD[-1][1]
 OVER_BUDGET_MARK = f'⚠️超${MAX_COST_USD // 1000}k'
 MANUAL_CHECKS = ('total power about 2 kW with no special wiring', 'at most one desktop-class network switch')
 DEVICE = re.compile(
-    r'RTX|GTX|Radeon|\bRX ?\d|R9700|Instinct|\bMI\d{2,3}|Tesla|\b[VPAHLB]\d{2,3}S?\b|\bA\d{4}\b|CMP|DGX|Spark|GB10|Ascent|AI TOP'
+    r'RTX|GTX|Radeon|\bRX ?\d|R9700|Instinct|\bMI\d{2,3}|Tesla|\b[VPAHLB](?:\d{2}|[1-9]00)S?(?![A-Za-z0-9])|\bA\d{4}(?![A-Za-z0-9])|CMP|DGX|Spark|GB10|Ascent|AI TOP'
     r'|Strix Halo|Ryzen AI Max|Framework Desktop|\bMac\b|MacBook|\bM\d (?:Pro|Max|Ultra)\b|\bArc\b|(?<![A-Za-z])GPU'
-    r'|(?<![\d-])[1-9]0[5-9]0(?:S|Ti)?\b|\b7900\b|\b9070\b')
-SERVER_ONLY = re.compile(r'SXM|HGX|\brack|机架|机柜|液冷|水冷|liquid[- ]cool|water[- ]cool', re.I)
+    r'|(?<![\d-])[1-9]0[5-9]0(?:S|Ti)?(?![A-Za-z0-9])|\b7900(?![A-Za-z0-9])|\b9070(?![A-Za-z0-9])')
+SERVER_ONLY = re.compile(r'SXM|HGX|\brack|\b[124]U\b|机架|机柜|液冷|水冷|liquid[- ]cool|water[- ]cool', re.I)
 PARENS = re.compile(r'（([^）]*)）|\(([^)]*)\)')
 ALTERNATIVES = re.compile(r'/|\bvs\.?\b')
-PCIE_LANES = re.compile(r'PCIe[\s\d.]*[xX]\d+')
+PCIE_LANES = re.compile(r'(?:PCIe|Gen\s?\d|@)[\s\d.]*[xX]\d+')
 MULTIPLIERS = (re.compile(r'(?<![\w.])(\d{1,2})\s*(?:×|[xX](?=[\sA-Z0-9]))'),
                re.compile(r'(?:×|(?<=\s)[xX])\s*(\d{1,2})(?![\w.])'),
-               re.compile(r'(\d{1,2})\s*(?:张|卡|台)'))
+               re.compile(r'(?<![\w.])(\d{1,2})\s*(?:张|卡|台)'),
+               re.compile(r'(?<![\w.])(\d{1,2})\s+(?:GPUs?|cards?)\b'))
+COUNT_WORDS = re.compile(r'\b(Dual|Quad)\b')
+COUNT_WORD_VALUES = {'Dual': 2, 'Quad': 4}
 
 def part_count(part):
     part = PCIE_LANES.sub('', part)
     if not DEVICE.search(part): return 0
     for m in (p.search(part) for p in MULTIPLIERS):
         if m: return int(m.group(1))
-    return 1
+    w = COUNT_WORDS.search(part)
+    return COUNT_WORD_VALUES[w.group(1)] if w else 1
 
 def flat_count(text):
     return max(sum(part_count(p) for p in alt.split('+')) for alt in ALTERNATIVES.split(text))

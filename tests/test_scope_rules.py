@@ -1,4 +1,4 @@
-import json, os, sys, unittest
+import json, os, re, sys, unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'scripts'))
 import scope_rules as S
 from scope_text import SCOPE
@@ -34,12 +34,14 @@ class DeviceCount(unittest.TestCase):
 
     def test_multiplier_forms(self):
         for hw, n in [('RTX 3090 ×5', 5), ('RTX 3090 x5', 5), ('4x4090', 4), ('4xRTX 3090', 4), ('8 卡 4090', 8),
-                      ('HP Z8（6× RTX A6000）', 6), ('1× DGX Spark（对照 4090）', 1)]:
+                      ('HP Z8（6× RTX A6000）', 6), ('1× DGX Spark（对照 4090）', 1), ('5× 4090显卡', 5), ('6×3090卡', 6),
+                      ('Dual RTX 3090', 2), ('4 GPUs', 4)]:
             self.assertEqual(S.device_count(hw), n, hw)
 
     def test_model_numbers_and_lanes_are_not_multipliers(self):
         for hw in ('AMD RX 7900 XTX 24GB', 'AMD RX 9070 XT 16GB', 'RX 7900 XTX + Ryzen 9 9950X（PCIe 4.0 x16）',
-                   'RTX 3090 PCIe 4.0 x16', 'i9-10900K + RTX 3090', 'RTX 5080 16GB（外置 M.2×2 RAID0 SSD）'):
+                   'RTX 3090 PCIe 4.0 x16', 'i9-10900K + RTX 3090', 'RTX 5080 16GB（外置 M.2×2 RAID0 SSD）',
+                   'RTX 5090 卡', 'RTX 3090 Gen4 x16', 'RTX 3090 @ x8', '7800X3D + B650 + RTX 4070', 'H610 + A620 + RTX 4060'):
             self.assertEqual(S.device_count(hw), 1, hw)
 
 
@@ -52,6 +54,8 @@ class Violations(unittest.TestCase):
         self.assertIn('5 GPUs or machines (max 4)', S.violations(row('5× RTX 3090')))
         self.assertTrue(S.violations(row('4× V100 SXM2')))
         self.assertTrue(S.violations(row('RTX 5090（液冷）')))
+        self.assertTrue(S.violations(row('4U server + 2× RTX 3090')))
+        self.assertEqual(S.OVER_BUDGET_MARK, '⚠️超$30k')
 
     def test_out_of_scope_rows_are_known(self):
         D = json.loads(read('data/recipes.json'))
@@ -60,11 +64,15 @@ class Violations(unittest.TestCase):
 
 class RuleText(unittest.TestCase):
     def test_contributing_and_submit_page_carry_the_readme_rule(self):
-        contributing, submit = read('CONTRIBUTING.md'), read('submit.html')
+        contributing = read('CONTRIBUTING.md')
+        page, script = read('submit.html').split('<script src="i18n.js">')
+        blocks = dict(zip(('zh', 'en', 'ja'), re.split(r"\n(?:'zh-CN'|en|ja):\{", script)[1:]))
         for lang, s in SCOPE.items():
-            for sentence in s['intro'] + [s['lead']] + s['items']:
+            for sentence in s['intro'] + [s['lead']] + s['items'] + s['outro']:
+                html = re.sub(r'`([^`]*)`', r'<code>\1</code>', sentence)
                 self.assertIn(sentence, contributing, lang)
-                self.assertIn(sentence, submit, lang)
+                self.assertIn(html, blocks[lang], lang)
+                if lang == 'en': self.assertIn(html, page)
 
 
 if __name__ == '__main__': unittest.main()
