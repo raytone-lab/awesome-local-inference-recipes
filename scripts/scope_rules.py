@@ -20,7 +20,7 @@ SXM2_ADAPTER = re.compile(r'SXM2\s*(?:-?to-?|→|转)\s*PCIe|SXM2[\s-]*(?:PCIe[\
 SXM2 = re.compile(r'SXM2(?!\d)', re.I)
 FACTORY_AIO = re.compile(r'(?<![A-Za-z])AIO(?![A-Za-z])|all[- ]in[- ]one|(?<!非)一[体體][式型]?(?:水冷|液冷)|簡易水冷', re.I)
 CONSUMER_GPU = re.compile(r'RTX|GTX|Radeon|\bRX ?\d|\bArc\b|(?<![\d-])[1-9]0[5-9]0(?:S|Ti|D)?(?![\dA-Za-z])|\b7900|\b9070', re.I)
-NON_CONSUMER_GPU = re.compile(r'Instinct|\bMI\d|Tesla|Quadro|\bW\d{4}|\bRTX (?:PRO )?A?\d[05]00\b|\bA\d[05]00\b|R9700|Radeon (?:AI )?Pro|Server Edition|(?<!home )server(?![- ]?(?:mother)?board)|\b[VPAHL](?:\d{2}|[1-9]00)S?\b|\bB[12]00\b', re.I)
+NON_CONSUMER_GPU = re.compile(r'Instinct|\bMI\d|Tesla|Quadro|\bW\d{4}|\bRTX (?:PRO )?A?\d[05]00s?\b|\bA\d[05]00s?\b|R9700|Radeon (?:AI )?Pro|Server Edition|(?<!home )server(?![- ]?(?:mother)?board)|(?<!家用)服务器(?!主板)|サーバー(?!用?(?:マザー)?ボード)|\b[VPAHL](?:\d{2}|[1-9]00)S?\b|\bB[12]00\b', re.I)
 PARTS = re.compile(r'[+＋;&]')
 PARENS = re.compile(r'（([^）]*)）|\(([^)]*)\)')
 ALTERNATIVES = re.compile(r'/|\bvs\.?\b')
@@ -50,7 +50,8 @@ def aio_part(p):
 def server_only(hardware):
     adapter = SXM2_ADAPTER.search(hardware)
     hw = SXM2.sub('', hardware) if adapter else hardware
-    board = adapter and (BASEBOARD.search(hardware) or any(SXM2.search(p) and SXM2_BOARD.search(p) for p in PARTS.split(hardware)))
+    sxm2_board = any(SXM2.search(p) and SXM2_BOARD.search(p) for p in PARTS.split(hardware))
+    board = adapter and (BASEBOARD.search(hardware) or sxm2_board)
     liquid = any(LIQUID.search(p) and not aio_part(p) for p in PARTS.split(hw))
     return bool(SERVER_ONLY.search(hw) or board or liquid or CUSTOM_LOOP.search(hw))
 
