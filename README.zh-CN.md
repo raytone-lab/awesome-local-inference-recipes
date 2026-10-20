@@ -244,7 +244,7 @@ X 上互动最多的配方帖（按 点赞 + 3×转发 排序；同一帖子只�
 
 ## 第 2 档 · 2,500–7,000 美元
 
-*单张 RTX 5090、单台 DGX Spark、Mac Studio Max* · 共 130 条
+*单张 RTX 5090、单台 DGX Spark、Mac Studio Max* · 共 129 条
 
 
 **📝 文字**
@@ -259,7 +259,7 @@ X 上互动最多的配方帖（按 点赞 + 3×转发 排序；同一帖子只�
 - **Qwen3.8-Flash-Next** · Strata `ISTA-DASLab GSQ-RCO GGUF IQ…` — RTX 5090 32GB + 系统内存（部分卸载） → **204 tok/s** ✅ [来源](https://x.com/niklaslenz_ai/status/2110132306061013386)
 - **Qwen3.8-Flash-Next** · Strata `GSQ RCO IQ3_XXS` — RTX 5090 32GB（限 450W）+ Ryzen 7 9800X3D + 60.5GB DDR5 → **202.1 tok/s** ✅ [来源](https://github.com/Niko1221/Strata/pull/2165)
 - **Qwen3.8-Flash-Next** · Strata `IQ2_XS` — RTX 5090 + 256GB RAM → **176 tok/s** ✅ [来源](https://x.com/TechPractice1/status/2105087037363884483)
-- *……另有 102 条，见 [配方库](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)。*
+- *……另有 101 条，见 [配方库](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)。*
 
 **🖼️ 图像**
 
@@ -325,7 +325,7 @@ X 上互动最多的配方帖（按 点赞 + 3×转发 排序；同一帖子只�
 
 ## 价格未公开
 
-按张计价的多卡组合、未注明内存（因而无法定价）的 Mac 以及其他没有单一公开价格的配方 · 共 153 条。按 tok/s 排名靠前的文字配方：
+按张计价的多卡组合、未注明内存（因而无法定价）的 Mac 以及其他没有单一公开价格的配方 · 共 154 条。按 tok/s 排名靠前的文字配方：
 
 - **Qwen3.6-35B-A3B** · DFlash `DFlash 2` — Mac Studio M3 Ultra → **251 tok/s** 📣 [来源](https://x.com/tinybluedev/status/2089910202606764530)
 - **Qwen3.6-35B-A3B-Escha-W2** · SGLang `Escha W2（16GB 配方）` — RTX 5080 16GB → **212 tok/s** 📣 [来源](https://huggingface.co/EschaLabs/Qwen3.6-35B-A3B-Escha-W2)
@@ -339,7 +339,7 @@ X 上互动最多的配方帖（按 点赞 + 3×转发 排序；同一帖子只�
 - **Qwen3.6-35B-A3B** · llama.cpp `Q4` — RTX 5090 笔记本 → **157 tok/s** ✅ [来源](https://x.com/sudoingX/status/2110400760601317696)
 - **Qwen3.8-Flash-Next** · strata-mlx `Q2_0（Strata GGUF）+ 草稿头` — Mac Studio M5 Ultra（内存未注明） → **156 tok/s** 🏛️ [来源](https://x.com/yibie/status/2110577994964303952)
 - **Qwen3.8-27B** · vLLM `vLLM 等（Reddit u/tonnyygama）` — CMP 170HX（解锁 64GB 矿卡） → **147 tok/s** 🔁 [来源](https://x.com/LFrefman/status/2101572845017178243)
-- *……全部 153 条见 [配方库](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)。*
+- *……全部 154 条见 [配方库](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)。*
 
 
 ## 引擎与工具

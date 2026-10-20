@@ -244,7 +244,7 @@ X で反応が多かったレシピ投稿（いいね + リポスト×3 の順�
 
 ## 第 2 段階 · 2,500〜7,000 ドル
 
-*RTX 5090 1 枚、DGX Spark 1 台、Mac Studio Max* · 130 件
+*RTX 5090 1 枚、DGX Spark 1 台、Mac Studio Max* · 129 件
 
 
 **📝 テキスト**
@@ -259,7 +259,7 @@ X で反応が多かったレシピ投稿（いいね + リポスト×3 の順�
 - **Qwen3.8-Flash-Next** · Strata `ISTA-DASLab GSQ-RCO GGUF IQ…` — RTX 5090 32GB → **204 tok/s** ✅ [出典](https://x.com/niklaslenz_ai/status/2110132306061013386)
 - **Qwen3.8-Flash-Next** · Strata `GSQ RCO IQ3_XXS` — RTX 5090 32GB+ Ryzen 7 9800X3D + 60.5GB DDR5 → **202.1 tok/s** ✅ [出典](https://github.com/Niko1221/Strata/pull/2165)
 - **Qwen3.8-Flash-Next** · Strata `IQ2_XS` — RTX 5090 + 256GB RAM → **176 tok/s** ✅ [出典](https://x.com/TechPractice1/status/2105087037363884483)
-- *…ほか 102 件は[エクスプローラー](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)で。*
+- *…ほか 101 件は[エクスプローラー](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)で。*
 
 **🖼️ 画像**
 
@@ -325,7 +325,7 @@ X で反応が多かったレシピ投稿（いいね + リポスト×3 の順�
 
 ## 価格非公開
 
-1 枚単位で価格が出ているマルチ GPU 構成、メモリ（＝価格）が不明な Mac など、単一の公開価格がないレシピ · 153 件。tok/s 上位のテキストレシピ：
+1 枚単位で価格が出ているマルチ GPU 構成、メモリ（＝価格）が不明な Mac など、単一の公開価格がないレシピ · 154 件。tok/s 上位のテキストレシピ：
 
 - **Qwen3.6-35B-A3B** · DFlash `DFlash 2` — Mac Studio M3 Ultra → **251 tok/s** 📣 [出典](https://x.com/tinybluedev/status/2089910202606764530)
 - **Qwen3.6-35B-A3B-Escha-W2** · SGLang `Escha W2` — RTX 5080 16GB → **212 tok/s** 📣 [出典](https://huggingface.co/EschaLabs/Qwen3.6-35B-A3B-Escha-W2)
@@ -339,7 +339,7 @@ X で反応が多かったレシピ投稿（いいね + リポスト×3 の順�
 - **Qwen3.6-35B-A3B** · llama.cpp `Q4` — RTX 5090 → **157 tok/s** ✅ [出典](https://x.com/sudoingX/status/2110400760601317696)
 - **Qwen3.8-Flash-Next** · strata-mlx `Q2_0` — Mac Studio M5 Ultra → **156 tok/s** 🏛️ [出典](https://x.com/yibie/status/2110577994964303952)
 - **Qwen3.8-27B** · vLLM `vLLM` — CMP 170HX → **147 tok/s** 🔁 [出典](https://x.com/LFrefman/status/2101572845017178243)
-- *…全 153 件は[エクスプローラー](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)で見られます。*
+- *…全 154 件は[エクスプローラー](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html)で見られます。*
 
 
 ## エンジンとツール

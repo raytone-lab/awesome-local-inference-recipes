@@ -244,7 +244,7 @@ Engine names are normalized (`scripts/normalize_engines.py`); original strings a
 
 ## Tier 2 · $2.5k–7k
 
-*One RTX 5090, one DGX Spark, Mac Studio Max* · 130 recipes
+*One RTX 5090, one DGX Spark, Mac Studio Max* · 129 recipes
 
 
 **📝 Text**
@@ -259,7 +259,7 @@ Engine names are normalized (`scripts/normalize_engines.py`); original strings a
 - **Qwen3.8-Flash-Next** · Strata `ISTA-DASLab GSQ-RCO GGUF IQ…` — RTX 5090 32GB → **204 tok/s** ✅ [source](https://x.com/niklaslenz_ai/status/2110132306061013386)
 - **Qwen3.8-Flash-Next** · Strata `GSQ RCO IQ3_XXS` — RTX 5090 32GB+ Ryzen 7 9800X3D + 60.5GB DDR5 → **202.1 tok/s** ✅ [source](https://github.com/Niko1221/Strata/pull/2165)
 - **Qwen3.8-Flash-Next** · Strata `IQ2_XS` — RTX 5090 + 256GB RAM → **176 tok/s** ✅ [source](https://x.com/TechPractice1/status/2105087037363884483)
-- *…and 102 more in the [explorer](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html).*
+- *…and 101 more in the [explorer](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html).*
 
 **🖼️ Image**
 
@@ -325,7 +325,7 @@ Engine names are normalized (`scripts/normalize_engines.py`); original strings a
 
 ## Cost Not Published
 
-Multi-card builds priced per card, Macs whose memory (and so price) is not stated, and other rows without a single published price · 153 recipes. Top text recipes by tok/s:
+Multi-card builds priced per card, Macs whose memory (and so price) is not stated, and other rows without a single published price · 154 recipes. Top text recipes by tok/s:
 
 - **Qwen3.6-35B-A3B** · DFlash `DFlash 2` — Mac Studio M3 Ultra → **251 tok/s** 📣 [source](https://x.com/tinybluedev/status/2089910202606764530)
 - **Qwen3.6-35B-A3B-Escha-W2** · SGLang `Escha W2` — RTX 5080 16GB → **212 tok/s** 📣 [source](https://huggingface.co/EschaLabs/Qwen3.6-35B-A3B-Escha-W2)
@@ -339,7 +339,7 @@ Multi-card builds priced per card, Macs whose memory (and so price) is not state
 - **Qwen3.6-35B-A3B** · llama.cpp `Q4` — RTX 5090 → **157 tok/s** ✅ [source](https://x.com/sudoingX/status/2110400760601317696)
 - **Qwen3.8-Flash-Next** · strata-mlx `Q2_0` — Mac Studio M5 Ultra → **156 tok/s** 🏛️ [source](https://x.com/yibie/status/2110577994964303952)
 - **Qwen3.8-27B** · vLLM `vLLM` — CMP 170HX → **147 tok/s** 🔁 [source](https://x.com/LFrefman/status/2101572845017178243)
-- *…browse all 153 in the [explorer](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html).*
+- *…browse all 154 in the [explorer](https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html).*
 
 
 ## Engines & Tools
