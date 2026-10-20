@@ -10281,7 +10281,7 @@
     "context": "262K",
     "launch_command": null,
     "source_url": "https://x.com/sudoingX/status/2109957456709472609",
-    "source_note": "@sudoingX on X（另见 2110538144659677184：首版 74 → 141 tok/s 结构化，255K 提示 <3 分钟）",
+    "source_note": "@sudoingX on X（另见 2110538144659677184：首版 74 → 141 tok/s 结构化，255K 提示 <3 分钟）；1017 重建见 x-088（v1.2，散文 59.2 / 代码 100.7，KLD 0.0243）",
     "source_level": "实测",
     "date": "2026-10-13",
     "x_post": {
@@ -10307,7 +10307,7 @@
       "model": "DeepSeek-V4.1-Flash (sudoingX 2.7-bit mixed-bit-width experts)",
       "engine_note": "vLLM + DSpark speculative decoding (recipe v1.1)",
       "hardware_cost_text": "≈$13,900 (2×$6,950, computed)",
-      "source_note": "@sudoingX on X (see also 2110538144659677184: first version 74 → 141 tok/s structured, 255K prompt <3 minutes)"
+      "source_note": "@sudoingX on X (see also 2110538144659677184: first version 74 → 141 tok/s structured, 255K prompt <3 minutes); 1017 rebuild: x-088 (v1.2, prose 59.2 / code 100.7, KLD 0.0243)"
     }
   },
   {
@@ -13382,7 +13382,7 @@
     "context": "1,048,576",
     "launch_command": "cp .env.example .env && scripts/download.sh && scripts/patch_template.py --worker && docker/build.sh && scripts/host_tuning.sh && ./start.sh",
     "source_url": "https://github.com/Elevatormusic/DeepSeek-V4.1-Flash-1017-EXL3-TensorFold-2x-DGX-Spark",
-    "source_note": "Elevatormusic 仓库 README + runs/ 运行记录（Reddit u/shayanx45 同步发帖；引擎基于 bertholomus 的 V4.1 TP2 移植，作者称 prefill 比其公布值低）",
+    "source_note": "Elevatormusic 仓库 README + runs/ 运行记录（Reddit u/shayanx45 同步发帖；引擎基于 bertholomus 的 V4.1 TP2 移植，作者称 prefill 比其公布值低）；同机型更快配方见 comm-049（MiaAI EAQv1 2.9，散文 74.9）",
     "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "Elevatormusic",
@@ -13392,7 +13392,7 @@
       "hardware": "2× DGX Spark (GB10, direct CX7 link)",
       "concurrency": "Single stream (2–4 stream aggregates also measured)",
       "engine_note": "TensorFold (Elevatormusic fork @92aa710b: TensorFold 0.6.6 + bertholomus V4.1 TP2 engine + PRs #1–#4)",
-      "source_note": "Elevatormusic repo README + saved runs/ (also posted on Reddit by u/shayanx45; engine is bertholomus's V4.1 TP2 port; author notes prefill is below bertholomus's published numbers)",
+      "source_note": "Elevatormusic repo README + saved runs/ (also posted on Reddit by u/shayanx45; engine is bertholomus's V4.1 TP2 port; author notes prefill is below bertholomus's published numbers); faster same-class recipe: comm-049 (MiaAI EAQv1 2.9, prose 74.9)",
       "hardware_cost_text": "≈$13,900 (2×$6,950, computed)"
     },
     "model_family": "DeepSeek",
@@ -13690,7 +13690,7 @@
     "context": "131,072 上限（测至 128K）",
     "launch_command": null,
     "source_url": "https://www.reddit.com/r/LocalLLM/comments/1x8ral0/",
-    "source_note": "u/OddElection1729 J 行（与 K 行 Infernix 同机配对；帖内另有 11 组历史配置）",
+    "source_note": "u/OddElection1729 J 行（与 K 行 Infernix 同机配对；帖内另有 11 组历史配置）；2026-10-20 https://x.com/M_GamaIEldin/status/2112300767122247757 同机型 Strata NVFP4 146–156 区间佐证",
     "source_level": "实测",
     "date": "2026-10-18",
     "measured_by": "OddElection1729",
@@ -13701,7 +13701,7 @@
       "concurrency": "Single stream",
       "context": "131,072 cap (tested up to 128K)",
       "engine_note": "Strata 0.1.42-nvfp4.2 (NVFP4 fork, commit 2570c9a3); MTP --spec 6 --spec-min-p 0.7; KV int8",
-      "source_note": "u/OddElection1729 row J (paired with Infernix row K on the same machine; post also lists 11 historical configs)",
+      "source_note": "u/OddElection1729 row J (paired with Infernix row K on the same machine; post also lists 11 historical configs); 2026-10-20 https://x.com/M_GamaIEldin/status/2112300767122247757 same-class Strata NVFP4 146–156 corroborates the band",
       "hardware_cost_text": "$5,400–6,995 (new card street price, 2026-10-11; MSRP $1,999)"
     },
     "model_family": "Qwen",
@@ -13953,5 +13953,356 @@
         "tok_s": 132
       }
     ]
+  },
+  {
+    "id": "comm-049",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "Mia-AiLab EXL3-EAQv1 2.9bpw + 官方 1017 Engram（TP=2，DSpark）",
+    "engine": "TensorFold",
+    "engine_raw": "TensorFold（native Zig 0.17.0 / BertholomusAI dsv41 TP=2；镜像 tensorfold-dsv41:exl3-tp2-136c93b359b4，tensorfold-native 1.0.2）",
+    "engine_note": "TensorFold（native Zig 0.17.0 / BertholomusAI dsv41 TP=2；镜像 tensorfold-dsv41:exl3-tp2-136c93b359b4，tensorfold-native 1.0.2）",
+    "hardware": "2× DGX Spark（GB10，CX7）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
+    "hardware_cost_usd": 13900,
+    "metric": "sparkDash（CONTEXT=524288，草稿开）：单流散文 74.9 / 代码 109.9；4 流合计散文 130.0 / 代码 155.5；冷 prefill 8K–256K 约 2,000–2,183；权重卡注明 experimental、无相对未量化 PPL/KL；同机型 Elevatormusic（comm-038）散文 56.8",
+    "metric_en": "sparkDash (CONTEXT=524288, drafts on): single-stream prose 74.9 / code 109.9; 4-stream aggregate prose 130.0 / code 155.5; cold prefill 8K–256K about 2,000–2,183; weight card is experimental with no PPL/KL vs unquantized; same-class Elevatormusic (comm-038) prose 56.8",
+    "tok_s": 74.9,
+    "concurrency": "单流（另测 2/4 流合计）",
+    "context": "524,288（测速 CONTEXT；模型窗至 1,048,576）",
+    "launch_command": "CONTEXT=524288 ./start.sh",
+    "source_url": "https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks",
+    "source_note": "MiaAI-Lab 仓库 README + sparkDash 表（同步 X @MiaAI_lab/status/2112105974546694249；权重 Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw）",
+    "source_level": "实测",
+    "date": "2026-10-19",
+    "measured_by": "MiaAI_lab",
+    "en": {
+      "quant": "Mia-AiLab EXL3-EAQv1 2.9bpw + official 1017 Engram (TP=2, DSpark)",
+      "hardware": "2× DGX Spark (GB10, CX7)",
+      "concurrency": "Single stream (2/4-stream aggregates also measured)",
+      "context": "524,288 (benchmark CONTEXT; model window up to 1,048,576)",
+      "engine_note": "TensorFold (native Zig 0.17.0 / BertholomusAI dsv41 TP=2; image tensorfold-dsv41:exl3-tp2-136c93b359b4, tensorfold-native 1.0.2)",
+      "source_note": "MiaAI-Lab repo README + sparkDash table (also X @MiaAI_lab/status/2112105974546694249; weights Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw)",
+      "hardware_cost_text": "≈$13,900 (2×$6,950, computed)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 74.9
+      },
+      {
+        "n": 2,
+        "tok_s": 105.5
+      },
+      {
+        "n": 4,
+        "tok_s": 130.0
+      }
+    ],
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "long-context",
+      "speculative",
+      "multi-GPU"
+    ],
+    "source_id": "src-d3b6f0a861"
+  },
+  {
+    "id": "x-088",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "sudoingX EXL3 专家均 2.70bpw + 官方 1017 Engram（TP=2，DSpark）",
+    "engine": "vLLM",
+    "hardware": "2× DGX Spark",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
+    "hardware_cost_usd": 13900,
+    "metric": "v1.2 set b：散文 59.2 / 代码 100.7 / 结构化 141.3（同会话 launch 构建 58.0 / 103.0 / 142.6）；KLD vs native 1017 0.0243、top-1 95.47%（同面板 LibertAIDAI 2.9 为 KLD 0.0304）；v1.2 prefill 未重测；v1.1 的 8K/32K 2,090/2,092 见 x-059",
+    "metric_en": "v1.2 set b: prose 59.2 / code 100.7 / structured 141.3 (same session launch build 58.0 / 103.0 / 142.6); KLD vs native 1017 0.0243, top-1 95.47% (same panel LibertAIDAI 2.9 is KLD 0.0304); v1.2 prefill not re-measured; v1.1 8K/32K 2,090/2,092 in x-059",
+    "tok_s": 59.2,
+    "concurrency": "单流（MAX_SEQS=2）",
+    "context": "262,144",
+    "launch_command": "PEER=<second-spark> ./install.sh && HEAD=<rank0> WORKER=<rank1> MODEL_DIR=/path/to/dsv41-exl3 ./scripts/launch/dsv41_tp2.sh up",
+    "source_url": "https://github.com/sudoingX/dgx-spark-deepseek-v41",
+    "source_note": "sudoingX 仓库 README v1.2（同步 X @sudoingX/status/2112333223296680060；权重 sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw；旧 launch 构建见 x-059）",
+    "source_level": "实测",
+    "date": "2026-10-20",
+    "measured_by": "sudoingX",
+    "en": {
+      "quant": "sudoingX EXL3 experts avg 2.70bpw + official 1017 Engram (TP=2, DSpark)",
+      "hardware": "2× DGX Spark",
+      "concurrency": "Single stream (MAX_SEQS=2)",
+      "engine_note": "vLLM (upstream + sudoingX patches and decode kernels + TensorFold RDMA/prompt kernels; recipe v1.2, 1017 rebuild)",
+      "source_note": "sudoingX repo README v1.2 (also X @sudoingX/status/2112333223296680060; weights sudoingx/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw; older launch build: x-059)",
+      "hardware_cost_text": "≈$13,900 (2×$6,950, computed)"
+    },
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context",
+      "speculative",
+      "multi-GPU"
+    ],
+    "source_id": "src-258b36fac5",
+    "engine_raw": "vLLM（upstream + sudoingX 补丁与 decode kernels + TensorFold RDMA/prompt kernels；recipe v1.2，1017 重建）",
+    "engine_note": "vLLM（upstream + sudoingX 补丁与 decode kernels + TensorFold RDMA/prompt kernels；recipe v1.2，1017 重建）"
+  },
+  {
+    "id": "text-150",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "BobClawblaw TensorFold e2e3-p4-h8（418 GB）+ 官方 Engram",
+    "engine": "TensorFold",
+    "hardware": "Mac Studio M5 Ultra 80C 256GB",
+    "hardware_family": "Mac",
+    "hardware_cost_text": "$10,799（M5 Ultra 36C CPU/80C GPU · 256GB；Apple 美国首发价，2026-08，基础 1TB SSD）",
+    "hardware_cost_usd": 10799,
+    "metric": "recipe-harness 单流（草稿开、思考关、greedy）：散文 67.5 / 代码 87.5 / 结构化 77.6 / 列表 94.4；4 流合计散文 93.5 / 代码 101.4；冷 prefill ~2k–131k（思考关）约 1,093–1,256；1M 针测通过；仓名含 mlx，正文为 TensorFold Metal",
+    "metric_en": "recipe-harness single stream (drafts on, thinking off, greedy): prose 67.5 / code 87.5 / structured 77.6 / list 94.4; 4-stream aggregate prose 93.5 / code 101.4; cold prefill ~2k–131k (thinking off) about 1,093–1,256; 1M needle passed; repo name says mlx, body is TensorFold Metal",
+    "tok_s": 67.5,
+    "concurrency": "单流（另测至 4 流合计）",
+    "context": "1,048,576",
+    "launch_command": "python3 -m mac validate && python3 -m mac up",
+    "source_url": "https://github.com/BobClawblaw/deepseek-v41-flash-mlx-m5-ultra",
+    "source_note": "BobClawblaw 仓库 README + recipe-harness stats/（权重 BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8）",
+    "source_level": "实测",
+    "date": "2026-10-19",
+    "measured_by": "BobClawblaw",
+    "en": {
+      "quant": "BobClawblaw TensorFold e2e3-p4-h8 (418 GB) + official Engram",
+      "hardware": "Mac Studio M5 Ultra 80C 256GB",
+      "concurrency": "Single stream (aggregates up to 4 streams also measured)",
+      "engine_note": "TensorFold (BobClawblaw/TensorFold deepseek-v41-main @f8a3ce2f, not upstream; speed harness used 6a4d7be7 / multi-stream c4c69219)",
+      "source_note": "BobClawblaw repo README + recipe-harness stats/ (weights BobClawblaw/DeepSeek-V4.1-Flash-1017-TensorFold-e2e3-p4-h8)",
+      "hardware_cost_text": "$10,799 (M5 Ultra 36C CPU/80C GPU · 256GB; Apple US launch price, 2026-08, base 1TB SSD)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 67.5
+      },
+      {
+        "n": 2,
+        "tok_s": 82.1
+      },
+      {
+        "n": 4,
+        "tok_s": 93.5
+      }
+    ],
+    "model_family": "DeepSeek",
+    "tags": [
+      "long-context",
+      "speculative"
+    ],
+    "source_id": "src-755a29e484",
+    "engine_raw": "TensorFold（BobClawblaw/TensorFold deepseek-v41-main @f8a3ce2f，非 upstream；测速 harness 用 6a4d7be7 / 多流 c4c69219）",
+    "engine_note": "TensorFold（BobClawblaw/TensorFold deepseek-v41-main @f8a3ce2f，非 upstream；测速 harness 用 6a4d7be7 / 多流 c4c69219）"
+  },
+  {
+    "id": "comm-050",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "Intel W4A16-AutoRound + 原生 MTP",
+    "engine": "vLLM",
+    "hardware": "2× CMP 170HX（各暴露 64GB，PCIe Gen2 x4，无 x16 改装）+ 93GB RAM + NVMe",
+    "hardware_family": "二手数据中心卡",
+    "hardware_cost_text": "≈$6,390（2×$3,195 解锁64GB，仅显卡，2026-10-13 口径）",
+    "hardware_cost_usd": 6390,
+    "metric": "sparkDash 中位×3（测于 2026-10-17Z，仓库 2026-10-17Z 建成，Reddit 约 2026-10-19 SGT 窗口内首次公开）：单流代码 226.2 / 散文 157.4 / 结构化 250.8；8 流合计代码 840.4（单请求约 116）；冷 prefill 4k–64k 约 6.3k–7.1k；HumanEval 157/164；C8 为合计",
+    "metric_en": "sparkDash median of 3 (measured 2026-10-17Z; repo built 2026-10-17Z; first public via Reddit ~2026-10-19 SGT in window): single-stream code 226.2 / prose 157.4 / structured 250.8; 8-stream aggregate code 840.4 (~116 per request); cold prefill 4k–64k about 6.3k–7.1k; HumanEval 157/164; C8 is aggregate",
+    "tok_s": 226.2,
+    "concurrency": "单流（另测 2/4/8 流合计）",
+    "context": "262,144",
+    "launch_command": "./download.sh && ./start.sh",
+    "source_url": "https://github.com/AlexBrandes/cmp170hx-qwen38-flash-next",
+    "source_note": "AlexBrandes 仓库 README（Reddit r/LocalLLaMA 1x9iufz / u/dead-fish 同步；Intel/Qwen3.8-Flash-Next-W4A16-AutoRound）",
+    "source_level": "实测",
+    "date": "2026-10-19",
+    "measured_by": "AlexBrandes",
+    "en": {
+      "quant": "Intel W4A16-AutoRound + native MTP",
+      "hardware": "2× CMP 170HX (64GB exposed each, PCIe Gen2 x4, no x16 mod) + 93GB RAM + NVMe",
+      "concurrency": "Single stream (2/4/8-stream aggregates also measured)",
+      "engine_note": "vLLM (AlexBrandes v0.30.0 fork, cmp170hx-qwen38-flash-next branch + native MTP; PLE table mmap from NVMe)",
+      "source_note": "AlexBrandes repo README (also Reddit r/LocalLLaMA 1x9iufz / u/dead-fish; Intel/Qwen3.8-Flash-Next-W4A16-AutoRound)",
+      "hardware_cost_text": "≈$6,390 (2×$3,195 unlocked 64GB, cards only, 2026-10-13 pricing)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 226.2
+      },
+      {
+        "n": 2,
+        "tok_s": 362.9
+      },
+      {
+        "n": 4,
+        "tok_s": 560.2
+      },
+      {
+        "n": 8,
+        "tok_s": 840.4
+      }
+    ],
+    "model_family": "Qwen",
+    "tags": [
+      "long-context",
+      "speculative",
+      "MTP",
+      "multi-GPU",
+      "offload"
+    ],
+    "source_id": "src-c516a1d1b2",
+    "engine_raw": "vLLM（AlexBrandes v0.30.0 fork，cmp170hx-qwen38-flash-next 分支 + 原生 MTP；PLE 表 mmap NVMe）",
+    "engine_note": "vLLM（AlexBrandes v0.30.0 fork，cmp170hx-qwen38-flash-next 分支 + 原生 MTP；PLE 表 mmap NVMe）"
+  },
+  {
+    "id": "x-089",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "bertholomus EXL3 4.0bpw（总约 4.02）+ 官方 1017 Engram（TP4，DSpark）",
+    "engine": "TensorFold",
+    "hardware": "4× DGX Spark（GB10，RoCE）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$27,800（4×$6,950，计算值）",
+    "hardware_cost_usd": 27800,
+    "metric": "recipe v0.2.0 set b 中位：单流代码 135.9 / 散文 79.1 / 结构化 186.6；4 流合计 141.7，4 流持续 90s 合计 183.1；冷 prefill 8K 2,793、128K 2,679；4.02bpw 比 v0.1.1 的 2.9bpw（pre-1017 Mia 权重）慢约 15–17%；KL 未测；X 帖写代码 136 / 4 流 183",
+    "metric_en": "recipe v0.2.0 set b median: single-stream code 135.9 / prose 79.1 / structured 186.6; 4-stream aggregate 141.7, 4-stream sustained 90s aggregate 183.1; cold prefill 8K 2,793, 128K 2,679; 4.02bpw is about 15–17% slower than v0.1.1 2.9bpw (pre-1017 Mia weights); KL not measured; X post quotes code 136 / 4-stream 183",
+    "tok_s": 79.1,
+    "concurrency": "单流（另测 2/4 流合计）",
+    "context": "1,048,576（16 streams 共享至 2,097,152）",
+    "launch_command": "scripts/serve.sh",
+    "source_url": "https://github.com/bertholomus/deepseek-v4.1-tensorfold-tp4-4xgb10",
+    "source_note": "bertholomus 配方仓 README v0.2.0 + HF 权重卡（同步 X @bertholomusai/status/2112042352034611292；权重 bertholomus/DeepSeek-V4.1-Flash-1017-EXL3-4.0bpw）",
+    "source_level": "实测",
+    "date": "2026-10-19",
+    "measured_by": "bertholomusai",
+    "en": {
+      "quant": "bertholomus EXL3 4.0bpw (~4.02 overall) + official 1017 Engram (TP4, DSpark)",
+      "hardware": "4× DGX Spark (GB10, RoCE)",
+      "concurrency": "Single stream (2/4-stream aggregates also measured)",
+      "context": "1,048,576 (16 streams share up to 2,097,152)",
+      "engine_note": "TensorFold (bertholomus/TensorFold deepseek-v41-zig-tp4; recipe v0.2.0, ENGINE_COMMIT pinned)",
+      "source_note": "bertholomus recipe repo README v0.2.0 + HF weight card (also X @bertholomusai/status/2112042352034611292; weights bertholomus/DeepSeek-V4.1-Flash-1017-EXL3-4.0bpw)",
+      "hardware_cost_text": "≈$27,800 (4×$6,950, computed)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 79.1
+      },
+      {
+        "n": 2,
+        "tok_s": 101.6
+      },
+      {
+        "n": 4,
+        "tok_s": 141.7
+      }
+    ],
+    "model_family": "DeepSeek",
+    "tags": [
+      "4bit",
+      "long-context",
+      "speculative",
+      "multi-GPU"
+    ],
+    "source_id": "src-5193f9272b",
+    "engine_raw": "TensorFold（bertholomus/TensorFold deepseek-v41-zig-tp4；recipe v0.2.0，ENGINE_COMMIT 钉死）",
+    "engine_note": "TensorFold（bertholomus/TensorFold deepseek-v41-zig-tp4；recipe v0.2.0，ENGINE_COMMIT 钉死）"
+  },
+  {
+    "id": "comm-051",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "HeNryous EXL3 专家 2.75bpw（dense 5 / head 6）+ 官方 1017 Engram（TP=2，DSpark）",
+    "engine": "vLLM",
+    "hardware": "2× DGX Spark（GB10；GPU 锁频 2000 MHz）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
+    "hardware_cost_usd": 13900,
+    "metric": "散文约 57 tok/s（1 流）/ 合计约 91（3 流）；Elevatormusic 同脚本：散文 50.6、代码 82.4–88.9（对照 TF 56.8/92.2，TF 仍更快）；KLD 0.0201 / top-1 95.96%；冷 314K prefill 2,066；本机锁 2000 MHz；Elevatormusic 日志约 2.4 GHz（其帖未写死）",
+    "metric_en": "prose about 57 tok/s (1 stream) / aggregate about 91 (3 streams); Elevatormusic same scripts: prose 50.6, code 82.4–88.9 (vs TF 56.8/92.2, TF still faster); KLD 0.0201 / top-1 95.96%; cold 314K prefill 2,066; this run locked at 2000 MHz; Elevatormusic logs ~2.4 GHz (their post does not pin a clock)",
+    "tok_s": 57.0,
+    "concurrency": "单流（另测 3 流合计）",
+    "context": "320,000（KV 池约 989K）",
+    "launch_command": null,
+    "source_url": "https://forums.developer.nvidia.com/t/386295",
+    "source_note": "NVIDIA 论坛 386295（发帖人 renek）+ HeNryous 仓库/权重卡（权重 HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark；github.com/HeNryous/deepseek-v41-1017-dgx-spark）",
+    "source_level": "实测",
+    "date": "2026-10-19",
+    "measured_by": "HeNryous",
+    "en": {
+      "quant": "HeNryous EXL3 experts 2.75bpw (dense 5 / head 6) + official 1017 Engram (TP=2, DSpark)",
+      "hardware": "2× DGX Spark (GB10; GPU clock locked 2000 MHz)",
+      "concurrency": "Single stream (3-stream aggregate also measured)",
+      "context": "320,000 (KV pool ~989K)",
+      "engine_note": "vLLM (sudoingX v1.1 recipe image + HeNryous patches; ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v4i)",
+      "source_note": "NVIDIA forum 386295 (poster renek) + HeNryous repo/weight card (weights HeNryous/DeepSeek-V4.1-Flash-1017-EXL3-2.75bpw-DGX-Spark; github.com/HeNryous/deepseek-v41-1017-dgx-spark)",
+      "hardware_cost_text": "≈$13,900 (2×$6,950, computed)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 57.0
+      },
+      {
+        "n": 3,
+        "tok_s": 91.0
+      }
+    ],
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context",
+      "speculative",
+      "multi-GPU"
+    ],
+    "source_id": "src-da8d9b6699",
+    "engine_raw": "vLLM（sudoingX v1.1 配方镜像 + HeNryous 补丁；ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v4i）",
+    "engine_note": "vLLM（sudoingX v1.1 配方镜像 + HeNryous 补丁；ghcr.io/henryous/deepseek-v41-1017-dgx-spark:v4i）"
+  },
+  {
+    "id": "x-090",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ3_S",
+    "engine": "Strata",
+    "engine_raw": "Strata（0.2.0-beta HIP；手工打开 RDNA3/gfx1100 速度开关：SPLIT_OVERLAP + decode 开关 + PF_FUSED/PF_GEMM）",
+    "engine_note": "Strata（0.2.0-beta HIP；手工打开 RDNA3/gfx1100 速度开关：SPLIT_OVERLAP + decode 开关 + PF_FUSED/PF_GEMM）",
+    "hardware": "AMD Radeon PRO W7800 48GB + RX 7900 XTX 24GB + Ryzen 5 7600 + 64GB DDR5-6400",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "≈$3,207–3,507（W7800 街价估计 $2,200–2,500，未逐店核价；7900 XTX ≈$1,007 十月最低均价口径，与 comm-047 一致；仅显卡，2026-10）",
+    "hardware_cost_usd": null,
+    "metric": "默认安装解码 71.5；开 SPLIT_OVERLAP+decode 开关后 88.9（输出逐字相同）；再开 PF_FUSED+PF_GEMM 仍 88.9，28K prefill 1,155→2,012（摘要略变，数学基准仍 20/20）；双客户端合计增益仅约 5%",
+    "metric_en": "as-installed decode 71.5; with SPLIT_OVERLAP+decode switches 88.9 (bit-identical output); adding PF_FUSED+PF_GEMM still 88.9, 28K prefill 1,155→2,012 (summaries shift a little; math bench still 20/20); two-client aggregate gain only ~5%",
+    "tok_s": 88.9,
+    "concurrency": "单流（parallel 2 配置；另测双客户端）",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://orkun.soylu.me/posts/2026-10-19-strata-gfx1100-switches/",
+    "source_note": "Orkun Soylu 博文（同步 X @Orkun_Soylu/status/2112304534143766548；Strata 对 gfx1100 默认不打开这些开关）",
+    "source_level": "实测",
+    "date": "2026-10-19",
+    "measured_by": "Orkun_Soylu",
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ3_S",
+      "hardware": "AMD Radeon PRO W7800 48GB + RX 7900 XTX 24GB + Ryzen 5 7600 + 64GB DDR5-6400",
+      "concurrency": "Single stream (parallel 2 config; two-client case also measured)",
+      "engine_note": "Strata (0.2.0-beta HIP; RDNA3/gfx1100 speed switches turned on by hand: SPLIT_OVERLAP + decode switches + PF_FUSED/PF_GEMM)",
+      "source_note": "Orkun Soylu post (also X @Orkun_Soylu/status/2112304534143766548; Strata leaves these off for gfx1100 by default)",
+      "hardware_cost_text": "≈$3,207–3,507 (W7800 street estimate $2,200–2,500, not store-checked; 7900 XTX ≈$1,007 Oct low-average, same as comm-047; cards only, 2026-10)"
+    },
+    "model_family": "Qwen",
+    "tags": [
+      "3bit"
+    ],
+    "source_id": "src-43752034d7"
   }
 ]
