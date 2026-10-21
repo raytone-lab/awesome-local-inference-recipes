@@ -91,4 +91,33 @@ class HardwarePages(unittest.TestCase):
                 self.assertEqual(missed, [], page.slug)
 
 
+class RecipePageDownloads(unittest.TestCase):
+    ROW = {'id': 'x', 'category': 'text', 'model': 'M', 'engine': 'Strata (Strata-DS fork)', 'hardware': 'H',
+           'hardware_family': 'DGX Spark', 'source_url': 'https://github.com/a/b/blob/main/docs/R.md', 'source_level': '实测',
+           'model_family': 'DeepSeek', 'tags': []}
+
+    def test_downloads_are_listed_in_every_language(self):
+        row = dict(self.ROW, downloads=['https://huggingface.co/org/quant', 'https://huggingface.co/org/base'])
+        for lang in ('en', 'zh', 'ja'):
+            page = gen_recipe_pages.page(row, lang)
+            self.assertIn('[huggingface.co/org/quant](https://huggingface.co/org/quant)', page, lang)
+            self.assertIn('[huggingface.co/org/base](https://huggingface.co/org/base)', page, lang)
+
+    def test_a_fork_links_its_own_repository(self):
+        page = gen_recipe_pages.page(dict(self.ROW), 'en')
+        self.assertIn('https://github.com/Jackwwg83/Strata-DS', page)
+        self.assertNotIn('Niko1221/Strata', page)
+
+    def test_without_downloads_a_hugging_face_source_is_linked(self):
+        row = dict(self.ROW, source_url='https://huggingface.co/org/model')
+        self.assertIn('[huggingface.co/org/model](https://huggingface.co/org/model)', gen_recipe_pages.page(row, 'en'))
+
+    def test_download_pattern_rejects_unsafe_links(self):
+        import json
+        pat = re.compile(json.loads((R / 'schema/recipe.schema.json').read_text())['properties']['downloads']['items']['pattern'])
+        self.assertTrue(pat.match('https://huggingface.co/org/quant'))
+        for bad in ('http://huggingface.co/org/quant', 'javascript:alert(1)', 'https://x](javascript:alert(1))', 'https://a b'):
+            self.assertIsNone(pat.match(bad), bad)
+
+
 if __name__ == '__main__': unittest.main()

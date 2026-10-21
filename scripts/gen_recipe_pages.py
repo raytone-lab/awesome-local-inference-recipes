@@ -10,8 +10,9 @@ GUIDES = [
  'hf-ddalcu-qwen3-8-flash-next-mlx-serve-mixed-4-8bit-1','hf-youssofal-qwen3-6-27b-mtplx-optimized-speed-1',
  'hf-prism-ml-ternary-bonsai-2-27b-gguf-5','hf-prism-ml-ternary-bonsai-2-27b-gguf-1','hf-byteshape-qwen3-8-27b-gguf-1',
  'hf-eschalabs-qwen3-6-35b-a3b-escha-w2-1','x-004','text-022','x-001','x-009','x-007','text-018',
- 'image-001','video-audio-001']
+ 'image-001','video-audio-001','comm-056','comm-057']
 ENGINE_URL = {
+ 'Strata (Strata-DS fork)':'https://github.com/Jackwwg83/Strata-DS',
  'llama.cpp':'https://github.com/ggml-org/llama.cpp','MLX':'https://github.com/ml-explore/mlx-lm','vLLM':'https://github.com/vllm-project/vllm',
  'SGLang':'https://github.com/sgl-project/sglang','ExLlama':'https://github.com/turboderp-org/exllamav3','Strata':'https://github.com/Niko1221/Strata',
  'oMLX':'https://github.com/jundot/omlx','TensorFold':'https://github.com/ashhart/TensorFold','LightX2V':'https://github.com/ModelTC/LightX2V',
@@ -42,6 +43,7 @@ def hf_repo(r):
     return m.group(1) if m else None
 def engine_url(e):
     if not e: return None
+    if e in ENGINE_URL: return ENGINE_URL[e]
     for k, u in ENGINE_URL.items():
         if e == k or e.startswith(k+' '): return u
 def page(r, lang):
@@ -69,10 +71,11 @@ def page(r, lang):
     L.append(f"- {h('参考价格','Reference cost')}: {cost or na}\n")
     L.append(f"## {h('模型','Model')}\n")
     L.append(f"- {F('model') or r['model']}" + (f" · `{F('quant')}`" if F('quant') else ''))
-    L.append(f"- {h('下载','Download')}: " + (f"[huggingface.co/{repo}](https://huggingface.co/{repo})" if repo else na) + '\n')
+    links = list(r.get('downloads') or []) or ([f"https://huggingface.co/{repo}"] if repo else [])
+    L.append(f"- {h('下载','Download')}: " + (' · '.join(f"[{u.split('://', 1)[1]}]({u})" for u in links) if links else na) + '\n')
     L.append(f"## {h('引擎','Engine')}\n")
     L.append(f"- {F('engine') or na}" + (f" — {h('安装见','install:')} {eu}" if eu else ''))
-    if r.get('engine_note') and F('engine_note'): L.append(f"- {h('备注','Note')}: {F('engine_note')}")
+    if F('engine_note'): L.append(f"- {h('备注','Note')}: {F('engine_note')}")
     L.append('')
     L.append(f"## {h('启动命令','Launch command')}\n")
     if cmd and T(cmd):
