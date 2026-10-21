@@ -15061,7 +15061,7 @@
     "context": "32,768（--context 32768；另测 256K 提示）",
     "launch_command": "sudo systemctl enable --now nvidia-powerd && git clone https://github.com/Jackwwg83/Strata-DS.git && cd Strata-DS && ./setup.sh --setup --yes --family deepseek --context 32768 --no-start && ./run-deepseek-sage-1.59bpw.sh",
     "source_url": "https://github.com/Jackwwg83/Strata-DS/blob/main/docs/DEEPSEEK_LAPTOP.md",
-    "source_note": "Strata-DS 笔记本配方页，作者实测（每条件 5 次中位；原始数据 ds41/bench/results/2026-10-16-laptop-5090；setup 下载 vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw 并打包）",
+    "source_note": "Strata-DS 笔记本配方页，作者实测（每条件 5 次中位；原始数据 ds41/bench/results/2026-10-16-laptop-5090；setup 下载 vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw 并打包；setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点）",
     "source_level": "实测",
     "date": "2026-10-16",
     "measured_by": "Jackwwg83",
@@ -15075,15 +15075,15 @@
       "hardware_cost_text": null,
       "concurrency": "Single stream",
       "context": "32,768 (--context 32768; 256K prompt also measured)",
-      "engine_note": "Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand). Setup warns that a PC with less than 120 GiB of RAM is not tested; --yes in the command accepts that",
-      "source_note": "Strata-DS laptop recipe page, author measured (medians of 5 runs per condition; raw data ds41/bench/results/2026-10-16-laptop-5090; setup downloads vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw and packs it)"
+      "engine_note": "Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand)",
+      "source_note": "Strata-DS laptop recipe page, author measured (medians of 5 runs per condition; raw data ds41/bench/results/2026-10-16-laptop-5090; setup downloads vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw and packs it; setup warns that a PC with less than 120 GiB of RAM is not tested, and --yes in the command accepts that)"
     },
     "source_id": "src-a7c7384141",
     "engine_fork": "Strata-DS",
     "downloads": [
       "https://huggingface.co/vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw"
     ],
-    "engine_raw": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点",
-    "engine_note": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点"
+    "engine_raw": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）",
+    "engine_note": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）"
   }
 ]

@@ -60,7 +60,7 @@ def apply(recipes):
     return recipes
 if __name__ == '__main__':
     p = ROOT / 'data/recipes.json'; D = json.load(open(p))
-    apply(D); json.dump(D, open(p, 'w'), ensure_ascii=False, indent=2)
+    apply(D); open(p, 'w').write(json.dumps(D, ensure_ascii=False, indent=2) + '\n')
     import collections
     print(collections.Counter(r['model_family'] for r in D).most_common())
     print(collections.Counter(t for r in D for t in r['tags']).most_common())

@@ -17,7 +17,7 @@
 ## 引擎
 
 - Strata (Strata-DS fork) — 安装见 https://github.com/Jackwwg83/Strata-DS
-- 备注: Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点
+- 备注: Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）
 
 ## 启动命令
 
@@ -37,7 +37,7 @@ sudo systemctl enable --now nvidia-powerd && git clone https://github.com/Jackww
 
 ## 注意事项
 
-- Strata-DS 笔记本配方页，作者实测（每条件 5 次中位；原始数据 ds41/bench/results/2026-10-16-laptop-5090；setup 下载 vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw 并打包）
+- Strata-DS 笔记本配方页，作者实测（每条件 5 次中位；原始数据 ds41/bench/results/2026-10-16-laptop-5090；setup 下载 vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw 并打包；setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点）
 - 速度随驱动、引擎版本、上下文长度和提示长度变化。
 
 ## 来源与致谢

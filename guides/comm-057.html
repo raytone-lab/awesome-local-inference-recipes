@@ -21,7 +21,7 @@
 <h2>Engine</h2>
 <ul>
 <li>Strata (Strata-DS fork) — install: https://github.com/Jackwwg83/Strata-DS</li>
-<li>Note: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand). Setup warns that a PC with less than 120 GiB of RAM is not tested; --yes in the command accepts that</li>
+<li>Note: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand)</li>
 </ul>
 <h2>Launch command</h2>
 <pre><code>sudo systemctl enable --now nvidia-powerd &amp;&amp; git clone https://github.com/Jackwwg83/Strata-DS.git &amp;&amp; cd Strata-DS &amp;&amp; ./setup.sh --setup --yes --family deepseek --context 32768 --no-start &amp;&amp; ./run-deepseek-sage-1.59bpw.sh</code></pre>

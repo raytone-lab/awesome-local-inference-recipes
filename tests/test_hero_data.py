@@ -10,6 +10,15 @@ def row(**k):
     r.update(k); return r
 
 
+class Clean(unittest.TestCase):
+    def test_removed_aside_keeps_word_gap(self):
+        self.assertEqual(H.clean('RTX 3090 24GB（300W）+ 41GiB RAM', 80), 'RTX 3090 24GB + 41GiB RAM')
+        self.assertEqual(H.clean('oQ4e（x）vs', 80), 'oQ4e vs')
+
+    def test_truncation_drops_trailing_joiner(self):
+        self.assertEqual(H.clean('ACEMAGIC Strix Halo 128GB + Mini PC', 27), 'ACEMAGIC Strix Halo 128GB…')
+
+
 class Hwkey(unittest.TestCase):
     def test_drops_parenthesized_notes(self):
         self.assertEqual(H.hwkey('单 RTX 3090 24GB（2026-10 实测）'), 'rtx 3090 24gb')

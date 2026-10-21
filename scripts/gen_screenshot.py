@@ -2,10 +2,13 @@
 """Render docs/screenshot{,.zh-CN,.ja}.png: the landing page (index.html) in each language, 1024x720.
 Needs Google Chrome or Chromium on PATH. Not part of the CI up-to-date check (PNG bytes vary across browser and font versions).
 Run: python3 scripts/gen_screenshot.py"""
-import functools, http.server, shutil, subprocess, sys, tempfile, threading
+import functools, http.server, os, shutil, subprocess, sys, tempfile, threading
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LANGS = {'en': '', 'zh-CN': '.zh-CN', 'ja': '.ja'}
+PAGE = 'index.html'
+WINDOW = (1024, 720)
+LIGHT_SCHEME = 'preferredColorScheme=1'
 BROWSERS = ('google-chrome', 'chromium', 'chromium-browser')
 
 
@@ -28,11 +31,18 @@ def main():
     try:
         for lang, suf in LANGS.items():
             out = ROOT / 'docs' / f'screenshot{suf}.png'
-            with tempfile.TemporaryDirectory() as prof:
-                subprocess.run([exe, '--headless=new', '--no-sandbox', '--disable-gpu', '--hide-scrollbars', f'--user-data-dir={prof}',
-                                '--force-prefers-reduced-motion', '--blink-settings=preferredColorScheme=1', f'--lang={lang}',
-                                '--window-size=1024,720', '--virtual-time-budget=8000', f'--screenshot={out}',
-                                f'http://127.0.0.1:{srv.server_port}/index.html?lang={lang}'], check=True, capture_output=True, timeout=120)
+            prof = tempfile.mkdtemp(prefix='shot-')
+            cmd = [exe, '--headless=new', '--disable-gpu', '--hide-scrollbars', f'--user-data-dir={prof}',
+                   '--force-prefers-reduced-motion', f'--blink-settings={LIGHT_SCHEME}', f'--lang={lang}',
+                   f'--window-size={WINDOW[0]},{WINDOW[1]}', '--virtual-time-budget=8000', f'--screenshot={out}',
+                   f'http://127.0.0.1:{srv.server_port}/{PAGE}?lang={lang}']
+            if os.geteuid() == 0: cmd.insert(2, '--no-sandbox')
+            try:
+                subprocess.run(cmd, check=True, timeout=120, capture_output=True, text=True)
+            except subprocess.CalledProcessError as e:
+                sys.exit(e.stderr)
+            finally:
+                shutil.rmtree(prof, ignore_errors=True)
             print(out.relative_to(ROOT))
     finally:
         srv.shutdown()
