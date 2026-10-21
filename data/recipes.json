@@ -14474,8 +14474,8 @@
     "model": "Qwen3.8-Flash-Next",
     "quant": "ISTA-DASLab GSQ-RCO IQ3_S（MoE，专家放系统内存）",
     "engine": "Strata",
-    "engine_raw": "Strata（版本未注明；参数 --kv k8v4 --prefill auto:16384 MTP --spec 4）",
-    "engine_note": "Strata（版本未注明；参数 --kv k8v4 --prefill auto:16384 MTP --spec 4）",
+    "engine_raw": "Strata（版本未注明；参数 --kv k8v4 --prefill auto:16384 --spec 4 (MTP)）",
+    "engine_note": "Strata（版本未注明；参数 --kv k8v4 --prefill auto:16384 --spec 4 (MTP)）",
     "hardware": "RTX 5090 32GB + 121GB DDR5（专家全部放系统内存）",
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "$5,400–6,995（新卡街价，2026-10-11；MSRP $1,999）",
@@ -14495,7 +14495,7 @@
       "quant": "ISTA-DASLab GSQ-RCO IQ3_S (MoE, experts in system RAM)",
       "hardware": "RTX 5090 32GB + 121GB DDR5 (all experts in system RAM)",
       "concurrency": "Single stream",
-      "engine_note": "Strata (version not given; flags --kv k8v4 --prefill auto:16384 MTP --spec 4)",
+      "engine_note": "Strata (version not given; flags --kv k8v4 --prefill auto:16384 --spec 4 (MTP))",
       "source_note": "X post (speed data also in screenshot)",
       "hardware_cost_text": "$5,400–6,995 (new street price, 2026-10-11; MSRP $1,999)",
       "context": "262K"
@@ -14790,7 +14790,7 @@
       },
       {
         "n": 8,
-        "tok_s": 622
+        "tok_s": 625
       }
     ],
     "source_id": "src-07e95d7644",
@@ -14930,8 +14930,8 @@
     "hardware_family": "二手数据中心卡",
     "hardware_cost_text": "≈$1,300–1,400（2 张，仅显卡）",
     "hardware_cost_usd": 1300,
-    "metric": "decode 41.24 / prefill 519.34（8,192 输入 / 512 输出，3 次计时）；运行设置为实验性且有损（近似 CPU Q8、有界路由、软 MTP 接受），权重未改；非常驻专家在 CPU 上以 W4A16 计算主机内存中的 FP4 权重（卸载）",
-    "metric_en": "decode 41.24 / prefill 519.34 (8,192 in / 512 out, 3 timed runs); runtime settings are experimental and lossy (approximate CPU Q8, bounded routing, soft MTP acceptance); weights not changed; non-resident experts are computed on the CPU as W4A16 from FP4 weights in host RAM (offload)",
+    "metric": "decode 41.24 / prefill 519.34（8,192 输入 / 512 输出，3 次计时）；运行设置为实验性且有损（近似 CPU Q8、有界路由、软 MTP 接受），权重未改；非常驻专家在 CPU 上以 W4A8 计算主机内存中的 FP4 权重（卸载）",
+    "metric_en": "decode 41.24 / prefill 519.34 (8,192 in / 512 out, 3 timed runs); runtime settings are experimental and lossy (approximate CPU Q8, bounded routing, soft MTP acceptance); weights not changed; non-resident experts are computed on the CPU as W4A8 from FP4 weights in host RAM (offload)",
     "tok_s": 41.24,
     "concurrency": "单流",
     "context": null,
