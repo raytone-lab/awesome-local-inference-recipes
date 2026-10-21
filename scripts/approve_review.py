@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """把 review.json 中 decision=收录 的条目写入 data/recipes.json（幂等），并同步候选状态。
 用法: python3 scripts/approve_review.py data/candidates/hf-YYYY-MM-DD.review.json"""
+from pathlib import Path
 import json, os, sys, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCED_PRICES_BY_HARDWARE = [
@@ -58,7 +59,7 @@ def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import normalize_engines, tag_recipes
     tag_recipes.apply(normalize_engines.normalize(recipes))
-    json.dump(recipes, open(f"{ROOT}/data/recipes.json", "w"), ensure_ascii=False, indent=2)
+    Path(f"{ROOT}/data/recipes.json").write_text(json.dumps(recipes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     json.dump(cand, open(cand_file, "w"), ensure_ascii=False, indent=1)
     close_merged_candidates(rev["reviews"])
     print(f"新增 {added}，总计 {len(recipes)}")

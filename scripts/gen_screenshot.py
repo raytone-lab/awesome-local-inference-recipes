@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""Render docs/screenshot{,.zh-CN,.ja}.png: the landing page (index.html) in each language, 1024x720.
-Needs Google Chrome or Chromium on PATH. Not part of the CI up-to-date check (PNG bytes vary across browser and font versions).
-Run: python3 scripts/gen_screenshot.py"""
+"""Needs Google Chrome or Chromium on PATH. PNG bytes vary by browser and font version."""
 import functools, http.server, os, shutil, subprocess, sys, tempfile, threading
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
@@ -40,7 +38,7 @@ def main():
             try:
                 subprocess.run(cmd, check=True, timeout=120, capture_output=True, text=True)
             except subprocess.CalledProcessError as e:
-                sys.exit(e.stderr)
+                sys.exit(e.stderr or str(e))
             finally:
                 shutil.rmtree(prof, ignore_errors=True)
             print(out.relative_to(ROOT))

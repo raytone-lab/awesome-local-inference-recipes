@@ -17,7 +17,7 @@
 ## Engine
 
 - Strata (Strata-DS fork) — install: https://github.com/Jackwwg83/Strata-DS
-- Note: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand)
+- Note: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand). setup.sh warns that a PC with less than 120 GiB of RAM is not tested; --yes in the command accepts that
 
 ## Launch command
 

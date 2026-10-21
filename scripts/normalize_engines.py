@@ -71,5 +71,5 @@ def normalize(recipes):
     return recipes
 if __name__ == '__main__':
     p = ROOT / 'data/recipes.json'; D = json.load(open(p))
-    normalize(D); open(p, 'w').write(json.dumps(D, ensure_ascii=False, indent=2) + '\n')
+    normalize(D); Path(p).write_text(json.dumps(D, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     import collections; print(collections.Counter(r['engine'] for r in D).most_common())

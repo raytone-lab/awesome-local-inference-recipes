@@ -16,7 +16,7 @@ class Clean(unittest.TestCase):
         self.assertEqual(H.clean('oQ4e（x）vs', 80), 'oQ4e vs')
 
     def test_truncation_drops_trailing_joiner(self):
-        self.assertEqual(H.clean('ACEMAGIC Strix Halo 128GB + Mini PC', 27), 'ACEMAGIC Strix Halo 128GB…')
+        self.assertEqual(H.clean('ACEMAGIC Strix Halo 128GB + Mini PC', 28), 'ACEMAGIC Strix Halo 128GB…')
 
 
 class Hwkey(unittest.TestCase):
