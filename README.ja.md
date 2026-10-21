@@ -12,7 +12,7 @@
 
 ### X tok/s ってどれくらい速い？
 
-<p align="center"><a href="https://raytone-lab.github.io/awesome-local-inference-recipes/speed.html"><img src="docs/speed-feel.gif" width="860" alt="Token streaming speed demo: 10, 20, 50, 100, 200 and 500 tokens per second compared with human silent reading pace"></a></p>
+<p align="center"><a href="https://raytone-lab.github.io/awesome-local-inference-recipes/speed.html"><img src="docs/speed-feel.gif" width="860" alt="トークン出力速度のデモ：10、20、50、100、200、500 tok/s と人の黙読速度の比較（アニメーション内の文字は英語）"></a></p>
 
 <p align="center">同じ回答を実際の Qwen3 トークンで 10 / 20 / 50 / 100 / 200 / 500 tok/s（対数間隔）で表示し、黙読の速さ（英語で約 5 tok/s、Brysbaert 2019）やクラウド API の中央値（Artificial Analysis）と比較。 <a href="https://raytone-lab.github.io/awesome-local-inference-recipes/speed.html"><b>インタラクティブ版を試す →</b></a></p>
 
@@ -397,7 +397,7 @@ X で反応が多かったレシピ投稿（いいね + リポスト×3 の順�
 
 <details><summary>サイトのプレビュー</summary>
 
-<img src="docs/screenshot.png" width="760" alt="Awesome Local Inference Recipes">
+<img src="docs/screenshot.ja.png" width="760" alt="サイトのトップページ：レシピ数、エンジン数、実測数、予算帯ごとの最速の実測構成">
 
 </details>
 

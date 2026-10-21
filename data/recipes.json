@@ -15011,7 +15011,7 @@
     "metric_en": "Real coding-agent session, 48 turns (context 10K–91K), 70,211 tokens at 30.8 tok/s average (per turn 23.6–36.4, median 28.6); single runs: decode at 8K/32K/64K/128K/250K context 24.2/27.4/27.4/27.3/22.9; time to first token for an agent turn adding ≤50 tokens median 0.57 s, a new conversation with the same 10K system prompt 0.25 s; cold prefill about 500 tok/s (250K in 8.3 min); vs official MXFP4 KL 0.074 / top-1 88.6%",
     "tok_s": 30.8,
     "concurrency": "单路",
-    "context": "262,144（setup 默认 256K）",
+    "context": "256K（262,144）",
     "launch_command": "git clone https://github.com/Jackwwg83/Strata-DS.git && cd Strata-DS && ./setup.sh --setup --yes --family deepseek --no-start && ./run-deepseek-1017-exl3-2.9bpw.sh",
     "source_url": "https://github.com/Jackwwg83/Strata-DS/blob/main/docs/DEEPSEEK_SPARK.md",
     "source_note": "Strata-DS 配方页，作者实测（原始数据 ds41/bench/results/2026-10-18-spark；setup 在 GB10 上自动选此配方，从 LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw 与 deepseek-ai/DeepSeek-V4.1-Flash-1017 下载 414.8 GB 并打包；新 clone 复现的包与实测包逐字节一致）",
@@ -15031,7 +15031,7 @@
       "hardware": "1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe)",
       "hardware_cost_text": "$6,950 (128GB, 2026-10-11)",
       "concurrency": "Single stream",
-      "context": "262,144 (setup default 256K)",
+      "context": "256K (262,144)",
       "engine_note": "Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in a unified-memory RAM tier computed in place by the GPU, cold experts read from the SSD on demand; sudoingX's exl3_smoe and exl3_mrow EXL3 kernels)",
       "source_note": "Strata-DS recipe page, author measured (raw data ds41/bench/results/2026-10-18-spark; on a GB10 setup picks this recipe, downloads 414.8 GB from LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw and deepseek-ai/DeepSeek-V4.1-Flash-1017 and packs it; a fresh clone wrote a pack byte for byte the measured one)"
     },
@@ -15040,7 +15040,9 @@
     "downloads": [
       "https://huggingface.co/LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
       "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
-    ]
+    ],
+    "engine_raw": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放在统一内存的 RAM 层，由 GPU 原地计算；冷专家按需从 SSD 读取；使用 sudoingX 的 exl3_smoe 与 exl3_mrow EXL3 内核）",
+    "engine_note": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放在统一内存的 RAM 层，由 GPU 原地计算；冷专家按需从 SSD 读取；使用 sudoingX 的 exl3_smoe 与 exl3_mrow EXL3 内核）"
   },
   {
     "id": "comm-057",
@@ -15048,7 +15050,7 @@
     "model": "DeepSeek-V4.1-Flash",
     "quant": "vcruz305 SAGE EXL3 1.59bpw + Engram 原地读 SSD（route/SSD 尾部跳过）",
     "engine": "Strata (Strata-DS fork)",
-    "hardware": "RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe",
+    "hardware": "RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe",
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": null,
     "hardware_cost_usd": null,
@@ -15073,13 +15075,15 @@
       "hardware_cost_text": null,
       "concurrency": "Single stream",
       "context": "32,768 (--context 32768; 256K prompt also measured)",
-      "engine_note": "Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand)",
+      "engine_note": "Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand). Setup warns that a PC with less than 120 GiB of RAM is not tested; --yes in the command accepts that",
       "source_note": "Strata-DS laptop recipe page, author measured (medians of 5 runs per condition; raw data ds41/bench/results/2026-10-16-laptop-5090; setup downloads vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw and packs it)"
     },
     "source_id": "src-a7c7384141",
     "engine_fork": "Strata-DS",
     "downloads": [
       "https://huggingface.co/vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw"
-    ]
+    ],
+    "engine_raw": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点",
+    "engine_note": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点"
   }
 ]

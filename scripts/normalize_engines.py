@@ -17,6 +17,7 @@ RULES = [
     (r'^llama\.cpp-mirai-s', 'llama.cpp (mirai-s fork)'),
     (r'^llama\.cpp', 'llama.cpp'),
     (r'^strata-mlx', 'strata-mlx'),
+    (r'^Strata-DS', 'Strata (Strata-DS fork)'),
     (r'^Strata', 'Strata'),
     (r'^oMLX', 'oMLX'),
     (r'^TensorFold', 'TensorFold'),

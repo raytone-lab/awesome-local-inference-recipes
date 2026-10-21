@@ -55,6 +55,7 @@ L = {
 SPEED={'en':('How fast is X tok/s?','Same answer, real Qwen3 tokens, streamed at 10 / 20 / 50 / 100 / 200 / 500 tok/s (log-spaced) vs. silent reading (≈5 tok/s, Brysbaert 2019), with cloud-API medians from Artificial Analysis for comparison.','Try it interactively →'),
        'zh':('X tok/s 到底有多快？','同一段回答、真实 Qwen3 token，以 10 / 20 / 50 / 100 / 200 / 500 tok/s（对数间隔）输出，对比默读速度（英文约 5 tok/s，Brysbaert 2019）和云端 API 中位速度（Artificial Analysis）。','在线互动体验 →'),
        'ja':('X tok/s ってどれくらい速い？','同じ回答を実際の Qwen3 トークンで 10 / 20 / 50 / 100 / 200 / 500 tok/s（対数間隔）で表示し、黙読の速さ（英語で約 5 tok/s、Brysbaert 2019）やクラウド API の中央値（Artificial Analysis）と比較。','インタラクティブ版を試す →')}
+GALT={'en':'Token streaming speed demo: 10, 20, 50, 100, 200 and 500 tokens per second compared with human silent reading pace','zh':'token 输出速度演示：10、20、50、100、200 和 500 tok/s，对比人的默读速度（动图内文字为英文）','ja':'トークン出力速度のデモ：10、20、50、100、200、500 tok/s と人の黙読速度の比較（アニメーション内の文字は英語）'}
 IMGSUF={'en':'','zh':'.zh-CN','ja':'.ja'}
 BALT={'en':'Bar chart: fastest measured and claimed text setup in each budget tier','zh':'条形图：各预算档最快的实测与宣称文字配置','ja':'棒グラフ：予算帯ごとの最速テキスト構成（実測と公称）'}
 def scope_md(lang):
@@ -146,7 +147,7 @@ def hero(lang, E):
          f'<p align="center">{H["tag"].format(n=len(D),lo=lo)}</p>','',f'<p align="center">{H["lang"]}</p>','',
          f'<p align="center">{badges}</p>','',f'<p align="center">{nav}</p>','',
          f'<p align="center"><img src="docs/hero{IMGSUF[lang]}.png" width="860" alt="{H["alt"]}"></p>','',
-         f'### {SPEED[lang][0]}','',f'<p align="center"><a href="{PAGES}speed.html"><img src="docs/speed-feel.gif" width="860" alt="Token streaming speed demo: 10, 20, 50, 100, 200 and 500 tokens per second compared with human silent reading pace"></a></p>','',
+         f'### {SPEED[lang][0]}','',f'<p align="center"><a href="{PAGES}speed.html"><img src="docs/speed-feel.gif" width="860" alt="{GALT[lang]}"></a></p>','',
          f'<p align="center">{SPEED[lang][1]} <a href="{PAGES}speed.html"><b>{SPEED[lang][2]}</b></a></p>','',
          H['stats'].format(n=len(D),nt=n['text'],ni=n['image'],nv=n['video-audio'],hf=len({r["hardware_family"] for r in D}),ne=len({r["engine"] for r in D if r["engine"]!="Unspecified"}),mf=len({r["model_family"] for r in D if r["model_family"]!="Other"})),'',
          H['hd'],'',H['th'],'|---|---|---|---|---|']

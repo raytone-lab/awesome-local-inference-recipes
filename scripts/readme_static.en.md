@@ -32,7 +32,7 @@ Dev: `python3 -m http.server 5190` → `index.html` (landing) · `explore.html` 
 
 <details><summary>Site preview</summary>
 
-<img src="docs/screenshot.png" width="760" alt="Awesome Local Inference Recipes">
+<img src="docs/screenshot.png" width="760" alt="Site home page: recipe, engine and measured counts, and the fastest measured setup in each budget tier">
 
 </details>
 

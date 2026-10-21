@@ -27,7 +27,7 @@ git clone https://github.com/Jackwwg83/Strata-DS.git && cd Strata-DS && ./setup.
 
 ## 主なパラメータ
 
-- コンテキスト: 262,144 (setup default 256K)
+- コンテキスト: 256K (262,144)
 - 同時実行: Single stream
 - タグ: `2bit`, `MoE`, `long-context`, `speculative`, `offload`
 

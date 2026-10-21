@@ -12,6 +12,7 @@ RAW_ENGINE_SAMPLES = {
     'llama.cpp (mirai-s fork)': 'llama.cpp-mirai-s build 7',
     'llama.cpp': 'llama.cpp b10434',
     'strata-mlx': 'strata-mlx 0.4.1',
+    'Strata (Strata-DS fork)': 'Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve）',
     'Strata': 'Strata v0.1.42',
     'oMLX': 'oMLX 0.3', 'TensorFold': 'TensorFold beta', 'DFlash': 'DFlash spec', 'MTPLX': 'MTPLX 2.11.3 serve',
     'mlx-serve': 'mlx-serve 26.8.11', 'MLX Swift': 'MLX Swift 0.21', 'MLX': 'mlx-lm 0.30.7', 'edge0': 'edge0 runtime',
