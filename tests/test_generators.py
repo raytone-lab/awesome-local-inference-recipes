@@ -92,3 +92,21 @@ class HardwarePages(unittest.TestCase):
 
 
 if __name__ == '__main__': unittest.main()
+
+
+class RecipePageDownloads(unittest.TestCase):
+    ROW = {'id': 'x', 'category': 'text', 'model': 'M', 'engine': 'Strata (Strata-DS fork)', 'hardware': 'H',
+           'hardware_family': 'DGX Spark', 'source_url': 'https://github.com/a/b/blob/main/docs/R.md', 'source_level': '实测',
+           'model_family': 'DeepSeek', 'tags': []}
+
+    def test_downloads_are_listed_in_every_language(self):
+        row = dict(self.ROW, downloads=['https://huggingface.co/org/quant', 'https://huggingface.co/org/base'])
+        for lang in ('en', 'zh', 'ja'):
+            page = gen_recipe_pages.page(row, lang)
+            self.assertIn('[huggingface.co/org/quant](https://huggingface.co/org/quant)', page, lang)
+            self.assertIn('[huggingface.co/org/base](https://huggingface.co/org/base)', page, lang)
+
+    def test_a_fork_links_its_own_repository(self):
+        page = gen_recipe_pages.page(dict(self.ROW), 'en')
+        self.assertIn('https://github.com/Jackwwg83/Strata-DS', page)
+        self.assertNotIn('Niko1221/Strata', page)
