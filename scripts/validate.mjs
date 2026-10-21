@@ -12,7 +12,8 @@ for(const r of D){
   for(const k of Object.keys(r)){const p=S.properties[k];if(!p){e(`unknown field ${k}`);continue}
     if(p.enum&&!p.enum.includes(r[k]))e(`${k} not in enum: ${r[k]}`);
     if(p.type&&!typeOk(r[k],p.type))e(`${k} wrong type`);
-    if(p.pattern&&typeof r[k]==='string'&&!new RegExp(p.pattern).test(r[k]))e(`${k} pattern`);}
+    if(p.pattern&&typeof r[k]==='string'&&!new RegExp(p.pattern).test(r[k]))e(`${k} pattern`);
+    if(p.items?.pattern&&Array.isArray(r[k]))for(const x of r[k])if(typeof x!=='string'||!new RegExp(p.items.pattern).test(x))e(`${k} item pattern: ${x}`);}
   if(Array.isArray(r.tags)){for(const t of r.tags)if(!TAGS.has(t))e(`unknown tag ${t}`);if(new Set(r.tags).size!==r.tags.length)e('duplicate tag');}
   if(/^其他|^同上$/.test(r.engine))e(`engine not normalized: ${r.engine}`);
   if(r.engine_note!=null&&r.engine_note===r.engine)e('engine_note equals engine');

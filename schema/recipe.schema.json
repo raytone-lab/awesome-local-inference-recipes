@@ -238,6 +238,17 @@
     "null"
    ],
    "description": "id of a newer recipe from the same author that replaces this one"
+  },
+  "downloads": {
+   "type": [
+    "array",
+    "null"
+   ],
+   "items": {
+    "type": "string",
+    "pattern": "^https://[^\\s()<>\\[\\]]+$"
+   },
+   "description": "where to download the model files the recipe uses (Hugging Face repos that the recipe setup downloads)"
   }
  },
  "additionalProperties": false

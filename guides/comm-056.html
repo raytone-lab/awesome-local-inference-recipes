@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe)</title><meta name="description" content="How to run DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe). Hardware, engine, launch command, and sourced speed (Measured).">
+<link rel="canonical" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-056.html"><link rel="alternate" hreflang="en" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-056.html"><link rel="alternate" hreflang="zh-CN" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/zh-CN/comm-056.html"><link rel="alternate" hreflang="ja" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/ja/comm-056.html"><link rel="alternate" hreflang="x-default" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-056.html">
+<meta property="og:type" content="article"><meta property="og:title" content="DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe)"><meta property="og:description" content="How to run DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe). Hardware, engine, launch command, and sourced speed (Measured)."><meta property="og:url" content="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-056.html"><meta property="og:image" content="https://raytone-lab.github.io/awesome-local-inference-recipes/docs/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css"><script src="../theme.js"></script></head><body>
+<header class="site-hd"><div class="hd-in"><a class="brand" href="../index.html">⚡ Local Inference Recipes</a><nav class="static-links"><a href="../explore.html">Explore</a> · <a href="../guides/index.html">Guides</a> · <a href="https://github.com/raytone-lab/awesome-local-inference-recipes">GitHub</a></nav></div></header>
+<main class="doc static-page">
+<h1>DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe)</h1>
+<p><b>English</b> | <a href="../guides/zh-CN/comm-056.html">简体中文</a> | <a href="../guides/ja/comm-056.html">日本語</a> · <a href="../guides/index.html">← All recipes</a></p>
+<blockquote>Source level: <b>✅ Measured</b> · Date: 2026-10-18 · Numbers come from the source. This repo did not measure them again.</blockquote>
+<h2>Hardware</h2>
+<ul>
+<li>1× DGX Spark (GB10, 128GB unified memory, 4TB NVMe) (DGX Spark)</li>
+<li>Reference cost: ≈ $6,950</li>
+</ul>
+<h2>Model</h2>
+<ul>
+<li>DeepSeek-V4.1-Flash-1017 · <code>LibertAIDAI EXL3 2.9bpw (experts; dense 5 / head 6) + the official 1017 checkpoint&#x27;s other tensors and Engram (single machine, DSpark drafting every step, SSD tail skip)</code></li>
+<li>Download: <a href="https://huggingface.co/LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw" rel="nofollow noopener">huggingface.co/LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" rel="nofollow noopener">huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017</a></li>
+</ul>
+<h2>Engine</h2>
+<ul>
+<li>Strata (Strata-DS fork) — install: https://github.com/Jackwwg83/Strata-DS</li>
+<li>Note: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in a unified-memory RAM tier computed in place by the GPU, cold experts read from the SSD on demand; sudoingX&#x27;s exl3_smoe and exl3_mrow EXL3 kernels)</li>
+</ul>
+<h2>Launch command</h2>
+<pre><code>git clone https://github.com/Jackwwg83/Strata-DS.git &amp;&amp; cd Strata-DS &amp;&amp; ./setup.sh --setup --yes --family deepseek --no-start &amp;&amp; ./run-deepseek-1017-exl3-2.9bpw.sh</code></pre>
+<h2>Key parameters</h2>
+<ul>
+<li>Context: 262,144 (setup default 256K)</li>
+<li>Concurrency: Single stream</li>
+<li>Tags: <code>2bit</code>, <code>MoE</code>, <code>long-context</code>, <code>speculative</code>, <code>offload</code></li>
+</ul>
+<h2>Expected speed</h2>
+<ul>
+<li>Real coding-agent session, 48 turns (context 10K–91K), 70,211 tokens at 30.8 tok/s average (per turn 23.6–36.4, median 28.6); single runs: decode at 8K/32K/64K/128K/250K context 24.2/27.4/27.4/27.3/22.9; time to first token for an agent turn adding ≤50 tokens median 0.57 s, a new conversation with the same 10K system prompt 0.25 s; cold prefill about 500 tok/s (250K in 8.3 min); vs official MXFP4 KL 0.074 / top-1 88.6% (✅ Measured)</li>
+</ul>
+<h2>Caveats</h2>
+<ul>
+<li>Speed changes with drivers, engine version, context length, and prompt length.</li>
+</ul>
+<h2>Source &amp; attribution</h2>
+<ul>
+<li><a href="https://github.com/Jackwwg83/Strata-DS/blob/main/docs/DEEPSEEK_SPARK.md" rel="nofollow noopener">https://github.com/Jackwwg83/Strata-DS/blob/main/docs/DEEPSEEK_SPARK.md</a></li>
+<li>Credit to the original author. This page only summarizes and links. Data under CC BY 4.0.</li>
+</ul>
+<p class="na">Source file: <a href="https://github.com/raytone-lab/awesome-local-inference-recipes/blob/main/recipes/comm-056.md">recipes/comm-056.md</a></p>
+</main><footer class="site-ft"><div class="ft-in">Data as of 2026-10-21 · <a href="https://github.com/raytone-lab/awesome-local-inference-recipes">GitHub</a> · data CC BY 4.0</div></footer></body></html>

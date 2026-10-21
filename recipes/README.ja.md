@@ -20,3 +20,5 @@
 | [Qwen3.8-Flash-Next Abliterated · Strata](text-018.ja.md) | V100 32GB + RTX 5060 Ti 16GB + 32GB DDR5 | ✅ 実測 |
 | [Qwen-Image 2.1 · ComfyUI](image-001.ja.md) | RTX 4090 24GB | ✅ 実測 |
 | [FastH3 V2 · Unspecified](video-audio-001.ja.md) | RTX 5090 32GB | 🏛️ 公式 |
+| [DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork)](comm-056.ja.md) | 1× DGX Spark | ✅ 実測 |
+| [DeepSeek-V4.1-Flash · Strata (Strata-DS fork)](comm-057.ja.md) | RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe | ✅ 実測 |
