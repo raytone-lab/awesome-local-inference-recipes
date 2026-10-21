@@ -13973,7 +13973,7 @@
     "context": "524,288（测速 CONTEXT；模型窗至 1,048,576）",
     "launch_command": "CONTEXT=524288 ./start.sh",
     "source_url": "https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks",
-    "source_note": "MiaAI-Lab 仓库 README + sparkDash 表（同步 X @MiaAI_lab/status/2112105974546694249；权重 Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw）；相近结果：x-095（2.8bpw，2×GX10）代码 92.9；@fumi_KPFstudio 用本配方测 256K 单流代码 91–99（https://x.com/fumi_KPFstudio/status/2112684763282837562）",
+    "source_note": "MiaAI-Lab 仓库 README + sparkDash 表（同步 X @MiaAI_lab/status/2112105974546694249；权重 Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw）；同级结果：x-095（2.8bpw，2×GX10）代码 92.9；@fumi_KPFstudio 用本配方测 256K 单流代码 91–99（https://x.com/fumi_KPFstudio/status/2112684763282837562）",
     "source_level": "实测",
     "date": "2026-10-19",
     "measured_by": "MiaAI_lab",
@@ -13983,7 +13983,7 @@
       "concurrency": "Single stream (2/4-stream aggregates also measured)",
       "context": "524,288 (benchmark CONTEXT; model window up to 1,048,576)",
       "engine_note": "TensorFold (native Zig 0.17.0 / BertholomusAI dsv41 TP=2; image tensorfold-dsv41:exl3-tp2-136c93b359b4, tensorfold-native 1.0.2)",
-      "source_note": "MiaAI-Lab repo README + sparkDash table (also X @MiaAI_lab/status/2112105974546694249; weights Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw). Similar result: x-095 (2.8bpw, 2×GX10) code 92.9. @fumi_KPFstudio used this recipe at 256K: single-stream code 91–99 (https://x.com/fumi_KPFstudio/status/2112684763282837562)",
+      "source_note": "MiaAI-Lab repo README + sparkDash table (also X @MiaAI_lab/status/2112105974546694249; weights Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw). Same-class result: x-095 (2.8bpw, 2×GX10) code 92.9. @fumi_KPFstudio used this recipe at 256K: single-stream code 91–99 (https://x.com/fumi_KPFstudio/status/2112684763282837562)",
       "hardware_cost_text": "≈$13,900 (2×$6,950, computed)"
     },
     "streams": [
@@ -14472,10 +14472,10 @@
     "id": "x-091",
     "category": "text",
     "model": "Qwen3.8-Flash-Next",
-    "quant": "ISTA-DASLab GSQ-RCO IQ3_S",
+    "quant": "ISTA-DASLab GSQ-RCO IQ3_S（MoE，专家放 RAM）",
     "engine": "Strata",
-    "engine_raw": "Strata（版本未注明；--kv k8v4 --prefill auto:16384 --spec 4）",
-    "engine_note": "Strata（版本未注明；--kv k8v4 --prefill auto:16384 --spec 4）",
+    "engine_raw": "Strata（版本未注明；参数 --kv k8v4 --prefill auto:16384 --spec 4）",
+    "engine_note": "Strata（版本未注明；参数 --kv k8v4 --prefill auto:16384 --spec 4）",
     "hardware": "RTX 5090 32GB + 121GB DDR5（专家全部在 RAM）",
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "$5,400–6,995（新卡街价，2026-10-11；MSRP $1,999）",
@@ -14485,14 +14485,14 @@
     "tok_s": 185,
     "concurrency": "单流",
     "context": "262K",
-    "launch_command": "strata … --kv k8v4 --prefill auto:16384 --spec 4",
+    "launch_command": null,
     "source_url": "https://x.com/lyesbahi/status/2112809633261969621",
     "source_note": "X 帖文（速度数据另有截图）",
     "source_level": "实测",
     "date": "2026-10-21",
     "measured_by": "lyesbahi",
     "en": {
-      "quant": "ISTA-DASLab GSQ-RCO IQ3_S",
+      "quant": "ISTA-DASLab GSQ-RCO IQ3_S (MoE, experts in RAM)",
       "hardware": "RTX 5090 32GB + 121GB DDR5 (all experts in RAM)",
       "concurrency": "Single stream",
       "engine_note": "Strata (version not given; --kv k8v4 --prefill auto:16384 --spec 4)",
@@ -14503,6 +14503,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-d65d206011"
@@ -14519,14 +14520,14 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "$6,950（128GB，2026-10-11）",
     "hardware_cost_usd": 6950,
-    "metric": "thinking 关：单流散文 52 / 代码 103；4 流散文合计 90；prefill 约 2,000；总内存 86GB；总 KV 1M",
-    "metric_en": "thinking off: single-stream prose 52 / code 103; 4-stream prose aggregate 90; prefill about 2,000; 86 GB total memory; 1M total KV",
-    "tok_s": 52,
+    "metric": "thinking 关：单流散文 52.6 / 代码 83.3；2 流代码合计 103.4；4 流散文合计 90.4、代码 111.0；prefill 约 2,000；设备内存约 69 GiB（含 DFlash2）",
+    "metric_en": "thinking off: single-stream prose 52.6 / code 83.3; 2-stream code aggregate 103.4; 4-stream prose aggregate 90.4, code 111.0; prefill about 2,000; about 69 GiB on device (with DFlash2)",
+    "tok_s": 52.6,
     "concurrency": "单流（另测 4 流合计）",
     "context": "256K",
     "launch_command": null,
     "source_url": "https://github.com/MiaAI-Lab/Ornith-1.5-122B-TensorFold",
-    "source_note": "MiaAI-Lab 仓库（同步 X @MiaAI_lab/status/2112822741208314258）",
+    "source_note": "MiaAI-Lab 仓库 README 表（同步 X @MiaAI_lab/status/2112822741208314258；X 帖写代码单流 103，与仓库表不同，按仓库表取值）",
     "source_level": "实测",
     "date": "2026-10-21",
     "measured_by": "MiaAI_lab",
@@ -14535,7 +14536,7 @@
       "hardware": "1× DGX Spark",
       "concurrency": "Single stream (4-stream aggregate also measured)",
       "engine_note": "TensorFold (d1018b31 + repo patches that add EXL3 support; DFlash2 drafts; 4 streams by default)",
-      "source_note": "MiaAI-Lab repo (also X @MiaAI_lab/status/2112822741208314258)",
+      "source_note": "MiaAI-Lab repo README table (also X @MiaAI_lab/status/2112822741208314258; the X post says code single-stream 103, which differs from the repo table; values use the repo table)",
       "hardware_cost_text": "$6,950 (128GB, 2026-10-11)",
       "context": "256K"
     },
@@ -14549,11 +14550,15 @@
     "streams": [
       {
         "n": 1,
-        "tok_s": 52
+        "tok_s": 52.6
+      },
+      {
+        "n": 2,
+        "tok_s": 68.0
       },
       {
         "n": 4,
-        "tok_s": 90
+        "tok_s": 90.4
       }
     ],
     "source_id": "src-49998d50f7"
@@ -14594,13 +14599,15 @@
       "speculative",
       "MTP"
     ],
-    "source_id": "src-f49f8d6889"
+    "source_id": "src-f49f8d6889",
+    "engine_raw": "TandemLLM 0.13.0（模型自带 MTP 层 + 查表草稿）",
+    "engine_note": "TandemLLM 0.13.0（模型自带 MTP 层 + 查表草稿）"
   },
   {
     "id": "x-094",
     "category": "text",
     "model": "MiMo-V2.6-Flash-MOPD",
-    "quant": "NVFP4 路由专家 + FP8 注意力层（revorm 称其无损）",
+    "quant": "NVFP4 路由专家（revorm 称其无损）+ FP8 注意力层 + 稠密投影 Group-64 Q4（DENSE=q4，MoE）",
     "engine": "TensorFold",
     "engine_raw": "TensorFold v1.1.0（TP=2，200GbE RoCE；MTP + 复制草稿）",
     "engine_note": "TensorFold v1.1.0（TP=2，200GbE RoCE；MTP + 复制草稿）",
@@ -14608,9 +14615,9 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
     "hardware_cost_usd": 13900,
-    "metric": "单流代码 63.4 / 散文 46.2；4 流合计 103.6（代码 81.4 / 散文 78.3）；冷 prefill 1,857–1,941；FP8 KV 池 2.9M",
-    "metric_en": "single-stream code 63.4 / prose 46.2; 4-stream aggregate 103.6 (code 81.4 / prose 78.3); cold prefill 1,857–1,941; 2.9M FP8 KV pool",
-    "tok_s": 46.2,
+    "metric": "单流代码 63.4 / 散文 46.15 / 结构化 53.1；4 流合计：结构化 103.6 / 代码 81.4 / 散文 78.3；冷 prefill 1,857–1,941；FP8 KV 池 2.9M",
+    "metric_en": "single-stream code 63.4 / prose 46.15 / structured 53.1; 4-stream aggregate: structured 103.6 / code 81.4 / prose 78.3; cold prefill 1,857–1,941; 2.9M FP8 KV pool",
+    "tok_s": 46.15,
     "concurrency": "单流（另测 4 流合计）",
     "context": "1M",
     "launch_command": null,
@@ -14620,7 +14627,7 @@
     "date": "2026-10-21",
     "measured_by": "Chris_0716",
     "en": {
-      "quant": "NVFP4 routed experts + FP8 attention (revorm calls it lossless)",
+      "quant": "NVFP4 routed experts (revorm calls it lossless) + FP8 attention + Group-64 Q4 dense projections (DENSE=q4, MoE)",
       "hardware": "2× DGX Spark (RoCE)",
       "concurrency": "Single stream (4-stream aggregate also measured)",
       "engine_note": "TensorFold v1.1.0 (TP=2, 200GbE RoCE; MTP + copy-draft)",
@@ -14638,19 +14645,29 @@
       "MTP",
       "multi-GPU"
     ],
-    "source_id": "src-3867bdd9b0"
+    "source_id": "src-3867bdd9b0",
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 46.15
+      },
+      {
+        "n": 4,
+        "tok_s": 78.27
+      }
+    ]
   },
   {
     "id": "x-095",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
-    "quant": "EXL3 2.8bpw（每台约 190GB）",
+    "quant": "EXL3 2.8bpw（帖文写每台约 190GB；GB10 只有 128GB 内存，应为两台合计）",
     "engine": "TensorFold",
     "engine_raw": "TensorFold（TP=2，草稿开，温度 0，输出 384 token）",
     "engine_note": "TensorFold（TP=2，草稿开，温度 0，输出 384 token）",
     "hardware": "2× ASUS Ascent GX10（GB10）",
     "hardware_family": "DGX Spark",
-    "hardware_cost_text": "未核价（2× ASUS Ascent GX10）",
+    "hardware_cost_text": "未核价（2× ASUS Ascent GX10，与 DGX Spark 同为 GB10）",
     "hardware_cost_usd": null,
     "metric": "单流代码 92.9 / JSON 104.3 / 散文 55.2；首 token 0.23 s；代码测试时两台 GPU 合计约 78W",
     "metric_en": "single-stream code 92.9 / JSON 104.3 / prose 55.2; first token 0.23 s; GPU draw about 78W for both boxes during code run",
@@ -14664,12 +14681,12 @@
     "date": "2026-10-20",
     "measured_by": "tolewis",
     "en": {
-      "quant": "EXL3 2.8bpw (about 190GB per box)",
+      "quant": "EXL3 2.8bpw (post says about 190GB per box; a GB10 has only 128GB memory, so this is likely the total for both)",
       "hardware": "2× ASUS Ascent GX10 (GB10)",
       "concurrency": "Single stream",
       "engine_note": "TensorFold (TP=2, drafts on, temp 0, 384 output tokens)",
       "source_note": "X post (with video)",
-      "hardware_cost_text": "Price not checked (2× ASUS Ascent GX10)"
+      "hardware_cost_text": "Price not checked (2× ASUS Ascent GX10, same GB10 as DGX Spark)"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -14682,7 +14699,7 @@
   {
     "id": "x-096",
     "category": "text",
-    "model": "Qwen3.8-Flash-Next",
+    "model": "Qwen3.8-Flash-Next（去拒答）",
     "quant": "Mirai 2-bit S（Strata 格式，去拒答版）",
     "engine": "Strata",
     "engine_raw": "Strata 0.2 分支（alesha-pro/Strata，移植 Mirai 补丁；上游 PR Niko1221/Strata#3384 尚未合并）",
@@ -14709,12 +14726,14 @@
       "engine_note": "Strata 0.2 fork (alesha-pro/Strata, Mirai patch ported; upstream PR Niko1221/Strata#3384 not yet merged)",
       "source_note": "X post (weights HF alesha-pro/Qwen3.8-Flash-Next-S-abliterated-Strata-GGUF)",
       "hardware_cost_text": "$1,206–1,499 (used sales, 2026-10-06/12)",
-      "context": "262K"
+      "context": "262K",
+      "model": "Qwen3.8-Flash-Next (abliterated)"
     },
     "model_family": "Qwen",
     "tags": [
       "2bit",
-      "long-context"
+      "long-context",
+      "abliterated"
     ],
     "source_id": "src-cb7c978e02"
   },
@@ -14728,14 +14747,14 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "≈$2,412–2,998（2×3090，仅显卡）",
     "hardware_cost_usd": 2412,
-    "metric": "0 ctx：Q4 单流 190 / 8 路合计 622；Q8 143 / 610；10K ctx 单流 Q4 159；60K 单流 143；作者称同一提示词 下 llama.cpp 双卡约 100；评论指出 llama.cpp 基线可能未开 P2P",
-    "metric_en": "0 ctx: Q4 single 190 / 8-request aggregate 622; Q8 143 / 610; 10K ctx single Q4 159; 60K single 143; author says llama.cpp dual-GPU did about 100 on the same prompts; a comment says the llama.cpp baseline possibly had P2P off",
+    "metric": "Reddit 帖 0 ctx 表：Q4 单流 190 / 8 路合计 622；Q8 143 / 610；Reddit 帖 10K ctx 单流 Q4 159、60K 143；仓库表：-c 16384 下平均 164.0 对 llama.cpp 双卡 99.7（1.64 倍，批量解码前测得）；56,017 token 时 105.4 对 66.6；评论指出 llama.cpp 基线可能未开 P2P",
+    "metric_en": "Reddit post 0-ctx table: Q4 single 190 / 8-request aggregate 622; Q8 143 / 610; Reddit post 10K ctx single Q4 159, 60K 143; repo table: at -c 16384 average 164.0 vs llama.cpp dual-GPU 99.7 (1.64×, measured before batched decode); at 56,017 tokens 105.4 vs 66.6; a comment says the llama.cpp baseline possibly had P2P off",
     "tok_s": 190,
     "concurrency": "单流（另测 8 路合计）",
     "context": null,
     "launch_command": null,
     "source_url": "https://github.com/ohgeebtw/geezuz-qwen3.8-27b-dual-gpu",
-    "source_note": "作者仓库（同步 Reddit r/LocalLLaMA 1xaslfk）",
+    "source_note": "作者仓库 + Reddit r/LocalLLaMA 1xaslfk（0/10K/60K ctx 数字来自 Reddit 帖）",
     "source_level": "实测",
     "date": "2026-10-20",
     "measured_by": "OhGeeLIVE",
@@ -14744,7 +14763,7 @@
       "hardware": "2× RTX 3090 (280W, PCIe, no NVLink)",
       "concurrency": "Single stream (8-request aggregate also measured)",
       "engine_note": "Geezuz kernel (dual-GPU fork of the open-jet megakernel; TP2, 4–5 MTP drafts)",
-      "source_note": "Author repo (also Reddit r/LocalLLaMA 1xaslfk)",
+      "source_note": "Author repo + Reddit r/LocalLLaMA 1xaslfk (0/10K/60K ctx numbers are from the Reddit post)",
       "hardware_cost_text": "≈$2,412–2,998 (2×3090, cards only)"
     },
     "model_family": "Qwen",
@@ -14752,6 +14771,8 @@
       "4bit",
       "8bit",
       "dense",
+      "speculative",
+      "MTP",
       "multi-GPU"
     ],
     "streams": [
@@ -14764,7 +14785,9 @@
         "tok_s": 622
       }
     ],
-    "source_id": "src-07e95d7644"
+    "source_id": "src-07e95d7644",
+    "engine_raw": "Geezuz kernel（open-jet 单卡 megakernel 的双卡分支；TP2，4–5 个 MTP 草稿）",
+    "engine_note": "Geezuz kernel（open-jet 单卡 megakernel 的双卡分支；TP2，4–5 个 MTP 草稿）"
   },
   {
     "id": "x-097",
@@ -14819,8 +14842,8 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "$6,950（128GB，2026-10-11）",
     "hardware_cost_usd": 6950,
-    "metric": "代码 29.2（比不开 MTP 快 1.22 倍）/ 数学 30.8；8K prefill 1,092（ubatch 4096，比 2048 快 1.65 倍）",
-    "metric_en": "code 29.2 (1.22× vs no MTP) / math 30.8; 8K prefill 1,092 (ubatch 4096, 1.65× vs 2048)",
+    "metric": "代码 29.2（MTP 开，比不开快 1.22 倍）/ 数学 30.8；散文开 MTP 后变慢（仓库数据）；8K prefill 1,092（ubatch 4096）",
+    "metric_en": "code 29.2 (MTP on, 1.22× vs no MTP) / math 30.8; prose is slower with MTP on (repo data); 8K prefill 1,092 (ubatch 4096)",
     "tok_s": 29.2,
     "concurrency": "单流",
     "context": "262K（262,144）",
@@ -14899,8 +14922,8 @@
     "hardware_family": "二手数据中心卡",
     "hardware_cost_text": "≈$1,300–1,400（2 张，仅显卡）",
     "hardware_cost_usd": 1300,
-    "metric": "decode 41.24 / prefill 519.34（8,192 输入 / 512 输出，3 次计时）；运行设置为实验性且有损（近似 CPU Q8、有界路由），权重未改",
-    "metric_en": "decode 41.24 / prefill 519.34 (8,192 in / 512 out, 3 timed runs); runtime settings are experimental and lossy (approximate CPU Q8, bounded routing); weights not changed",
+    "metric": "decode 41.24 / prefill 519.34（8,192 输入 / 512 输出，3 次计时）；运行设置为实验性且有损（近似 CPU Q8、有界路由），权重未改；非常驻专家在 CPU 上用主机内存中的 FP4 权重计算（offload）",
+    "metric_en": "decode 41.24 / prefill 519.34 (8,192 in / 512 out, 3 timed runs); runtime settings are experimental and lossy (approximate CPU Q8, bounded routing); weights not changed; non-resident experts are computed on the CPU from FP4 weights in host RAM (offload)",
     "tok_s": 41.24,
     "concurrency": "单流",
     "context": null,
@@ -14924,7 +14947,8 @@
       "MoE",
       "speculative",
       "MTP",
-      "multi-GPU"
+      "multi-GPU",
+      "offload"
     ],
     "source_id": "src-5cb0807b03"
   },
@@ -14936,7 +14960,7 @@
     "engine": "Strata",
     "engine_raw": "Strata v0.2.2（提交 011c9e60，引擎 0.1.47，ROCm 7.14）",
     "engine_note": "Strata v0.2.2（提交 011c9e60，引擎 0.1.47，ROCm 7.14）",
-    "hardware": "AMD Radeon AI PRO R9700 32GB",
+    "hardware": "AMD Radeon AI PRO R9700 32GB（系统内存未注明）",
     "hardware_family": "AMD",
     "hardware_cost_text": "$1,600 起（新卡，2026-10-13）",
     "hardware_cost_usd": 1600,
@@ -14953,14 +14977,16 @@
     "measured_by": "doplxyz",
     "en": {
       "quant": "Gyro-S (APR Trellis, 58.5GB)",
-      "hardware": "AMD Radeon AI PRO R9700 32GB",
+      "hardware": "AMD Radeon AI PRO R9700 32GB (system RAM not given)",
       "concurrency": "Single stream",
       "engine_note": "Strata v0.2.2 (commit 011c9e60, engine 0.1.47, ROCm 7.14)",
       "source_note": "X post (Japanese)",
       "hardware_cost_text": "From $1,600 (new card, 2026-10-13)"
     },
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "offload"
+    ],
     "source_id": "src-5f47f25b11"
   }
 ]

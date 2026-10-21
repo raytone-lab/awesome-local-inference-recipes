@@ -35,6 +35,8 @@ RULES = [
     (r'^ExLlama', 'ExLlama'),
     (r'^Infernix', 'Infernix'),
     (r'^ds41\b', 'ds41'),
+    (r'^TandemLLM', 'TandemLLM'),
+    (r'^Geezuz', 'Geezuz'),
 ]
 INFER = [
     (r'Halogen', 'Halogen'), (r'\bSplash\b', 'Splash'), (r'sparkinfer', 'sparkinfer'),
