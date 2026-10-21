@@ -27,7 +27,7 @@ def link(recipes):
 
 if __name__ == '__main__':
     p = ROOT / 'data/recipes.json'; D = json.load(open(p))
-    link(D); json.dump(D, open(p, 'w'), ensure_ascii=False, indent=2)
+    link(D); Path(p).write_text(json.dumps(D, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     from collections import Counter
     c = Counter(r['source_id'] for r in D)
     print(f"{len(D)} recipes, {len(c)} sources, {sum(1 for v in c.values() if v > 1)} shared by >1 row")

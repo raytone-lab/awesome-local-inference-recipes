@@ -32,7 +32,7 @@
 
 <details><summary>サイトのプレビュー</summary>
 
-<img src="docs/screenshot.png" width="760" alt="Awesome Local Inference Recipes">
+<img src="docs/screenshot.ja.png" width="760" alt="サイトのトップページ：レシピ数、エンジン数、実測数、予算帯ごとの最速の実測構成">
 
 </details>
 

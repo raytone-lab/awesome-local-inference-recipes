@@ -21,4 +21,4 @@ Step-by-step pages for a first set of well-sourced recipes. New here? Read [Gett
 | [Qwen-Image 2.1 · ComfyUI](image-001.md) | RTX 4090 24GB | ✅ Measured |
 | [FastH3 V2 · Unspecified](video-audio-001.md) | RTX 5090 32GB | 🏛️ Official |
 | [DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork)](comm-056.md) | 1× DGX Spark | ✅ Measured |
-| [DeepSeek-V4.1-Flash · Strata (Strata-DS fork)](comm-057.md) | RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe | ✅ Measured |
+| [DeepSeek-V4.1-Flash · Strata (Strata-DS fork)](comm-057.md) | RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe | ✅ Measured |

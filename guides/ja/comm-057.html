@@ -1,16 +1,16 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe</title><meta name="description" content="DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe の実行ガイド。ハードウェア、エンジン、起動コマンド、出典付きの速度（実測）。">
+<title>DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe</title><meta name="description" content="DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe の実行ガイド。ハードウェア、エンジン、起動コマンド、出典付きの速度（実測）。">
 <link rel="canonical" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/ja/comm-057.html"><link rel="alternate" hreflang="en" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-057.html"><link rel="alternate" hreflang="zh-CN" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/zh-CN/comm-057.html"><link rel="alternate" hreflang="ja" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/ja/comm-057.html"><link rel="alternate" hreflang="x-default" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-057.html">
-<meta property="og:type" content="article"><meta property="og:title" content="DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe"><meta property="og:description" content="DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe の実行ガイド。ハードウェア、エンジン、起動コマンド、出典付きの速度（実測）。"><meta property="og:url" content="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/ja/comm-057.html"><meta property="og:image" content="https://raytone-lab.github.io/awesome-local-inference-recipes/docs/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="article"><meta property="og:title" content="DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe"><meta property="og:description" content="DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe の実行ガイド。ハードウェア、エンジン、起動コマンド、出典付きの速度（実測）。"><meta property="og:url" content="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/ja/comm-057.html"><meta property="og:image" content="https://raytone-lab.github.io/awesome-local-inference-recipes/docs/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../style.css"><script src="../../theme.js"></script></head><body>
 <header class="site-hd"><div class="hd-in"><a class="brand" href="../../index.html?lang=ja">⚡ ローカル推論レシピ</a><nav class="static-links"><a href="../../explore.html?lang=ja">エクスプローラー</a> · <a href="../../guides/ja/index.html">ガイド</a> · <a href="https://github.com/raytone-lab/awesome-local-inference-recipes">GitHub</a></nav></div></header>
 <main class="doc static-page">
-<h1>DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe</h1>
+<h1>DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe</h1>
 <p><a href="../../guides/comm-057.html">English</a> | <a href="../../guides/zh-CN/comm-057.html">简体中文</a> | <b>日本語</b> · <a href="../../guides/ja/index.html">← 一覧に戻る</a></p>
 <blockquote>出典レベル: <b>✅ 実測</b> · 日付: 2026-10-16 · 数値は出典からの引用です。このリポジトリでは再計測していません。</blockquote>
 <h2>ハードウェア</h2>
 <ul>
-<li>RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe (NVIDIA コンシューマー)</li>
+<li>RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe (NVIDIA コンシューマー)</li>
 <li>参考価格: 未公開。出典を参照</li>
 </ul>
 <h2>モデル</h2>
@@ -21,7 +21,7 @@
 <h2>エンジン</h2>
 <ul>
 <li>Strata (Strata-DS fork) — インストール： https://github.com/Jackwwg83/Strata-DS</li>
-<li>備考: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand)</li>
+<li>備考: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand). setup.sh warns that a PC with less than 120 GiB of RAM is not tested; --yes in the command accepts that</li>
 </ul>
 <h2>起動コマンド</h2>
 <pre><code>sudo systemctl enable --now nvidia-powerd &amp;&amp; git clone https://github.com/Jackwwg83/Strata-DS.git &amp;&amp; cd Strata-DS &amp;&amp; ./setup.sh --setup --yes --family deepseek --context 32768 --no-start &amp;&amp; ./run-deepseek-sage-1.59bpw.sh</code></pre>

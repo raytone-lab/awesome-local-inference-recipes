@@ -21,4 +21,4 @@
 | [Qwen-Image 2.1（7B + 8B 文本编码器） · ComfyUI](image-001.zh-CN.md) | RTX 4090 24GB | ✅ 实测 |
 | [FastH3 V2（MiniMax H3 8 步蒸馏） · Unspecified](video-audio-001.zh-CN.md) | RTX 5090 32GB | 🏛️ 官方 |
 | [DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork)](comm-056.zh-CN.md) | 1× DGX Spark（GB10，128GB 统一内存，4TB NVMe） | ✅ 实测 |
-| [DeepSeek-V4.1-Flash · Strata (Strata-DS fork)](comm-057.zh-CN.md) | RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe | ✅ 实测 |
+| [DeepSeek-V4.1-Flash · Strata (Strata-DS fork)](comm-057.zh-CN.md) | RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe | ✅ 实测 |

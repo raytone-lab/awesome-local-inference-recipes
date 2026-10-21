@@ -10,8 +10,8 @@ BARE_SINGLE_3090 = re.compile(r'(单 )?RTX 3090( 24GB)?')
 
 
 def clean(s, n):
-    s = re.sub(r'[（(][^）)]*[）)]', '', s); s = re.sub(r'[\u3000-\u30ff\u4e00-\u9fff，、；：]+', ' ', s); s = re.sub(r'\s+', ' ', s).strip(' +/·')
-    return s if len(s) <= n else s[:n-1] + '…'
+    s = re.sub(r'[（(][^）)]*[）)]', ' ', s); s = re.sub(r'[\u3000-\u30ff\u4e00-\u9fff，、；：]+', ' ', s); s = re.sub(r'\s+', ' ', s).strip(' +/·')
+    return s if len(s) <= n else s[:n-1].rstrip(' +/·') + '…'
 
 
 def hwkey(s):

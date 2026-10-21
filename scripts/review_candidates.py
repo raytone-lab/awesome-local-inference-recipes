@@ -4,6 +4,7 @@
   python3 scripts/review_candidates.py show <id>
   python3 scripts/review_candidates.py approve <id>   # 逐项提示补缺字段后写入 data/recipes.json
   python3 scripts/review_candidates.py reject <id> [原因]"""
+from pathlib import Path
 import glob, json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RECIPES = f"{ROOT}/data/recipes.json"
@@ -40,7 +41,7 @@ def main():
         if not rec["hardware"] or not rec["tok_s"]: sys.exit("hardware 和 tok_s 必填，未写入")
         recipes = json.load(open(RECIPES))
         if any(r["id"] == rec["id"] for r in recipes): sys.exit("id 已存在")
-        recipes.append(rec); json.dump(recipes, open(RECIPES, "w"), ensure_ascii=False, indent=2)
+        recipes.append(rec); Path(RECIPES).write_text(json.dumps(recipes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         c["status"] = "approved"; save(f, d); print("已写入 recipes.json")
     else: sys.exit(__doc__)
 if __name__ == "__main__": main()

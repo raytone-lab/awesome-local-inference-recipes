@@ -1,4 +1,4 @@
-# DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe
+# DeepSeek-V4.1-Flash · Strata (Strata-DS fork) · RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe
 
 [English](comm-057.md) | [简体中文](comm-057.zh-CN.md) | **日本語** · [← 一覧に戻る](../README.ja.md)
 
@@ -6,7 +6,7 @@
 
 ## ハードウェア
 
-- RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB DDR5 + 2TB NVMe (NVIDIA コンシューマー)
+- RTX 5090 Laptop 24GB + Ryzen 9 9955HX3D + 64GB RAM + 2TB NVMe (NVIDIA コンシューマー)
 - 参考価格: 未公開。出典を参照
 
 ## モデル
@@ -17,7 +17,7 @@
 ## エンジン
 
 - Strata (Strata-DS fork) — インストール： https://github.com/Jackwwg83/Strata-DS
-- 備考: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand)
+- 備考: Strata-DS (Strata fork with its own DeepSeek engine ds41_serve, C++/CUDA; hot experts in VRAM, the next in a 46 GiB locked RAM tier computed in place by the CPU, the rest read from the SSD on demand). setup.sh warns that a PC with less than 120 GiB of RAM is not tested; --yes in the command accepts that
 
 ## 起動コマンド
 

@@ -27,7 +27,7 @@ git clone https://github.com/Jackwwg83/Strata-DS.git && cd Strata-DS && ./setup.
 
 ## Key parameters
 
-- Context: 262,144 (setup default 256K)
+- Context: 256K (262,144)
 - Concurrency: Single stream
 - Tags: `2bit`, `MoE`, `long-context`, `speculative`, `offload`
 

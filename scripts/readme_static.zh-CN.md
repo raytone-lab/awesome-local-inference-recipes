@@ -32,7 +32,7 @@
 
 <details><summary>网站预览</summary>
 
-<img src="docs/screenshot.png" width="760" alt="Awesome Local Inference Recipes">
+<img src="docs/screenshot.zh-CN.png" width="760" alt="网站首页截图：配方数、引擎数、实测数和各预算档最快的实测配置">
 
 </details>
 

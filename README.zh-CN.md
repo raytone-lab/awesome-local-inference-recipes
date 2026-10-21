@@ -12,7 +12,7 @@
 
 ### X tok/s 到底有多快？
 
-<p align="center"><a href="https://raytone-lab.github.io/awesome-local-inference-recipes/speed.html"><img src="docs/speed-feel.gif" width="860" alt="Token streaming speed demo: 10, 20, 50, 100, 200 and 500 tokens per second compared with human silent reading pace"></a></p>
+<p align="center"><a href="https://raytone-lab.github.io/awesome-local-inference-recipes/speed.html"><img src="docs/speed-feel.gif" width="860" alt="token 输出速度演示：10、20、50、100、200 和 500 tok/s，对比人的默读速度（动图内文字为英文）"></a></p>
 
 <p align="center">同一段回答、真实 Qwen3 token，以 10 / 20 / 50 / 100 / 200 / 500 tok/s（对数间隔）输出，对比默读速度（英文约 5 tok/s，Brysbaert 2019）和云端 API 中位速度（Artificial Analysis）。 <a href="https://raytone-lab.github.io/awesome-local-inference-recipes/speed.html"><b>在线互动体验 →</b></a></p>
 
@@ -397,7 +397,7 @@ X 上互动最多的配方帖（按 点赞 + 3×转发 排序；同一帖子只�
 
 <details><summary>网站预览</summary>
 
-<img src="docs/screenshot.png" width="760" alt="Awesome Local Inference Recipes">
+<img src="docs/screenshot.zh-CN.png" width="760" alt="网站首页截图：配方数、引擎数、实测数和各预算档最快的实测配置">
 
 </details>
 

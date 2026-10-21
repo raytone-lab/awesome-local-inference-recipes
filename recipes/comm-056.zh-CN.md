@@ -17,6 +17,7 @@
 ## 引擎
 
 - Strata (Strata-DS fork) — 安装见 https://github.com/Jackwwg83/Strata-DS
+- 备注: Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放在统一内存的 RAM 层，由 GPU 原地计算；冷专家按需从 SSD 读取；使用 sudoingX 的 exl3_smoe 与 exl3_mrow EXL3 内核）
 
 ## 启动命令
 
@@ -26,7 +27,7 @@ git clone https://github.com/Jackwwg83/Strata-DS.git && cd Strata-DS && ./setup.
 
 ## 关键参数
 
-- 上下文: 262,144（setup 默认 256K）
+- 上下文: 256K（262,144）
 - 并发: 单路
 - 标签: `2bit`, `MoE`, `long-context`, `speculative`, `offload`
 
