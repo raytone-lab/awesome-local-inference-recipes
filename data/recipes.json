@@ -15085,5 +15085,80 @@
     ],
     "engine_raw": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup.sh 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点",
     "engine_note": "Strata-DS（Strata 分支，自带 DeepSeek 引擎 ds41_serve，C++/CUDA；热专家放显存，次热专家放 46 GiB 锁定 RAM 层由 CPU 原地计算，其余按需从 SSD 读取）。setup.sh 提示内存低于 120 GiB 的 PC 未经测试，命令里的 --yes 表示接受这一点"
+  },
+  {
+    "id": "x-102",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA-DASLab GSQ-RCO GGUF Q2_0",
+    "engine": "Splash",
+    "hardware": "MacBook M5 Pro 20C GPU 64GB",
+    "hardware_family": "Mac",
+    "hardware_cost_text": "$3,699（MBP14 M5 Pro 18C/20C 64GB/1TB Apple 定价，2026-10-13；经销商低至 $3,519，见 prices.json）",
+    "hardware_cost_usd": 3699,
+    "metric": "Splash 1.4.0 README：短提示解码 95 tok/s（中位每 token 10.57 ms）；32K 提示读入 1,312 tok/s（34,980 token / 首 token 26.66 s）；缓存首 token 171 ms；4 路并发合计 171。同 GGUF、同一台 Mac 上 Strata 为 71.4 / 974 / 69.9（Strata 上下文设为 64K）。发布推文写“最高 120 tok/s”，README 和发布说明里没有 120 的数据，tok_s 取 95",
+    "metric_en": "Splash 1.4.0 README: decode 95 tok/s on a short prompt (median 10.57 ms per token); prefill 1,312 tok/s on a 32K prompt (34,980 tokens / 26.66 s to first token); cached first token 171 ms; 4 concurrent requests 171 total. With the same GGUF on the same Mac, Strata gives 71.4 / 974 / 69.9 (Strata context set to 64K). The launch post says \"up to 120 tok/s\". The README and release notes give no 120 value, so tok_s is 95",
+    "tok_s": 95.0,
+    "concurrency": "单路（另测 4 路合计 171）",
+    "context": "32K 测试（原生 262,144；--max-context 1M 开 YaRN）",
+    "launch_command": "splash serve --model ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF:Q2_0",
+    "source_url": "https://github.com/incoai/splash/releases/tag/1.4.0",
+    "source_note": "Inco AI 项目方测试（Splash 1.4.0 发布说明与 README，测量方法见 PR #521：SPEED-Bench 编程提示，HTTP，1,024 token 输出，取中位）；发布推文 @jianchen1799 https://x.com/jianchen1799/status/2112677428531446006",
+    "source_level": "官方",
+    "date": "2026-10-20",
+    "measured_by": "incoai",
+    "model_family": "Qwen",
+    "tags": [
+      "2bit",
+      "long-context"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab GSQ-RCO GGUF Q2_0",
+      "hardware_cost_text": "$3,699 (MBP14 M5 Pro 18C/20C 64GB/1TB Apple list price, 2026-10-13; resellers as low as $3,519, see prices.json)",
+      "concurrency": "single stream (4 concurrent also tested: 171 total)",
+      "context": "32K tested (native 262,144; --max-context 1M turns on YaRN)",
+      "source_note": "Inco AI project team test (Splash 1.4.0 release notes and README; method in PR #521: SPEED-Bench coding prompts, HTTP, 1,024-token outputs, median); launch post @jianchen1799 https://x.com/jianchen1799/status/2112677428531446006",
+      "engine_note": "Splash 1.4.0 · QSA sparse attention + automatic DFlash2 draft"
+    },
+    "source_id": "src-ed58e837f0"
+  },
+  {
+    "id": "x-103",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "4bit",
+    "engine": "Splash",
+    "hardware": "Mac mini M4 Pro 48GB",
+    "hardware_family": "Mac",
+    "hardware_cost_text": "同芯片 MBP 48GB $2,399",
+    "hardware_cost_usd": 2399,
+    "metric": "Splash 1.4.0，与 text-050 同一提示重测：长文生成 15.8→20 tok/s，首 token 0.4→0.3 s",
+    "metric_en": "Splash 1.4.0, same prompt as text-050: long text 15.8→20 tok/s, first token 0.4→0.3 s",
+    "tok_s": 20.0,
+    "concurrency": "单路",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://x.com/nenshu52man/status/2112894013456142735",
+    "source_note": "@nenshu52man on X",
+    "source_level": "实测",
+    "date": "2026-10-21",
+    "x_post": {
+      "author": "nenshu52man",
+      "likes": 4,
+      "reposts": 1,
+      "as_of": "2026-10-22"
+    },
+    "measured_by": "nenshu52man",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "dense"
+    ],
+    "en": {
+      "hardware_cost_text": "same-chip MBP 48GB $2,399",
+      "concurrency": "single stream",
+      "source_note": "@nenshu52man on X"
+    },
+    "source_id": "src-cbc57c66a3"
   }
 ]
