@@ -1,0 +1,48 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark（GB10，128GB 统一内存，4TB NVMe）</title><meta name="description" content="DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark（GB10，128GB 统一内存，4TB NVMe） 运行指南。硬件、引擎、启动命令与有出处的速度（实测）。">
+<link rel="canonical" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/zh-CN/comm-056.html"><link rel="alternate" hreflang="en" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-056.html"><link rel="alternate" hreflang="zh-CN" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/zh-CN/comm-056.html"><link rel="alternate" hreflang="ja" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/ja/comm-056.html"><link rel="alternate" hreflang="x-default" href="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/comm-056.html">
+<meta property="og:type" content="article"><meta property="og:title" content="DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark（GB10，128GB 统一内存，4TB NVMe）"><meta property="og:description" content="DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark（GB10，128GB 统一内存，4TB NVMe） 运行指南。硬件、引擎、启动命令与有出处的速度（实测）。"><meta property="og:url" content="https://raytone-lab.github.io/awesome-local-inference-recipes/guides/zh-CN/comm-056.html"><meta property="og:image" content="https://raytone-lab.github.io/awesome-local-inference-recipes/docs/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../style.css"><script src="../../theme.js"></script></head><body>
+<header class="site-hd"><div class="hd-in"><a class="brand" href="../../index.html?lang=zh-CN">⚡ 本地推理配方</a><nav class="static-links"><a href="../../explore.html?lang=zh-CN">配方库</a> · <a href="../../guides/zh-CN/index.html">指南</a> · <a href="https://github.com/raytone-lab/awesome-local-inference-recipes">GitHub</a></nav></div></header>
+<main class="doc static-page">
+<h1>DeepSeek-V4.1-Flash-1017 · Strata (Strata-DS fork) · 1× DGX Spark（GB10，128GB 统一内存，4TB NVMe）</h1>
+<p><a href="../../guides/comm-056.html">English</a> | <b>简体中文</b> | <a href="../../guides/ja/comm-056.html">日本語</a> · <a href="../../guides/zh-CN/index.html">← 返回列表</a></p>
+<blockquote>来源等级: <b>✅ 实测</b> · 日期: 2026-10-18 · 数字来自来源。本仓库未复测。</blockquote>
+<h2>硬件</h2>
+<ul>
+<li>1× DGX Spark（GB10，128GB 统一内存，4TB NVMe） (DGX Spark)</li>
+<li>参考价格: $6,950（128GB，2026-10-11）</li>
+</ul>
+<h2>模型</h2>
+<ul>
+<li>DeepSeek-V4.1-Flash-1017 · <code>LibertAIDAI EXL3 2.9bpw（专家；dense 5 / head 6）+ 官方 1017 其余张量与 Engram（单机，DSpark 每步起草，SSD 尾部跳过）</code></li>
+<li>下载: <a href="https://huggingface.co/LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw" rel="nofollow noopener">huggingface.co/LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw</a> · <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" rel="nofollow noopener">huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017</a></li>
+</ul>
+<h2>引擎</h2>
+<ul>
+<li>Strata (Strata-DS fork) — 安装见 https://github.com/Jackwwg83/Strata-DS</li>
+</ul>
+<h2>启动命令</h2>
+<pre><code>git clone https://github.com/Jackwwg83/Strata-DS.git &amp;&amp; cd Strata-DS &amp;&amp; ./setup.sh --setup --yes --family deepseek --no-start &amp;&amp; ./run-deepseek-1017-exl3-2.9bpw.sh</code></pre>
+<h2>关键参数</h2>
+<ul>
+<li>上下文: 262,144（setup 默认）</li>
+<li>并发: 单路</li>
+<li>标签: <code>2bit</code>, <code>MoE</code>, <code>long-context</code>, <code>speculative</code>, <code>offload</code></li>
+</ul>
+<h2>预期速度</h2>
+<ul>
+<li>真实编码 agent 会话 48 轮（上下文 10K–91K）共 70,211 token 平均 30.8 tok/s（每轮 23.6–36.4，中位 28.6）；单次测：上下文 8K/32K/64K/128K/250K 解码 24.2/27.4/27.4/27.3/22.9；agent 每轮新增 ≤50 token 首字中位 0.57 s，同一 10K 系统提示开新会话 0.25 s；冷 prefill 约 500 tok/s（250K 8.3 分钟）；vs 官方 MXFP4 KL 0.074 / top-1 88.6% (✅ 实测)</li>
+</ul>
+<h2>注意事项</h2>
+<ul>
+<li>Strata-DS 配方页，作者实测（原始数据 ds41/bench/results/2026-10-18-spark；setup 在 GB10 上自动选此配方，从 LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw 与 deepseek-ai/DeepSeek-V4.1-Flash-1017 下载 414.8 GB 并打包；新 clone 复现的包与</li>
+<li>速度随驱动、引擎版本、上下文长度和提示长度变化。</li>
+</ul>
+<h2>来源与致谢</h2>
+<ul>
+<li><a href="https://github.com/Jackwwg83/Strata-DS/blob/main/docs/DEEPSEEK_SPARK.md" rel="nofollow noopener">https://github.com/Jackwwg83/Strata-DS/blob/main/docs/DEEPSEEK_SPARK.md</a></li>
+<li>版权归原作者。本页仅摘要并链接。数据以 CC BY 4.0 发布。</li>
+</ul>
+<p class="na">源文件: <a href="https://github.com/raytone-lab/awesome-local-inference-recipes/blob/main/recipes/comm-056.zh-CN.md">recipes/comm-056.zh-CN.md</a></p>
+</main><footer class="site-ft"><div class="ft-in">数据截至 2026-10-20 · <a href="https://github.com/raytone-lab/awesome-local-inference-recipes">GitHub</a> · 数据 CC BY 4.0</div></footer></body></html>
