@@ -18,6 +18,7 @@ RAW_ENGINE_SAMPLES = {
     'SGLang': 'SGLang 0.5', 'vLLM': 'vLLM 0.11', 'Splash': 'Splash 1.2', 'Project Maya': 'Project Maya alpha',
     'Halogen': 'halogen flash server', 'Osaurus': 'Osaurus 1.0', 'ExLlama': 'ExLlamaV3',
     'Infernix': 'Infernix windows-2026.10.11', 'ds41': 'ds41 Rust + CUDA',
+    'TandemLLM': 'TandemLLM 0.13.0 MTP', 'Geezuz': 'Geezuz kernel TP2',
 }
 
 
