@@ -71,6 +71,24 @@
       "source": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B"
     },
     {
+      "match": "Recursive Flint|Flint 40B-A2\\.5B",
+      "label": "Recursive Flint 40B-A2.5B",
+      "total_b": 39.8,
+      "active_b": 2.5,
+      "arch": "moe",
+      "active_note": "including output head; active body ~2.2B",
+      "source": "https://huggingface.co/RecursiveSI/flint",
+      "total_label": "40B-A2.5B"
+    },
+    {
+      "match": "Ornith-1\\.5-122B",
+      "label": "Ornith-1.5-122B",
+      "total_b": 122,
+      "active_b": 10,
+      "arch": "moe",
+      "source": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+    },
+    {
       "match": "Nemotron-3-Nano",
       "label": "Nemotron-3-Nano",
       "total_b": 30,
