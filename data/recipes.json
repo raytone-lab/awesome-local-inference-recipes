@@ -11774,7 +11774,7 @@
     "hardware_family": "AMD",
     "hardware_cost_text": "≈$3,200（2×$1,600 新卡最低，计算值，仅显卡）",
     "hardware_cost_usd": 3200,
-    "metric": "解码 176 tok/s，prefill 6,450 tok/s（BetterBench 截图）",
+    "metric": "解码 176 tok/s，prefill 6,450 tok/s（BetterBench 截图）；同一硬件的 R0 重校准容器（每卡 240W）约 160，见 comm-071",
     "tok_s": 176,
     "concurrency": null,
     "context": null,
@@ -11791,7 +11791,7 @@
     "measured_by": "Athabasco",
     "source_id": "src-ad1dca1233",
     "engine_fork": "Radiance",
-    "metric_en": "Decode 176 tok/s, prefill 6,450 tok/s (BetterBench screenshot)",
+    "metric_en": "Decode 176 tok/s, prefill 6,450 tok/s (BetterBench screenshot); R0 recalibrated container on the same hardware (240W per card) is about 160, see comm-071",
     "en": {
       "quant": "Q4 (StillDeadcode iq4r-moe)",
       "hardware_cost_text": "≈$3,200 (2×$1,600 lowest new card, computed, card only)",
@@ -12814,7 +12814,7 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": null,
     "hardware_cost_usd": null,
-    "metric": "生成 ~100 tok/s（TP=2；同权重 Strata ~78；prefill ~3.4k @15k prompt）",
+    "metric": "生成 ~100 tok/s（TP=2；同权重 Strata ~78；prefill ~3.4k @15k prompt）；v0.7.1 README：2 卡 Flash-Next 64GB 版 LocalMaxxing 239，1 卡 121（见 comm-070）",
     "tok_s": 100,
     "concurrency": null,
     "context": null,
@@ -12824,7 +12824,7 @@
     "source_level": "实测",
     "date": "2026-10-16",
     "measured_by": "FeydRowan",
-    "metric_en": "generation ~100 tok/s (TP=2; same weights Strata ~78; prefill ~3.4k @15k prompt)",
+    "metric_en": "generation ~100 tok/s (TP=2; same weights Strata ~78; prefill ~3.4k @15k prompt); v0.7.1 README: 2 cards, Flash-Next 64GB edition, LocalMaxxing 239; 1 card 121 (see comm-070)",
     "en": {
       "quant": "official NVFP4 · TP=2",
       "source_note": "r/LocalLLaMA u/FeydRowan / capy-flash author measured (TP=2, official NVFP4)"
@@ -13966,8 +13966,8 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$13,900（2×$6,950，计算值）",
     "hardware_cost_usd": 13900,
-    "metric": "sparkDash（CONTEXT=524288，草稿开）：单流散文 74.9 / 代码 109.9；4 流合计散文 130.0 / 代码 155.5；冷 prefill 8K–256K 约 2,000–2,183；权重卡注明 experimental、无相对未量化 PPL/KL；同机型 Elevatormusic（comm-038）散文 56.8",
-    "metric_en": "sparkDash (CONTEXT=524288, drafts on): single-stream prose 74.9 / code 109.9; 4-stream aggregate prose 130.0 / code 155.5; cold prefill 8K–256K about 2,000–2,183; weight card is experimental with no PPL/KL vs unquantized; same-class Elevatormusic (comm-038) prose 56.8",
+    "metric": "sparkDash（CONTEXT=524288，草稿开）：单流散文 74.9 / 代码 109.9；4 流合计散文 130.0 / 代码 155.5；冷 prefill 8K–256K 约 2,000–2,183；权重卡注明 experimental、无相对未量化 PPL/KL；同机型 Elevatormusic（comm-038）散文 56.8；yume_arasaki 10-23 更正其复测：散文 70+（不是 58），代码约 107",
+    "metric_en": "sparkDash (CONTEXT=524288, drafts on): single-stream prose 74.9 / code 109.9; 4-stream aggregate prose 130.0 / code 155.5; cold prefill 8K–256K about 2,000–2,183; weight card is experimental with no PPL/KL vs unquantized; same-class Elevatormusic (comm-038) prose 56.8; yume_arasaki corrected their re-test on 10-23: prose 70+ (not 58), code about 107",
     "tok_s": 74.9,
     "concurrency": "单流（另测 2/4 流合计）",
     "context": "524,288（测速 CONTEXT；模型窗至 1,048,576）",
@@ -14171,8 +14171,8 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$27,800（4×$6,950，计算值）",
     "hardware_cost_usd": 27800,
-    "metric": "recipe v0.2.0 set b 中位：单流代码 135.9 / 散文 79.1 / 结构化 186.6；4 流合计 141.7，4 流持续 90s 合计 183.1；冷 prefill 8K 2,793、128K 2,679；4.02bpw 比 v0.1.1 的 2.9bpw（pre-1017 Mia 权重）慢约 15–17%；KL 未测；X 帖写代码 136 / 4 流 183",
-    "metric_en": "recipe v0.2.0 set b median: single-stream code 135.9 / prose 79.1 / structured 186.6; 4-stream aggregate 141.7, 4-stream sustained 90s aggregate 183.1; cold prefill 8K 2,793, 128K 2,679; 4.02bpw is about 15–17% slower than v0.1.1 2.9bpw (pre-1017 Mia weights); KL not measured; X post quotes code 136 / 4-stream 183",
+    "metric": "recipe v0.2.0 set b 中位：单流代码 135.9 / 散文 79.1 / 结构化 186.6；4 流合计 141.7，4 流持续 90s 合计 183.1；冷 prefill 8K 2,793、128K 2,679；4.02bpw 比 v0.1.1 的 2.9bpw（pre-1017 Mia 权重）慢约 15–17%；KL 未测；X 帖写代码 136 / 4 流 183；10-23 复核：README v0.3.3 单流代码 135.6 / 散文 78.6，16 流持续合计 255.6；Gael_DDOS 复测散文 78.6",
+    "metric_en": "recipe v0.2.0 set b median: single-stream code 135.9 / prose 79.1 / structured 186.6; 4-stream aggregate 141.7, 4-stream sustained 90s aggregate 183.1; cold prefill 8K 2,793, 128K 2,679; 4.02bpw is about 15–17% slower than v0.1.1 2.9bpw (pre-1017 Mia weights); KL not measured; X post quotes code 136 / 4-stream 183; 10-23 check: README v0.3.3 single-stream code 135.6 / prose 78.6, 16-stream sustained aggregate 255.6; Gael_DDOS re-test prose 78.6",
     "tok_s": 79.1,
     "concurrency": "单流（另测 2/4 流合计）",
     "context": "1,048,576（16 streams 共享至 2,097,152）",
@@ -16084,5 +16084,599 @@
       "MoE"
     ],
     "source_id": "src-4d676874d2"
+  },
+  {
+    "id": "comm-068",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "easthambuilds EXL3 3.75bpw（MoE，TP3）",
+    "engine": "TensorFold",
+    "hardware": "3× DGX Spark（GB10，3 根 CX7 直连，无交换机；锁频 2000 MHz）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$20,850（3×$6,950，计算值）",
+    "hardware_cost_usd": 20850,
+    "metric": "单流 set b：代码 122.6 / 散文 73.8 / 结构化 147.6；set a：111.9 / 67.5 / 129.6；2/4/8 流合计 93–102 / 121–136 / 165–181；prefill 8K/32K/128K 2,222/2,257/2,074；同作者 2.9bpw 帖文：TP3 对 TP2 代码 117 对 88、散文 82 对 61",
+    "metric_en": "single-stream set b: code 122.6 / prose 73.8 / structured 147.6; set a: 111.9 / 67.5 / 129.6; 2/4/8-stream aggregate 93–102 / 121–136 / 165–181; prefill 8K/32K/128K 2,222/2,257/2,074; same author 2.9bpw post: TP3 vs TP2 code 117 vs 88, prose 82 vs 61",
+    "tok_s": 73.8,
+    "concurrency": "单流（另测 2/4/8 流合计）",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://github.com/easthambuilds/DeepSeek-V4.1-Flash-1017-EXL3-3.75bpw-3x-DGX-Sparks-TensorFold",
+    "source_note": "easthambuilds 配方仓 README（运行时 LakyFx/deepseek-v41-flash-exl3-tp3-spark v1.2.2TF；X @easthambuilds/status/2113288165330927950）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "easthambuilds",
+    "model_family": "DeepSeek",
+    "tags": [
+      "3bit",
+      "MoE",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "easthambuilds EXL3 3.75bpw (MoE, TP3)",
+      "hardware": "3× DGX Spark (GB10, 3 direct CX7 cables, no switch; clock capped at 2000 MHz)",
+      "concurrency": "Single stream (2/4/8-stream aggregates also measured)",
+      "source_note": "easthambuilds recipe repo README (runtime LakyFx/deepseek-v41-flash-exl3-tp3-spark v1.2.2TF; X @easthambuilds/status/2113288165330927950)",
+      "hardware_cost_text": "≈$20,850 (3×$6,950, computed)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 73.8
+      }
+    ],
+    "source_id": "src-8bdc999ec2"
+  },
+  {
+    "id": "x-118",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "NVFP4（MoE）",
+    "engine": "NVIDIA Flare",
+    "hardware": "4× DGX Spark（QSFP 环形直连，无交换机）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$27,800（4×$6,950，计算值）",
+    "hardware_cost_usd": 27800,
+    "metric": "单流：计数类 92–98 / 代码 85–89；Max effort 生成 114K token 时 62.5；作者称 1–3 流比其 vLLM 配方快",
+    "metric_en": "single stream: counting 92–98 / code 85–89; 62.5 over a 114K-token Max-effort output; author says faster than their vLLM recipe at 1–3 streams",
+    "tok_s": 85,
+    "concurrency": "单流",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://x.com/calvarado2004/status/2113342060887433562",
+    "source_note": "X 帖文（配方 github.com/calvarado2004/deepseek-v41-1017-nvfp4-nvidia-flare）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "calvarado2004",
+    "model_family": "DeepSeek",
+    "tags": [
+      "4bit",
+      "MoE",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "NVFP4 (MoE)",
+      "hardware": "4× DGX Spark (QSFP ring, no switch)",
+      "concurrency": "Single stream",
+      "source_note": "X post (recipe github.com/calvarado2004/deepseek-v41-1017-nvfp4-nvidia-flare)",
+      "hardware_cost_text": "≈$27,800 (4×$6,950, computed)"
+    },
+    "source_id": "src-4f9cd7ce9a"
+  },
+  {
+    "id": "comm-069",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "NVIDIA FP4-Local（QAD NVFP4，MoE）+ MTP 4",
+    "engine": "vLLM",
+    "hardware": "1× DGX Spark",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$6,950（计算值）",
+    "hardware_cost_usd": 6950,
+    "metric": "5 次中位，温度 0.7，300 token：JSON 62.4 / 代码 58.0 / 解释 46.5 / 改写 44.2 / 故事 33.6；随机文本 21.3",
+    "metric_en": "median of 5, temp 0.7, 300 tokens: JSON 62.4 / code 58.0 / explain 46.5 / rewrite 44.2 / story 33.6; random text 21.3",
+    "tok_s": 46.5,
+    "concurrency": "单流",
+    "context": null,
+    "launch_command": "./run-recipe.sh qwen3.8-flash-next-fp4 --setup",
+    "source_url": "https://github.com/atakann/dgx-spark-recipes",
+    "source_note": "atakann 配方仓 README（vLLM 8244d1c，eugr/spark-vllm-b12x；X @atasrb）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "atasrb",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "MoE",
+      "speculative",
+      "MTP"
+    ],
+    "en": {
+      "quant": "NVIDIA FP4-Local (QAD NVFP4, MoE) + MTP 4",
+      "hardware": "1× DGX Spark",
+      "concurrency": "Single stream",
+      "source_note": "atakann recipe repo README (vLLM 8244d1c, eugr/spark-vllm-b12x; X @atasrb)",
+      "hardware_cost_text": "≈$6,950 (computed)"
+    },
+    "source_id": "src-b622999289"
+  },
+  {
+    "id": "comm-070",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "capy-flash 64GB 版（MoE）",
+    "engine": "capy-flash",
+    "hardware": "1× RTX 5070 Ti 16GB + 64GB 内存",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "1 卡 121（LocalMaxxing 验证运行），replay decode 104；2 卡 239",
+    "metric_en": "1 card 121 (LocalMaxxing verified run), replay decode 104; 2 cards 239",
+    "tok_s": 121,
+    "concurrency": "单流",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://github.com/ValerioDolci/capy-flash",
+    "source_note": "capy-flash 仓库 README v0.7.1（作者本人）",
+    "source_level": "宣称",
+    "date": "2026-10-22",
+    "measured_by": "ValerioDolci",
+    "model_family": "Qwen",
+    "tags": [
+      "MoE"
+    ],
+    "en": {
+      "quant": "capy-flash 64GB edition (MoE)",
+      "hardware": "1× RTX 5070 Ti 16GB + 64GB RAM",
+      "concurrency": "Single stream",
+      "source_note": "capy-flash repo README v0.7.1 (author)",
+      "hardware_cost_text": "Price not checked"
+    },
+    "source_id": "src-44955d5192"
+  },
+  {
+    "id": "comm-071",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "R0 容器（GPTQ 专家 + int8 主干，MoE）",
+    "engine": "Radiance (fork)",
+    "hardware": "2× AMD R9700 32GB（每卡限 240W）",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "≈$3,200（2×$1,600 新卡最低，计算值，仅显卡）",
+    "hardware_cost_usd": 3200,
+    "metric": "1 用户约 160；8 用户不同提示合计 471；Radiance 原版约 155；17–29K 读入 5,900–6,000",
+    "metric_en": "1 user about 160; 8 users, different prompts, aggregate 471; stock Radiance about 155; prompt reading at 17–29K 5,900–6,000",
+    "tok_s": 160,
+    "concurrency": "单流（另测 8 用户合计）",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/R9700/comments/1xdbp3w/",
+    "source_note": "r/R9700 u/notafakename10 实测",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "notafakename10",
+    "model_family": "Qwen",
+    "tags": [
+      "8bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "R0 container (GPTQ experts + int8 trunk, MoE)",
+      "hardware": "2× AMD R9700 32GB (240W limit per card)",
+      "concurrency": "Single stream (8-user aggregate also measured)",
+      "source_note": "r/R9700 u/notafakename10 measured",
+      "hardware_cost_text": "≈$3,200 (2×$1,600 lowest new card, computed, cards only)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 160
+      },
+      {
+        "n": 8,
+        "tok_s": 471
+      }
+    ],
+    "source_id": "src-45fee669c1",
+    "engine_fork": "Radiance"
+  },
+  {
+    "id": "x-119",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "EXL3 3.05bpw（MoE）",
+    "engine": "SGLang",
+    "hardware": "2× AMD R9700 32GB",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "≈$3,200（2×$1,600 新卡最低，计算值，仅显卡）",
+    "hardware_cost_usd": 3200,
+    "metric": "顺序 130.6；1/2/4/8 并发合计 147.3 / 238.2 / 268.9 / 374.9；ROCm TP=2 自定义 kernel",
+    "metric_en": "sequential 130.6; 1/2/4/8 concurrent aggregate 147.3 / 238.2 / 268.9 / 374.9; ROCm TP=2 custom kernels",
+    "tok_s": 130.6,
+    "concurrency": "单流（另测并发合计）",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://x.com/dad__vibes/status/2113402407183057228",
+    "source_note": "X 帖文（经 @sincoice）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "dad__vibes",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "EXL3 3.05bpw (MoE)",
+      "hardware": "2× AMD R9700 32GB",
+      "concurrency": "Single stream (concurrent aggregates also measured)",
+      "source_note": "X post (via @sincoice)",
+      "hardware_cost_text": "≈$3,200 (2×$1,600 lowest new card, computed, cards only)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 130.6
+      },
+      {
+        "n": 8,
+        "tok_s": 374.9
+      }
+    ],
+    "source_id": "src-fc42dc2969"
+  },
+  {
+    "id": "comm-072",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "NVIDIA NVFP4（MoE）+ MTP，int8 KV",
+    "engine": "Basalt",
+    "hardware": "RTX 5090 32GB + Core Ultra 9 285K + 247GB DDR5",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "$5,400–6,995（新卡街价，2026-10-11；MSRP $1,999）",
+    "hardware_cost_usd": 5400,
+    "metric": "16K 时 decode：basalt 242 / capy-flash 198 / ninfer-ext 92；128K 时 basalt 216；prefill basalt 8.3–9.2K",
+    "metric_en": "decode at 16K: basalt 242 / capy-flash 198 / ninfer-ext 92; basalt 216 at 128K; basalt prefill 8.3–9.2K",
+    "tok_s": 242,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xcp0mf/",
+    "source_note": "r/LocalLLaMA u/giveen 实测（basalt fe7fd96f，capy-flash v0.7.1，ninfer-ext 3241c511）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "giveen",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "8bit",
+      "MoE",
+      "long-context",
+      "speculative",
+      "MTP"
+    ],
+    "en": {
+      "quant": "NVIDIA NVFP4 (MoE) + MTP, int8 KV",
+      "hardware": "RTX 5090 32GB + Core Ultra 9 285K + 247GB DDR5",
+      "concurrency": "Single stream",
+      "source_note": "r/LocalLLaMA u/giveen measured (basalt fe7fd96f, capy-flash v0.7.1, ninfer-ext 3241c511)",
+      "hardware_cost_text": "$5,400–6,995 (new street price, 2026-10-11; MSRP $1,999)"
+    },
+    "source_id": "src-54c37beaa4"
+  },
+  {
+    "id": "comm-073",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "未注明（dense）",
+    "engine": "vLLM",
+    "hardware": "4× RTX 3090 24GB（gpu-unlock 解锁 fp32 累加）",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "$4,824–5,996（4×二手，2026-10-06/12，计算值）",
+    "hardware_cost_usd": 4824,
+    "metric": "TP4：1 请求 131.9（解锁前 128.5）；8 请求合计 571.7（解锁前 448）；约 60K 提示 38.6",
+    "metric_en": "TP4: 1 request 131.9 (128.5 before unlock); 8-request aggregate 571.7 (448 before); about 60K prompt 38.6",
+    "tok_s": 131.9,
+    "concurrency": "单流（另测 8 请求合计）",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/LocalAIServers/comments/1xd6jyu/",
+    "source_note": "r/LocalAIServers u/Zealousideal_Knee_50 实测（量化和 vLLM 版本未注明）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "Zealousideal_Knee_50",
+    "model_family": "Qwen",
+    "tags": [
+      "dense",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "Not stated (dense)",
+      "hardware": "4× RTX 3090 24GB (gpu-unlock enables fp32 accumulate)",
+      "concurrency": "Single stream (8-request aggregate also measured)",
+      "source_note": "r/LocalAIServers u/Zealousideal_Knee_50 measured (quant and vLLM version not stated)",
+      "hardware_cost_text": "$4,824–5,996 (4× used, 2026-10-06/12, computed)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 131.9
+      },
+      {
+        "n": 8,
+        "tok_s": 571.7
+      }
+    ],
+    "source_id": "src-f051c10f57"
+  },
+  {
+    "id": "comm-074",
+    "category": "text",
+    "model": "Recursive Flint 40B-A2.5B",
+    "quant": "int4（MoE）",
+    "engine": "Halogen",
+    "hardware": "AMD Ryzen AI Max+ 395 128GB",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "$3,149（Framework 128GB，缺货，2026-10）",
+    "hardware_cost_usd": 3149,
+    "metric": "1–2K 约 98；32K 约 67–70；4 请求合计约 190；prefill 2K 3,700 / 32K 2,450",
+    "metric_en": "about 98 at 1–2K; about 67–70 at 32K; 4-request aggregate about 190; prefill 3,700 at 2K / 2,450 at 32K",
+    "tok_s": 98,
+    "concurrency": "单流（另测 4 请求合计）",
+    "context": null,
+    "launch_command": "podman run --rm -p 8731:8731 --device /dev/kfd --device /dev/dri --group-add keep-groups --ipc=host --ulimit memlock=-1:-1 -e HALOGEN_SERVE_MODEL=flint -v ~/halogen-models:/models ghcr.io/peonist-ai/halogen-flash-server:0.18.14-flint-preview",
+    "source_url": "https://www.reddit.com/r/StrixHalo/comments/1xcxjpv/",
+    "source_note": "r/StrixHalo u/peonist-ai（halogen 作者）实测",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "peonist-ai",
+    "model_family": "Other",
+    "tags": [
+      "4bit",
+      "MoE"
+    ],
+    "en": {
+      "quant": "int4 (MoE)",
+      "hardware": "AMD Ryzen AI Max+ 395 128GB",
+      "concurrency": "Single stream (4-request aggregate also measured)",
+      "source_note": "r/StrixHalo u/peonist-ai (halogen author) measured",
+      "hardware_cost_text": "$3,149 (Framework 128GB, out of stock, 2026-10)"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 98
+      },
+      {
+        "n": 4,
+        "tok_s": 190
+      }
+    ],
+    "source_id": "src-26b789088d"
+  },
+  {
+    "id": "comm-075",
+    "category": "text",
+    "model": "Recursive Flint 40B-A2.5B",
+    "quant": "Q8_0 GGUF（MoE）",
+    "engine": "llama.cpp",
+    "hardware": "1× RTX PRO 6000 Blackwell 96GB",
+    "hardware_family": "其他",
+    "hardware_cost_text": "$15,999 最低追踪报价（新卡，2026-10-13，见 prices.json）",
+    "hardware_cost_usd": 15999,
+    "metric": "1 请求 244；3 请求同时每请求 135；prefill 5,230；单次运行",
+    "metric_en": "1 request 244; 135 per request with 3 at once; prefill 5,230; one run",
+    "tok_s": 244,
+    "concurrency": "单流（另测 3 并发）",
+    "context": "每 slot 64K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/nvidia/comments/1xd0f7x/",
+    "source_note": "r/nvidia u/GapNew4766 实测（llama.cpp b11803，--parallel 3；作者在 Atomic Agent 工作）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "GapNew4766",
+    "model_family": "Other",
+    "tags": [
+      "8bit",
+      "MoE"
+    ],
+    "en": {
+      "quant": "Q8_0 GGUF (MoE)",
+      "hardware": "1× RTX PRO 6000 Blackwell 96GB",
+      "concurrency": "Single stream (3 concurrent also measured)",
+      "source_note": "r/nvidia u/GapNew4766 measured (llama.cpp b11803, --parallel 3; author works on Atomic Agent)",
+      "hardware_cost_text": "$15,999 lowest tracked price (new card, 2026-10-13, see prices.json)",
+      "context": "64K per slot"
+    },
+    "source_id": "src-78971a696c"
+  },
+  {
+    "id": "comm-076",
+    "category": "text",
+    "model": "Recursive Flint 40B-A2.5B",
+    "quant": "4-bit MLX（MoE，22.6GB）",
+    "engine": "Kapitsa",
+    "hardware": "MacBook Pro M5 Pro 48GB",
+    "hardware_family": "Mac",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "prefill / decode：Kapitsa 2691 / 149；llama.cpp b11804 2072 / 92；rec 0.1.0 2138 / 145（均为 Kapitsa 方测量）",
+    "metric_en": "prefill / decode: Kapitsa 2691 / 149; llama.cpp b11804 2072 / 92; rec 0.1.0 2138 / 145 (all measured by the Kapitsa team)",
+    "tok_s": 149,
+    "concurrency": "单流",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://github.com/nace-ai/kapitsa",
+    "source_note": "Kapitsa 仓库 README Flint 表（引擎方自测）",
+    "source_level": "官方",
+    "date": "2026-10-23",
+    "measured_by": "nace-ai",
+    "model_family": "Other",
+    "tags": [
+      "4bit",
+      "MoE"
+    ],
+    "en": {
+      "quant": "4-bit MLX (MoE, 22.6GB)",
+      "hardware": "MacBook Pro M5 Pro 48GB",
+      "concurrency": "Single stream",
+      "source_note": "Kapitsa repo README Flint table (engine team test)",
+      "hardware_cost_text": "Price not checked"
+    },
+    "source_id": "src-8aea66e2d6"
+  },
+  {
+    "id": "x-120",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA-DASLab GSQ-RCO IQ3_S（MoE）",
+    "engine": "Strata",
+    "hardware": "RTX 5090 32GB + 121GB DDR5",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "$5,400–6,995（新卡街价，2026-10-11；MSRP $1,999）",
+    "hardware_cost_usd": 5400,
+    "metric": "Strata 0.2.3（engine 0.1.48）单流 240；2 用户每人 115；作者称此卡无提速（x-091 旧版 185 为不同测法）",
+    "metric_en": "Strata 0.2.3 (engine 0.1.48) single stream 240; 115 per user with 2 users; author says no speed change on this card (x-091 older 185 used a different test)",
+    "tok_s": 240,
+    "concurrency": "单流（另测 2 用户）",
+    "context": "256K",
+    "launch_command": null,
+    "source_url": "https://x.com/lyesbahi/status/2113602136051458520",
+    "source_note": "X 帖文（附截图）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "lyesbahi",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab GSQ-RCO IQ3_S (MoE)",
+      "hardware": "RTX 5090 32GB + 121GB DDR5",
+      "concurrency": "Single stream (2 users also measured)",
+      "source_note": "X post (with screenshot)",
+      "hardware_cost_text": "$5,400–6,995 (new street price, 2026-10-11; MSRP $1,999)"
+    },
+    "source_id": "src-c11ac8e52f"
+  },
+  {
+    "id": "x-121",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "IQ3_S 84.6GB（MoE）",
+    "engine": "Strata",
+    "hardware": "2× Tesla P40 24GB + 双路 Xeon",
+    "hardware_family": "二手数据中心卡",
+    "hardware_cost_text": "≈$810（2×$405 eBay 挂牌中位，2026-10，计算值，仅显卡）",
+    "hardware_cost_usd": 810,
+    "metric": "Strata 0.2.3 单流 46；2 用户每人约 42；NUMA 内存池 +15%",
+    "metric_en": "Strata 0.2.3 single stream 46; about 42 per user with 2 users; NUMA pool +15%",
+    "tok_s": 46,
+    "concurrency": "单流（另测 2 用户）",
+    "context": "256K",
+    "launch_command": null,
+    "source_url": "https://x.com/lyesbahi/status/2113593434355507686",
+    "source_note": "X 帖文（附截图）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "lyesbahi",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "IQ3_S 84.6GB (MoE)",
+      "hardware": "2× Tesla P40 24GB + dual Xeon",
+      "concurrency": "Single stream (2 users also measured)",
+      "source_note": "X post (with screenshot)",
+      "hardware_cost_text": "≈$810 (2×$405 eBay listing median, 2026-10, computed, cards only)"
+    },
+    "source_id": "src-1ce5130c8e"
+  },
+  {
+    "id": "comm-077",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA-DASLab GSQ-RCO IQ3_S + FP8 PLE，int8 KV（MoE）",
+    "engine": "Strata",
+    "hardware": "RTX 5090 32GB + RTX 4070 Ti SUPER 16GB（芯片组 PCIe x1）+ i7-14700K + 32GB 内存",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "strata_bench short chat 186.3（153.7–254.8）；prefill 4K 2,446 / 16K 3,917；Strata v0.2.1 + ExTV 5 个补丁",
+    "metric_en": "strata_bench short chat 186.3 (153.7–254.8); prefill 4K 2,446 / 16K 3,917; Strata v0.2.1 + 5 ExTV patches",
+    "tok_s": 186.3,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/3791",
+    "source_note": "Strata 仓库 issue #3791（ExTV 社区测速）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "ExTV",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "8bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab GSQ-RCO IQ3_S + FP8 PLE, int8 KV (MoE)",
+      "hardware": "RTX 5090 32GB + RTX 4070 Ti SUPER 16GB (chipset PCIe x1) + i7-14700K + 32GB RAM",
+      "concurrency": "Single stream",
+      "source_note": "Strata repo issue #3791 (ExTV community benchmark)",
+      "hardware_cost_text": "Price not checked"
+    },
+    "source_id": "src-0041c293c0"
+  },
+  {
+    "id": "comm-078",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA-DASLab GSQ-RCO IQ3_S，int8 KV（MoE）",
+    "engine": "Strata",
+    "hardware": "2× RTX 3060 12GB + Xeon E5-2683 v4 + 64GB DDR4",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "strata_bench short chat 50.9（46.6–68.1）；prefill 4K 831 / 16K 1,172；Strata 0.1.47",
+    "metric_en": "strata_bench short chat 50.9 (46.6–68.1); prefill 4K 831 / 16K 1,172; Strata 0.1.47",
+    "tok_s": 50.9,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/3768",
+    "source_note": "Strata 仓库 issue #3768（GlisseManTV 社区测速）",
+    "source_level": "实测",
+    "date": "2026-10-23",
+    "measured_by": "GlisseManTV",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "8bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab GSQ-RCO IQ3_S, int8 KV (MoE)",
+      "hardware": "2× RTX 3060 12GB + Xeon E5-2683 v4 + 64GB DDR4",
+      "concurrency": "Single stream",
+      "source_note": "Strata repo issue #3768 (GlisseManTV community benchmark)",
+      "hardware_cost_text": "Price not checked"
+    },
+    "source_id": "src-649221f5a9"
   }
 ]
