@@ -29,7 +29,7 @@ mlx-serve --model ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit --serve
 
 - 上下文: 268,288
 - 并发: 串行单请求
-- 标签: `4bit`, `8bit`, `long-context`
+- 标签: `4bit`, `8bit`, `MoE`, `long-context`
 
 ## 预期速度
 

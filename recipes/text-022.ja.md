@@ -26,7 +26,7 @@
 
 - コンテキスト: 262K (243K needle test 15/15)
 - 同時実行: native engine only 1 stream (separate vLLM concurrent lane also exists)
-- タグ: `3bit`, `8bit`, `long-context`, `speculative`
+- タグ: `3bit`, `8bit`, `MoE`, `long-context`, `speculative`
 
 ## 想定速度
 

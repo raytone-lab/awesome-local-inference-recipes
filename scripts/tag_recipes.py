@@ -17,12 +17,14 @@ QUANT = [
     ('ternary', r'ternary|\bTQ[12]_0'),
     ('2bit', r'\bI?Q2|2-bit|\b2bit|\b2\.\d+\s?bpw|\bW2\b|-W2'),
     ('3bit', r'\bI?Q3|(?<![\w.])3-bit|\b3bit|(?<![\w.])3(\.\d+)?\s?bpw|q3_k'),
-    ('4bit', r'\bI?Q4|(?<![\d.])4-bit|\b4bit|\bint4|MXFP4|NVFP4|\bFP4|\b4\.\d+\s?bpw|mixed-4|oQ4'),
+    ('4bit', r'\bI?Q4|(?<![\d.])4-bit|\b4bit|\bint4|MXFP4|NVFP4|\bFP4|\b4\.\d+\s?bpw|mixed-4|mixed 4/8|oQ4|\bAWQ\b'),
     ('5bit', r'\bQ5|5-bit|\b5bit'),
     ('6bit', r'\bQ6|6-bit|\b6bit|mix6|\bINT6'),
     ('8bit', r'\bQ8|q8_0|8-bit|\b8bit|\bINT8|\bFP8|int8'),
     ('bf16', r'\bBF16\b|\bFP16\b|bf16'),
 ]
+# Models that are MoE by architecture, even when model/quant text does not say so.
+MOE_MODELS = r'DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax|Recursive Flint|Flint 40B'
 SPEC = r'MTP|投机|DFlash|DSpark|草稿|draft|n-gram|EAGLE|speculative'
 MULTI = r'(?<![\d.])(?:[2-9]|1\d)\s*[×x✕]\s|双|\bTP\s*=?\s*[2-9]|集群|cluster|[2-9]\s*张|[2-9]\s*台|\+\s*RTX'
 def family(model):
@@ -41,7 +43,7 @@ def tags(r):
     allf = ' '.join(filter(None, [mq, r['engine'], r.get('engine_note'), r.get('metric')]))
     allf = re.sub(r'MTP\s*(关|off)|无投机|无草稿(模型)?|不开 MTP|无 ?(?:MTP|DFlash)(?:/(?:MTP|DFlash))*', '', allf, flags=re.I)
     t = [k for k, p in QUANT if re.search(p, mq, re.I)]
-    moe = bool(re.search(r'\bA\d+(\.\d+)?B\b|MoE|激活|REAP|专家', mq + ' ' + (r.get('quant') or '')))
+    moe = bool(re.search(r'\bA\d+(\.\d+)?B\b|MoE|激活|REAP|专家', mq + ' ' + (r.get('quant') or ''))) or bool(re.search(MOE_MODELS, r['model'], re.I))
     if r['category'] == 'text':
         if moe: t.append('MoE')
         elif re.search(r'\b\d+B\b', r['model']): t.append('dense')

@@ -29,7 +29,7 @@ sudo systemctl enable --now nvidia-powerd && git clone https://github.com/Jackww
 
 - 上下文: 32,768（--context 32768；另测 256K 提示）
 - 并发: 单路
-- 标签: `long-context`, `offload`
+- 标签: `MoE`, `long-context`, `offload`
 
 ## 预期速度
 

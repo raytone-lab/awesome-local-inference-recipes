@@ -29,7 +29,7 @@ sudo systemctl enable --now nvidia-powerd && git clone https://github.com/Jackww
 
 - コンテキスト: 32,768 (--context 32768; 256K prompt also measured)
 - 同時実行: Single stream
-- タグ: `long-context`, `offload`
+- タグ: `MoE`, `long-context`, `offload`
 
 ## 想定速度
 

@@ -26,7 +26,7 @@ Command not published. See the source.
 
 - Context: 262K (243K needle test 15/15)
 - Concurrency: native engine only 1 stream (separate vLLM concurrent lane also exists)
-- Tags: `3bit`, `8bit`, `long-context`, `speculative`
+- Tags: `3bit`, `8bit`, `MoE`, `long-context`, `speculative`
 
 ## Expected speed
 
