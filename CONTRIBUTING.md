@@ -23,6 +23,7 @@ A setup that fails one condition is out of scope, even when it costs less than $
 4. Link the original source; for your own runs include the command and output.
 5. No estimates, no invented values: unknown → `null`. Link and summarize, don't copy posts.
 6. Source level: official / measured / relayed / claimed (see [docs/sources.md](docs/sources.md)).
+7. Use only an original source. The original source is the post, page, release note or issue from the person or team that ran the test. It must give the measured numbers. Do not use a relayed report (a repost, summary or article that quotes the result of a different person) as the source. If you find a relayed report, find its original source and link that source. If you cannot find an original source with measured numbers, do not add the recipe.
 
 ## 中文
 ### 收录范围
@@ -46,6 +47,7 @@ A setup that fails one condition is out of scope, even when it costs less than $
 4. 附原始来源链接；自测请附命令与输出。
 5. 不估算、不编造，未知写 `null`；只留链接与摘要。
 6. 来源等级：官方 / 实测 / 转述 / 宣称，详见 [docs/sources.md](docs/sources.md)。
+7. 只用原始来源。原始来源是做测试的人或团队自己发的帖子、页面、发布说明或 issue，并且要给出实测数字。不要用转述（转发、汇总或引用别人结果的文章）作来源。看到转述时，先找到它的原始来源，再链接原始来源。找不到带实测数字的原始来源时，不收录。
 
 Maintainers: Hugging Face candidate ingestion is described in [docs/sources.md](docs/sources.md).
 
@@ -71,3 +73,4 @@ Maintainers: Hugging Face candidate ingestion is described in [docs/sources.md](
 4. 元の出典へのリンクを付けてください。自分で計測した場合はコマンドと出力も。
 5. 推定や創作はしないでください。不明な値は `null` に。投稿の全文転載はせず、リンクと要約だけにします。
 6. 出典レベル：公式 / 実測 / 伝聞 / 主張（[docs/sources.md](docs/sources.md) を参照）。
+7. 元の出典だけを使ってください。元の出典とは、テストを実行した人またはチームが自分で出した投稿、ページ、リリースノート、issue で、計測した数値を示すものです。伝聞（他の人の結果を引用した再投稿、まとめ、記事）を出典にしないでください。伝聞を見つけたら、その元の出典を探し、元の出典にリンクしてください。計測した数値のある元の出典が見つからないときは、収録しません。
