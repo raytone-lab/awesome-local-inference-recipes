@@ -29,7 +29,7 @@ mlx-serve --model ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit --serve
 
 - Context: 268,288
 - Concurrency: serial single request
-- Tags: `4bit`, `8bit`, `long-context`
+- Tags: `4bit`, `8bit`, `MoE`, `long-context`
 
 ## Expected speed
 

@@ -26,7 +26,7 @@
 
 - コンテキスト: 262K
 - 同時実行: —
-- タグ: `long-context`, `multi-GPU`, `abliterated`
+- タグ: `MoE`, `long-context`, `multi-GPU`, `abliterated`
 
 ## 想定速度
 

@@ -26,7 +26,7 @@
 
 - 上下文: 262K
 - 并发: —
-- 标签: `long-context`, `multi-GPU`, `abliterated`
+- 标签: `MoE`, `long-context`, `multi-GPU`, `abliterated`
 
 ## 预期速度
 

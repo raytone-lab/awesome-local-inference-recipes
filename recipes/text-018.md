@@ -26,7 +26,7 @@ Command not published. See the source.
 
 - Context: 262K
 - Concurrency: —
-- Tags: `long-context`, `multi-GPU`, `abliterated`
+- Tags: `MoE`, `long-context`, `multi-GPU`, `abliterated`
 
 ## Expected speed
 

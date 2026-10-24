@@ -21,6 +21,7 @@
     "model_family": "Qwen",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -55,7 +56,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-bca476fd34",
     "metric_en": "53 tok/s; 1,620 tok/s prefill",
@@ -85,7 +87,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "2bit"
+      "2bit",
+      "MoE"
     ],
     "source_id": "src-bca476fd34",
     "metric_en": "60 / 52 tok/s; 1,160 / 1,110 prefill",
@@ -116,7 +119,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-87c3eed337",
     "metric_en": "160 tok/s (llama.cpp on the same card 15 tok/s)",
@@ -148,6 +152,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-e4eb55a0bb",
@@ -180,7 +185,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-6d6cbf1b1e",
     "metric_en": "123.4 tok/s live; full run 115+",
@@ -210,6 +216,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-1dcae268a2",
@@ -243,6 +250,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-46c063899f",
@@ -274,7 +282,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-f152825317",
     "en": {
@@ -305,6 +314,7 @@
     "model_family": "Qwen",
     "tags": [
       "2bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-e814f171a0",
@@ -335,7 +345,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-87c3eed337",
     "metric_en": "60 tok/s; 2,500 PP",
@@ -436,6 +447,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -468,6 +480,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-34c8adae1e",
@@ -499,6 +512,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-08a6413ff5",
@@ -528,6 +542,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -560,6 +575,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU",
       "abliterated"
@@ -591,6 +607,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "speculative",
       "MTP",
       "multi-GPU"
@@ -626,6 +643,7 @@
     "model_family": "Qwen",
     "tags": [
       "1bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -658,7 +676,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-f55421a83d",
     "metric_en": "30–33 tok/s decode; 217–374 PP",
@@ -692,6 +711,7 @@
     "tags": [
       "3bit",
       "8bit",
+      "MoE",
       "long-context",
       "speculative"
     ],
@@ -726,6 +746,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "source_id": "src-03f081c85a",
@@ -759,6 +780,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "source_id": "src-5e67752577",
@@ -801,6 +823,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -869,6 +892,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "speculative"
     ],
     "source_id": "src-f4049241a7",
@@ -901,7 +925,9 @@
     "date": null,
     "engine_raw": "其他/未注明",
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-00bad3d565",
     "metric_en": "38.0 tok/s average (old llama.cpp 13.9)",
     "en": {
@@ -932,6 +958,7 @@
     "tags": [
       "4bit",
       "bf16",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -965,7 +992,9 @@
     "source_level": "实测",
     "date": null,
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-6d7b2dee32",
     "en": {
       "hardware": "Mac M4 Pro 48GB (model not stated)",
@@ -1086,6 +1115,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -1117,6 +1147,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "source_id": "src-77d360cc7f",
@@ -1146,7 +1177,9 @@
     "source_level": "转述",
     "date": null,
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-77d360cc7f",
     "metric_en": "102 single stream; 8 streams 134 (stock oMLX 25)",
     "en": {
@@ -1177,6 +1210,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "source_id": "src-77d360cc7f",
@@ -1209,6 +1243,7 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "source_id": "src-7a444b72fa",
@@ -2085,6 +2120,7 @@
     "model_family": "GLM",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP",
@@ -2120,6 +2156,7 @@
     "date": null,
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -2155,6 +2192,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -2187,6 +2225,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -2221,6 +2260,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "offload"
     ],
     "source_id": "src-1ca0f67909",
@@ -2253,6 +2293,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "speculative",
       "MTP",
       "multi-GPU"
@@ -2286,7 +2327,8 @@
     "engine_raw": "其他/未注明",
     "model_family": "GLM",
     "tags": [
-      "2bit"
+      "2bit",
+      "MoE"
     ],
     "source_id": "src-733ea7e114",
     "en": {
@@ -2316,6 +2358,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-bb1775e11b",
@@ -2348,6 +2391,7 @@
     "date": null,
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-5d0e38175d",
@@ -2377,6 +2421,7 @@
     "date": null,
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-77d360cc7f",
@@ -2446,6 +2491,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -2486,6 +2532,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "multi-GPU",
       "offload"
     ],
@@ -2520,6 +2567,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -2554,6 +2602,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-7da284d7bb",
@@ -2588,6 +2637,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "offload"
     ],
     "source_id": "src-502d0f3dd0",
@@ -2622,6 +2672,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "speculative",
       "multi-GPU"
     ],
@@ -2652,6 +2703,7 @@
     "date": null,
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "offload"
     ],
     "source_id": "src-e6df8339a4",
@@ -2684,6 +2736,7 @@
     "engine_raw": "其他/未注明",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "speculative"
     ],
     "source_id": "src-ef037e8879",
@@ -2717,6 +2770,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "4bit",
+      "MoE",
       "offload"
     ],
     "source_id": "src-502d0f3dd0",
@@ -2748,6 +2802,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -2784,6 +2839,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -2820,6 +2876,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "offload"
     ],
     "source_id": "src-8b83fa6813",
@@ -2853,6 +2910,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -2885,7 +2943,8 @@
     "date": null,
     "model_family": "Qwen",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "source_id": "src-2cb3f88940",
     "metric_en": "peak 130 tok/s (0.3.4 was 128)",
@@ -2917,6 +2976,7 @@
     "model_family": "Qwen",
     "tags": [
       "2bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-ef39a29389",
@@ -2950,7 +3010,8 @@
     "engine_raw": "其他/未注明",
     "model_family": "Qwen",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "source_id": "src-3ac303a9ff",
     "metric_en": "MTP off 42.51 → on 59.90 tok/s; PP 288.78; resident 69.73 GiB",
@@ -2982,6 +3043,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -3010,7 +3072,9 @@
     "source_level": "实测",
     "date": null,
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-efeab8b2ad",
     "metric_en": "Reasoning 22.7 / coding 23.0 / strategy 23.2 tok/s",
     "en": {
@@ -3615,7 +3679,9 @@
     "date": null,
     "model_family": "GLM",
     "tags": [
+      "4bit",
       "8bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-8b83fa6813",
@@ -3646,7 +3712,9 @@
     "source_level": "官方",
     "date": null,
     "model_family": "GLM",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-d8f7513152",
     "metric_en": "31.3 → 40.6 tok/s (+30%)",
     "en": {
@@ -3676,7 +3744,8 @@
     "date": null,
     "model_family": "GLM",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "source_id": "src-d5cd871b07",
     "metric_en": "8 streams at once: total 78 tok/s, first token avg <1.6 s, all finished in 26 s; oMLX 8th request waited 43 s; single stream +12%",
@@ -3739,6 +3808,7 @@
     "date": null,
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "speculative",
       "MTP",
       "offload"
@@ -3772,6 +3842,7 @@
     "date": null,
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -3806,6 +3877,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-2763bc71bb",
@@ -3837,7 +3909,8 @@
     "date": null,
     "model_family": "DeepSeek",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "source_id": "src-cdb9259df0",
     "metric_en": "35 (oMLX, Viticci); ds4 short 35.5 / long 26.6; PP 448.8",
@@ -5035,7 +5108,8 @@
     },
     "model_family": "Qwen",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "source_id": "src-5388fb1c0e",
     "metric_en": "8K prompt/128 output: 47.7 tok/s decode, 699 tok/s prefill, TTFT 11.8 s (halogen 0.17.2: 34.3 / 1,573; llama.cpp HIP: 23.2 / 466)",
@@ -5073,7 +5147,8 @@
     "engine_note": "halogen 0.17.2",
     "model_family": "Qwen",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "source_id": "src-5388fb1c0e",
     "metric_en": "34.3 tok/s decode, 1,573 tok/s prefill, TTFT 5.2 s (8K prompt)",
@@ -5110,6 +5185,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "offload"
     ],
     "source_id": "src-03209e2ff6",
@@ -5148,6 +5224,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -5185,6 +5262,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -5225,6 +5303,7 @@
     "model_family": "Qwen",
     "tags": [
       "2bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-d089a2d6d0",
@@ -5261,6 +5340,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-c9b67109e8",
@@ -5302,6 +5382,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-9511cdffaa",
@@ -5340,7 +5421,8 @@
     "engine_note": "Strata（PR #262）",
     "model_family": "Qwen",
     "tags": [
-      "2bit"
+      "2bit",
+      "MoE"
     ],
     "source_id": "src-92150b203f",
     "metric_en": "Decode ~100 tok/s, peak 128 (58 before PR); prefill ~1,800; TTFT 5.5 s @8.7K",
@@ -5413,7 +5495,9 @@
     },
     "engine_raw": "其他/未注明",
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-8fd8ad1e0e",
     "metric_en": "single stream 85.9 tok/s, long-prompt prefill 6,085 tok/s",
     "en": {
@@ -5450,6 +5534,7 @@
     "engine_note": "TensorFold 0.5.0 + DFlash2 草稿",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "speculative",
       "multi-GPU"
     ],
@@ -6665,6 +6750,7 @@
     "engine_note": "MTPLX 2.11.3 serve",
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -6700,6 +6786,7 @@
     "engine_note": "MTPLX 2.11.3 serve",
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -6735,6 +6822,7 @@
     "engine_note": "MTPLX 2.11.3",
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -7655,6 +7743,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -7692,6 +7781,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -7761,6 +7851,7 @@
     "engine_note": "Project Maya（v1.0.15 读入至 670）",
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "speculative",
       "MTP",
       "multi-GPU"
@@ -7794,7 +7885,9 @@
     "date": "2026-10-07",
     "metric_en": "19 tok/s decode; 370 tok/s prefill",
     "model_family": "GLM",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "source_id": "src-100ca98eeb",
     "en": {
       "context": "60K test",
@@ -8081,6 +8174,7 @@
     "model_family": "Qwen",
     "tags": [
       "ternary",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-4417018204",
@@ -8118,6 +8212,7 @@
     "model_family": "Qwen",
     "tags": [
       "ternary",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-4417018204",
@@ -8156,6 +8251,7 @@
     "model_family": "Qwen",
     "tags": [
       "ternary",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-4417018204",
@@ -8192,6 +8288,7 @@
     "model_family": "Qwen",
     "tags": [
       "ternary",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-4417018204",
@@ -8229,6 +8326,7 @@
     "tags": [
       "4bit",
       "6bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -8302,6 +8400,7 @@
     "tags": [
       "3bit",
       "4bit",
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -8340,6 +8439,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-9bd14540d5",
@@ -8454,6 +8554,7 @@
     "model_family": "GLM",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -8506,6 +8607,7 @@
     },
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -8559,6 +8661,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -8612,6 +8715,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context"
     ],
     "streams": [
@@ -8662,6 +8766,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -8712,6 +8817,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "8bit",
+      "MoE",
       "multi-GPU"
     ],
     "streams": [
@@ -8995,6 +9101,7 @@
     },
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -9033,6 +9140,7 @@
     },
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -9070,6 +9178,7 @@
     },
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -9149,6 +9258,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -9190,6 +9300,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -9435,7 +9546,9 @@
       "as_of": "2026-10-16"
     },
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "streams": [
       {
         "n": 1,
@@ -9544,6 +9657,7 @@
     },
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "streams": [
@@ -9591,6 +9705,7 @@
     },
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -9638,7 +9753,9 @@
       "as_of": "2026-10-16"
     },
     "model_family": "DeepSeek",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "streams": [
       {
         "n": 1,
@@ -9724,6 +9841,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP",
       "multi-GPU"
@@ -9764,7 +9882,9 @@
       "as_of": "2026-10-16"
     },
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "streams": [
       {
         "n": 1,
@@ -9852,6 +9972,7 @@
     },
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "measured_by": "_Holistech_",
@@ -9889,6 +10010,7 @@
     "model_family": "Qwen",
     "tags": [
       "8bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -9930,6 +10052,7 @@
     "tags": [
       "2bit",
       "8bit",
+      "MoE",
       "speculative",
       "MTP",
       "offload"
@@ -9974,6 +10097,7 @@
     "model_family": "Qwen",
     "tags": [
       "2bit",
+      "MoE",
       "offload"
     ],
     "measured_by": "niklaslenz_ai",
@@ -10384,6 +10508,7 @@
     "model_family": "GLM",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "abliterated"
@@ -10544,6 +10669,7 @@
     },
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -10579,6 +10705,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "multi-GPU",
       "offload"
     ],
@@ -10617,6 +10744,7 @@
     },
     "model_family": "GLM",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "measured_by": "CryptoBandit100",
@@ -10963,6 +11091,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -11000,6 +11129,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context"
     ],
     "measured_by": "kompotex",
@@ -11037,6 +11167,7 @@
     "tags": [
       "2bit",
       "8bit",
+      "MoE",
       "long-context"
     ],
     "measured_by": "johlim",
@@ -11073,6 +11204,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -11109,6 +11241,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -11287,6 +11420,7 @@
     "date": "2026-10-10",
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -11361,6 +11495,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "multi-GPU"
     ],
     "measured_by": null,
@@ -11394,6 +11529,7 @@
     "date": "2026-09-28",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "measured_by": "senn-tech",
@@ -11513,6 +11649,7 @@
     },
     "model_family": "Other",
     "tags": [
+      "4bit",
       "MoE",
       "long-context",
       "speculative"
@@ -11679,6 +11816,7 @@
     "model_family": "Qwen",
     "tags": [
       "2bit",
+      "MoE",
       "speculative"
     ],
     "measured_by": "yibie",
@@ -11717,7 +11855,9 @@
       "as_of": "2026-10-16"
     },
     "model_family": "Qwen",
-    "tags": [],
+    "tags": [
+      "MoE"
+    ],
     "measured_by": "yuanhao",
     "source_id": "src-f6d2856800",
     "metric_en": "After update: merge-code prompt 45 tok/s (twice); other two prompts 32–33 after cache warm-up; tok_s uses the upper bound 33 of the other two prompts (not code's 45)",
@@ -11786,6 +11926,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "multi-GPU"
     ],
     "measured_by": "Athabasco",
@@ -11857,6 +11998,7 @@
     "date": "2026-10-14",
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context"
     ],
     "measured_by": "Present_Resource4022",
@@ -11926,7 +12068,8 @@
     "date": "2026-10-15",
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "measured_by": "politerate",
     "source_id": "src-f97eb36381",
@@ -12157,7 +12300,8 @@
     "date": "2026-10-14",
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "measured_by": "ImpulseNOR",
     "source_id": "src-566958aa76",
@@ -12259,6 +12403,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP",
@@ -12294,7 +12439,8 @@
     "date": "2026-10-14",
     "model_family": "Qwen",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "measured_by": "Beneficial-Ad-8127",
     "source_id": "src-f91c69d71b",
@@ -12600,6 +12746,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -12635,6 +12782,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -12670,6 +12818,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -12734,6 +12883,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-f023759a9b"
@@ -12766,6 +12916,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "multi-GPU",
       "offload"
     ],
@@ -12832,6 +12983,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "multi-GPU"
     ],
     "source_id": "src-be65bec727"
@@ -12867,6 +13019,7 @@
     },
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "multi-GPU",
       "offload"
@@ -13398,6 +13551,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -13453,6 +13607,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -13511,6 +13666,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -13570,6 +13726,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -13707,6 +13864,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -13790,6 +13948,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP",
@@ -13871,6 +14030,7 @@
     "tags": [
       "4bit",
       "8bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -13907,6 +14067,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "offload"
     ],
     "source_id": "src-f5551529d5"
@@ -13940,6 +14101,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context"
     ],
     "source_id": "src-4a6231530d",
@@ -14003,6 +14165,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -14095,6 +14258,7 @@
     ],
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "speculative"
     ],
@@ -14151,6 +14315,7 @@
     ],
     "model_family": "Qwen",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "MTP",
@@ -14208,6 +14373,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -14301,7 +14467,8 @@
     },
     "model_family": "Qwen",
     "tags": [
-      "3bit"
+      "3bit",
+      "MoE"
     ],
     "source_id": "src-43752034d7"
   },
@@ -14422,6 +14589,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "multi-GPU",
       "abliterated"
@@ -14694,6 +14862,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "speculative",
       "multi-GPU"
     ],
@@ -15069,6 +15238,7 @@
     "measured_by": "Jackwwg83",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -16899,6 +17069,7 @@
     "measured_by": "knapcio",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -16974,6 +17145,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "speculative",
       "MTP"
     ],
@@ -17008,6 +17180,8 @@
     "measured_by": "Leonccaa",
     "model_family": "Qwen",
     "tags": [
+      "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP",
@@ -17031,8 +17205,8 @@
     "hardware_family": "其他",
     "hardware_cost_text": "未核价",
     "hardware_cost_usd": null,
-    "metric": "llama.cpp SYCL 双卡张量并行 + 作者补丁（基于 d81d0d8fb）：1,030 个真实 agent 请求均值约 51（<40K 约 49，160K+ 约 61），温度 1.0；94K 新提示预填约 1,070",
-    "metric_en": "llama.cpp SYCL tensor parallel over both cards + author patches (on d81d0d8fb): about 51 average over 1,030 real agent requests (about 49 under 40K, about 61 at 160K+), temp 1.0; fresh 94K prompt prefill about 1,070",
+    "metric": "llama.cpp SYCL 双卡张量并行 + 作者补丁（基于 d81d0d8fb）：单流 decode 约 51，是 1,030 个真实 agent 请求的平均值（日常流量，不是固定基准）（<40K 约 49，160K+ 约 61），温度 1.0；94K 新提示预填约 1,070",
+    "metric_en": "llama.cpp SYCL tensor parallel over both cards + author patches (on d81d0d8fb): single-stream decode about 51, an average over 1,030 real agent requests (daily traffic, not a fixed benchmark) (about 49 under 40K, about 61 at 160K+), temp 1.0; fresh 94K prompt prefill about 1,070",
     "tok_s": 51,
     "concurrency": "单流",
     "context": "200K",
@@ -17083,6 +17257,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "offload"
     ],
@@ -17119,6 +17294,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "multi-GPU"
     ],
     "en": {
@@ -17152,6 +17328,7 @@
     "measured_by": "bertholomusai",
     "model_family": "DeepSeek",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "en": {
@@ -17186,6 +17363,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "speculative",
       "multi-GPU"
     ],
@@ -17221,6 +17399,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "3bit",
+      "MoE",
       "multi-GPU"
     ],
     "en": {
@@ -17255,6 +17434,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -17276,8 +17456,8 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "未核价",
     "hardware_cost_usd": null,
-    "metric": "Strata Terminal 0.2.4.1：3 次 34.57 / 40.66 / 42.57，中位数 40.66（明显高于同类配置其他报告）",
-    "metric_en": "Strata Terminal 0.2.4.1: three runs 34.57 / 40.66 / 42.57, median 40.66 (well above other reports on similar setups)",
+    "metric": "Strata Terminal 0.2.4.1：3 次 34.57 / 40.66 / 42.57，中位数 40.66（高于同类配置的其他报告，但 3 次一致且附截图，可信）",
+    "metric_en": "Strata Terminal 0.2.4.1: three runs 34.57 / 40.66 / 42.57, median 40.66 (higher than other reports on similar setups, but the 3 runs agree and a screenshot is attached)",
     "tok_s": 40.66,
     "concurrency": "单流",
     "context": null,
@@ -17325,6 +17505,7 @@
     "model_family": "DeepSeek",
     "tags": [
       "2bit",
+      "MoE",
       "speculative"
     ],
     "en": {
@@ -17359,6 +17540,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "speculative",
       "multi-GPU"
@@ -17395,6 +17577,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -17430,6 +17613,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "speculative",
       "MTP"
@@ -17466,6 +17650,7 @@
     "model_family": "Qwen",
     "tags": [
       "4bit",
+      "MoE",
       "long-context",
       "multi-GPU"
     ],
@@ -17538,6 +17723,7 @@
     "model_family": "Qwen",
     "tags": [
       "3bit",
+      "MoE",
       "long-context",
       "speculative",
       "offload"
@@ -17647,7 +17833,8 @@
     "measured_by": "Obvious-Elk3930",
     "model_family": "Qwen",
     "tags": [
-      "6bit"
+      "6bit",
+      "MoE"
     ],
     "en": {
       "quant": "unsloth UD-Q6_K_XL",
@@ -17680,7 +17867,9 @@
     "measured_by": "Obvious-Elk3930",
     "model_family": "GLM",
     "tags": [
-      "8bit"
+      "4bit",
+      "8bit",
+      "MoE"
     ],
     "en": {
       "quant": "pipenetwork MLX mixed 4/8-bit",
