@@ -31,7 +31,7 @@ body:
     validations: { required: true }
   - type: dropdown
     id: level
-    attributes: { label: Source level / 来源等级, options: ["measured (实测)", "official (官方)", "relayed (转述)", "claimed (宣称)"] }
+    attributes: { label: Source level / 来源等级, options: ["measured (实测)", "official (官方)", "claimed (宣称)"] }
     validations: { required: true }
   - type: textarea
     id: command
