@@ -22,8 +22,8 @@ A setup that fails one condition is out of scope, even when it costs less than $
 3. When you add or change an `engine` value, run `python3 scripts/normalize_engines.py` and `python3 scripts/tag_recipes.py`. Then regenerate the READMEs and site pages: `python3 scripts/gen_all.py`. CI fails when a generated file is not up to date. Maintainers: after a data update, run `python3 scripts/gen_all.py --images` to also render the README charts and the site screenshots. CI does not check the image files.
 4. Link the original source; for your own runs include the command and output.
 5. No estimates, no invented values: unknown → `null`. Link and summarize, don't copy posts.
-6. Source level: official / measured / relayed / claimed (see [docs/sources.md](docs/sources.md)).
-7. Use only an original source. The original source is the post, page, release note or issue from the person or team that ran the test. It must give the measured numbers. Do not use a relayed report (a repost, summary or article that quotes the result of a different person) as the source. If you find a relayed report, find its original source and link that source. If you cannot find an original source with measured numbers, do not add the recipe.
+6. Source level: official / measured / claimed (see [docs/sources.md](docs/sources.md)). The relayed level applies only to recipes added before rule 7.
+7. Use only an original source. The original source is the post, page, release note or issue from the person or team that ran the test. It must give the measured numbers. Do not use a relayed report (a repost, summary or article that quotes the result of a different person) as the source. If you find a relayed report, find the original source of the relayed report and link that source. If you cannot find an original source with measured numbers, do not add the recipe.
 
 ## 中文
 ### 收录范围
@@ -46,7 +46,7 @@ A setup that fails one condition is out of scope, even when it costs less than $
 3. 新增或修改 `engine` 时，先运行 `python3 scripts/normalize_engines.py` 和 `python3 scripts/tag_recipes.py`。然后运行 `python3 scripts/gen_all.py` 重新生成三份 README 和网站页面。生成的文件不是最新时，CI 会失败。维护者：每次更新数据后，运行 `python3 scripts/gen_all.py --images`，同时重画 README 图表和网站截图。CI 不检查图片文件。
 4. 附原始来源链接；自测请附命令与输出。
 5. 不估算、不编造，未知写 `null`；只留链接与摘要。
-6. 来源等级：官方 / 实测 / 转述 / 宣称，详见 [docs/sources.md](docs/sources.md)。
+6. 来源等级：官方 / 实测 / 宣称，详见 [docs/sources.md](docs/sources.md)。「转述」只用于第 7 条之前收录的条目。
 7. 只用原始来源。原始来源是做测试的人或团队自己发的帖子、页面、发布说明或 issue，并且要给出实测数字。不要用转述（转发、汇总或引用别人结果的文章）作来源。看到转述时，先找到它的原始来源，再链接原始来源。找不到带实测数字的原始来源时，不收录。
 
 Maintainers: Hugging Face candidate ingestion is described in [docs/sources.md](docs/sources.md).
@@ -72,5 +72,5 @@ Maintainers: Hugging Face candidate ingestion is described in [docs/sources.md](
 3. `engine` を追加・変更したときは、先に `python3 scripts/normalize_engines.py` と `python3 scripts/tag_recipes.py` を実行してください。次に `python3 scripts/gen_all.py` で 3 つの README とサイトのページを再生成してください。生成ファイルが最新でないと CI が失敗します。メンテナー：データを更新したら `python3 scripts/gen_all.py --images` を実行し、README のグラフとサイトのスクリーンショットも描き直してください。CI は画像ファイルを確認しません。
 4. 元の出典へのリンクを付けてください。自分で計測した場合はコマンドと出力も。
 5. 推定や創作はしないでください。不明な値は `null` に。投稿の全文転載はせず、リンクと要約だけにします。
-6. 出典レベル：公式 / 実測 / 伝聞 / 主張（[docs/sources.md](docs/sources.md) を参照）。
+6. 出典レベル：公式 / 実測 / 主張（[docs/sources.md](docs/sources.md) を参照）。「伝聞」は第 7 項より前に収録したレシピだけに使います。
 7. 元の出典だけを使ってください。元の出典とは、テストを実行した人またはチームが自分で出した投稿、ページ、リリースノート、issue で、計測した数値を示すものです。伝聞（他の人の結果を引用した再投稿、まとめ、記事）を出典にしないでください。伝聞を見つけたら、その元の出典を探し、元の出典にリンクしてください。計測した数値のある元の出典が見つからないときは、収録しません。
