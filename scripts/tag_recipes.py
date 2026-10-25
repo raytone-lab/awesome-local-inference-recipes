@@ -24,7 +24,7 @@ QUANT = [
     ('bf16', r'\bBF16\b|\bFP16\b|bf16'),
 ]
 # Models that are MoE by architecture, even when model/quant text does not say so.
-MOE_MODELS = r'DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax|Recursive Flint|Flint 40B'
+MOE_MODELS = r'DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax-M3\.1-Flash|Recursive Flint|Flint 40B'
 SPEC = r'MTP|投机|DFlash|DSpark|草稿|draft|n-gram|EAGLE|speculative'
 MULTI = r'(?<![\d.])(?:[2-9]|1\d)\s*[×x✕]\s|双|\bTP\s*=?\s*[2-9]|集群|cluster|[2-9]\s*张|[2-9]\s*台|\+\s*RTX'
 def family(model):
