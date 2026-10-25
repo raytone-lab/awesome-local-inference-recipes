@@ -95,6 +95,22 @@
       "active_b": 3.5,
       "arch": "moe",
       "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16"
+    },
+    {
+      "match": "Gemma 4 12B|gemma-4-12B",
+      "label": "Gemma 4 12B",
+      "total_b": 11.95,
+      "active_b": 11.95,
+      "arch": "dense",
+      "source": "https://huggingface.co/google/gemma-4-12B-it"
+    },
+    {
+      "match": "Gemma 4 31B|gemma-4-31B",
+      "label": "Gemma 4 31B",
+      "total_b": 30.7,
+      "active_b": 30.7,
+      "arch": "dense",
+      "source": "https://huggingface.co/google/gemma-4-31B-it"
     }
   ]
 }
