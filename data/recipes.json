@@ -18680,5 +18680,145 @@
       "source_note": "Reddit post by the tester"
     },
     "source_id": "src-77556306ac"
+  },
+  {
+    "id": "x-134",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "ISTA-DASLab GSQ-RCO IQ2_XS",
+    "engine": "Strata",
+    "hardware": "RTX 5090 32GB + R9 9950X + 96GB DDR5",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.2.4，512K 上下文：decode 25–40（取下限 25；作者说还在调）；预填未测",
+    "metric_en": "Strata 0.2.4, 512K context: decode 25–40 (the lower bound, 25, is used; the author is still tuning); prefill not measured",
+    "tok_s": 25,
+    "concurrency": "单流",
+    "context": "512K",
+    "launch_command": null,
+    "source_url": "https://x.com/populartourist/status/2113947050224087240",
+    "source_note": "X 帖，测试者本人（未写测试方法）",
+    "source_level": "宣称",
+    "date": "2026-10-24",
+    "measured_by": "populartourist",
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab GSQ-RCO IQ2_XS",
+      "hardware": "RTX 5090 32GB + R9 9950X + 96GB DDR5",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "X post by the tester (no test method given)"
+    },
+    "source_id": "src-203fe1cf4b"
+  },
+  {
+    "id": "x-135",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "Uncensored 衍生版 GSQ-RCO IQ2_XXS（不是官方 ISTA 权重）",
+    "engine": "Unspecified",
+    "hardware": "RTX 4070 12GB + Ryzen 7 5800X3D + 128GB 内存",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "约 5（衍生版权重，引擎未写明）",
+    "metric_en": "about 5 (derivative weights, engine not stated)",
+    "tok_s": 5,
+    "concurrency": "单流",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://x.com/lenseez/status/2114330754142609497",
+    "source_note": "X 帖，测试者本人（未写测试方法）",
+    "source_level": "宣称",
+    "date": "2026-10-25",
+    "measured_by": "lenseez",
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE"
+    ],
+    "en": {
+      "quant": "Uncensored derivative GSQ-RCO IQ2_XXS (not the official ISTA weights)",
+      "hardware": "RTX 4070 12GB + Ryzen 7 5800X3D + 128GB RAM",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "X post by the tester (no test method given)"
+    },
+    "source_id": "src-50921f48be"
+  },
+  {
+    "id": "x-136",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ3_S",
+    "engine": "Unspecified",
+    "hardware": "RTX 3090 24GB + 64GB DDR4",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "平均约 31.7（简单问题，推理 OFF / MAX）；内存 56–57 / 64GB，显存 19.8 / 24GB；上下文 16K / 32K",
+    "metric_en": "average about 31.7 (simple questions, reasoning OFF / MAX); RAM 56–57 / 64GB, VRAM 19.8 / 24GB; context 16K / 32K",
+    "tok_s": 31.7,
+    "concurrency": "单流",
+    "context": "32K",
+    "launch_command": null,
+    "source_url": "https://x.com/eaxllm/status/2114272229836087636",
+    "source_note": "X 帖，测试者本人（未写测试方法）",
+    "source_level": "宣称",
+    "date": "2026-10-25",
+    "measured_by": "eaxllm",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ3_S",
+      "hardware": "RTX 3090 24GB + 64GB DDR4",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "X post by the tester (no test method given)"
+    },
+    "source_id": "src-5e9d511966"
+  },
+  {
+    "id": "x-137",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "GSQ-RCO GGUF（档位未写明）",
+    "engine": "Unspecified",
+    "hardware": "RTX 4070 12GB",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "19.4；作者说幻觉偏多，同卡 Bonsai-2-27B 平均 43",
+    "metric_en": "19.4; the author says it hallucinates a little too much; Bonsai-2-27B on the same card averages 43",
+    "tok_s": 19.4,
+    "concurrency": "单流",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://x.com/SpencerInDenver/status/2114259237589438764",
+    "source_note": "X 帖，测试者本人（未写测试方法）",
+    "source_level": "宣称",
+    "date": "2026-10-25",
+    "measured_by": "SpencerInDenver",
+    "model_family": "Qwen",
+    "tags": [
+      "MoE"
+    ],
+    "en": {
+      "quant": "GSQ-RCO GGUF (level not stated)",
+      "hardware": "RTX 4070 12GB",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "X post by the tester (no test method given)"
+    },
+    "source_id": "src-f8b3e48169"
   }
 ]
