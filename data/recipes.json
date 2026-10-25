@@ -12965,20 +12965,21 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": null,
     "hardware_cost_usd": null,
-    "metric": "生成 ~100 tok/s（TP=2；同权重 Strata ~78；prefill ~3.4k @15k prompt）；v0.7.1 README：2 卡 Flash-Next 64GB 版 LocalMaxxing 239，1 卡 121（见 comm-070）",
-    "tok_s": 100,
-    "concurrency": null,
+    "metric": "v0.7.4（LocalMaxxing reasoning-v1 验证运行，单流）：NVFP4 2 卡 178；64K 预填 4,828；同机 3-bit 2 卡 234、1 卡 121（见 comm-070）。10-16 首帖为 ~100（同权重 Strata ~78）",
+    "tok_s": 178,
+    "concurrency": "单流",
     "context": null,
     "launch_command": null,
-    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1x6wh1z/",
-    "source_note": "r/LocalLLaMA u/FeydRowan / capy-flash 作者实测（TP=2，官方 NVFP4）",
-    "source_level": "实测",
+    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xe9yyg/",
+    "source_note": "r/LocalLLaMA u/FeydRowan，capy-flash 作者本人 v0.7.4 帖（2026-10-25 更新，原 10-16 帖 1x6wh1z）",
+    "source_level": "官方",
     "date": "2026-10-16",
     "measured_by": "FeydRowan",
-    "metric_en": "generation ~100 tok/s (TP=2; same weights Strata ~78; prefill ~3.4k @15k prompt); v0.7.1 README: 2 cards, Flash-Next 64GB edition, LocalMaxxing 239; 1 card 121 (see comm-070)",
+    "metric_en": "v0.7.4 (LocalMaxxing reasoning-v1 verified run, single stream): NVFP4 on 2 cards 178; 64K prefill 4,828; same box 3-bit 2 cards 234, 1 card 121 (see comm-070). The first post on 10-16 gave ~100 (same weights on Strata ~78)",
     "en": {
       "quant": "official NVFP4 · TP=2",
-      "source_note": "r/LocalLLaMA u/FeydRowan / capy-flash author measured (TP=2, official NVFP4)"
+      "source_note": "r/LocalLLaMA u/FeydRowan, capy-flash author v0.7.4 post (updated 2026-10-25; first post 10-16 was 1x6wh1z)",
+      "concurrency": "single stream"
     },
     "model_family": "Qwen",
     "tags": [
@@ -12986,7 +12987,7 @@
       "MoE",
       "multi-GPU"
     ],
-    "source_id": "src-be65bec727"
+    "source_id": "src-0c9b61ef96"
   },
   {
     "id": "comm-035",
@@ -16380,8 +16381,8 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "未核价",
     "hardware_cost_usd": null,
-    "metric": "1 卡 121（LocalMaxxing 验证运行），replay decode 104；2 卡 239",
-    "metric_en": "1 card 121 (LocalMaxxing verified run), replay decode 104; 2 cards 239",
+    "metric": "1 卡 121（LocalMaxxing 验证运行），replay decode 104；2 卡 239；2026-10-25 作者 v0.7.4 帖再次给出 1 卡 3-bit 121（已证实）",
+    "metric_en": "1 card 121 (LocalMaxxing verified run), replay decode 104; 2 cards 239; confirmed 2026-10-25: the author v0.7.4 post again gives 1 card 3-bit 121",
     "tok_s": 121,
     "concurrency": "单流",
     "context": null,
@@ -16887,7 +16888,8 @@
       "offload"
     ],
     "engine_raw": "Strata 0.2.4（strata-dsv41 0.1.49）",
-    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）"
+    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）",
+    "source_id": "src-0084ce08aa"
   },
   {
     "id": "comm-080",
@@ -16927,7 +16929,8 @@
       "offload"
     ],
     "engine_raw": "Strata 0.2.4（strata-dsv41 0.1.49）",
-    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）"
+    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）",
+    "source_id": "src-0084ce08aa"
   },
   {
     "id": "comm-081",
@@ -16964,7 +16967,8 @@
       "MoE"
     ],
     "engine_raw": "Strata 0.2.4（strata-dsv41 0.1.49）",
-    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）"
+    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）",
+    "source_id": "src-0084ce08aa"
   },
   {
     "id": "comm-082",
@@ -17005,7 +17009,8 @@
       "offload"
     ],
     "engine_raw": "Strata 0.2.4（strata-dsv41 0.1.49）",
-    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）"
+    "engine_note": "Strata 0.2.4（strata-dsv41 0.1.49）",
+    "source_id": "src-0084ce08aa"
   },
   {
     "id": "comm-083",
@@ -17044,7 +17049,8 @@
       "offload"
     ],
     "engine_raw": "Strata strata-dsv41 源码构建 8183c6b（0.1.49.1，ROCm）",
-    "engine_note": "Strata strata-dsv41 源码构建 8183c6b（0.1.49.1，ROCm）"
+    "engine_note": "Strata strata-dsv41 源码构建 8183c6b（0.1.49.1，ROCm）",
+    "source_id": "src-f1bbb30dfa"
   },
   {
     "id": "comm-084",
@@ -17080,7 +17086,8 @@
       "hardware_cost_text": "≈$27,800 (4×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
       "concurrency": "single stream (c2–c16 aggregate also measured)",
       "source_note": "Recipe author README (@506fb10), SGLang dsv4.1 f80c91a4b + backports"
-    }
+    },
+    "source_id": "src-9d6054d284"
   },
   {
     "id": "comm-085",
@@ -17119,7 +17126,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream (c2–c16 aggregate also measured)",
       "source_note": "Reddit post by the tester, full docker command included"
-    }
+    },
+    "source_id": "src-1d704863af"
   },
   {
     "id": "comm-086",
@@ -17155,7 +17163,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "Reddit post by the Basalt developer (conflict of interest, stated in the post); single cold run, author treats gaps under 5% as ties"
-    }
+    },
+    "source_id": "src-4f46d038ba"
   },
   {
     "id": "comm-087",
@@ -17193,7 +17202,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream (4/8-request aggregate also measured)",
       "source_note": "Maintainer release notes (reference-machine table); Reddit post 1xdqgps gives the same numbers"
-    }
+    },
+    "source_id": "src-e91d3c8c94"
   },
   {
     "id": "comm-088",
@@ -17231,7 +17241,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "Reddit post by the tester; full recipe and patches at github.com/alphakilomilo/dual-b70-windows-llamacpp (not upstream)"
-    }
+    },
+    "source_id": "src-010872e6d0"
   },
   {
     "id": "x-122",
@@ -17268,7 +17279,8 @@
       "concurrency": "single stream (4/8-request aggregate also measured)",
       "source_note": "X post by the tester; command and raw output on niklaslenz.com",
       "engine_note": "ds4 (kernelpool fork @72ccf36)"
-    }
+    },
+    "source_id": "src-0ddb604c2b"
   },
   {
     "id": "x-123",
@@ -17303,7 +17315,8 @@
       "hardware_cost_text": "≈$20,850 (3×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
       "concurrency": "aggregate (4 sessions), no single-stream figure",
       "source_note": "X post by the tester (with image)"
-    }
+    },
+    "source_id": "src-b3a7366430"
   },
   {
     "id": "x-124",
@@ -17315,8 +17328,8 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$27,800（4×$6,950，DGX Spark 128GB 2026-10-11 价，计算值）",
     "hardware_cost_usd": 27800,
-    "metric": "TensorFold TP4 v0.3.5：decode 约 121；预填 8K 2,668 / 32K 2,900",
-    "metric_en": "TensorFold TP4 v0.3.5: decode about 121; prefill 8K 2,668 / 32K 2,900",
+    "metric": "TensorFold TP4 v0.3.5：decode 约 121；预填 8K 2,668 / 32K 2,900。注：niklaslenz 10-25 测 bertholomus 4× Spark 4.0bpw 为 82.8 / 80.8，quant 和版本不同，不能直接对比",
+    "metric_en": "TensorFold TP4 v0.3.5: decode about 121; prefill 8K 2,668 / 32K 2,900. Note: on 10-25 niklaslenz measured bertholomus 4× Spark 4.0bpw at 82.8 / 80.8; the quant and version differ, so it is not a direct comparison",
     "tok_s": 121,
     "concurrency": "单流",
     "context": null,
@@ -17337,7 +17350,8 @@
       "hardware_cost_text": "≈$27,800 (4×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
       "concurrency": "single stream",
       "source_note": "X post by the recipe author; recipe at github.com/bertholomus/deepseek-v4.1-tensorfold-tp4-4xgb10"
-    }
+    },
+    "source_id": "src-b2f9bfcb05"
   },
   {
     "id": "x-125",
@@ -17373,7 +17387,8 @@
       "hardware_cost_text": "≈$13,900 (2×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
       "concurrency": "single stream",
       "source_note": "X post by the tester"
-    }
+    },
+    "source_id": "src-800e4baeda"
   },
   {
     "id": "x-126",
@@ -17408,7 +17423,8 @@
       "hardware_cost_text": "≈$20,850 (3×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
       "concurrency": "single stream (C12 aggregate also measured)",
       "source_note": "X post by the tester; recipe at github.com/LakyFx/deepseek-v41-flash-exl3-tp3-spark"
-    }
+    },
+    "source_id": "src-65a117e452"
   },
   {
     "id": "x-127",
@@ -17444,7 +17460,8 @@
       "hardware_cost_text": "≈$13,900 (2×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
       "concurrency": "single stream (8-request aggregate also measured)",
       "source_note": "X post by the tester; command and raw output on niklaslenz.com"
-    }
+    },
+    "source_id": "src-8f812debd6"
   },
   {
     "id": "x-128",
@@ -17479,7 +17496,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "X post by the tester (with screenshots)"
-    }
+    },
+    "source_id": "src-5e165f6005"
   },
   {
     "id": "comm-089",
@@ -17514,7 +17532,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "GitHub issue by the tester"
-    }
+    },
+    "source_id": "src-6cb3e4cecf"
   },
   {
     "id": "comm-090",
@@ -17551,7 +17570,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "GitHub benchmark issue by the tester (tools/strata_bench.py)"
-    }
+    },
+    "source_id": "src-c86e25af4c"
   },
   {
     "id": "comm-091",
@@ -17587,7 +17607,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "GitHub benchmark issue by the tester (strata bench run)"
-    }
+    },
+    "source_id": "src-c3328c3722"
   },
   {
     "id": "comm-092",
@@ -17624,7 +17645,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "GitHub issue by the tester"
-    }
+    },
+    "source_id": "src-f3fcf78762"
   },
   {
     "id": "comm-093",
@@ -17660,7 +17682,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream (concurrent aggregate also measured)",
       "source_note": "GitHub issue by the tester, raw data and scripts included"
-    }
+    },
+    "source_id": "src-115ea7b85e"
   },
   {
     "id": "comm-094",
@@ -17697,7 +17720,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream (C=4/8 aggregate also measured)",
       "source_note": "Fork author's repository README (elsa/README.md)"
-    }
+    },
+    "source_id": "src-e29609bfd6"
   },
   {
     "id": "comm-095",
@@ -17736,7 +17760,8 @@
       "concurrency": "single stream (C=2–8 aggregate also measured)",
       "source_note": "Recipe author repository README (the X post says 254.6; the README median is used)"
     },
-    "engine_note": "ExLlamaV3"
+    "engine_note": "ExLlamaV3",
+    "source_id": "src-1805f05c65"
   },
   {
     "id": "comm-096",
@@ -17772,7 +17797,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "Reddit post by the tester"
-    }
+    },
+    "source_id": "src-9ffb70cf09"
   },
   {
     "id": "comm-097",
@@ -17808,7 +17834,8 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "Reddit post by the tester"
-    }
+    },
+    "source_id": "src-9ffb70cf09"
   },
   {
     "id": "comm-098",
@@ -17842,7 +17869,8 @@
       "hardware_cost_text": "$10,799 (M5 Ultra 256GB, Apple US launch price, 2026-08)",
       "concurrency": "single stream (batch aggregate also measured)",
       "source_note": "Reddit post by the tester (raw bench output)"
-    }
+    },
+    "source_id": "src-4899143c73"
   },
   {
     "id": "comm-099",
@@ -17877,6 +17905,780 @@
       "hardware_cost_text": "$10,799 (M5 Ultra 256GB, Apple US launch price, 2026-08)",
       "concurrency": "single stream (batch aggregate also measured)",
       "source_note": "Reddit post by the tester (raw bench output)"
-    }
+    },
+    "source_id": "src-22fdc77aed"
+  },
+  {
+    "id": "comm-100",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "Swift-1.5 heretic MXFP4（GPTQ）+ DFlash2 W4A16 草稿 k=7",
+    "engine": "vLLM",
+    "hardware": "1× Radeon AI PRO R9700 32GB（300W，−50mV）",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "vllm-sly-radiance 1.8.1（ROCm 10.1），BetterBench 0.4.0：单流加权 154.4（code 186.5 / json 210.8 / prose 90.5）；预填 1.5K 3,927 / 47K 3,370；聚合（另计）c8 480 / c16 512。权重是 abliterated（heretic）微调版",
+    "metric_en": "vllm-sly-radiance 1.8.1 (ROCm 10.1), BetterBench 0.4.0: single-stream weighted 154.4 (code 186.5 / json 210.8 / prose 90.5); prefill 1.5K 3,927 / 47K 3,370; aggregate (separate) c8 480 / c16 512. The weights are an abliterated (heretic) fine-tune",
+    "tok_s": 154.4,
+    "concurrency": "单流（另测聚合）",
+    "context": "65K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/ROCm/comments/1xelxzt/",
+    "source_note": "Reddit 帖，镜像作者本人；仓库 github.com/SlyBase/vllm-sly-radiance",
+    "source_level": "官方",
+    "date": "2026-10-25",
+    "measured_by": "CopyOf-Specialist",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "dense",
+      "speculative"
+    ],
+    "en": {
+      "quant": "Swift-1.5 heretic MXFP4 (GPTQ) + DFlash2 W4A16 drafter k=7",
+      "hardware": "1× Radeon AI PRO R9700 32GB (300 W, −50 mV)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream (aggregate also measured)",
+      "source_note": "Reddit post by the image author; repo github.com/SlyBase/vllm-sly-radiance"
+    },
+    "engine_raw": "vllm-sly-radiance",
+    "engine_note": "vllm-sly-radiance",
+    "source_id": "src-80aef52cc3"
+  },
+  {
+    "id": "comm-101",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "PARO-M2XFP4（4.25bpw）+ 内置 DFlash2 草稿",
+    "engine": "Radiance",
+    "hardware": "1× Radeon AI PRO R9700 32GB",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Radiance m2xfp 分支，BetterBench 0.6.1，32K、fp8 KV：单流 8 类均值 100.2（code 95.8 / math 136.4 / chat 66.1）；预填 2K 2,424 / 32K 2,651；聚合（另计）8× 362.1。模型卡标题写 83，以表格为准",
+    "metric_en": "Radiance m2xfp branch, BetterBench 0.6.1, 32K, fp8 KV: single-stream mean of 8 categories 100.2 (code 95.8 / math 136.4 / chat 66.1); prefill 2K 2,424 / 32K 2,651; aggregate (separate) 8× 362.1. The model card headline says 83; the table is used",
+    "tok_s": 100.2,
+    "concurrency": "单流（另测聚合）",
+    "context": "32K",
+    "launch_command": null,
+    "source_url": "https://huggingface.co/hugypufy/Qwen3.8-27B-DFLASH2-PARO-M2XFP4",
+    "source_note": "量化作者 HF 模型卡（基准表 + 原始 JSON）",
+    "source_level": "官方",
+    "date": "2026-10-25",
+    "measured_by": "hugypufy",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "dense",
+      "speculative"
+    ],
+    "en": {
+      "quant": "PARO-M2XFP4 (4.25bpw) + built-in DFlash2 drafter",
+      "hardware": "1× Radeon AI PRO R9700 32GB",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream (aggregate also measured)",
+      "source_note": "Quant author HF model card (benchmark table + raw JSON)"
+    },
+    "source_id": "src-0c4f829740"
+  },
+  {
+    "id": "comm-115",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "ParoQuant int5（W5A16 f16）+ DFlash2",
+    "engine": "Radiance",
+    "hardware": "1× Radeon AI PRO R9700 32GB",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Radiance 1.12.0，tp1，fp8 KV：decode 冷 / 热 61.6 / 61.8（1.8.1 为 60.1 / 60.2）；预填 190K 1,205；短提示（约 1.5K）预填从 1.8.1 的 548 降到 411（−25%，issue #225 报告的回归）",
+    "metric_en": "Radiance 1.12.0, tp1, fp8 KV: decode cold / warm 61.6 / 61.8 (1.8.1: 60.1 / 60.2); prefill 190K 1,205; short-prompt (about 1.5K) prefill fell from 548 on 1.8.1 to 411 (−25%, the regression in issue #225)",
+    "tok_s": 61.6,
+    "concurrency": "单流",
+    "context": "200K",
+    "launch_command": null,
+    "source_url": "https://codeberg.org/StillDeadcode/radiance/issues/225",
+    "source_note": "Radiance issue #225，测试者本人（同机 1.8.1 / 1.12.0 对比）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "groubert",
+    "model_family": "Qwen",
+    "tags": [
+      "dense",
+      "long-context",
+      "speculative"
+    ],
+    "en": {
+      "quant": "ParoQuant int5 (W5A16 f16) + DFlash2",
+      "hardware": "1× Radeon AI PRO R9700 32GB",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Radiance issue #225 by the tester (same machine, 1.8.1 vs 1.12.0)"
+    },
+    "source_id": "src-74e49c1c95"
+  },
+  {
+    "id": "x-129",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "bertholomus EXL3 2.5bpw",
+    "engine": "TensorFold",
+    "hardware": "2× DGX Spark（其中一台 ASUS GX10；QSFP 直连，TP2）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$13,900（2×$6,950，DGX Spark 128GB 2026-10-11 价，计算值）",
+    "hardware_cost_usd": 13900,
+    "metric": "bertholomus 配方 v0.7.2 @30a5bf9：decode code 70.5 / prose 70.6；32K 预填 1,830，TTFT 17.9s；聚合（另计）4 请求 107.4、8 请求 106.3（配方只有 4 个 slot）；对照 4× Spark 4.0bpw：82.8 / 80.8",
+    "metric_en": "bertholomus recipe v0.7.2 @30a5bf9: decode code 70.5 / prose 70.6; 32K prefill 1,830, TTFT 17.9 s; aggregate (separate) 4 requests 107.4, 8 requests 106.3 (the recipe has 4 slots); for comparison 4× Spark 4.0bpw: 82.8 / 80.8",
+    "tok_s": 70.5,
+    "concurrency": "单流（另测聚合）",
+    "context": "1M",
+    "launch_command": null,
+    "source_url": "https://x.com/niklaslenz_ai/status/2114094357020385570",
+    "source_note": "X 帖，测试者本人；原始数据 niklaslenz.com/v2/deepseek-v41-flash-2sparks-bertholomus-tp2/",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "niklaslenz_ai",
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "bertholomus EXL3 2.5bpw",
+      "hardware": "2× DGX Spark (one is an ASUS GX10; direct QSFP link, TP2)",
+      "hardware_cost_text": "≈$13,900 (2×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
+      "concurrency": "single stream (aggregate also measured)",
+      "source_note": "X post by the tester; raw data at niklaslenz.com/v2/deepseek-v41-flash-2sparks-bertholomus-tp2/"
+    },
+    "source_id": "src-0f1d4eb86e"
+  },
+  {
+    "id": "x-130",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "MLX 4-bit + z-lab DFlash2 草稿",
+    "engine": "TensorFold",
+    "hardware": "1× RTX 5090 32GB",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "TensorFold 1.1.2（BobClawblaw 分支 q35-prompt-int8 @18d93451），FP8 KV：decode code 268.2 / prose 238.7；32K TTFT 7.7s；262K 上下文占 27.3GiB。配方只开 1 个 stream，8 请求总量 204.6。同卡对照：NInfer MTP3 169.0、Mia EXL3 4.0bpw 154.5",
+    "metric_en": "TensorFold 1.1.2 (BobClawblaw branch q35-prompt-int8 @18d93451), FP8 KV: decode code 268.2 / prose 238.7; 32K TTFT 7.7 s; 27.3 GiB at 262K context. The recipe serves 1 stream, so 8 requests total 204.6. Same card: NInfer MTP3 169.0, Mia EXL3 4.0bpw 154.5",
+    "tok_s": 268.2,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://x.com/niklaslenz_ai/status/2114219401679376809",
+    "source_note": "X 帖，测试者本人；原始数据 niklaslenz.com/v2/qwen38-27b-mlx4bit-dflash2-tensorfold-bob-5090/",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "niklaslenz_ai",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "dense",
+      "long-context",
+      "speculative",
+      "MTP"
+    ],
+    "en": {
+      "quant": "MLX 4-bit + z-lab DFlash2 drafter",
+      "hardware": "1× RTX 5090 32GB",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "X post by the tester; raw data at niklaslenz.com/v2/qwen38-27b-mlx4bit-dflash2-tensorfold-bob-5090/"
+    },
+    "source_id": "src-6f830ee7fc"
+  },
+  {
+    "id": "x-131",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "FP4",
+    "engine": "NVIDIA Flare",
+    "hardware": "1× DGX Spark",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$6,950（DGX Spark 128GB 2026-10-11 价）",
+    "hardware_cost_usd": 6950,
+    "metric": "sxuff Flare 配方：单流 50.7（同机 TensorFold EXL3 75.7）；32K 提示读入 14.1s；聚合（另计）8 个 agent 77.6，TTFT 7s",
+    "metric_en": "sxuff Flare recipe: single stream 50.7 (TensorFold EXL3 on the same machine 75.7); 32K prompt read in 14.1 s; aggregate (separate) 8 agents 77.6, TTFT 7 s",
+    "tok_s": 50.7,
+    "concurrency": "单流（另测聚合）",
+    "context": null,
+    "launch_command": null,
+    "source_url": "https://x.com/filicroval/status/2113985358320840881",
+    "source_note": "X 帖，配方作者本人；仓库 github.com/sxuff/qwen38-flash-next-flare",
+    "source_level": "实测",
+    "date": "2026-10-24",
+    "measured_by": "filicroval",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "MoE"
+    ],
+    "en": {
+      "quant": "FP4",
+      "hardware": "1× DGX Spark",
+      "hardware_cost_text": "≈$6,950 (DGX Spark 128GB price 2026-10-11)",
+      "concurrency": "single stream (aggregate also measured)",
+      "source_note": "X post by the recipe author; repo github.com/sxuff/qwen38-flash-next-flare"
+    },
+    "source_id": "src-62d270e4ef"
+  },
+  {
+    "id": "x-132",
+    "category": "text",
+    "model": "MiniMax-M3.1-Flash",
+    "quant": "mxfp8（250.1GB）+ DFlash2 草稿 k=5",
+    "engine": "SGLang",
+    "hardware": "4× DGX Spark（TP4，无交换机 RoCE 环）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$27,800（4×$6,950，DGX Spark 128GB 2026-10-11 价，计算值）",
+    "hardware_cost_usd": 27800,
+    "metric": "SGLang TP4 / nnodes=4，NCCL 2.30.7 Ring，fp8 KV：单流 decode 59.0（TTFT 0.183s）；预填 32K 1,121 / 266K 1,248；聚合（另计）6 并发 122.9。配方来自 knapcio SGLang profile",
+    "metric_en": "SGLang TP4 / nnodes=4, NCCL 2.30.7 Ring, fp8 KV: single-stream decode 59.0 (TTFT 0.183 s); prefill 32K 1,121 / 266K 1,248; aggregate (separate) 6 concurrent 122.9. Recipe from the knapcio SGLang profile",
+    "tok_s": 59.0,
+    "concurrency": "单流（另测聚合）",
+    "context": "1M",
+    "launch_command": null,
+    "source_url": "https://x.com/NftHoss/status/2114187333906145700",
+    "source_note": "X 帖，测试者本人",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "NftHoss",
+    "model_family": "MiniMax",
+    "tags": [
+      "MoE",
+      "long-context",
+      "speculative",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "mxfp8 (250.1GB) + DFlash2 drafter k=5",
+      "hardware": "4× DGX Spark (TP4, switchless RoCE ring)",
+      "hardware_cost_text": "≈$27,800 (4×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
+      "concurrency": "single stream (aggregate also measured)",
+      "source_note": "X post by the tester"
+    },
+    "source_id": "src-0d92639f34"
+  },
+  {
+    "id": "x-133",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "dsx T16（252GB，含 Engram 表）",
+    "engine": "dsx",
+    "hardware": "2× RTX 3090 24GB + i7-12700K + 128GB 内存",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "dsx（Rust + CUDA），expert deferral（--defer-rank 3，会改变计算）+ FP8 投影：自由生成 41",
+    "metric_en": "dsx (Rust + CUDA), expert deferral (--defer-rank 3, changes the computation) + FP8 projections: free generation 41",
+    "tok_s": 41,
+    "concurrency": "单流",
+    "context": "128K",
+    "launch_command": null,
+    "source_url": "https://x.com/lxe/status/2114247653169279345",
+    "source_note": "X 帖，引擎作者本人；仓库 github.com/lxe/dsx",
+    "source_level": "官方",
+    "date": "2026-10-25",
+    "measured_by": "lxe",
+    "model_family": "DeepSeek",
+    "tags": [
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "dsx T16 (252GB, Engram table included)",
+      "hardware": "2× RTX 3090 24GB + i7-12700K + 128GB RAM",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "X post by the engine author; repo github.com/lxe/dsx"
+    },
+    "source_id": "src-38934f59c1"
+  },
+  {
+    "id": "comm-102",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "nvidia FP4-Local + MTP 4",
+    "engine": "vLLM",
+    "hardware": "2× DGX Spark（QSFP 直连，TP2）",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "≈$13,900（2×$6,950，DGX Spark 128GB 2026-10-11 价，计算值）",
+    "hardware_cost_usd": 13900,
+    "metric": "NVIDIA cluster playbook 命令（镜像 vllm-flash-next:8244d1c），fp8 KV：单流 JSON 98 / code 95 / rewrite 75 / explain 74（5 次中位数，temperature 0.7）；没测聚合",
+    "metric_en": "NVIDIA cluster playbook command (image vllm-flash-next:8244d1c), fp8 KV: single stream JSON 98 / code 95 / rewrite 75 / explain 74 (median of 5, temperature 0.7); aggregate not measured",
+    "tok_s": 95,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/atakann/dgx-spark-recipes/blob/8a15075/recipes/llm/qwen3.8-flash-next-fp4-vllm-tp2.yaml",
+    "source_note": "配方作者仓库（配方文件头部写有实测数）",
+    "source_level": "官方",
+    "date": "2026-10-25",
+    "measured_by": "atakann",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "MoE",
+      "long-context",
+      "speculative",
+      "MTP",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "nvidia FP4-Local + MTP 4",
+      "hardware": "2× DGX Spark (direct QSFP link, TP2)",
+      "hardware_cost_text": "≈$13,900 (2×$6,950, DGX Spark 128GB price 2026-10-11, computed)",
+      "concurrency": "single stream",
+      "source_note": "Recipe author repository (measured numbers in the recipe header)"
+    },
+    "source_id": "src-10174d1992"
+  },
+  {
+    "id": "comm-103",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ3_S",
+    "engine": "Strata",
+    "hardware": "RTX 5090 32GB + Core Ultra 7 265K + 128GB 内存（Windows 11）",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.1.48.1 @7ddc17a3，engine 0.1.48，--spec 4 --mtp rt --kv int8，strata_bench suite 1：short chat decode 176.3（142.3–221.4，9 次中位数）；agent 跟进 188.7；预填 4K 4,723 / 16K 6,442",
+    "metric_en": "Strata 0.1.48.1 @7ddc17a3, engine 0.1.48, --spec 4 --mtp rt --kv int8, strata_bench suite 1: short chat decode 176.3 (142.3–221.4, median of 9); agent follow-up 188.7; prefill 4K 4,723 / 16K 6,442",
+    "tok_s": 176.3,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4058",
+    "source_note": "Strata issue #4058，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "uni8051",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context",
+      "speculative"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ3_S",
+      "hardware": "RTX 5090 32GB + Core Ultra 7 265K + 128GB RAM (Windows 11)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4058 by the tester (community benchmark)"
+    },
+    "source_id": "src-7fa3fd94c2"
+  },
+  {
+    "id": "comm-104",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ2_XS",
+    "engine": "Strata",
+    "hardware": "RTX 3090 Ti 24GB + i9-12900KF + 64GB 内存（Windows 11）",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.1.49.2 @7dd5cf18，engine 0.1.47，strata_bench --long：short chat decode 124.0（99.2–148.1）；agent 跟进 138.1；预填 4K 2,251 / 16K 2,833 / 32K 2,806",
+    "metric_en": "Strata 0.1.49.2 @7dd5cf18, engine 0.1.47, strata_bench --long: short chat decode 124.0 (99.2–148.1); agent follow-up 138.1; prefill 4K 2,251 / 16K 2,833 / 32K 2,806",
+    "tok_s": 124.0,
+    "concurrency": "单流",
+    "context": "131K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4094",
+    "source_note": "Strata issue #4094，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "AlBundy33",
+    "model_family": "Qwen",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ2_XS",
+      "hardware": "RTX 3090 Ti 24GB + i9-12900KF + 64GB RAM (Windows 11)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4094 by the tester (community benchmark)"
+    },
+    "source_id": "src-e1d588ce19"
+  },
+  {
+    "id": "comm-105",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "Huihui abliterated UD-Q4_K_XL",
+    "engine": "Strata",
+    "hardware": "RTX 4090 24GB + 128GB 内存",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata Mnemosyne 分支（基于 0.1.48.1，服务端记忆开着，每个提示都带一段前缀），engine 0.1.48，--kv int8 --spec 4 MTP：short chat decode 80.3（73.7–97.9）；agent 跟进 97.8；预填 7.3K 2,171 / 16K 2,636",
+    "metric_en": "Strata Mnemosyne fork (based on 0.1.48.1, server-side memory on, so every prompt carries a prefix), engine 0.1.48, --kv int8 --spec 4 MTP: short chat decode 80.3 (73.7–97.9); agent follow-up 97.8; prefill 7.3K 2,171 / 16K 2,636",
+    "tok_s": 80.3,
+    "concurrency": "单流",
+    "context": "393K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4084",
+    "source_note": "Strata issue #4084，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "TheHubUser4860938",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "MoE",
+      "long-context",
+      "speculative",
+      "MTP"
+    ],
+    "en": {
+      "quant": "Huihui abliterated UD-Q4_K_XL",
+      "hardware": "RTX 4090 24GB + 128GB RAM",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4084 by the tester (community benchmark)"
+    },
+    "source_id": "src-e02be98110"
+  },
+  {
+    "id": "comm-106",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ3_S",
+    "engine": "Strata",
+    "hardware": "RTX 3090 24GB + i9-10900K + 64GB 内存（Windows 11）",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.1.48.1，engine 0.1.48，k8v4 KV + --kv-grow，512K 上下文：short chat decode 86.9；agent 跟进 94.4；预填 4K 1,102 / 16K 1,675。engine 0.1.50 复测：86.9→99.0（跨天，区间重叠）。7 组 A/B 中只有 STRATA_PF_FUSED=1 超出噪声（16K 预填 +3.6%）",
+    "metric_en": "Strata 0.1.48.1, engine 0.1.48, k8v4 KV + --kv-grow, 512K context: short chat decode 86.9; agent follow-up 94.4; prefill 4K 1,102 / 16K 1,675. Engine 0.1.50 rerun: 86.9→99.0 (different day, ranges overlap). Of 7 A/B arms only STRATA_PF_FUSED=1 is beyond noise (+3.6% 16K prefill)",
+    "tok_s": 86.9,
+    "concurrency": "单流",
+    "context": "512K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4054",
+    "source_note": "Strata issue #4054，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "smallmj",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ3_S",
+      "hardware": "RTX 3090 24GB + i9-10900K + 64GB RAM (Windows 11)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4054 by the tester (community benchmark)"
+    },
+    "source_id": "src-1a98108812"
+  },
+  {
+    "id": "comm-107",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ3_S",
+    "engine": "Strata",
+    "hardware": "RX 7900 XT 20GB + Ryzen 7 5800X3D + 64GB 内存（Linux）",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.1.44.1 @296b59d2，HIP，--kv int8 --spec 4 --mtp rt：short chat decode 45.6；agent 跟进 53.9；预填 4K 1,363 / 16K 1,549",
+    "metric_en": "Strata 0.1.44.1 @296b59d2, HIP, --kv int8 --spec 4 --mtp rt: short chat decode 45.6; agent follow-up 53.9; prefill 4K 1,363 / 16K 1,549",
+    "tok_s": 45.6,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4061",
+    "source_note": "Strata issue #4061，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "fsacrini",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context",
+      "speculative"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ3_S",
+      "hardware": "RX 7900 XT 20GB + Ryzen 7 5800X3D + 64GB RAM (Linux)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4061 by the tester (community benchmark)"
+    },
+    "source_id": "src-d7855fba8b"
+  },
+  {
+    "id": "comm-108",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "SC117 abliterated IQ2_XS",
+    "engine": "Strata",
+    "hardware": "RX 6700 XT 12GB + Ryzen 7 5800X + 64GB DDR4（Ubuntu 26.04）",
+    "hardware_family": "AMD",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.2.4.1，engine 0.1.48 hip-rx6000：校准后（--pcie-frac 0.20）code decode 58.1（默认 0.75 时 51.1）、prose 43.6；预填 8K 702 / 65K 677",
+    "metric_en": "Strata 0.2.4.1, engine 0.1.48 hip-rx6000: after calibration (--pcie-frac 0.20) code decode 58.1 (51.1 at the default 0.75), prose 43.6; prefill 8K 702 / 65K 677",
+    "tok_s": 58.1,
+    "concurrency": "单流",
+    "context": "128K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/3984",
+    "source_note": "Strata issue #3984，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "kulight",
+    "model_family": "Qwen",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context"
+    ],
+    "en": {
+      "quant": "SC117 abliterated IQ2_XS",
+      "hardware": "RX 6700 XT 12GB + Ryzen 7 5800X + 64GB DDR4 (Ubuntu 26.04)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #3984 by the tester (community benchmark)"
+    },
+    "source_id": "src-88a0852dff"
+  },
+  {
+    "id": "comm-109",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO IQ2_XS",
+    "engine": "Strata",
+    "hardware": "GMKtec K8 Plus 迷你机 + 2× V100 32GB（PG500-216 SXM2 转 PCIe + V100-PCIE，各走 OCuLink Gen3 x4）",
+    "hardware_family": "二手数据中心卡",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 0.2.2，engine 0.1.47，layer split：512 token decode 双卡 64.1–71.5（1.2K 后 71.5），单卡 63.8–66.1；预填比单卡快 26–42%（10.5K–31K）。每组只跑 1 次",
+    "metric_en": "Strata 0.2.2, engine 0.1.47, layer split: 512-token decode on two cards 64.1–71.5 (71.5 after 1.2K), one card 63.8–66.1; prefill 26–42% faster than one card (10.5K–31K). One pass per arm",
+    "tok_s": 71.5,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4062",
+    "source_note": "Strata issue #4062，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "renaudrenaud",
+    "model_family": "Qwen",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO IQ2_XS",
+      "hardware": "GMKtec K8 Plus mini PC + 2× V100 32GB (PG500-216 SXM2-to-PCIe + V100-PCIE, each on OCuLink Gen3 x4)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4062 by the tester (community benchmark)"
+    },
+    "source_id": "src-abc124c67a"
+  },
+  {
+    "id": "comm-110",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "ISTA-DASLab GSQ-RCO IQ2_XS（2.25bpw，273.8GB）",
+    "engine": "Strata",
+    "hardware": "1× RTX PRO 5000 72GB + Ryzen 9 9950X3D（Linux）",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata Terminal 0.2.4.2，DSV41 engine 0.1.49.2，512 token 输出，n=3：DSpark 关 39.05、开 42.77（API 级）；240K 检索读入 928.5",
+    "metric_en": "Strata Terminal 0.2.4.2, DSV41 engine 0.1.49.2, 512-token output, n=3: DSpark off 39.05, on 42.77 (API level); 240K retrieval read-in 928.5",
+    "tok_s": 39.05,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4096",
+    "source_note": "Strata issue #4096，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "realsquall1980-art",
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context",
+      "speculative"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab GSQ-RCO IQ2_XS (2.25bpw, 273.8GB)",
+      "hardware": "1× RTX PRO 5000 72GB + Ryzen 9 9950X3D (Linux)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4096 by the tester (community benchmark)"
+    },
+    "source_id": "src-06f9b4d77a"
+  },
+  {
+    "id": "comm-111",
+    "category": "text",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "quant": "ISTA-DASLab IST-DAS 2.00bpw",
+    "engine": "Strata",
+    "hardware": "3× Tesla V100 32GB PCIe 3.0 + 2× Xeon E5-2696 v3 + 128GB DDR3（Windows 10）",
+    "hardware_family": "二手数据中心卡",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Strata 源码 @7dd5cf1（v0.2.4.2，sm_70，CUDA 12.4），layer split auto，--dspark auto：3072 token 回答 22.0、1024 token 17.4；预填 7K 176。同机 maya-ds4 v1.1.26（Maya-S）：27.5 / 24.2 / 425",
+    "metric_en": "Strata source @7dd5cf1 (v0.2.4.2, sm_70, CUDA 12.4), layer split auto, --dspark auto: 3072-token answers 22.0, 1024-token 17.4; prefill 7K 176. Same machine on maya-ds4 v1.1.26 (Maya-S): 27.5 / 24.2 / 425",
+    "tok_s": 22.0,
+    "concurrency": "单流",
+    "context": "8K",
+    "launch_command": null,
+    "source_url": "https://github.com/Niko1221/Strata/issues/4074",
+    "source_note": "Strata issue #4074，测试者本人（社区 benchmark）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "noahark",
+    "model_family": "DeepSeek",
+    "tags": [
+      "2bit",
+      "MoE",
+      "speculative",
+      "multi-GPU"
+    ],
+    "en": {
+      "quant": "ISTA-DASLab IST-DAS 2.00bpw",
+      "hardware": "3× Tesla V100 32GB PCIe 3.0 + 2× Xeon E5-2696 v3 + 128GB DDR3 (Windows 10)",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Strata issue #4074 by the tester (community benchmark)"
+    },
+    "source_id": "src-68502d97ba"
+  },
+  {
+    "id": "comm-112",
+    "category": "text",
+    "model": "Qwen3.8-27B",
+    "quant": "4-bit + Splash DFlash2 草稿",
+    "engine": "oMLX",
+    "hardware": "MacBook Pro M5 Max 48GB",
+    "hardware_family": "Mac",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "oMLX 0.7.2，代码上下文，每格生成 128 token：tg pp4K 93.8 / pp16K 189.4 / pp64K 110.2（取三格中位数 110.2；标题的 189 只是 16K 那一格）；聚合（另计）2× 413.7 / 4× 407.0",
+    "metric_en": "oMLX 0.7.2, code context, 128 tokens per cell: tg at pp4K 93.8 / pp16K 189.4 / pp64K 110.2 (median of the 3 cells, 110.2, is used; the 189 in the title is only the 16K cell); aggregate (separate) 2× 413.7 / 4× 407.0",
+    "tok_s": 110.2,
+    "concurrency": "单流（另测聚合）",
+    "context": "64K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/oMLX/comments/1xex6uk/",
+    "source_note": "Reddit 帖，测试者本人（oMLX bench 输出）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "EuSouAssimReddit",
+    "model_family": "Qwen",
+    "tags": [
+      "4bit",
+      "dense",
+      "speculative"
+    ],
+    "en": {
+      "quant": "4-bit + Splash DFlash2 drafter",
+      "hardware": "MacBook Pro M5 Max 48GB",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream (aggregate also measured)",
+      "source_note": "Reddit post by the tester (oMLX bench output)"
+    },
+    "source_id": "src-393e0ebc90"
+  },
+  {
+    "id": "comm-113",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "ISTA GSQ-RCO Q2_0 + Flash-Next DFlash2 草稿（专家从 SSD 流式读入）",
+    "engine": "Splash",
+    "hardware": "MacBook Air M5 24GB",
+    "hardware_family": "Mac",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Splash 1.4.0 + 作者约 800 行 fork（cache-aware routing 会略改输出）：decode 均值 48.8（原版 28.8）；冷预填 32K 522 / 63K 485",
+    "metric_en": "Splash 1.4.0 + an author fork of about 800 lines (cache-aware routing changes output slightly): decode average 48.8 (stock 28.8); cold prefill 32K 522 / 63K 485",
+    "tok_s": 48.8,
+    "concurrency": "单流",
+    "context": "256K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xezdgs/",
+    "source_note": "Reddit 帖，测试者本人（fork 作者）",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "Inside-Pen-8395",
+    "model_family": "Qwen",
+    "tags": [
+      "2bit",
+      "MoE",
+      "long-context",
+      "speculative",
+      "offload"
+    ],
+    "en": {
+      "quant": "ISTA GSQ-RCO Q2_0 + Flash-Next DFlash2 drafter (experts streamed from SSD)",
+      "hardware": "MacBook Air M5 24GB",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Reddit post by the tester (fork author)"
+    },
+    "source_id": "src-6086efbac9"
+  },
+  {
+    "id": "comm-114",
+    "category": "text",
+    "model": "Qwen3.8-Flash-Next",
+    "quant": "IQ3_S",
+    "engine": "Basalt",
+    "hardware": "RTX 5080 16GB + Core Ultra 9 285K + 62GB DDR5-6800",
+    "hardware_family": "NVIDIA 消费级",
+    "hardware_cost_text": "未核价",
+    "hardware_cost_usd": null,
+    "metric": "Basalt，int8 KV：TG 平均 agent 会话 153.0 / 上下文扫描 154.9（标题 250 是单秒峰值）；PP 平均 5,011 / 5,475",
+    "metric_en": "Basalt, int8 KV: TG average agent session 153.0 / context sweep 154.9 (the 250 in the title is a one-second peak); PP average 5,011 / 5,475",
+    "tok_s": 153.0,
+    "concurrency": "单流",
+    "context": "262K",
+    "launch_command": null,
+    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xesda1/",
+    "source_note": "Reddit 帖，测试者本人",
+    "source_level": "实测",
+    "date": "2026-10-25",
+    "measured_by": "yehyakar",
+    "model_family": "Qwen",
+    "tags": [
+      "3bit",
+      "MoE",
+      "long-context"
+    ],
+    "en": {
+      "quant": "IQ3_S",
+      "hardware": "RTX 5080 16GB + Core Ultra 9 285K + 62GB DDR5-6800",
+      "hardware_cost_text": "Not priced",
+      "concurrency": "single stream",
+      "source_note": "Reddit post by the tester"
+    },
+    "source_id": "src-77556306ac"
   }
 ]

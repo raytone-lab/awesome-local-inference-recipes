@@ -1,6 +1,6 @@
 # Recipe sources to watch / 重点跟踪来源
 
-Generated from `data/sources.json` (2026-10-16) by `scripts/gen_watchlist.py`. Tier A = 参数具体且可复现；B = 有具体数字但条件不全；C = 多为转述或覆盖面窄。
+Generated from `data/sources.json` (2026-10-25) by `scripts/gen_watchlist.py`. Tier A = 参数具体且可复现；B = 有具体数字但条件不全；C = 多为转述或覆盖面窄。
 
 | Tier | Name | Platform | Followers | Focus | Why | Sample |
 |---|---|---|---|---|---|---|
@@ -33,6 +33,7 @@ Generated from `data/sources.json` (2026-10-16) by `scripts/gen_watchlist.py`. T
 | B | [demietrich.com](https://demietrich.com/blog/) | Web | — | 同机多引擎对比（Qwen3.8-Flash-Next） | 固定模型和硬件对比多个引擎，条件写得清楚 | [link](https://demietrich.com/blog/q3.8fn_engine_comparison/) |
 | B | [llm-speed.com](https://llm-speed.com/data) | Web | — | 签名 CLI 本地 LLM 跑分（chat-short / chat-long / agent-trace / concurrent-decode） | 固定 suite、带 run_url 与版本号的实测数据，CC BY 4.0；适合交叉核对 | [link](https://llm-speed.com/r/r_dwp5fgdapmw) |
 | B | [achyudh/llama.cpp Adaptive KV](https://github.com/achyudh/llama.cpp/tree/bd063a49a) | GitHub | — | Adaptive KV Streaming + RDNA4/ROCm；9070 XT 上 262k 上下文 Qwen3.8-27B 基准表 | 作者自测表写明上下文阶梯、MTP on/off、prefill/decode 与 commit | [link](https://github.com/achyudh/llama.cpp/tree/bd063a49a) |
+| B | [StillDeadcode/radiance](https://codeberg.org/StillDeadcode/radiance) | Codeberg | — | Radiance 引擎（ROCm / RDNA4 gfx1201）；R9700 上 Qwen3.8-27B 单卡与 TP 配方；仓库在 Codeberg，不在 GitHub | issue 里有同机多版本对比（如 #225：1.8.1→1.12.0 短提示预填 −25%），写明 quant、上下文和 KV 设置 | [link](https://codeberg.org/StillDeadcode/radiance/issues/225) |
 | C | [Oluwaphilemon1](https://x.com/Oluwaphilemon1) | X | 9754 | Mac vs Spark 对比 | 多为整理/转述 WescheNex1q 等数据 | [link](https://x.com/Oluwaphilemon1/status/2091693026087182378) |
 | C | [aartiles24](https://x.com/aartiles24) | X | 6497 | MacBook M5 Pro | TensorFold vs mlx-serve vs oMLX 同机倍率 | [link](https://x.com/aartiles24/status/2104179801388884125) |
 | C | [Urthoo](https://x.com/Urthoo) | X | 924 | 2× DGX Spark | vLLM→TensorFold 前后对照（1/3 流、预填充） | [link](https://x.com/Urthoo/status/2106426248759005362) |
