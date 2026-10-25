@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-10-25",
   "note": "Curated people/orgs that publish reproducible local-inference recipes. Tier A = concrete params + reproducible (repo/scripts or independent reruns); B = concrete numbers, partial conditions; C = useful but mostly relayed or narrow. Follower counts from X API on 2026-10-16 for X accounts; null for Reddit/GitHub/forum/web sources.",
   "sources": [
     {
@@ -360,6 +360,16 @@
       "focus": "Adaptive KV Streaming + RDNA4/ROCm；9070 XT 上 262k 上下文 Qwen3.8-27B 基准表",
       "why": "作者自测表写明上下文阶梯、MTP on/off、prefill/decode 与 commit",
       "sample_post": "https://github.com/achyudh/llama.cpp/tree/bd063a49a",
+      "tier": "B"
+    },
+    {
+      "name": "StillDeadcode/radiance",
+      "platform": "Codeberg",
+      "url": "https://codeberg.org/StillDeadcode/radiance",
+      "followers": null,
+      "focus": "Radiance 引擎（ROCm / RDNA4 gfx1201）；R9700 上 Qwen3.8-27B 单卡与 TP 配方；仓库在 Codeberg，不在 GitHub",
+      "why": "issue 里有同机多版本对比（如 #225：1.8.1→1.12.0 短提示预填 −25%），写明 quant、上下文和 KV 设置",
+      "sample_post": "https://codeberg.org/StillDeadcode/radiance/issues/225",
       "tier": "B"
     }
   ],
