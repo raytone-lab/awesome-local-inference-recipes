@@ -23,6 +23,9 @@ Use only an original source for a new recipe. The original source comes from the
 
 The Relayed level is kept only for recipes added before this rule.
 
+## Inclusion focus
+From 2026-10-27, add these recipes first. First: a recipe for a new model or new hardware, in the first few weeks after launch. Second: a recipe for a non-mainstream combination. Examples are multi-GPU, multi-machine, AMD and Apple mixed, and budget builds. A routine repeat recipe is a new result for a model × engine × hardware combination that is already in the list. Do not add it as a new entry. Merge it into the existing entry: replace the numbers, the source link and the date with the newer ones. The scope rules and the original-source rule apply to every recipe.
+
 ## Hugging Face ingestion (maintainers)
 `python3 scripts/ingest_hf.py --limit 40` (optional `HF_TOKEN`) scans trending GGUF/MLX cards and writes candidates to `data/candidates/` (git-ignored). It never writes `data/recipes.json`. Candidates are reviewed with `python3 scripts/review_candidates.py list | show <id> | approve <id> | reject <id>`; only approved items enter the dataset. Batch approval: `python3 scripts/approve_review.py <review.json>`.
 
