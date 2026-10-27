@@ -6,6 +6,9 @@ body:
   - type: markdown
     attributes:
       value: "Only fill what the source shows. Unknown → leave blank (null). 只填来源写明的内容，未知留空。"
+  - type: markdown
+    attributes:
+      value: "Focus: new models and new hardware in the first few weeks after launch, and non-mainstream combinations (multi-GPU, multi-machine, AMD and Apple mixes, budget builds). A routine repeat recipe (a model × engine × hardware combination that is already in the list) is not a new entry. We merge it into the existing entry and replace its numbers, source and date. 收录重点：新模型和新硬件发布后几周内的配方，以及非主流组合（多卡、多机、AMD 与 Apple 混搭、预算受限的配置）。常规重复配方（库里已有的「模型 × 引擎 × 硬件」组合）不作为新条目，会合并进已有条目并替换其数字、来源和日期。"
   - type: input
     id: source_url
     attributes: { label: Source URL / 来源链接, placeholder: "https://x.com/... or HF model card" }
