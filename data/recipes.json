@@ -21782,7 +21782,7 @@
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
     "quant": "ISTA-DASLab GSQ-RCO IQ2_XS（2.25 bpw）",
-    "engine": "Strata (Strata-DS fork)",
+    "engine": "Strata",
     "hardware": "RX 9060 XT 16GB（gfx1200）+ Ryzen 5 5600 + 94GiB DDR4（Linux）",
     "hardware_family": "AMD",
     "hardware_cost_text": "未核价",
@@ -21810,10 +21810,10 @@
       "hardware_cost_text": "Not priced",
       "concurrency": "single stream",
       "source_note": "Strata issue #4385 by the tester; tok_s is the low end of the range",
-      "engine_note": "strata-dsv41 0.1.51 (HIP, source build and rx9070 release package)"
+      "engine_note": "Strata (strata-dsv41 0.1.51, HIP, source build and rx9070 release package)"
     },
-    "engine_raw": "strata-dsv41 0.1.51（HIP，源码编译与 rx9070 release 包）",
-    "engine_note": "strata-dsv41 0.1.51（HIP，源码编译与 rx9070 release 包）",
+    "engine_raw": "Strata（strata-dsv41 0.1.51，HIP，源码编译与 rx9070 release 包）",
+    "engine_note": "Strata（strata-dsv41 0.1.51，HIP，源码编译与 rx9070 release 包）",
     "source_id": "src-3b10850b46",
     "engine_fork": "Strata-DS"
   },
