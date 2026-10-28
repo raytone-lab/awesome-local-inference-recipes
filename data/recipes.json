@@ -21519,43 +21519,6 @@
     "source_id": "src-21d812028b"
   },
   {
-    "id": "x-165",
-    "category": "text",
-    "model": "DeepSeek-V4.1-Flash-1017",
-    "quant": "未注明",
-    "engine": "Project Maya",
-    "hardware": "4090 D（改装 48GB 显存）+ 20 核 CPU + 128GB 内存（实测内存带宽 66GB/s）",
-    "hardware_family": "NVIDIA 消费级",
-    "hardware_cost_text": "未核价（改装显卡）",
-    "hardware_cost_usd": null,
-    "context": null,
-    "launch_command": null,
-    "source_url": "https://x.com/WenhuanLiu1/status/2115041168790880520",
-    "source_level": "实测",
-    "date": "2026-10-27",
-    "measured_by": "WenhuanLiu1",
-    "metric": "内存从 64GB 加到 128GB 后 decode 25.7 → 46.2（10,718/10,718 个专家进内存，74.1GB，13.6 秒）；2K 和 8K 预填基本不变。升到 Maya 1.1.30 后默认降到 37.6（三次 38.5 / 39.6 / 34.8），设 MAYA_DS4_STREAM=0 回到 47.0（47.5 / 47.5 / 46.1）；Maya 只有一个槽，第 4 个请求等 18.7 秒才出第一个 token，聚合 52.7，与单流相同。tok_s 取 1.1.27 的 46.2",
-    "metric_en": "After the RAM increase from 64GB to 128GB, decode went from 25.7 to 46.2 (10,718 of 10,718 experts copied into RAM, 74.1 GB, 13.6 s); prefill at 2K and 8K did not change much. After the upgrade to Maya 1.1.30, the default fell to 37.6 (three runs 38.5 / 39.6 / 34.8), and MAYA_DS4_STREAM=0 restored 47.0 (47.5 / 47.5 / 46.1); Maya has one slot, the 4th request waited 18.7 s for its first token, and the aggregate of 52.7 equals single-stream speed. tok_s is the 1.1.27 value of 46.2",
-    "tok_s": 46.2,
-    "concurrency": "单流（引擎只有一个槽，聚合与单流相同）",
-    "source_note": "X 帖，测试者本人（@WenhuanLiu1）；与 Project Maya 1.1.30 发布说明“NVIDIA 与 AMD 上 DeepSeek 更快”不符：在这台核少、内存带宽窄的机器上，新的 one-GPU 路径慢 18%（发布说明数字来自 3090）",
-    "model_family": "DeepSeek",
-    "tags": [
-      "MoE"
-    ],
-    "engine_raw": "Project Maya 1.1.27（升到 1.1.30 后变慢，见说明）",
-    "engine_note": "Project Maya 1.1.27（升到 1.1.30 后变慢，见说明）",
-    "en": {
-      "quant": "not stated",
-      "hardware": "4090 D (modified, 48GB VRAM) + 20-core CPU + 128GB RAM (measured memory bandwidth 66 GB/s)",
-      "hardware_cost_text": "Not priced (modified card)",
-      "concurrency": "Single stream (the engine has one slot, so the aggregate equals single-stream speed)",
-      "source_note": "X post by the tester (@WenhuanLiu1); it differs from the Project Maya 1.1.30 release note that says DeepSeek is faster on NVIDIA and AMD: on this machine with few cores and low memory bandwidth, the new one-GPU path is 18% slower (the release-note numbers come from a 3090)",
-      "engine_note": "Project Maya 1.1.27 (slower after the 1.1.30 upgrade, see the note)"
-    },
-    "source_id": "src-6384fef0a3"
-  },
-  {
     "id": "x-166",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
