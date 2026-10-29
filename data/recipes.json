@@ -20843,7 +20843,7 @@
     "metric_en": "After tuning (STRATA_ARENA_PIN_GIB=40, STRATA_STAGE_TRIM=1, layer split K=28, Cyrillic draft vocabulary): decode 67.0 on a Russian prompt and 67.3 on an English prompt; prefill 2,161. Before tuning: decode 46.2, prefill 1,567.7. STAGE_TRIM alone gave 53.9. 6 runs per point; the author used own prompts, not strata bench. tok_s is the English value",
     "tok_s": 67.3,
     "concurrency": "单流",
-    "source_note": "Strata 社区基准 issue，测试者本人（AdrinalinNS）；结果取决于自建引擎，只含一条俄文提示和一条英文提示",
+    "source_note": "Strata 社区基准 issue，测试者本人（AdrinalinNS）；结果取决于自建引擎，只含一条俄文提示和一条英文提示。同一测试者 2026-10-29 在 #4603（https://github.com/Niko1221/Strata/issues/4603）用 IQ3_S（专家 arena 放内存，int8 KV，MTP spec 4，Strata 0.1.52）测得单流 decode 92.9 tok/s",
     "model_family": "Qwen",
     "tags": [
       "4bit",
@@ -20860,7 +20860,7 @@
       "hardware": "RTX 5070 12GB + RTX 5060 Ti 16GB (two different Blackwell cards, layer split) + Ryzen 9 9950X3D2 + 125GB RAM (Windows 11)",
       "hardware_cost_text": "Not priced",
       "concurrency": "Single stream",
-      "source_note": "Strata community benchmark issue by the tester (AdrinalinNS); the result depends on a self-built engine and uses one Russian prompt and one English prompt only",
+      "source_note": "Strata community benchmark issue by the tester (AdrinalinNS); the result depends on a self-built engine and uses one Russian prompt and one English prompt only. On 2026-10-29 the same tester reported 92.9 tok/s single-stream decode with IQ3_S (expert arena in RAM, int8 KV, MTP spec 4, Strata 0.1.52) in #4603 (https://github.com/Niko1221/Strata/issues/4603)",
       "engine_note": "Strata self-built engine 0.1.51 (CMAKE_CUDA_ARCHITECTURES=120)"
     },
     "source_id": "src-1ceab8597f"
@@ -22462,49 +22462,6 @@
     "engine_raw": "vLLM + libstrix 插件（gfx1151 HIP 内核）",
     "engine_note": "vLLM + libstrix 插件（gfx1151 HIP 内核）",
     "source_id": "src-27014b2ff6"
-  },
-  {
-    "id": "comm-174",
-    "category": "text",
-    "model": "Qwen3.8-Flash-Next",
-    "quant": "IQ3_S，专家 arena 放内存，int8 KV，MTP spec 4",
-    "engine": "Strata",
-    "hardware": "RTX 5070 12GB + RTX 5060 Ti 16GB + Ryzen 9 9950X3D2 + 125GB RAM（Windows 11）",
-    "hardware_family": "NVIDIA 消费级",
-    "hardware_cost_text": "未核价",
-    "hardware_cost_usd": null,
-    "metric": "prose decode 默认 73.3 → 调 arena pinning 后 92.9；代码 104.9；54K 预填 2,481 → 2,722.7",
-    "metric_en": "Prose decode: default 73.3 → 92.9 after arena-pinning tuning; code 104.9; 54K prefill 2,481 → 2,722.7",
-    "tok_s": 92.9,
-    "concurrency": "单流",
-    "context": "262,144",
-    "launch_command": null,
-    "source_url": "https://github.com/Niko1221/Strata/issues/4603",
-    "source_note": "GitHub benchmark issue，测试者本人；异构双卡",
-    "source_level": "实测",
-    "date": "2026-10-29",
-    "measured_by": "AdrinalinNS",
-    "model_family": "Qwen",
-    "tags": [
-      "3bit",
-      "MoE",
-      "long-context",
-      "speculative",
-      "MTP",
-      "multi-GPU",
-      "offload"
-    ],
-    "en": {
-      "quant": "IQ3_S, expert arena in RAM, int8 KV, MTP spec 4",
-      "hardware": "RTX 5070 12GB + RTX 5060 Ti 16GB + Ryzen 9 9950X3D2 + 125GB RAM (Windows 11)",
-      "hardware_cost_text": "Not priced",
-      "concurrency": "single stream",
-      "source_note": "GitHub benchmark issue by the tester; two different GPUs",
-      "engine_note": "Strata engine 0.1.52 (own build for sm_120)"
-    },
-    "engine_raw": "Strata engine 0.1.52（自编译 sm_120）",
-    "engine_note": "Strata engine 0.1.52（自编译 sm_120）",
-    "source_id": "src-99ebe457fe"
   },
   {
     "id": "comm-175",
