@@ -38,6 +38,12 @@ RULES = [
     (r'^ds41\b', 'ds41'),
     (r'^TandemLLM', 'TandemLLM'),
     (r'^Geezuz', 'Geezuz'),
+    (r'^MoEShift', 'MoEShift'),
+    (r'^ik_llama\.cpp（Mcniiby', 'ik_llama.cpp (Mcniiby fork)'),
+    (r'^Espetero', 'Espetero'),
+    (r'^Paiton', 'Paiton'),
+    (r'^Front_Eagle739 streaming stack', 'Front_Eagle739 streaming stack'),
+    (r'^未注明', 'Unspecified'),
 ]
 INFER = [
     (r'Halogen', 'Halogen'), (r'\bSplash\b', 'Splash'), (r'sparkinfer', 'sparkinfer'),

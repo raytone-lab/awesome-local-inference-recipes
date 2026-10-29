@@ -26,7 +26,7 @@
 
 - 上下文: 262K（243K 针测 15/15）
 - 并发: 原生引擎仅 1 路（另有 vLLM 并发通道）
-- 标签: `3bit`, `8bit`, `MoE`, `long-context`, `speculative`
+- 标签: `3bit`, `MoE`, `long-context`, `speculative`
 
 ## 预期速度
 

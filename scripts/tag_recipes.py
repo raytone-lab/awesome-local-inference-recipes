@@ -24,8 +24,9 @@ QUANT = [
     ('bf16', r'\bBF16\b|\bFP16\b|bf16'),
 ]
 # Models that are MoE by architecture, even when model/quant text does not say so.
-MOE_MODELS = r'GLM-5\.3（\d+B 全量|Ornith-1\.5-122B|DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax-M3\.1-Flash|Recursive Flint|Flint 40B'
-SPEC = r'MTP|投机|DFlash|DSpark|草稿|draft|n-gram|EAGLE|speculative'
+MOE_MODELS = r'GLM-5\.3（\d+B 全量|Ornith-1\.5-122B|DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax-M3\.1-Flash|Recursive Flint|Flint 40B|Ling-3\.[01]-flash|KAT-Coder'
+KV_OR_SOURCE = r'[\w.]+\s*KV\b|\bKV\s*[\w.]+|自\s*BF16\s*量化|from BF16'
+SPEC = r'MTP|投机|DFlash|DSpark|草稿|draft|n-gram|\bEAGLE|speculative'
 MULTI = r'(?<![\d.])(?:[2-9]|1\d)\s*[×x✕]\s|双|\bTP\s*=?\s*[2-9]|集群|cluster|[2-9]\s*张|[2-9]\s*台|\+\s*RTX'
 def family(model):
     for p, f in FAMILIES:
@@ -42,7 +43,9 @@ def tags(r):
     mq = ' '.join(filter(None, [r['model'], r.get('quant')]))
     allf = ' '.join(filter(None, [mq, r['engine'], r.get('engine_note'), r.get('metric')]))
     allf = re.sub(r'MTP\s*(关|off)|无投机|无草稿(模型)?|不开 MTP|无 ?(?:MTP|DFlash)(?:/(?:MTP|DFlash))*', '', allf, flags=re.I)
-    t = [k for k, p in QUANT if re.search(p, mq, re.I)]
+    # Quant tags describe the weights: ignore KV-cache dtypes and the source precision of a conversion.
+    mq_w = re.sub(KV_OR_SOURCE, '', mq, flags=re.I)
+    t = [k for k, p in QUANT if re.search(p, mq_w, re.I)]
     moe = bool(re.search(r'\bA\d+(\.\d+)?B\b|MoE|激活|REAP|专家', mq + ' ' + (r.get('quant') or ''))) or bool(re.search(MOE_MODELS, r['model'], re.I))
     if r['category'] == 'text':
         if moe: t.append('MoE')
