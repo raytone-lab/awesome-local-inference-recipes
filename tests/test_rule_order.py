@@ -20,6 +20,9 @@ RAW_ENGINE_SAMPLES = {
     'Halogen': 'halogen flash server', 'Osaurus': 'Osaurus 1.0', 'ExLlama': 'ExLlamaV3',
     'Infernix': 'Infernix windows-2026.10.11', 'ds41': 'ds41 Rust + CUDA',
     'TandemLLM': 'TandemLLM 0.13.0 MTP', 'Geezuz': 'Geezuz kernel TP2',
+    'MoEShift': 'MoEShift（未开源）', 'ik_llama.cpp (Mcniiby fork)': 'ik_llama.cpp（Mcniiby/ik_llama.cpp-raon 分支）',
+    'Espetero': 'Espetero 0.1.2', 'Paiton': 'Paiton（vLLM 插件）',
+    'Front_Eagle739 streaming stack': 'Front_Eagle739 streaming stack（作者自研）', 'Unspecified': '未注明（EXL3 权重）',
 }
 
 
