@@ -22,6 +22,7 @@ RAW_ENGINE_SAMPLES = {
     'TandemLLM': 'TandemLLM 0.13.0 MTP', 'Geezuz': 'Geezuz kernel TP2',
     'MoEShift': 'MoEShift（未开源）', 'ik_llama.cpp (Mcniiby fork)': 'ik_llama.cpp（Mcniiby/ik_llama.cpp-raon 分支）',
     'Espetero': 'Espetero 0.1.2', 'Paiton': 'Paiton（vLLM 插件）',
+    'Halowin Bubo': 'Halowin Bubo（Gufo 分支）', 'Janas-LLM': 'Janas-LLM（纯 C）', 'Strim': 'Strim（Swift + MLX）', 'Magnitude': 'Magnitude',
     'Front_Eagle739 streaming stack': 'Front_Eagle739 streaming stack（作者自研）', 'Unspecified': '未注明（EXL3 权重）',
 }
 

@@ -43,6 +43,10 @@ RULES = [
     (r'^Espetero', 'Espetero'),
     (r'^Paiton', 'Paiton'),
     (r'^Front_Eagle739 streaming stack', 'Front_Eagle739 streaming stack'),
+    (r'^Halowin Bubo', 'Halowin Bubo'),
+    (r'^Janas-LLM', 'Janas-LLM'),
+    (r'^Strim', 'Strim'),
+    (r'^Magnitude', 'Magnitude'),
     (r'^未注明', 'Unspecified'),
 ]
 INFER = [
