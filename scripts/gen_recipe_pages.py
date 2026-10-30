@@ -33,6 +33,12 @@ JA = {
  'Credit to the original author. This page only summarizes and links. Data under CC BY 4.0.':'権利は元の投稿者にあります。このページは要約とリンクのみです。データは CC BY 4.0。'}
 
 SUF = {'en':'.md','zh':'.zh-CN.md','ja':'.ja.md'}
+def clip_note(s, n=200):
+    """Shorten a note to about n characters. Never cut inside a URL; mark a cut with an ellipsis."""
+    if len(s) <= n: return s
+    for m in re.finditer(r'https?://\S+', s):
+        if m.start() < n < m.end(): n = m.start(); break
+    return s[:n].rstrip(' （(；;，,') + '…'
 def switch(base, cur):
     names = [('en','English'),('zh','简体中文'),('ja','日本語')]
     return ' | '.join(f'**{n}**' if k==cur else f'[{n}]({base}{SUF[k]})' for k,n in names)
@@ -93,7 +99,7 @@ def page(r, lang):
     L.append(f"## {h('注意事项','Caveats')}\n")
     cav = []
     if r['source_level'] in ('宣称','转述'): cav.append(h('非一手实测（宣称或转述）。实际速度可能不同。','Not a first-hand measurement (claimed or relayed). Your results can differ.'))
-    if Z and r.get('source_note'): cav.append(r['source_note'].split('; 原文')[0][:200])
+    if Z and r.get('source_note'): cav.append(clip_note(r['source_note'].split('; 原文')[0]))
     cav.append(h('速度随驱动、引擎版本、上下文长度和提示长度变化。','Speed changes with drivers, engine version, context length, and prompt length.'))
     L += [f'- {c}' for c in cav]; L.append('')
     L.append(f"## {h('来源与致谢','Source & attribution')}\n")

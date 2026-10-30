@@ -37,7 +37,7 @@ git clone https://github.com/Jackwwg83/Strata-DS.git && cd Strata-DS && ./setup.
 
 ## 注意事项
 
-- Strata-DS 配方页，作者实测（原始数据 ds41/bench/results/2026-10-18-spark；setup 在 GB10 上自动选此配方，从 LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw 与 deepseek-ai/DeepSeek-V4.1-Flash-1017 下载 414.8 GB 并打包；新 clone 复现的包与
+- Strata-DS 配方页，作者实测（原始数据 ds41/bench/results/2026-10-18-spark；setup 在 GB10 上自动选此配方，从 LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw 与 deepseek-ai/DeepSeek-V4.1-Flash-1017 下载 414.8 GB 并打包；新 clone 复现的包与…
 - 速度随驱动、引擎版本、上下文长度和提示长度变化。
 
 ## 来源与致谢
