@@ -24,7 +24,7 @@ QUANT = [
     ('bf16', r'\bBF16\b|\bFP16\b|bf16'),
 ]
 # Models that are MoE by architecture, even when model/quant text does not say so.
-MOE_MODELS = r'GLM-5\.3（\d+B 全量|Ornith-1\.5-122B|DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax-M3\.1-Flash|Recursive Flint|Flint 40B|Ling-3\.[01]-flash|KAT-Coder'
+MOE_MODELS = r'GLM-5\.3（\d+B 全量|Ornith-1\.5-122B|DeepSeek-V4(\.\d+)?-Flash|Qwen3\.8-Flash-Next|GLM-5\.3-Flash|MiniMax-M3\.1-Flash|Recursive Flint|Flint 40B|Ling-3\.[01]-flash|KAT-Coder|gpt-oss'
 _DT = r'(?:[\w.]*\d[\w.\-]*|bf16|fp16)'
 # A cache dtype is the dtype after 'KV' (or 'KV cache'); a dtype before 'KV' counts only when no dtype follows.
 KV_OR_SOURCE = (r'\bKV(?:[\s-]*cache)?[\s:=]*' + _DT + r'|' + _DT + r'[\s-]*KV\b(?![\s-]*(?:cache)?[\s:=]*' + _DT + r')(?:[\s-]*cache)?'

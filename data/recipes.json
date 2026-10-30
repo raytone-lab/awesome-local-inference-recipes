@@ -5114,7 +5114,7 @@
       "author": "no_stp_on_snek",
       "likes": 73,
       "reposts": 7,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -5151,7 +5151,7 @@
       "author": "no_stp_on_snek",
       "likes": 73,
       "reposts": 7,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "halogen 0.17.2",
     "engine_note": "halogen 0.17.2",
@@ -5190,7 +5190,7 @@
       "author": "jurlycat",
       "likes": 45,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -5225,9 +5225,9 @@
     "date": "2026-10-11",
     "x_post": {
       "author": "geldeki",
-      "likes": 45,
+      "likes": 46,
       "reposts": 2,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "Strata v0.1.42",
     "engine_note": "Strata v0.1.42",
@@ -5267,7 +5267,7 @@
       "author": "BrianMRey",
       "likes": 5,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -5306,7 +5306,7 @@
       "author": "TechPractice1",
       "likes": 2,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "Strata v0.1.27",
     "engine_note": "Strata v0.1.27",
@@ -5345,7 +5345,7 @@
       "author": "rewin123",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -5385,7 +5385,7 @@
       "author": "sami3dat",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "Strata 0.1.39",
     "engine_note": "Strata 0.1.39",
@@ -5425,7 +5425,7 @@
       "author": "TechPractice1",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "Strata（PR #262）",
     "engine_note": "Strata（PR #262）",
@@ -5465,7 +5465,7 @@
       "author": "JamesMcPherson",
       "likes": 106,
       "reposts": 5,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "oMLX（作者调优）",
     "engine_note": "oMLX（作者调优）",
@@ -5502,7 +5502,7 @@
       "author": "wei_wang",
       "likes": 33,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "其他/未注明",
     "model_family": "Qwen",
@@ -5539,7 +5539,7 @@
       "author": "easthambuilds",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "engine_raw": "TensorFold 0.5.0 + DFlash2 草稿",
     "engine_note": "TensorFold 0.5.0 + DFlash2 草稿",
@@ -5581,7 +5581,7 @@
       "author": "HandwerkAiLab",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -5616,9 +5616,9 @@
     "date": "2026-10-03",
     "x_post": {
       "author": "jayleaton",
-      "likes": 12,
+      "likes": 13,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "metric_en": "1344×768 5s with audio: 81 s (stock ComfyUI, 20 steps: 623 s)",
     "engine_raw": "TensorFold（ComfyUI 换 loader）",
@@ -5653,9 +5653,9 @@
     "date": "2026-10-10",
     "x_post": {
       "author": "LightX2V",
-      "likes": 8,
+      "likes": 10,
       "reposts": 2,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "metric_en": "768×1344 15s video + audio ≈72 s (steady state, excl. MP4 export; baseline ~26 min)",
     "model_family": "MiniMax H3",
@@ -5686,9 +5686,9 @@
     "date": "2026-09-22",
     "x_post": {
       "author": "EndFolding79421",
-      "likes": 149,
+      "likes": 148,
       "reposts": 16,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "metric_en": "Three 5s chained clips: 17 min total",
     "model_family": "MiniMax H3",
@@ -8556,9 +8556,9 @@
     "date": "2026-10-01",
     "x_post": {
       "author": "MiaAI_lab",
-      "likes": 684,
+      "likes": 683,
       "reposts": 91,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "GLM",
     "tags": [
@@ -8610,9 +8610,9 @@
     "date": "2026-10-10",
     "x_post": {
       "author": "MiaAI_lab",
-      "likes": 273,
-      "reposts": 17,
-      "as_of": "2026-10-16"
+      "likes": 245,
+      "reposts": 16,
+      "as_of": "2026-10-30"
     },
     "model_family": "GLM",
     "tags": [
@@ -8665,7 +8665,7 @@
       "author": "MiaAI_lab",
       "likes": 386,
       "reposts": 39,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -8718,8 +8718,8 @@
     "x_post": {
       "author": "MiaAI_lab",
       "likes": 800,
-      "reposts": 56,
-      "as_of": "2026-10-16"
+      "reposts": 55,
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -8768,9 +8768,9 @@
     "date": "2026-08-31",
     "x_post": {
       "author": "MiaAI_lab",
-      "likes": 290,
-      "reposts": 22,
-      "as_of": "2026-10-16"
+      "likes": 289,
+      "reposts": 21,
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -8819,9 +8819,9 @@
     "date": "2026-07-31",
     "x_post": {
       "author": "MiaAI_lab",
-      "likes": 367,
+      "likes": 365,
       "reposts": 22,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -8869,8 +8869,8 @@
     "x_post": {
       "author": "MiaAI_lab",
       "likes": 311,
-      "reposts": 32,
-      "as_of": "2026-10-16"
+      "reposts": 31,
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -8919,9 +8919,9 @@
     "date": "2026-08-15",
     "x_post": {
       "author": "MiaAI_lab",
-      "likes": 381,
+      "likes": 377,
       "reposts": 10,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -8962,9 +8962,9 @@
     "date": "2026-08-20",
     "x_post": {
       "author": "MiaAI_lab",
-      "likes": 239,
+      "likes": 240,
       "reposts": 14,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9006,7 +9006,7 @@
       "author": "MiaAI_lab",
       "likes": 189,
       "reposts": 11,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -9051,7 +9051,7 @@
       "author": "ashxhart",
       "likes": 77,
       "reposts": 2,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9104,9 +9104,9 @@
     "date": "2026-10-03",
     "x_post": {
       "author": "0xSero",
-      "likes": 2470,
-      "reposts": 112,
-      "as_of": "2026-10-16"
+      "likes": 2459,
+      "reposts": 111,
+      "as_of": "2026-10-30"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -9143,9 +9143,9 @@
     "date": "2026-09-29",
     "x_post": {
       "author": "0xSero",
-      "likes": 686,
+      "likes": 687,
       "reposts": 31,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9181,9 +9181,9 @@
     "date": "2026-09-29",
     "x_post": {
       "author": "0xSero",
-      "likes": 686,
+      "likes": 687,
       "reposts": 31,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9221,7 +9221,7 @@
       "author": "sudoingX",
       "likes": 180,
       "reposts": 8,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Bonsai",
     "tags": [
@@ -9262,7 +9262,7 @@
       "author": "ashxhart",
       "likes": 131,
       "reposts": 12,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9304,7 +9304,7 @@
       "author": "WescheNex1q",
       "likes": 48,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9345,7 +9345,7 @@
       "author": "WescheNex1q",
       "likes": 16,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9384,7 +9384,7 @@
       "author": "WescheNex1q",
       "likes": 16,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9421,9 +9421,9 @@
     "date": "2026-08-23",
     "x_post": {
       "author": "WescheNex1q",
-      "likes": 70,
+      "likes": 69,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9470,9 +9470,9 @@
     "date": "2026-08-23",
     "x_post": {
       "author": "WescheNex1q",
-      "likes": 70,
+      "likes": 69,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9510,9 +9510,9 @@
     "date": "2026-08-26",
     "x_post": {
       "author": "TeksEdge",
-      "likes": 215,
+      "likes": 214,
       "reposts": 20,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9552,7 +9552,7 @@
       "author": "JASONMCNAB",
       "likes": 63,
       "reposts": 5,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9607,7 +9607,7 @@
       "author": "JASONMCNAB",
       "likes": 3,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9662,7 +9662,7 @@
       "author": "JASONMCNAB",
       "likes": 27,
       "reposts": 3,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "GLM",
     "tags": [
@@ -9710,7 +9710,7 @@
       "author": "Urthoo",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -9759,7 +9759,7 @@
       "author": "hnakamur2",
       "likes": 12,
       "reposts": 3,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -9806,7 +9806,7 @@
       "author": "CryptoBandit100",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9845,7 +9845,7 @@
       "author": "CryptoBandit100",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9888,7 +9888,7 @@
       "author": "niklaslenz_ai",
       "likes": 15,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9937,7 +9937,7 @@
       "author": "aartiles24",
       "likes": 9,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -9977,7 +9977,7 @@
       "author": "_Holistech_",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10014,7 +10014,7 @@
       "author": "LocalSilicon",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10053,9 +10053,9 @@
     "date": "2026-10-14",
     "x_post": {
       "author": "niklaslenz_ai",
-      "likes": 487,
-      "reposts": 37,
-      "as_of": "2026-10-16"
+      "likes": 503,
+      "reposts": 39,
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10098,9 +10098,9 @@
     "date": "2026-10-14",
     "x_post": {
       "author": "niklaslenz_ai",
-      "likes": 487,
-      "reposts": 37,
-      "as_of": "2026-10-16"
+      "likes": 503,
+      "reposts": 39,
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10140,7 +10140,7 @@
       "author": "niklaslenz_ai",
       "likes": 58,
       "reposts": 3,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10180,7 +10180,7 @@
       "author": "niklaslenz_ai",
       "likes": 58,
       "reposts": 3,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10220,7 +10220,7 @@
       "author": "niklaslenz_ai",
       "likes": 58,
       "reposts": 3,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10259,9 +10259,9 @@
     "date": "2026-10-13",
     "x_post": {
       "author": "niklaslenz_ai",
-      "likes": 11,
+      "likes": 12,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10302,9 +10302,9 @@
     "date": "2026-10-13",
     "x_post": {
       "author": "niklaslenz_ai",
-      "likes": 11,
+      "likes": 12,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10342,9 +10342,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "niklaslenz_ai",
-      "likes": 38,
+      "likes": 39,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10380,9 +10380,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "niklaslenz_ai",
-      "likes": 38,
+      "likes": 39,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10418,9 +10418,9 @@
     "date": "2026-10-13",
     "x_post": {
       "author": "sudoingX",
-      "likes": 136,
+      "likes": 135,
       "reposts": 5,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -10463,9 +10463,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "yume_arasaki",
-      "likes": 39,
+      "likes": 40,
       "reposts": 4,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "DeepSeek",
     "tags": [
@@ -10509,9 +10509,9 @@
     "date": "2026-10-14",
     "x_post": {
       "author": "yume_arasaki",
-      "likes": 13,
+      "likes": 15,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "GLM",
     "tags": [
@@ -10553,9 +10553,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "sudoingX",
-      "likes": 741,
+      "likes": 811,
       "reposts": 61,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Bonsai",
     "tags": [
@@ -10596,7 +10596,7 @@
       "author": "sudoingX",
       "likes": 47,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10635,7 +10635,7 @@
       "author": "sudoingX",
       "likes": 47,
       "reposts": 1,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10671,9 +10671,9 @@
     "date": "2026-10-14",
     "x_post": {
       "author": "0xSero",
-      "likes": 128,
+      "likes": 131,
       "reposts": 4,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10706,9 +10706,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "0xSero",
-      "likes": 269,
+      "likes": 271,
       "reposts": 7,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -10748,7 +10748,7 @@
       "author": "CryptoBandit100",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "GLM",
     "tags": [
@@ -10789,9 +10789,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "0xBakeer",
-      "likes": 29,
+      "likes": 31,
       "reposts": 2,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10829,7 +10829,7 @@
       "author": "DevOpsConsults",
       "likes": 2,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10865,7 +10865,7 @@
       "author": "TeksEdge",
       "likes": 156,
       "reposts": 10,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10902,7 +10902,7 @@
       "author": "TeksEdge",
       "likes": 156,
       "reposts": 10,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10940,7 +10940,7 @@
       "author": "TeksEdge",
       "likes": 31,
       "reposts": 4,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -10982,7 +10982,7 @@
       "author": "sudoingX",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -11020,9 +11020,9 @@
     "date": "2026-10-13",
     "x_post": {
       "author": "TeksEdge",
-      "likes": 12,
+      "likes": 13,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Gemma",
     "tags": [
@@ -11059,9 +11059,9 @@
     "date": "2026-10-13",
     "x_post": {
       "author": "TeksEdge",
-      "likes": 12,
+      "likes": 13,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Gemma",
     "tags": [
@@ -11568,7 +11568,7 @@
       "author": "GreenBitAI",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -11608,7 +11608,7 @@
       "author": "Blackwellboy",
       "likes": 3,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -11649,7 +11649,7 @@
       "author": "Blackwellboy",
       "likes": 3,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Other",
     "tags": [
@@ -11691,7 +11691,7 @@
       "author": "coffeecup2020",
       "likes": 2,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -11732,7 +11732,7 @@
       "author": "coffeecup2020",
       "likes": 1,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -11771,9 +11771,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "Oluwaphilemon1",
-      "likes": 9,
+      "likes": 10,
       "reposts": 2,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -11815,7 +11815,7 @@
       "author": "yibie",
       "likes": 25,
       "reposts": 0,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -11854,9 +11854,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "yuanhao",
-      "likes": 29,
+      "likes": 30,
       "reposts": 3,
-      "as_of": "2026-10-16"
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -11891,9 +11891,9 @@
     "date": "2026-10-15",
     "x_post": {
       "author": "0xBakeer",
-      "likes": 22,
-      "reposts": 5,
-      "as_of": "2026-10-16"
+      "likes": 28,
+      "reposts": 6,
+      "as_of": "2026-10-30"
     },
     "model_family": "Qwen",
     "tags": [
@@ -12271,6 +12271,7 @@
     "date": "2026-10-15",
     "model_family": "gpt-oss",
     "tags": [
+      "MoE",
       "multi-GPU"
     ],
     "measured_by": "ShadoByBB",
@@ -13220,9 +13221,9 @@
     "measured_by": "wei_wang",
     "x_post": {
       "author": "wei_wang",
-      "likes": 3,
-      "reposts": 0,
-      "as_of": "2026-10-17"
+      "likes": 7,
+      "reposts": 2,
+      "as_of": "2026-10-30"
     },
     "metric_en": "single-stream decode ~7 tok/s (28-tok prompt 7.01; 650-tok 6.88; 9,146-tok 6.76); load ~10m48s; prefill ~26 tok/s short / ~263 tok/s at 9K; 4 concurrent slots ~14–16 tok/s combined",
     "en": {
@@ -13448,7 +13449,8 @@
     "source_id": "src-434fdc593e",
     "model_family": "gpt-oss",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ]
   },
   {
@@ -15333,9 +15335,9 @@
     "date": "2026-10-21",
     "x_post": {
       "author": "nenshu52man",
-      "likes": 4,
+      "likes": 3,
       "reposts": 1,
-      "as_of": "2026-10-21"
+      "as_of": "2026-10-30"
     },
     "measured_by": "nenshu52man",
     "model_family": "Qwen",
@@ -15483,9 +15485,9 @@
     "measured_by": "pratikg",
     "x_post": {
       "author": "pratikg",
-      "likes": 17,
+      "likes": 20,
       "reposts": 1,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "4-bit (Ollama)",
@@ -15637,9 +15639,9 @@
     "measured_by": "atasrb",
     "x_post": {
       "author": "atasrb",
-      "likes": 2,
+      "likes": 3,
       "reposts": 1,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "Official NVFP4 (MoE, Qwen3.5-MoE architecture)",
@@ -15677,9 +15679,9 @@
     "measured_by": "atasrb",
     "x_post": {
       "author": "atasrb",
-      "likes": 2,
+      "likes": 3,
       "reposts": 1,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "MiaAI EXL3 4.0bpw (MoE, Qwen3.5-MoE architecture)",
@@ -15719,7 +15721,7 @@
       "author": "ezoushen",
       "likes": 3,
       "reposts": 0,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "MLX 4-bit (MoE, 122B-A10B)",
@@ -15762,9 +15764,9 @@
     "measured_by": "tjm8874",
     "x_post": {
       "author": "tjm8874",
-      "likes": 3,
+      "likes": 2,
       "reposts": 0,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "Official 8-bit MLX (MoE, 122B-A10B)",
@@ -15803,9 +15805,9 @@
     "measured_by": "osa_rom",
     "x_post": {
       "author": "osa_rom",
-      "likes": 2,
+      "likes": 6,
       "reposts": 0,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "Maya-S (IQ2_XXS, MoE)",
@@ -15848,9 +15850,9 @@
     "measured_by": "raphailias",
     "x_post": {
       "author": "raphailias",
-      "likes": 5,
+      "likes": 6,
       "reposts": 0,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "ViC305 DERISKED EXL3 1.61bpw (MoE, RAM + NVMe offload)",
@@ -15889,9 +15891,9 @@
     "measured_by": "ycaophysics",
     "x_post": {
       "author": "ycaophysics",
-      "likes": 5,
-      "reposts": 1,
-      "as_of": "2026-10-22"
+      "likes": 12,
+      "reposts": 4,
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "Unsloth UD-IQ1_M GGUF (250.4GB, MoE; 110GB Engram table stays on NVMe, read on demand)",
@@ -15937,7 +15939,7 @@
       "author": "ai_prompt1",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "hardware": "Apple M4 Max 128GB (model not stated)",
@@ -15980,7 +15982,7 @@
       "author": "ai_prompt1",
       "likes": 0,
       "reposts": 0,
-      "as_of": "2026-10-22"
+      "as_of": "2026-10-30"
     },
     "en": {
       "quant": "Q2_0 GGUF (MoE)",
@@ -23658,7 +23660,8 @@
     "measured_by": "TokensAtHome",
     "model_family": "gpt-oss",
     "tags": [
-      "4bit"
+      "4bit",
+      "MoE"
     ],
     "en": {
       "quant": "4-bit quant (about 63GB)",
@@ -23760,7 +23763,7 @@
     "context": null,
     "launch_command": null,
     "source_url": "https://github.com/Niko1221/Strata/releases/tag/v0.2.8",
-    "source_note": "Strata v0.2.8 发布说明，引擎作者的官方数字",
+    "source_note": "Strata v0.2.8 发布说明，引擎作者的官方数字；这是引擎团队自己的基准测试，不是独立实测",
     "source_level": "官方",
     "date": "2026-10-29",
     "measured_by": "Niko1221",
@@ -23799,7 +23802,7 @@
     "context": null,
     "launch_command": null,
     "source_url": "https://github.com/Niko1221/Strata/releases/tag/v0.2.8",
-    "source_note": "Strata v0.2.8 发布说明，引擎作者的官方数字",
+    "source_note": "Strata v0.2.8 发布说明，引擎作者的官方数字；这是引擎团队自己的基准测试，不是独立实测",
     "source_level": "官方",
     "date": "2026-10-29",
     "measured_by": "Niko1221",
