@@ -99,7 +99,7 @@ def shell(title, desc, canon, body, depth, lang='en', alts=None, noindex=False):
 <link rel="canonical" href="{canon}">{alt}{'<meta name="robots" content="noindex,follow">' if noindex else ''}
 <meta property="og:type" content="article"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{PAGES}docs/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="{up}style.css"><script src="{up}theme.js"></script></head><body>
-<header class="site-hd"><div class="hd-in"><a class="brand" href="{up}index.html{'?lang='+lang if lang!='en' else ''}">⚡ {CHROME[lang][3]}</a><nav class="static-links"><a href="{up}explore.html{'?lang='+lang if lang!='en' else ''}">{CHROME[lang][0]}</a> · <a href="{up}{gidx}">{CHROME[lang][1]}</a> · <a href="{REPO}">GitHub</a></nav></div></header>
+<header class="site-hd"><div class="hd-in"><a class="brand" href="{up}index.html{'?lang='+lang}">⚡ {CHROME[lang][3]}</a><nav class="static-links"><a href="{up}explore.html{'?lang='+lang}">{CHROME[lang][0]}</a> · <a href="{up}{gidx}">{CHROME[lang][1]}</a> · <a href="{REPO}">GitHub</a></nav></div></header>
 <main class="doc static-page">
 {body}
 </main><footer class="site-ft"><div class="ft-in">{CHROME[lang][2]} {ASOF} · <a href="{REPO}">GitHub</a> · {CHROME[lang][4]}</div></footer></body></html>
@@ -254,7 +254,7 @@ def landing(kind, key, name, rows, qterm=None):
             t.append(f'<tr><td>{e(model)}</td><td>{e(eng)}</td><td>{e(hw)}</td><td class="n">{tok}</td><td>{e(C["met"](r))}</td><td>{e(lv)}</td><td>{e(r.get("date") or "")}</td><td><a href="{e(r["source_url"])}" rel="nofollow noopener">{C["link"]}</a></td></tr>')
         t.append('</tbody></table>')
         base_q = {'hw': f'explore.html?q={quote(qterm or name)}', 'model': f'explore.html?family={quote(key)}'}[kind]
-        if lang != 'en': base_q += f'&lang={lang}'
+        base_q += f'&lang={lang}'
         qs = e(base_q)
         body = (switch + '<h1>' + e(C['q']) + '</h1>\n<p>' + summ + '</p>\n<p><a href="'
                 + up + qs + '">' + C['filter_'] + '</a></p>\n' + ''.join(t)
