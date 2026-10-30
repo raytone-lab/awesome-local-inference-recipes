@@ -65,6 +65,6 @@ class SparkHeadline(unittest.TestCase):
             s = (R/README[lang]).read_text(encoding='utf-8')
             row = next(l for l in s.splitlines() if l.startswith('| ' + label))
             self.assertIn(f"**{b['tok_s']:g} tok/s**", row, lang); self.assertIn(b['source_url'], row, lang)
-            self.assertRegex(s, re.escape('[DGX Spark](' + PAGES + 'hw/dgx-spark.html) (') + r'\d+ · ⚡\*\*' + re.escape(f"{b['tok_s']:g}") + r'\*\*', lang)
+            self.assertRegex(s, re.escape('[DGX Spark](' + PAGES + 'hw/' + {'en': '', 'zh': 'zh-CN/', 'ja': 'ja/'}[lang] + 'dgx-spark.html) (') + r'\d+ · ⚡\*\*' + re.escape(f"{b['tok_s']:g}") + r'\*\*', lang)
 
 if __name__ == '__main__': unittest.main()

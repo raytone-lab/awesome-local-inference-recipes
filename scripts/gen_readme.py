@@ -264,8 +264,26 @@ def build(lang):
     txt=head+'\n'.join(out)+'\n'+tail
     for pg in ('explore.html','submit.html'):
         txt=txt.replace(f'](%s'%pg,f']({PAGES}{pg}').replace(f'href="{pg}','href="'+PAGES+pg)
+    txt=localize_site_links(txt,lang)
     txt=align_tables(txt)
     open(R/T['file'],'w').write(txt)
     return T['file']
+SITE_LANG={'en':'en','zh':'zh-CN','zh-CN':'zh-CN','ja':'ja'}
+def localize_site_links(txt,lang):
+    """Point every site link at the README's language. The site picks its language from ?lang=, then localStorage, then the browser,
+    so a link without ?lang= can open in another language. Static hw pages have one file per language (hw/, hw/zh-CN/, hw/ja/)."""
+    import re
+    code=SITE_LANG.get(lang,lang); pre={'en':'','zh-CN':'zh-CN/','ja':'ja/'}[code]
+    def fix(m):
+        url=m.group(0); path,_,frag=url.partition('#')
+        if path.startswith(PAGES+'hw/'):
+            rest=path[len(PAGES)+3:]
+            if not rest.startswith(('zh-CN/','ja/')): path=PAGES+'hw/'+pre+rest
+            return path+('#'+frag if frag else '')
+        if re.search(r'[?&]lang=',path): return url
+        path+=('&' if '?' in path else '?')+'lang='+code
+        return path+('#'+frag if frag else '')
+    return re.sub(re.escape(PAGES)+r'[A-Za-z0-9_./-]*\.html(?:\?[^\s)"\'<>#]*)?(?:#[^\s)"\'<>]*)?',fix,txt)
+
 if __name__ == '__main__':
     for lang in L: print('written', build(lang))
