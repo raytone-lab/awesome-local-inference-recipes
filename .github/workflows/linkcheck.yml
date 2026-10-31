@@ -6,6 +6,9 @@ on:
 permissions:
   contents: read
   issues: write
+concurrency:
+  group: linkcheck
+  cancel-in-progress: false
 jobs:
   lychee:
     runs-on: ubuntu-latest
@@ -17,14 +20,33 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          # x.com blocks anonymous fetches; accept 403/429 there instead of reporting false positives
-          args: --no-progress --max-concurrency 4 --accept 200..=299,403,429 --exclude-mail urls.txt docs/*.md recipes/*.md
+          lycheeVersion: v0.24.2
+          # Accept 403/429: some sites block anonymous fetches.
+          args: --no-progress --max-concurrency 4 --max-retries 3 --timeout 30 --accept 200..=299,403,429 urls.txt docs/*.md recipes/*.md
           fail: false
           output: lychee/out.md
-      - name: Open issue on broken links
-        if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
-        with:
-          title: Broken source links (weekly link check)
-          content-filepath: lychee/out.md
-          labels: links
+      - name: Fail on lychee error
+        # Exit code 2 means broken links. Other nonzero codes mean lychee failed.
+        if: steps.lychee.outputs.exit_code != 0 && steps.lychee.outputs.exit_code != 2
+        run: |
+          echo "::error::lychee failed with exit code ${{ steps.lychee.outputs.exit_code }}. No links were checked."
+          exit 1
+      - name: Open or update the link issue
+        if: steps.lychee.outputs.exit_code == 2 && hashFiles('lychee/out.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [ ! -s lychee/out.md ]; then
+            echo "::error::lychee reported broken links but lychee/out.md is empty."
+            exit 1
+          fi
+          gh label create links --color d73a4a --description "Broken source links" 2>/dev/null || true
+          num=$(gh issue list --label links --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$num" ]; then
+            gh issue edit "$num" --body-file lychee/out.md
+            gh issue comment "$num" --body "Link check run ${{ github.run_id }} updated the report: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          else
+            gh issue create --title "Broken source links (weekly link check)" --label links --body-file lychee/out.md
+          fi
