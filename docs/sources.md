@@ -14,9 +14,9 @@ Where recipes come from and how they are checked. Every recipe links to its orig
 
 ## Source levels
 - 🏛️ **Official** (官方) — published by the model/engine/hardware vendor.
-- ✅ **Measured** (实测) — the poster ran it themselves and shows a screenshot or log of the run.
+- ✅ **Measured** (实测) — the poster ran it themselves and shows a screenshot or log of the run. An engine or recipe author who tests their own engine or recipe gets Measured only when the author publishes the raw benchmark data and the reproduction steps.
 - 🔁 **Relayed** (转述) — second-hand report of someone else's result.
-- 📣 **Claimed** (宣称) — marketing, a prediction, or an unverified claim with no screenshot/log or no way to reproduce it (e.g. an unpublished private build).
+- 📣 **Claimed** (宣称) — marketing, a prediction, or an unverified claim with no screenshot/log or no way to reproduce it (e.g. an unpublished private build). An author-run result without raw benchmark data and reproduction steps is Claimed.
 
 ## Original sources only
 Use only an original source for a new recipe. The original source comes from the person or team that ran the test, and it gives the measured numbers. A relayed report (a repost, summary or article that quotes the result of a different person) is not a valid source. Find the original source of the relayed report and link that source. If you cannot find an original source with measured numbers, do not add the recipe.

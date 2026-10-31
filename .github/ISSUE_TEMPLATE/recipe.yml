@@ -34,7 +34,7 @@ body:
     validations: { required: true }
   - type: dropdown
     id: level
-    attributes: { label: Source level / 来源等级, options: ["measured (实测)", "official (官方)", "claimed (宣称)"] }
+    attributes: { label: Source level / 来源等级, description: "An engine or recipe author who tests their own work: measured only with raw benchmark data and reproduction steps, else claimed. / 引擎或配方作者自测：公开原始测试数据和复现步骤才记为实测，否则记为宣称。", options: ["measured (实测)", "official (官方)", "claimed (宣称)"] }
     validations: { required: true }
   - type: textarea
     id: command

@@ -154,7 +154,7 @@ def landing(kind, key, name, rows, qterm=None):
                else f'Setups with {name}: local inference speed (tok/s), sourced'),
             th=('Model', 'Engine', 'Hardware', 'tok/s', 'Metric', 'Source level', 'Date', 'Source'),
             link='link', selfrep=' (self-reported)', filter_='Filter these in the explorer →',
-            note='Numbers come from each source. This project did not measure them again. Models and settings differ between rows. Source levels: Official = project or vendor; Measured = the poster ran it; Relayed = second-hand; Claimed = prediction or no reproduction details.',
+            note='Numbers come from each source. This project did not measure them again. Models and settings differ between rows. Source levels: Official = project or vendor; Measured = the poster ran it (an engine or recipe author must also publish raw data and reproduction steps); Relayed = second-hand; Claimed = prediction or no reproduction details.',
             lab=lambda r, k: fen(r, k) if k != 'engine' else r.get('engine'),
             met=lambda r: met_en(r) or ''),
         'zh-CN': dict(
@@ -163,7 +163,7 @@ def landing(kind, key, name, rows, qterm=None):
                else f'{name} 相关配置：本地推理速度（tok/s），均有出处'),
             th=('模型', '引擎', '硬件', 'tok/s', '指标', '来源等级', '日期', '来源'),
             link='链接', selfrep='（自称）', filter_='在配方库中筛选这些 →',
-            note='数字来自各条来源。本项目未复测。各行的模型与设置不同。来源等级：官方 = 项目方或厂商；实测 = 发帖人亲测；转述 = 二手；宣称 = 预测或无复现细节。',
+            note='数字来自各条来源。本项目未复测。各行的模型与设置不同。来源等级：官方 = 项目方或厂商；实测 = 发帖人亲测（引擎或配方作者须公开原始数据和复现步骤）；转述 = 二手；宣称 = 预测或无复现细节。',
             lab=lambda r, k: r.get(k) or '',
             met=lambda r: r.get('metric') or ''),
         'ja': dict(
@@ -172,7 +172,7 @@ def landing(kind, key, name, rows, qterm=None):
                else f'{name} の構成：ローカル推論速度（tok/s）、出典付き'),
             th=('モデル', 'エンジン', 'ハードウェア', 'tok/s', '指標', '出典レベル', '日付', '出典'),
             link='リンク', selfrep='（自己申告）', filter_='エクスプローラーで絞り込む →',
-            note='数値は各出典のものです。本プロジェクトでは再計測していません。行ごとにモデルと設定が異なります。出典レベル：公式 = プロジェクトまたはベンダー、実測 = 投稿者が実行、伝聞 = 二次情報、主張 = 予測または再現手順なし。',
+            note='数値は各出典のものです。本プロジェクトでは再計測していません。行ごとにモデルと設定が異なります。出典レベル：公式 = プロジェクトまたはベンダー、実測 = 投稿者が実行（エンジンまたはレシピの作者は生データと再現手順も公開する）、伝聞 = 二次情報、主張 = 予測または再現手順なし。',
             lab=lambda r, k: fen(r, k) if k != 'engine' else r.get('engine'),
             met=lambda r: met_en(r) or ''),
     }

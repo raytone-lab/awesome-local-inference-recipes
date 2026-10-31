@@ -51,12 +51,12 @@
 
 ## Legend
 
-| Source level     | Meaning                               | Format                                                                  |
-| ---------------- | ------------------------------------- | ----------------------------------------------------------------------- |
-| 🏛️ **Official** | vendor or project number              | **Model** · Engine `quant` — Hardware → **key number** level \[source\] |
-| ✅ **Measured**   | author ran it, with log or screenshot | **tok/s** = single-stream generation (not prefill, not aggregate)       |
-| 🔁 **Relayed**   | second-hand, verify upstream          | Tiers use the lowest published hardware price (USD)                     |
-| 📣 **Claimed**   | projection, no reproduction           | Unknown values are never estimated                                      |
+| Source level     | Meaning                                                                                                             | Format                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 🏛️ **Official** | vendor or project number                                                                                            | **Model** · Engine `quant` — Hardware → **key number** level \[source\] |
+| ✅ **Measured**   | poster ran it, with log or screenshot; an engine or recipe author must also publish raw data and reproduction steps | **tok/s** = single-stream generation (not prefill, not aggregate)       |
+| 🔁 **Relayed**   | second-hand, verify upstream                                                                                        | Tiers use the lowest published hardware price (USD)                     |
+| 📣 **Claimed**   | projection, no reproduction                                                                                         | Unknown values are never estimated                                      |
 
 ## Scope
 
@@ -369,7 +369,7 @@ Multi-card builds priced per card, Macs whose memory (and so price) is not state
 - **Gemma 4 31B** · Radiance `W4A8 + RedHatAI DFlash2` — 4× Radeon AI PRO R9700 32GB → **377.7 tok/s** 📣 [source](https://codeberg.org/StillDeadcode/radiance/issues/247)
 - **Qwen3.8-Flash-Next** · QEngine `INT4 AutoRound` — 2× RTX 5090 32GB + Threadripper PRO 3975WX + 251GB RAM → **370 tok/s** ✅ [source](https://www.reddit.com/r/LocalLLaMA/comments/1xjx0ez/)
 - **Qwen3.8-Flash-Next** · Basalt `NVIDIA NVFP4` — 1× RTX 5090+ 128GB RAM → **354 tok/s** 🏛️ [source](https://www.reddit.com/r/LocalLLaMA/comments/1xdlunp/)
-- **Qwen3.8-Flash-Next** · vLLM `nvidia 4` — 1× RTX PRO 6000 Blackwell 96GB → **287 tok/s** 📣 [source](https://www.reddit.com/r/LocalLLM/comments/1xj9ura/)
+- **Qwen3.8-Flash-Next** · vLLM `nvidia 4` — 1× RTX PRO 6000 Blackwell 96GB → **287 tok/s** ✅ [source](https://www.reddit.com/r/LocalLLM/comments/1xj9ura/)
 - **Qwen3.8-Flash-Next** · Strata `Q2_0` — RTX 5090 + Ryzen 9 9950X → **270.7 tok/s** ✅ [source](https://github.com/Niko1221/Strata/issues/4166)
 - **Qwen3.8-27B** · TensorFold `MLX 4-bit + z-lab DFlash2` — 1× RTX 5090 32GB → **268.2 tok/s** ✅ [source](https://x.com/niklaslenz_ai/status/2114219401679376809)
 - **Qwen3.6-35B-A3B** · DFlash `DFlash 2` — Mac Studio M3 Ultra → **251 tok/s** 📣 [source](https://x.com/tinybluedev/status/2089910202606764530)
