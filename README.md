@@ -433,6 +433,8 @@ One recipe = one PR. Copy the YAML template from [submit.html](https://raytone-l
 
 Dev: `python3 -m http.server 5190` → `index.html` (landing) · `explore.html` (filter/sort/scatter) · schema in [`schema/recipe.schema.json`](schema/recipe.schema.json).
 
+For AI agents: the skill [`.agents/skills/local-inference-recipe-finder`](.agents/skills/local-inference-recipe-finder/SKILL.md) detects your hardware and recommends recipes from [`data/hw_index.json`](docs/hw_index.md). See [AGENTS.md](AGENTS.md).
+
 <details><summary>Site preview</summary>
 
 <img src="docs/screenshot.png" width="760" alt="Site home page: recipe, engine and measured counts, and the fastest measured setup in each budget tier">

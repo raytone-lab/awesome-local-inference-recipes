@@ -1,0 +1,61 @@
+{
+ "note": "Hosts that the recipe-finder skill may show as actionable links (engine repos, weights, downloads). A subdomain of a listed host is also trusted. Every other host is 'unverified': the skill shows it only as a source to read. Add a host only when it is the official home of an engine, a model hub, or a hardware vendor. scripts/url_safety.py reads this file.",
+ "trusted": [
+  "github.com",
+  "raw.githubusercontent.com",
+  "codeberg.org",
+  "huggingface.co",
+  "hf.co",
+  "modelscope.cn",
+  "ollama.com",
+  "pypi.org",
+  "machinelearning.apple.com",
+  "developer.apple.com",
+  "developer.nvidia.com",
+  "forums.developer.nvidia.com",
+  "docs.nvidia.com",
+  "amd.com",
+  "rocm.docs.amd.com",
+  "raytone-lab.github.io"
+ ],
+ "shorteners": [
+  "bit.ly",
+  "t.co",
+  "tinyurl.com",
+  "goo.gl",
+  "ow.ly",
+  "is.gd",
+  "buff.ly",
+  "rebrand.ly",
+  "cutt.ly",
+  "shorturl.at",
+  "rb.gy",
+  "t.ly",
+  "lnkd.in",
+  "s.id",
+  "tiny.cc"
+ ],
+ "github_non_repo_paths": [
+  "orgs",
+  "users",
+  "topics",
+  "sponsors",
+  "settings",
+  "marketplace",
+  "features",
+  "apps"
+ ],
+ "hf_prefixes": [
+  "datasets",
+  "spaces",
+  "blog",
+  "papers",
+  "collections",
+  "docs",
+  "models"
+ ],
+ "verified_hub_owners": {
+  "_note": "Hugging Face / ModelScope owners that the data names only in notes. Add an owner only after you open its hub page. Owners of model cards in model-params.json and of recipe source URLs on the hubs are known automatically.",
+  "ISTA-DASLab": "https://huggingface.co/ISTA-DASLab (IST Austria DAS Lab), checked 2026-11-01"
+ }
+}

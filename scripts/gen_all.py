@@ -2,7 +2,7 @@
 import argparse, subprocess, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
-TEXT = ('gen_watchlist.py', 'gen_readme.py', 'gen_recipe_pages.py', 'gen_site.py')
+TEXT = ('gen_watchlist.py', 'gen_readme.py', 'gen_recipe_pages.py', 'gen_site.py', 'gen_hw_index.py', 'sync_skill_mirror.py')
 IMAGES = ('gen_hero.py', 'gen_screenshot.py')
 OPTIONAL = {'gen_screenshot.py'}  # a failed screenshot keeps the old PNGs and does not stop the run
 

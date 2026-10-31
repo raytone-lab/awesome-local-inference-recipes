@@ -433,6 +433,8 @@ X で反応が多かったレシピ投稿（いいね + リポスト×3 の順�
 
 ローカル開発：`python3 -m http.server 5190` → `index.html`（トップ）· `explore.html`（絞り込み・並べ替え・散布図）· スキーマは [`schema/recipe.schema.json`](schema/recipe.schema.json)。
 
+AI エージェント向け：スキル [`.agents/skills/local-inference-recipe-finder`](.agents/skills/local-inference-recipe-finder/SKILL.md) がハードウェアを検出し、[`data/hw_index.json`](docs/hw_index.md) からレシピを推薦します。詳しくは [AGENTS.md](AGENTS.md) を参照。
+
 <details><summary>サイトのプレビュー</summary>
 
 <img src="docs/screenshot.ja.png" width="760" alt="サイトのトップページ：レシピ数、エンジン数、実測数、予算帯ごとの最速の実測構成">
