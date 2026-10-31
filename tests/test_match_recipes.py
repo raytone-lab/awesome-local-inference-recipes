@@ -139,10 +139,10 @@ class Profiles(unittest.TestCase):
 
     def test_utf16_hw_file(self):
         import tempfile, os
-        with tempfile.NamedTemporaryFile('wb', delete=False, suffix='.json') as f:
-            f.write(json.dumps(PROFILES['4090_linux']).encode('utf-16'))
-        try: self.assertEqual(M.read_json(f.name)['os'], 'linux')
-        finally: os.unlink(f.name)
+        fd, name = tempfile.mkstemp(suffix='.json')
+        with os.fdopen(fd, 'wb') as f: f.write(json.dumps(PROFILES['4090_linux']).encode('utf-16'))
+        try: self.assertEqual(M.read_json(name)['os'], 'linux')
+        finally: os.unlink(name)
 
     def test_bad_index_rejected(self):
         bad = json.loads(json.dumps(IDX)); bad['recipes'][0]['engine_repo'] = {'url': 'http://x.example', 'trust': 'allowlisted'}
