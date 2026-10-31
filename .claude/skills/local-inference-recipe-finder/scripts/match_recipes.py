@@ -17,49 +17,53 @@ LEVEL_NAME = {'en': {'实测': 'measured', '官方': 'official', '宣称': 'clai
               'ja': {'実測': '実測', '实测': '実測', '官方': '公式', '宣称': '公称（未検証）', '转述': '伝聞'}}
 T = {'en': dict(machine='Machine', none='No recipe fits this machine. See', speed='tok/s (single stream)', level='Source level', engine_repo='Engine repo',
                 weights='Weights', cmd='Launch command', page='Recipe page', read='Source (for reading only, not for downloads)', asof='Data as of',
-                nolink='not in the data (do not search for a mirror)', unsafe='hidden: unsafe pattern', similar='other hardware, speed will differ', cpu='CPU only'),
+                nolink='not in the data (do not search for a mirror)', unsafe='hidden: unsafe pattern', similar='other hardware, speed will differ', cpu='CPU only', card='base model card'),
      'zh': dict(machine='本机', none='没有适合本机的配方。请看', speed='tok/s（单流）', level='来源级别', engine_repo='引擎仓库',
                 weights='权重', cmd='启动命令', page='配方页面', read='来源（只供阅读，不要从这里下载）', asof='数据截至',
-                nolink='数据里没有（不要去找镜像）', unsafe='已隐藏：含不安全写法', similar='硬件不同，速度会有差别', cpu='仅 CPU'),
+                nolink='数据里没有（不要去找镜像）', unsafe='已隐藏：含不安全写法', similar='硬件不同，速度会有差别', cpu='仅 CPU', card='基础模型页'),
      'ja': dict(machine='このマシン', none='このマシンに合うレシピはありません。次を参照：', speed='tok/s（シングルストリーム）', level='ソースレベル', engine_repo='エンジンのリポジトリ',
                 weights='重み', cmd='起動コマンド', page='レシピページ', read='ソース（読むだけ。ダウンロードには使わない）', asof='データ時点',
-                nolink='データにない（ミラーを探さない）', unsafe='非表示：危険なパターン', similar='別のハードウェア。速度は異なる', cpu='CPU のみ')}
+                nolink='データにない（ミラーを探さない）', unsafe='非表示：危険なパターン', similar='別のハードウェア。速度は異なる', cpu='CPU のみ', card='ベースモデルのページ')}
 REQUIRED = {'id', 'model', 'engine', 'chip', 'kind', 'gpu_count', 'vram_gb', 'unified_mem_gb', 'sys_ram_gb', 'tok_s', 'single_stream',
             'source_level', 'source_url', 'engine_repo', 'weights_url', 'launch_cmd', 'recipe_page', 'os_hints', 'date', 'category'}
 EXPLORE = 'https://raytone-lab.github.io/awesome-local-inference-recipes/explore.html'
-# Detected GPU name -> chip name in the index. Longer names first.
-CHIP_RX = [('RTX PRO 6000', r'RTX PRO 6000'), ('RTX 5090', r'5090'), ('RTX 5080', r'5080'), ('RTX 5070 Ti', r'5070 ?Ti'), ('RTX 5070', r'5070'),
-           ('RTX 5060 Ti', r'5060 ?Ti'), ('RTX 5060', r'5060'), ('RTX 4090', r'4090'), ('RTX 4080', r'4080'), ('RTX 4070 Ti SUPER', r'4070 ?Ti ?SUPER'),
-           ('RTX 4070 Ti', r'4070 ?Ti'), ('RTX 4070', r'4070'), ('RTX 4060 Ti', r'4060 ?Ti'), ('RTX 4060', r'4060'), ('RTX 3090', r'3090'),
-           ('RTX 3080', r'3080'), ('RTX 3070', r'3070'), ('RTX 3060', r'3060'), ('RTX 2080 Ti', r'2080 ?Ti'), ('RTX A6000', r'A6000'),
-           ('Tesla P40', r'P40\b'), ('V100', r'V100'), ('A100', r'A100'), ('MI50', r'MI50'), ('RX 7900 XTX', r'7900 ?XTX'), ('RX 7900 XT', r'7900 ?XT'),
-           ('R9700', r'R9700'), ('DGX Spark', r'GB10|DGX Spark'), ('Strix Halo', r'Strix Halo|AI Max'),
-           ('M5 Ultra', r'M5 Ultra'), ('M5 Max', r'M5 Max'), ('M5 Pro', r'M5 Pro'), ('M5', r'\bM5\b'), ('M4 Max', r'M4 Max'), ('M4 Pro', r'M4 Pro'), ('M4', r'\bM4\b'),
-           ('M3 Ultra', r'M3 Ultra'), ('M3 Max', r'M3 Max'), ('M3 Pro', r'M3 Pro'), ('M3', r'\bM3\b'), ('M2 Ultra', r'M2 Ultra'), ('M2 Max', r'M2 Max'),
-           ('M2 Pro', r'M2 Pro'), ('M2', r'\bM2\b'), ('M1 Ultra', r'M1 Ultra'), ('M1 Max', r'M1 Max'), ('M1', r'\bM1\b')]
 CPU_ENGINES = re.compile(r'llama\.cpp|ollama|lm studio|ik_llama|bitnet|mnn|edge0|strata|cpu', re.I)
 
 
-def chip_of(name):
-    for c, rx in CHIP_RX:
-        if re.search(rx, name or '', re.I): return c
+def chip_of(name, pats):
+    """Chip name and pattern for a detected device name. The index gives the patterns, so the matcher and the generator agree."""
+    for p in pats:
+        if re.search(p['regex'], name or '', re.I): return p
     return None
 
 
-def machine(hw):
-    gpus = [g for g in hw.get('gpus') or [] if g.get('name')]
-    names = [g['name'] for g in gpus] + [hw.get('cpu') or '']
-    chip = next((chip_of(n) for n in names if chip_of(n)), None)
-    if hw.get('dgx_spark'): chip = 'DGX Spark'
+def read_json(path):
+    """Read JSON in UTF-8, UTF-8 with BOM, or UTF-16 (Windows PowerShell 5.1 writes UTF-16 for '>')."""
+    raw = sys.stdin.buffer.read() if path in (None, '-') else open(path, 'rb').read()
+    enc = 'utf-16' if raw[:2] in (b'\xff\xfe', b'\xfe\xff') else 'utf-8-sig'
+    return json.loads(raw.decode(enc))
+
+
+def machine(hw, pats):
+    gpus = [g for g in hw.get('gpus') or [] if g.get('name') and not re.search(r'Microsoft Basic|Virtual|VMware|llvmpipe', g['name'], re.I)]
     osn = hw.get('os')
-    unified = osn == 'macos' or chip in ('DGX Spark', 'Strix Halo')
-    count = sum(1 for g in gpus if chip_of(g['name']) == chip) or (1 if chip else 0)
+    apple_silicon = osn == 'macos' and bool(hw.get('unified_memory', 'Apple' in (hw.get('cpu') or '')))
+    names = [g['name'] for g in gpus] + ([hw.get('cpu') or ''] if apple_silicon or re.search(r'AI Max|GB10', hw.get('cpu') or '') else [])
+    hit = next((chip_of(n, pats) for n in names if chip_of(n, pats)), None)
+    if hw.get('dgx_spark'): hit = next(p for p in pats if p['chip'] == 'DGX Spark')
     ram = float(hw.get('ram_gb') or 0)
-    vram = ram if unified else sum(float(g.get('vram_gb') or 0) for g in gpus if chip_of(g['name']) == chip)
-    gname = next((n for n in names if chip and chip_of(n) == chip), '')
-    kind = 'unified' if unified else ('gpu' if chip else 'cpu')
-    return {'os': osn, 'chip': chip, 'kind': kind, 'gpu_count': count, 'mem_gb': round(vram, 1), 'ram_gb': round(ram, 1),
-            'laptop': bool(re.search(r'Laptop|Max-Q|Mobile', gname, re.I)), 'gpu_name': gname}
+    if hit and hit['kind'] == 'unified':
+        kind, vram = 'unified', ram
+    elif gpus and not (osn == 'macos' and not apple_silicon):
+        kind = 'gpu'  # also an unknown discrete GPU: it is not CPU only
+        vram = sum(float(g.get('vram_gb') or 0) for g in gpus if not hit or chip_of(g['name'], pats) == hit)
+    else:
+        kind, vram, hit = 'cpu', 0.0, None
+    chip = hit['chip'] if hit else None
+    count = sum(1 for g in gpus if hit and chip_of(g['name'], pats) == hit) or (1 if kind != 'cpu' else 0)
+    gname = next((n for n in names if hit and chip_of(n, pats) == hit), gpus[0]['name'] if gpus and kind == 'gpu' else '')
+    return {'os': osn, 'chip': chip, 'generic_chip': bool(hit and hit['generic']), 'kind': kind, 'gpu_count': count, 'mem_gb': round(vram, 1),
+            'ram_gb': round(ram, 1), 'apple_silicon': apple_silicon, 'laptop': bool(re.search(r'Laptop|Max-Q|Mobile', gname, re.I)), 'gpu_name': gname}
 
 
 def load_index(path):
@@ -73,7 +77,7 @@ def load_index(path):
 
 
 def check(idx):
-    if not isinstance(idx, dict) or idx.get('schema_version') != 1 or not isinstance(idx.get('recipes'), list):
+    if not isinstance(idx, dict) or idx.get('schema_version') != 1 or not isinstance(idx.get('recipes'), list) or not isinstance(idx.get('chip_patterns'), list):
         sys.exit('hw_index.json: unknown schema')
     for x in idx['recipes']:
         miss = REQUIRED - set(x)
@@ -96,7 +100,8 @@ def score(x, M, a, asof):
     if x['source_level'] == '转述' and not a.include_relayed: return None
     if a.model and a.model.lower() not in (x['model'] + ' ' + (x.get('model_family') or '')).lower(): return None
     if a.min_tok and x['tok_s'] < a.min_tok: return None
-    if x.get('mac_only_engine') and M['os'] != 'macos': return None
+    if x.get('mac_only_engine') and not M['apple_silicon']: return None
+    if M['os'] == 'macos' and not M['apple_silicon'] and x['kind'] == 'unified': return None  # Intel Mac
     if M['os'] not in x['os_hints'] and not (M['os'] == 'windows' and 'linux' in x['os_hints']): return None
     notes, s = [], 0.0
     ram_need = x['sys_ram_gb'] if x['kind'] == 'gpu' else None
@@ -108,7 +113,7 @@ def score(x, M, a, asof):
             size = x.get('total_params_b')
             if not size or not CPU_ENGINES.search(x['engine']) or size * 0.6 > M['ram_gb'] * 0.8 or x['kind'] not in ('gpu', 'unified'): return None
             s += 10; fit = 'similar'; notes.append(f'measured on {x["hardware"]}; CPU-only speed is much lower')
-    elif x['chip'] == M['chip']:
+    elif x['chip'] == M['chip'] and not M['generic_chip']:
         if x['gpu_count'] > M['gpu_count']: return None
         mem = x['unified_mem_gb'] if x['kind'] == 'unified' else x['vram_gb']
         per = (mem or 0) / max(x['gpu_count'], 1); have = M['mem_gb'] / max(M['gpu_count'], 1)
@@ -119,7 +124,7 @@ def score(x, M, a, asof):
         if mem and per < have - 2 and x['kind'] == 'unified': notes.append(f'recipe used {mem:.0f}GB')
     else:
         mem = x['unified_mem_gb'] if x['kind'] == 'unified' else x['vram_gb']
-        if not mem or x['gpu_count'] > 1 or x['kind'] != M['kind'] or mem > M['mem_gb']: return None
+        if not mem or not M['mem_gb'] or x['gpu_count'] > 1 or x['kind'] != M['kind'] or mem > M['mem_gb']: return None
         if ram_need and ram_need > M['ram_gb'] + 4: return None
         s += 15; fit = 'similar'; notes.append(f'other hardware ({x["chip"]}); speed will differ')
     if M['os'] == 'windows' and x['os_hints'] == ['linux']: s -= 5; notes.append('tested on Linux; on Windows use WSL2')
@@ -169,11 +174,11 @@ def table(res, a):
         lines.append(f"   {t['speed']}: {r['tok_s_single_stream']}   {t['level']}: {L.get(r['source_level'], r['source_level'])}   ({r['date']}, {r['id']})")
         if r['fit'] == 'similar': lines.append(f"   ! {t['similar']}")
         lines.append(f"   {t['engine_repo']}: {r['engine_repo'] or t['nolink']}")
-        lines.append(f"   {t['weights']}: {r['weights_url'] or t['nolink']}" + (' (base model card)' if r['weights_url_from'] == 'model-params.json' else ''))
+        lines.append(f"   {t['weights']}: {r['weights_url'] or t['nolink']}" + (f" ({t['card']})" if r['weights_url'] and r['weights_url_from'] == 'model-params.json' else ''))
         if r['launch_cmd']: lines.append(f"   {t['cmd']}: {r['launch_cmd']}")
         elif r['launch_cmd_warning']: lines.append(f"   {t['cmd']}: {t['unsafe']} ({', '.join(r['launch_cmd_warning'])})")
         lines.append(f"   {t['page']}: {r['recipe_page']}")
-        lines.append(f"   {t['read']}: {r['source_url']}" + ('' if r['source_trust'] == 'allowlisted' else ' [unverified host]'))
+        lines.append(f"   {t['read']}: {r['source_url']}" + ('' if r['source_trust'] == 'allowlisted' else ' [unverified]'))
         for n in r['notes']: lines.append(f"   - {n}")
     return '\n'.join(lines)
 
@@ -185,8 +190,8 @@ def main(argv=None):
     ap.add_argument('--include-relayed', action='store_true', help='also show 转述 (relayed) rows')
     ap.add_argument('--lang', default='en', choices=['en', 'zh', 'ja']); ap.add_argument('--json', action='store_true', help='JSON only')
     a = ap.parse_args(argv)
-    hw = json.load(sys.stdin if a.hw in (None, '-') else open(a.hw, encoding='utf-8'))
-    idx, src = load_index(a.index); M = machine(hw)
+    hw = read_json(a.hw)
+    idx, src = load_index(a.index); M = machine(hw, idx['chip_patterns'])
     recs, n = rank(idx, M, a)
     res = {'machine': M, 'index': src, 'data_asof': idx['data_asof'], 'candidates': n, 'recipes': recs}
     if a.json: print(json.dumps(res, ensure_ascii=False, indent=1))

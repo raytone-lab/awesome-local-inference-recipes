@@ -48,7 +48,7 @@ def mac():
     d['cpu'] = (run(['sysctl', '-n', 'machdep.cpu.brand_string']) or '').strip()
     mem = (run(['sysctl', '-n', 'hw.memsize']) or '0').strip()
     d['ram_gb'] = round(int(mem) / 2**30, 1) if mem.isdigit() else None
-    d['unified_memory'] = 'Apple' in d['cpu']
+    d['unified_memory'] = 'Apple' in d['cpu'] or platform.machine() == 'arm64'
     sp = run(['system_profiler', 'SPDisplaysDataType', '-json'], 30) or '{}'
     gpus = []
     try:
@@ -78,6 +78,10 @@ def main():
     d = linux() if s == 'Linux' else mac() if s == 'Darwin' else windows() if s == 'Windows' else {'os': s.lower(), 'gpus': []}
     d['arch'] = platform.machine()
     d['tools'] = {t: bool(shutil.which(t)) for t in ['ollama', 'llama-server', 'vllm', 'docker', 'mlx_lm.generate']}
-    json.dump(d, sys.stdout, indent=1, ensure_ascii=False); print()
+    d['unified_memory'] = d.get('unified_memory', False)
+    text = json.dumps(d, indent=1, ensure_ascii=False) + '\n'
+    if len(sys.argv) > 2 and sys.argv[1] == '--out':  # write UTF-8 directly; a shell redirect can change the encoding
+        with open(sys.argv[2], 'w', encoding='utf-8') as f: f.write(text)
+    sys.stdout.write(text)
 
 if __name__ == '__main__': main()

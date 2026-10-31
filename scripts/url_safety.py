@@ -89,17 +89,19 @@ def repo_key(url):
 
 
 UNSAFE_CMD = [
-    (re.compile(r'\b(curl|wget)\b[^|;&]*\|\s*(sudo\s+)?(ba|z|da)?sh\b'), 'pipes a download into a shell'),
+    (re.compile(r'\b(curl|wget|fetch|iwr|irm|Invoke-WebRequest|Invoke-RestMethod)\b[^;&]*\|\s*(sudo\s+)?(\S*/)?(env\s+)?(ba|z|da|k|fi)?sh\b', re.I), 'pipes a download into a shell'),
+    (re.compile(r'\|\s*(sudo\s+)?(\S*/)?(ba|z|da|k)?sh(\s|$)'), 'pipes into a shell'),
     (re.compile(r'\b(ba|z)?sh\s+<\('), 'runs a downloaded script through process substitution'),
     (re.compile(r'(^|[\s;&|(])sudo\b'), 'uses sudo'),
     (re.compile(r'\brm\s+-[a-zA-Z]*r[a-zA-Z]*f|\brm\s+-[a-zA-Z]*f[a-zA-Z]*r'), 'uses rm -rf'),
     (re.compile(r'\bpip3?\s+install\b[^;&|]*\b(git\+\S+|https?://\S+)'), 'pip install from a URL'),
-    (re.compile(r'\b(iex|Invoke-Expression)\b.*\b(iwr|Invoke-WebRequest|irm)\b|\b(iwr|irm)\b[^|]*\|\s*iex', re.I), 'PowerShell download-and-run'),
+    (re.compile(r'\b(iex|Invoke-Expression)\b|\|\s*(python3?|perl|ruby|node)\b', re.I), 'runs downloaded or generated code'),
 ]
 
 
 def cmd_problems(cmd):
     out = [why for rx, why in UNSAFE_CMD if rx.search(cmd or '')]
-    for m in re.finditer(r'(git\+)?(https?://\S+)', cmd or ''):
-        if m.group(1) and not trusted(m.group(2)): out.append('git+ URL on an unverified host')
-    return out
+    for u in URL_RE.findall(cmd or ''):  # every URL in a command must be clean and on an allowlisted host
+        if problems(u): out.append(f'bad URL: {u}')
+        elif not trusted(u): out.append(f'URL on an unverified host: {host_of(u)}')
+    return list(dict.fromkeys(out))

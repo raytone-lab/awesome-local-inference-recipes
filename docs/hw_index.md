@@ -9,6 +9,7 @@ The skill `.agents/skills/local-inference-recipe-finder` reads this file.
 | Field | Meaning |
 |---|---|
 | `schema_version` | `1`. A change that removes or renames a field increases this number. |
+| `chip_patterns` | The chip regexes that the generator uses. The matcher uses the same list for the detected device names. `generic: true` means a family pattern (for example any GeForce), not one model. |
 | `data_asof` | The data date (`DATA_ASOF` in `scripts/dataset_constants.py`). |
 | `count` | The number of rows. |
 | `recipes` | One row per recipe, sorted by `id`. |
@@ -55,5 +56,5 @@ A **link object** is `{"url": "https://...", "trust": "allowlisted" | "unverifie
 - `trust` is `allowlisted` only when the host is in `data/trusted_domains.json` and the URL passes the hygiene checks. Agents use only allowlisted links for downloads and installs. An unverified link is a source to read.
 - `scripts/check_urls.py` (CI) checks every URL in the data. It fails on: a scheme that is not https; an IP-literal host; a punycode (`xn--`) host; non-ASCII characters; a lookalike of a known brand (for example `githubb`); a URL shortener; userinfo (`user@host`); a port that is not 443; a GitHub or Hugging Face path that is not `owner/repo`.
 - The owner of each `weights_url` must be a known hub owner: the owner of a model card in `data/model-params.json`, the owner of a recipe source on the hub, or an entry in `verified_hub_owners` in `data/trusted_domains.json`.
-- A launch command is hidden when it pipes a download into a shell, uses `bash <(...)`, `sudo`, `rm -rf`, `pip install` from a URL, or a PowerShell download-and-run. Known rows are listed in `KNOWN_UNSAFE_CMDS` in `scripts/check_urls.py`. A new row with such a command fails CI.
+- A launch command is hidden when it contains a URL that is not clean or not on an allowlisted host, when it pipes into a shell, uses `bash <(...)`, `sudo`, `rm -rf`, `pip install` from a URL, `iex` / `Invoke-Expression`, or pipes into an interpreter. Known rows are listed in `KNOWN_UNSAFE_CMDS` in `scripts/check_urls.py`. A new row with such a command fails CI.
 - The generator prints hardware text that it cannot parse. The tests fail when a row has no `chip`.

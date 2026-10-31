@@ -157,7 +157,8 @@ def build(R=None):
             'source_level': r['source_level'], 'source_url': link(r['source_url']), 'date': r.get('date'),
             'tags': r.get('tags', []), 'superseded_by': r.get('superseded_by'),
             'recipe_page': SITE + 'explore.html?id=' + r['id'], 'recipe_md': REPO_BLOB + f"recipes/{r['id']}.md" if r['id'] in pages else None})
-    return {'schema_version': SCHEMA_VERSION, 'data_asof': DATA_ASOF, 'schema_doc': REPO_BLOB + 'docs/hw_index.md',
+    pats = [{'chip': c, 'regex': rx, 'kind': k, 'generic': k == 'gpu' and v is None} for c, rx, v, k in CHIPS if k in ('gpu', 'unified')]
+    return {'schema_version': SCHEMA_VERSION, 'data_asof': DATA_ASOF, 'schema_doc': REPO_BLOB + 'docs/hw_index.md', 'chip_patterns': pats,
             'source': 'data/recipes.json', 'count': len(rows), 'recipes': rows}
 
 

@@ -29,7 +29,7 @@ OUT_KEYS = {'id', 'score', 'fit', 'model', 'quant', 'engine', 'hardware', 'tok_s
 def run(profile, *extra):
     a = M.argparse.Namespace(model=None, min_tok=None, top=5, include_relayed=False, lang='en')
     for k, v in extra: setattr(a, k, v)
-    mach = M.machine(profile)
+    mach = M.machine(profile, IDX['chip_patterns'])
     return mach, M.rank(IDX, mach, a)[0]
 
 
@@ -115,10 +115,29 @@ class Profiles(unittest.TestCase):
             self.assertIn(IDX['data_asof'], t)
             if lang == 'en': self.assertNotRegex(t.split('\n', 2)[0], r'[\u4e00-\u9fff]')
 
+    def test_intel_mac_gets_no_apple_silicon_rows(self):
+        mach, out = run({'os': 'macos', 'ram_gb': 32, 'cpu': 'Intel(R) Core(TM) i9-9980HK', 'unified_memory': False, 'gpus': [{'name': 'AMD Radeon Pro 5500M'}]})
+        self.assertFalse(mach['apple_silicon'])
+        rows = {x['id']: x for x in IDX['recipes']}
+        for r in out: self.assertNotEqual(rows[r['id']]['kind'], 'unified'); self.assertFalse(rows[r['id']]['mac_only_engine'])
+
+    def test_unknown_gpu_is_not_cpu_only(self):
+        mach, _ = run({'os': 'windows', 'ram_gb': 32, 'gpus': [{'name': 'AMD Radeon RX 9070 XT', 'vram_gb': 16}]})
+        self.assertEqual((mach['kind'], mach['chip']), ('gpu', 'RX 9070 XT'))
+        mach, _ = run({'os': 'linux', 'ram_gb': 32, 'gpus': [{'name': 'Some Future GPU X1', 'vram_gb': 16}]})
+        self.assertEqual(mach['kind'], 'gpu')
+
+    def test_utf16_hw_file(self):
+        import tempfile, os
+        with tempfile.NamedTemporaryFile('wb', delete=False, suffix='.json') as f:
+            f.write(json.dumps(PROFILES['4090_linux']).encode('utf-16'))
+        try: self.assertEqual(M.read_json(f.name)['os'], 'linux')
+        finally: os.unlink(f.name)
+
     def test_bad_index_rejected(self):
         bad = json.loads(json.dumps(IDX)); bad['recipes'][0]['engine_repo'] = {'url': 'http://x.example', 'trust': 'allowlisted'}
         with self.assertRaises(SystemExit): M.check(bad)
-        with self.assertRaises(SystemExit): M.check({'schema_version': 2, 'recipes': []})
+        with self.assertRaises(SystemExit): M.check({'schema_version': 2, 'recipes': [], 'chip_patterns': []})
 
 
 if __name__ == '__main__':

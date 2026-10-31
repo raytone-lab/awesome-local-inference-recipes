@@ -32,7 +32,7 @@ Use this skill to recommend 3 to 5 recipes that fit the user's machine. The data
 1. Show this command to the user, then run it from this skill folder:
 
    ```
-   python3 scripts/detect_hw.py > hw.json
+   python3 scripts/detect_hw.py --out hw.json
    ```
 
    The script calls these read-only tools when they exist:
@@ -40,9 +40,11 @@ Use this skill to recommend 3 to 5 recipes that fit the user's machine. The data
    - macOS: `sysctl`, `system_profiler SPDisplaysDataType`.
    - Windows: `nvidia-smi`, PowerShell `Get-CimInstance`.
 
+   Use `--out`. Do not use `>`: Windows PowerShell 5.1 writes UTF-16 for `>`. The matcher can read UTF-16, but UTF-8 is safer.
+
    If Python is not available, run the same tools and write the JSON by hand. Use these fields: `os`, `ram_gb`, `cpu`, `gpus[].name`, `gpus[].vram_gb`.
 
-2. Read `hw.json`. Tell the user the GPU, the VRAM, the system RAM, and the OS. If a value is empty or wrong, ask the user to correct it.
+2. Read `hw.json`. On an Intel Mac, `unified_memory` is `false`, and the matcher does not show Apple silicon recipes. Tell the user the GPU, the VRAM, the system RAM, and the OS. If a value is empty or wrong, ask the user to correct it.
 
 3. Ask about the goal only when the request does not give it. Ask one short question: the model or model family, the use case (chat, code, long context), and the minimum speed.
 
