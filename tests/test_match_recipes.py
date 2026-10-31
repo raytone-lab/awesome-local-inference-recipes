@@ -127,6 +127,11 @@ class Profiles(unittest.TestCase):
         mach, _ = run({'os': 'linux', 'ram_gb': 32, 'gpus': [{'name': 'Some Future GPU X1', 'vram_gb': 16}]})
         self.assertEqual(mach['kind'], 'gpu')
 
+    def test_lspci_gpu_without_vram(self):
+        mach, out = run({'os': 'linux', 'ram_gb': 64, 'gpus': [{'name': 'NVIDIA Corporation AD102 [GeForce RTX 4090]', 'vram_gb': None}]})
+        self.assertEqual((mach['kind'], mach['chip']), ('gpu', 'RTX 4090'))
+        self.assertTrue(out)
+
     def test_utf16_hw_file(self):
         import tempfile, os
         with tempfile.NamedTemporaryFile('wb', delete=False, suffix='.json') as f:

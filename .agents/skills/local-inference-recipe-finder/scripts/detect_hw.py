@@ -38,7 +38,11 @@ def linux():
     d['gpus'] = nvidia() + amd()
     if not d['gpus']:
         pci = run(['lspci']) or ''
-        d['gpus_pci_only'] = [l.split(': ', 1)[-1] for l in pci.splitlines() if re.search(r'VGA|3D controller', l)]
+        found = [l.split(': ', 1)[-1] for l in pci.splitlines() if re.search(r'VGA|3D controller|Display controller', l)]
+        # No vendor tool works: keep NVIDIA and AMD devices as GPUs with unknown VRAM
+        d['gpus'] = [{'vendor': 'nvidia' if 'NVIDIA' in n else 'amd', 'name': n, 'vram_gb': None, 'from': 'lspci'}
+                     for n in found if re.search(r'NVIDIA|AMD|ATI|Radeon', n)]
+        d['gpus_pci_other'] = [n for n in found if not re.search(r'NVIDIA|AMD|ATI|Radeon', n)]
     if os.path.exists('/etc/dgx-release') or 'GB10' in json.dumps(d): d['dgx_spark'] = True
     d['wsl'] = 'microsoft' in platform.release().lower()
     return d

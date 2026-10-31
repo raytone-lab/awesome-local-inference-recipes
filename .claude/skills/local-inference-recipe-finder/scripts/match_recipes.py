@@ -117,7 +117,8 @@ def score(x, M, a, asof):
         if x['gpu_count'] > M['gpu_count']: return None
         mem = x['unified_mem_gb'] if x['kind'] == 'unified' else x['vram_gb']
         per = (mem or 0) / max(x['gpu_count'], 1); have = M['mem_gb'] / max(M['gpu_count'], 1)
-        if mem and per > have + 2: return None
+        if mem and have and per > have + 2: return None
+        if not have: notes.append('VRAM not detected; check that the model fits')
         if ram_need and ram_need > M['ram_gb'] + 4: return None
         s += 50; fit = 'exact'
         if x.get('laptop') != M['laptop']: s -= 30; fit = 'similar'; notes.append('laptop vs desktop GPU')

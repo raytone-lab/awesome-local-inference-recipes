@@ -7,7 +7,8 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / 'data/trusted_domains.json').read_text(encoding='utf-8'))
 TRUSTED = CFG['trusted']
-URL_RE = re.compile(r'https?://[^\s<>"\'`)\]）】，,;；]+')
+URL_RE = re.compile(r'https?://[^\s<>"\'`)\]）】，,;；]+', re.I)
+ANY_URL_RE = re.compile(r'\b[a-z][a-z0-9+.-]*://[^\s<>"\'`)\]）】，,;；]+', re.I)
 GH_PART = re.compile(r'^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$')
 REPO_PART = re.compile(r'^[A-Za-z0-9._-]{1,100}$')
 # Brand words that a typosquat tries to copy, with the hosts that may use them.
@@ -49,7 +50,7 @@ def problems(url):
     except ValueError:
         return out + ['unparseable URL']
     host = (p.hostname or '').lower()
-    if p.scheme != 'https': out.append('not https')
+    if url.split(':', 1)[0] != 'https': out.append('not https (lowercase)')
     if not host: return out + ['no host']
     if '@' in p.netloc: out.append('userinfo in URL')
     if port not in (None, 443): out.append(f'non-default port {port}')
@@ -101,7 +102,7 @@ UNSAFE_CMD = [
 
 def cmd_problems(cmd):
     out = [why for rx, why in UNSAFE_CMD if rx.search(cmd or '')]
-    for u in URL_RE.findall(cmd or ''):  # every URL in a command must be clean and on an allowlisted host
+    for u in ANY_URL_RE.findall(cmd or ''):  # every URL in a command must be clean and on an allowlisted host
         if problems(u): out.append(f'bad URL: {u}')
         elif not trusted(u): out.append(f'URL on an unverified host: {host_of(u)}')
     return list(dict.fromkeys(out))

