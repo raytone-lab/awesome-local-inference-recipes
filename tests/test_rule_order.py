@@ -23,6 +23,7 @@ RAW_ENGINE_SAMPLES = {
     'MoEShift': 'MoEShift（未开源）', 'ik_llama.cpp (Mcniiby fork)': 'ik_llama.cpp（Mcniiby/ik_llama.cpp-raon 分支）',
     'Espetero': 'Espetero 0.1.2', 'Paiton': 'Paiton（vLLM 插件）',
     'Halowin Bubo': 'Halowin Bubo（Gufo 分支）', 'Janas-LLM': 'Janas-LLM（纯 C）', 'Strim': 'Strim（Swift + MLX）', 'Magnitude': 'Magnitude',
+    'QEngine': 'QEngine 1.3.1（自编 sm_120）', 'PXA': 'PXA 4.0（llama.cpp 分支）', 'Betelgeuse': 'Betelgeuse（llama.cpp 分支）',
     'Front_Eagle739 streaming stack': 'Front_Eagle739 streaming stack（作者自研）', 'Unspecified': '未注明（EXL3 权重）',
 }
 

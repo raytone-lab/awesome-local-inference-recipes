@@ -47,6 +47,9 @@ RULES = [
     (r'^Janas-LLM', 'Janas-LLM'),
     (r'^Strim', 'Strim'),
     (r'^Magnitude', 'Magnitude'),
+    (r'^QEngine', 'QEngine'),
+    (r'^PXA', 'PXA'),
+    (r'^Betelgeuse', 'Betelgeuse'),
     (r'^未注明', 'Unspecified'),
 ]
 INFER = [
