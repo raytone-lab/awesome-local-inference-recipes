@@ -6,6 +6,9 @@ on:
 permissions:
   contents: read
   issues: write
+concurrency:
+  group: linkcheck
+  cancel-in-progress: false
 jobs:
   lychee:
     runs-on: ubuntu-latest
