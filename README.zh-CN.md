@@ -51,12 +51,12 @@
 
 ## 图例
 
-| 来源等级       | 含义            | 格式                                         |
-| ---------- | ------------- | ------------------------------------------ |
-| 🏛️ **官方** | 项目方或厂商发布的数字   | **模型** · 引擎 `量化` — 硬件 → **关键数字** 等级 \[来源\] |
-| ✅ **实测**   | 作者本人跑出，附日志或截图 | **tok/s** 指单路生成速度（不含读入，不含多路合计）             |
-| 🔁 **转述**  | 二手引用，请回原帖核对   | 预算档按公开的最低硬件价格（美元）划分                        |
-| 📣 **宣称**  | 预测值，无复现条件     | 未知字段一律不估算，显示「未见公开数据」                       |
+| 来源等级       | 含义                                  | 格式                                         |
+| ---------- | ----------------------------------- | ------------------------------------------ |
+| 🏛️ **官方** | 项目方或厂商发布的数字                         | **模型** · 引擎 `量化` — 硬件 → **关键数字** 等级 \[来源\] |
+| ✅ **实测**   | 发帖人本人跑出，附日志或截图；引擎或配方作者还要公开原始数据和复现步骤 | **tok/s** 指单路生成速度（不含读入，不含多路合计）             |
+| 🔁 **转述**  | 二手引用，请回原帖核对                         | 预算档按公开的最低硬件价格（美元）划分                        |
+| 📣 **宣称**  | 预测值，无复现条件                           | 未知字段一律不估算，显示「未见公开数据」                       |
 
 ## 收录范围
 
@@ -369,7 +369,7 @@ X 上互动最多的配方帖（按 点赞 + 3×转发 排序；同一帖子只�
 - **Gemma 4 31B** · Radiance `W4A8 + RedHatAI DFlash2 草稿（…` — 4× Radeon AI PRO R9700 32GB → **377.7 tok/s** 📣 [来源](https://codeberg.org/StillDeadcode/radiance/issues/247)
 - **Qwen3.8-Flash-Next** · QEngine `INT4 AutoRound（QEngine 自带）` — 2× RTX 5090 32GB + Threadripper PRO 3975WX + 251GB RAM → **370 tok/s** ✅ [来源](https://www.reddit.com/r/LocalLLaMA/comments/1xjx0ez/)
 - **Qwen3.8-Flash-Next** · Basalt `NVIDIA NVFP4（引擎自行转换）` — 1× RTX 5090（限 400W）+ 128GB RAM → **354 tok/s** 🏛️ [来源](https://www.reddit.com/r/LocalLLaMA/comments/1xdlunp/)
-- **Qwen3.8-Flash-Next** · vLLM `nvidia FP4-Local（NVFP4），FP8…` — 1× RTX PRO 6000 Blackwell 96GB（限 450W） → **287 tok/s** 📣 [来源](https://www.reddit.com/r/LocalLLM/comments/1xj9ura/)
+- **Qwen3.8-Flash-Next** · vLLM `nvidia FP4-Local（NVFP4），FP8…` — 1× RTX PRO 6000 Blackwell 96GB（限 450W） → **287 tok/s** ✅ [来源](https://www.reddit.com/r/LocalLLM/comments/1xj9ura/)
 - **Qwen3.8-Flash-Next** · Strata `Q2_0（另测 IQ3_S）` — RTX 5090 + Ryzen 9 9950X（Windows） → **270.7 tok/s** ✅ [来源](https://github.com/Niko1221/Strata/issues/4166)
 - **Qwen3.8-27B** · TensorFold `MLX 4-bit + z-lab DFlash2 草稿` — 1× RTX 5090 32GB → **268.2 tok/s** ✅ [来源](https://x.com/niklaslenz_ai/status/2114219401679376809)
 - **Qwen3.6-35B-A3B** · DFlash `DFlash 2` — Mac Studio M3 Ultra → **251 tok/s** 📣 [来源](https://x.com/tinybluedev/status/2089910202606764530)
