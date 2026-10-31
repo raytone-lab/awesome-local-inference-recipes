@@ -132,6 +132,11 @@ class Profiles(unittest.TestCase):
         self.assertEqual((mach['kind'], mach['chip']), ('gpu', 'RTX 4090'))
         self.assertTrue(out)
 
+    def test_intel_arc_names(self):
+        for n in ('Intel Corporation Arc B580', 'Intel(R) Arc(TM) B580 Graphics'):
+            mach, _ = run({'os': 'linux', 'ram_gb': 32, 'gpus': [{'name': n, 'vram_gb': None}]})
+            self.assertEqual(mach['kind'], 'gpu', n)
+
     def test_utf16_hw_file(self):
         import tempfile, os
         with tempfile.NamedTemporaryFile('wb', delete=False, suffix='.json') as f:

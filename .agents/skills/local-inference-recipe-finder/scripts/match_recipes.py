@@ -32,8 +32,9 @@ CPU_ENGINES = re.compile(r'llama\.cpp|ollama|lm studio|ik_llama|bitnet|mnn|edge0
 
 def chip_of(name, pats):
     """Chip name and pattern for a detected device name. The index gives the patterns, so the matcher and the generator agree."""
+    name = re.sub(r'\((R|TM)\)', '', name or '')
     for p in pats:
-        if re.search(p['regex'], name or '', re.I): return p
+        if re.search(p['regex'], name, re.I): return p
     return None
 
 
