@@ -14,7 +14,7 @@ Where recipes come from and how they are checked. Every recipe links to its orig
 
 ## Source levels
 - 🏛️ **Official** (官方) — published by the model/engine/hardware vendor.
-- ✅ **Measured** (实测) — the poster ran it themselves and shows a screenshot or log of the run. An engine or recipe author who tests their own engine or recipe gets Measured only when the author publishes the raw benchmark data and the reproduction steps.
+- ✅ **Measured** (实测) — the poster ran it themselves and shows a screenshot or log of the run. Some authors test their own engine or recipe. Such a result is Measured only when the author publishes the raw benchmark data and the reproduction steps.
 - 🔁 **Relayed** (转述) — second-hand report of someone else's result.
 - 📣 **Claimed** (宣称) — marketing, a prediction, or an unverified claim with no screenshot/log or no way to reproduce it (e.g. an unpublished private build). An author-run result without raw benchmark data and reproduction steps is Claimed.
 
