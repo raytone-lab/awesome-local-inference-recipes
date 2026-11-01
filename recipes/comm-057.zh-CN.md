@@ -12,7 +12,7 @@
 ## 模型
 
 - DeepSeek-V4.1-Flash · `vcruz305 SAGE EXL3 1.59bpw + Engram 原地读 SSD（route/SSD 尾部跳过）`
-- 下载: [huggingface.co/vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw](https://huggingface.co/vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw)
+- 下载: [huggingface.co/vcruz305/DSV4.1-Flash-1017-SAGE-EXL3-1.62bpw](https://huggingface.co/vcruz305/DSV4.1-Flash-1017-SAGE-EXL3-1.62bpw)
 
 ## 引擎
 
@@ -37,7 +37,7 @@ sudo systemctl enable --now nvidia-powerd && git clone https://github.com/Jackww
 
 ## 注意事项
 
-- Strata-DS 笔记本配方页，作者实测（每条件 5 次中位；原始数据 ds41/bench/results/2026-10-16-laptop-5090；setup 下载 vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw 并打包）
+- Strata-DS 笔记本配方页，作者实测（每条件 5 次中位；原始数据 ds41/bench/results/2026-10-16-laptop-5090）。setup 下载的 vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw 自 2026-11-01 起不再公开（HTTP 401），所以 setup 现在会失败。作者 2026-10-21 在同一笔记本上测了 SA…
 - 速度随驱动、引擎版本、上下文长度和提示长度变化。
 
 ## 来源与致谢
