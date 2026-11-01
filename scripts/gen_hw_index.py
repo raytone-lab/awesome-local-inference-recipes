@@ -18,7 +18,7 @@ CHIPS = [
  ('RTX 5070 Ti', r'5070 ?Ti', 16, 'gpu'), ('RTX 5070', r'5070', 12, 'gpu'), ('RTX 5060 Ti', r'5060 ?Ti', 16, 'gpu'), ('RTX 5060', r'5060', 8, 'gpu'),
  ('RTX 4090', r'4090', 24, 'gpu'), ('RTX 4080', r'4080', 16, 'gpu'), ('RTX 4070 Ti SUPER', r'4070 ?Ti ?SUPER', 16, 'gpu'), ('RTX 4070 Ti', r'4070 ?Ti', 12, 'gpu'),
  ('RTX 4070', r'4070', 12, 'gpu'), ('RTX 4060 Ti', r'4060 ?Ti', 16, 'gpu'), ('RTX 4060', r'4060', 8, 'gpu'),
- ('RTX 3090', r'3090', 24, 'gpu'), ('RTX 3080', r'3080', 10, 'gpu'), ('RTX 3070', r'3070', 8, 'gpu'), ('RTX 3060', r'3060', 12, 'gpu'),
+ ('RTX 3090', r'3090', 24, 'gpu'), ('RTX 3080 Ti', r'3080 ?Ti', 12, 'gpu'), ('RTX 3080', r'3080', 10, 'gpu'), ('RTX 3070', r'3070', 8, 'gpu'), ('RTX 3060', r'3060', 12, 'gpu'),
  ('RTX 5050', r'5050', 8, 'gpu'), ('RTX 4050', r'4050', 6, 'gpu'), ('GTX 1070 Ti', r'1070 ?Ti', 8, 'gpu'), ('GTX 1070', r'GTX 1070', 8, 'gpu'),
  ('RTX 2080 Ti', r'2080 ?Ti', 11, 'gpu'), ('RTX A6000', r'A6000', 48, 'gpu'), ('RTX A5000', r'A5000', 24, 'gpu'), ('RTX A4000', r'A4000', 16, 'gpu'),
  ('Tesla P40', r'P40\b', 24, 'gpu'), ('Tesla P100', r'P100', 16, 'gpu'), ('V100', r'V100', 32, 'gpu'), ('A100', r'A100', 80, 'gpu'),
@@ -70,6 +70,17 @@ def parse_hw(h):
         own = re.search(r'(\d{1,3})\s*Gi?B(?!\s*(?:DDR|LPDDR|RAM|内存|system|系统内存|/s))', seg)
         v = int(own.group(1)) if own else per
         vram = v * n if v else None
+        gsegs = [x for x in re.split(r'\+', re.sub(r'[（(][^）)]*[）)]', '', t)) if any(k == 'gpu' and re.search(r, x, re.I) for _, r, _, k in CHIPS)]
+        if len(gsegs) >= 2:  # mixed cards, e.g. 'RTX PRO 4500 32GB + RTX PRO 4000 24GB': count and sum each card
+            n, tot = 0, 0
+            for x in gsegs:
+                c = next(c for c in CHIPS if c[3] == 'gpu' and re.search(c[1], x, re.I))
+                cm = re.search(r'([1-8])\s*[x×]', x)
+                k = int(cm.group(1)) if cm else 1
+                g = re.search(r'(\d{1,3})\s*Gi?B(?!\s*(?:DDR|LPDDR|RAM|内存|system|系统内存|/s))', x)
+                gv = int(g.group(1)) if g else c[2]
+                n += k; tot = None if tot is None or gv is None else tot + gv * k
+            vram = tot
     elif kind == 'unified':
         u = gbs[0] if gbs else UNIFIED_DEFAULT.get(chip)
         uni = u * n if u else None
