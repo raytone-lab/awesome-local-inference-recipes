@@ -63,6 +63,7 @@ class IndexInSync(unittest.TestCase):
         self.assertEqual((mixed['gpu_count'], mixed['vram_gb']), (2, 56))
         self.assertEqual(p('Threadripper 3960X + RTX 5090 + RTX 3080 Ti + 192GB DDR4')['vram_gb'], 44)
         self.assertEqual(p('2× V100 32GB（PG500-216 SXM2 转 PCIe + V100-PCIE）')['vram_gb'], 64)
+        self.assertEqual(p('RTX 4090 Laptop (16GB) + RTX 4060 Laptop (8GB)')['vram_gb'], 24)
 
 
 class MirrorInSync(unittest.TestCase):

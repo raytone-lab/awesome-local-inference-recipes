@@ -49,6 +49,17 @@ NO_DERIVE = {'Unspecified', 'ComfyUI', 'Ollama'}
 ENGINE_ALIAS = {'DFlash': 'DFlash / DFlash 2', 'ds4': 'ds4 (DwarfStar)', 'halogen': 'halogen'}
 
 
+def split_top(t):
+    """Split on '+' outside brackets, so '(SXM2 + PCIe)' stays in one card's segment."""
+    out, cur, d = [], '', 0
+    for ch in t:
+        if ch in '(（': d += 1
+        elif ch in ')）': d = max(0, d - 1)
+        if ch == '+' and d == 0: out.append(cur); cur = ''
+        else: cur += ch
+    return out + [cur]
+
+
 def parse_hw(h):
     t = h or ''
     chip = kind = per = None
@@ -70,14 +81,16 @@ def parse_hw(h):
         own = re.search(r'(\d{1,3})\s*Gi?B(?!\s*(?:DDR|LPDDR|RAM|内存|system|系统内存|/s))', seg)
         v = int(own.group(1)) if own else per
         vram = v * n if v else None
-        gsegs = [x for x in re.split(r'\+', re.sub(r'[（(][^）)]*[）)]', '', t)) if any(k == 'gpu' and re.search(r, x, re.I) for _, r, _, k in CHIPS)]
+        gsegs = [x for x in split_top(t) if any(k == 'gpu' and re.search(r, x, re.I) for _, r, _, k in CHIPS)]
         if len(gsegs) >= 2:  # mixed cards, e.g. 'RTX PRO 4500 32GB + RTX PRO 4000 24GB': count and sum each card
             n, tot = 0, 0
             for x in gsegs:
                 c = next(c for c in CHIPS if c[3] == 'gpu' and re.search(c[1], x, re.I))
-                cm = re.search(r'([1-8])\s*[x×]', x)
+                xo = re.sub(r'[（(][^）)]*[）)]', '', x)  # a count or size inside brackets is commentary, unless it is the only size
+                cm = re.search(r'([1-8])\s*[x×]', xo)
                 k = int(cm.group(1)) if cm else 1
-                g = re.search(r'(\d{1,3})\s*Gi?B(?!\s*(?:DDR|LPDDR|RAM|内存|system|系统内存|/s))', x)
+                gr = r'(\d{1,3})\s*Gi?B(?!\s*(?:DDR|LPDDR|RAM|内存|system|系统内存|/s))'
+                g = re.search(gr, xo) or re.search(gr, x)
                 gv = int(g.group(1)) if g else c[2]
                 n += k; tot = None if tot is None or gv is None else tot + gv * k
             vram = tot
