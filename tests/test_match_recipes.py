@@ -59,6 +59,11 @@ class IndexInSync(unittest.TestCase):
         self.assertEqual(p('RTX 4090 Laptop 16GB')['vram_gb'], 16)
         self.assertEqual(p('Core i5-12600K（仅 CPU）')['kind'], 'cpu')
         self.assertEqual(p('Mac Studio M5 Ultra 256GB')['unified_mem_gb'], 256)
+        mixed = p('RTX PRO 4500 32GB + RTX PRO 4000 24GB，HP Z820（2× Xeon E5-2697 v2）')
+        self.assertEqual((mixed['gpu_count'], mixed['vram_gb']), (2, 56))
+        self.assertEqual(p('Threadripper 3960X + RTX 5090 + RTX 3080 Ti + 192GB DDR4')['vram_gb'], 44)
+        self.assertEqual(p('2× V100 32GB（PG500-216 SXM2 转 PCIe + V100-PCIE）')['vram_gb'], 64)
+        self.assertEqual(p('RTX 4090 Laptop (16GB) + RTX 4060 Laptop (8GB)')['vram_gb'], 24)
 
 
 class MirrorInSync(unittest.TestCase):

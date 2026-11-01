@@ -12,7 +12,7 @@
 ## Model
 
 - DeepSeek-V4.1-Flash · `vcruz305 SAGE EXL3 1.59bpw + Engram read in place from the SSD (route/SSD tail skips)`
-- Download: [huggingface.co/vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw](https://huggingface.co/vcruz305/DSV4.1-Flash-SAGE-EXL3-1.59bpw)
+- Download: [huggingface.co/vcruz305/DSV4.1-Flash-1017-SAGE-EXL3-1.62bpw](https://huggingface.co/vcruz305/DSV4.1-Flash-1017-SAGE-EXL3-1.62bpw)
 
 ## Engine
 
