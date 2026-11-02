@@ -14252,6 +14252,47 @@
     "engine_note": "TensorFold（BobClawblaw/TensorFold deepseek-v41-main @f8a3ce2f，非 upstream；测速 harness 用 6a4d7be7 / 多流 c4c69219）"
   },
   {
+    "id": "text-151",
+    "category": "text",
+    "model": "gpt-oss-120b",
+    "quant": "MXFP4（官方原生，64.7GB）",
+    "engine": "Ollama",
+    "hardware": "1× DGX Spark",
+    "hardware_family": "DGX Spark",
+    "hardware_cost_text": "$6,950（128GB，2026-10-11）",
+    "hardware_cost_usd": 6950,
+    "metric": "单流 decode 42-46.7 tok/s（17 题长思考负载，批内均值 ~42.5，单发 46.7）；prefill 324-400 tok/s；常驻 70.9GB；冷装载 ~25s / 页缓存热 13.6s；ctx 131072；17 题中文推理集 17/17 正确",
+    "tok_s": 46.7,
+    "concurrency": "单流",
+    "context": "131072",
+    "launch_command": null,
+    "source_url": null,
+    "source_note": "raytone-lab 自测；ollama 0.35（runner 为 llama-server/llama.cpp）；thinking 计入 eval_count；固定题集贪心解码",
+    "source_level": "实测",
+    "date": "2026-11-02",
+    "measured_by": "raytone-lab",
+    "model_family": "gpt-oss",
+    "tags": [
+      "MoE",
+      "4bit",
+      "reasoning"
+    ],
+    "metric_en": "single-stream decode 42-46.7 tok/s (17 long-reasoning prompts, batch mean ~42.5, single-shot 46.7); prefill 324-400 tok/s; resident 70.9GB; cold load ~25s / warm 13.6s; ctx 131072; 17/17 correct on a 17-item Chinese reasoning set",
+    "en": {
+      "quant": "MXFP4 (official native, 64.7GB)",
+      "hardware": "1× DGX Spark",
+      "hardware_cost_text": "$6,950 (128GB, 2026-10-11)",
+      "concurrency": "single stream",
+      "source_note": "measured by raytone-lab; ollama 0.35 (runner = llama-server/llama.cpp); thinking included in eval_count; greedy decoding on a fixed item set"
+    },
+    "streams": [
+      {
+        "n": 1,
+        "tok_s": 46.7
+      }
+    ]
+  },
+  {
     "id": "comm-050",
     "category": "text",
     "model": "Qwen3.8-Flash-Next",
