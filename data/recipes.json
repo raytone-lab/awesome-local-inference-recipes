@@ -14129,7 +14129,7 @@
     "source_url": "https://github.com/MiaAI-Lab/DeepSeek-v4.1-Flash-1017-2x-DGX-Sparks",
     "source_note": "MiaAI-Lab 仓库 README + sparkDash 表（同步 X @MiaAI_lab/status/2112105974546694249；权重 Mia-AiLab/…-EXL3-EAQ-v1-2.9-bpw）；同级结果：x-095（2.8bpw，2×GX10）代码 92.9；@fumi_KPFstudio 用本配方测 256K 单流代码 91–99（https://x.com/fumi_KPFstudio/status/2112684763282837562）",
     "source_level": "实测",
-    "date": "2026-10-19",
+    "date": "2026-11-09",
     "measured_by": "MiaAI_lab",
     "en": {
       "quant": "Mia-AiLab EXL3-EAQv1 2.9bpw + official 1017 Engram (TP=2, DSpark)",
@@ -29391,7 +29391,7 @@
     "context": null,
     "launch_command": null,
     "concurrency": "单流",
-    "date": "2026-11-05",
+    "date": "2026-11-11",
     "tags": [
       "2bit",
       "MoE"
@@ -29409,15 +29409,15 @@
     "engine": "RustingStrata",
     "hardware": "RTX 3060 12GB + Ryzen 5 7600X + 32GB RAM",
     "hardware_family": "NVIDIA 消费级",
-    "source_url": "https://www.reddit.com/r/LocalLLaMA/comments/1xnu9iv/",
+    "source_url": "https://www.reddit.com/r/LocalLLM/comments/1xsvzqb/",
     "source_level": "宣称",
     "measured_by": "Serious_Scarcity7818",
-    "metric": "纯 Rust 引擎（CUDA/Vulkan）。CUDA decode 约 36，预填约 370；原版 Strata 同卡 19–22 / 140–146。Vulkan decode 约 30。输出与原版对拍。2026-11-11同作者同机复测（IQ2_XS，greedy，128 生成，6 次中位）：RustingStrata decode 33.0（29.3–35.8），低 8%，改主值；同文件 llama.cpp 25.6。WikiText-2 9,180 token：PPL 2.9212 / 2.9156，top-1 一致 96.78%，均 KLD 0.0098，与 llama.cpp 对齐。上下文仍未写。https://www.reddit.com/r/LocalLLM/comments/1xsvzqb/",
-    "metric_en": "Pure Rust engine (CUDA/Vulkan). CUDA decode about 36, prefill about 370; stock Strata on the same card 19–22 / 140–146. Vulkan decode about 30. Outputs matched against stock Strata. 2026-11-11 same-author same-machine retest (IQ2_XS, greedy, 128 generated, 6-run median): RustingStrata decode 33.0 (29.3–35.8), 8% lower, so the headline is updated; same file on llama.cpp is 25.6. WikiText-2 9,180 tokens: PPL 2.9212 / 2.9156, top-1 agreement 96.78%, mean KLD 0.0098, aligned with llama.cpp. Context is still unstated. https://www.reddit.com/r/LocalLLM/comments/1xsvzqb/",
+    "metric": "纯 Rust 引擎（CUDA/Vulkan）。CUDA decode 约 36，预填约 370；原版 Strata 同卡 19–22 / 140–146。Vulkan decode 约 30。输出与原版对拍。2026-11-11同作者同机复测（IQ2_XS，greedy，128 生成，6 次中位）：RustingStrata decode 33.0（29.3–35.8），低 8%，改主值；同文件 llama.cpp 25.6。WikiText-2 9,180 token：PPL 2.9212 / 2.9156，top-1 一致 96.78%，均 KLD 0.0098，与 llama.cpp 对齐。上下文仍未写。https://www.reddit.com/r/LocalLLaMA/comments/1xnu9iv/",
+    "metric_en": "Pure Rust engine (CUDA/Vulkan). CUDA decode about 36, prefill about 370; stock Strata on the same card 19–22 / 140–146. Vulkan decode about 30. Outputs matched against stock Strata. 2026-11-11 same-author same-machine retest (IQ2_XS, greedy, 128 generated, 6-run median): RustingStrata decode 33.0 (29.3–35.8), 8% lower, so the headline is updated; same file on llama.cpp is 25.6. WikiText-2 9,180 tokens: PPL 2.9212 / 2.9156, top-1 agreement 96.78%, mean KLD 0.0098, aligned with llama.cpp. Context is still unstated. https://www.reddit.com/r/LocalLLaMA/comments/1xnu9iv/",
     "tok_s": 33.0,
     "source_note": "Reddit 帖文（引擎作者本人，无原始数据）",
     "model_family": "Qwen",
-    "source_id": "src-45fb2166b1"
+    "source_id": "src-882e74bcef"
   },
   {
     "category": "text",
@@ -33851,11 +33851,11 @@
     "context": "1048576",
     "launch_command": null,
     "source_url": "https://github.com/QuattroSparks/Vince-GLM5.3-Flash",
-    "source_level": "宣称",
+    "source_level": "实测",
     "date": "2026-11-11",
     "measured_by": "Vince / vincevenerito / QuattroSparks",
-    "metric": "Vince v2.4 叠加层（TensorFold v0.6.0 Python 引擎，改 30 个文件；不用 Mia 默认 Zig 引擎）。与 x-018（Mia 原版 4×Spark EXL3，散文 95）引擎不同，不合并。sparkDash 2.70.0、2026-11-11、温度 0.7、思考开、单次：单流散文 decode 93.3 作主值；代码 138.1 另标。2 路散文 合计 132.6 / 4 路 合计 223.8，不作单流主值。服务窗口 1,048,576。同 README 更早 v2.1 口径：sparkDash 温度 0 思考关散文 90.4，自有协议 72.9，另标。配方作者表并链接 json，但主值是单次跑，故为宣称。增益主要在预填，不在 decode。",
-    "metric_en": "Vince v2.4 overlay (TensorFold v0.6.0 Python engine, 30 files changed; not Mia's default Zig engine). Hardware, model and quant match x-018 (Mia's original 4×Spark EXL3 prose 95), but the engine does not, so this is a new row. sparkDash 2.70.0, 2026-11-11, temperature 0.7, thinking on, one run: headline is single-stream prose decode 93.3; code 138.1 is separate. Two-stream prose total 132.6 / four-stream total 223.8 are not single-stream. Served window 1,048,576. The same README's earlier v2.1 figures (sparkDash temperature 0, thinking off: prose 90.4; own protocol 72.9) are separate. Recipe-author table with linked JSON, but the headline is a single run, so this is a claim. The recipe's gain is in prefill, not decode.",
+    "metric": "Vince v2.4 叠加层（TensorFold v0.6.0 Python 引擎，改 30 个文件；不用 Mia 默认 Zig 引擎）。与 x-018（Mia 原版 4×Spark EXL3，散文 95）引擎不同，不合并。sparkDash 2.70.0、2026-11-11、温度 0.7、思考开、单次：单流散文 decode 93.3 作主值；代码 138.1 另标。2 路散文 合计 132.6 / 8 路 合计 223.8，不作单流主值。服务窗口 1,048,576。同 README 更早 v2.1 口径：sparkDash 温度 0 思考关散文 90.4，自有协议 72.9，另标。配方作者表附原始 json 与复现步骤，按规则记实测（单次跑）。增益主要在预填，不在 decode。",
+    "metric_en": "Vince v2.4 overlay (TensorFold v0.6.0 Python engine, 30 files changed; not Mia's default Zig engine). Hardware, model and quant match x-018 (Mia's original 4×Spark EXL3 prose 95), but the engine does not, so this is a new row. sparkDash 2.70.0, 2026-11-11, temperature 0.7, thinking on, one run: headline is single-stream prose decode 93.3; code 138.1 is separate. Two-stream prose total 132.6 / eight-stream total 223.8 are not single-stream. Served window 1,048,576. The same README's earlier v2.1 figures (sparkDash temperature 0, thinking off: prose 90.4; own protocol 72.9) are separate. Recipe-author table with raw JSON and reproduction steps, so this is measured (one run). The recipe's gain is in prefill, not decode.",
     "tok_s": 93.3,
     "concurrency": "单流",
     "source_note": "第一手来源；独立复核，未独立复现",
@@ -33881,7 +33881,7 @@
         "tok_s": 132.6
       },
       {
-        "n": 4,
+        "n": 8,
         "tok_s": 223.8
       }
     ],
@@ -34202,14 +34202,14 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "$5,400–6,995（新卡街价，2026-10-11；MSRP $1,999）",
     "hardware_cost_usd": 5400,
-    "context": "4096",
+    "context": null,
     "launch_command": null,
     "source_url": "https://llm-speed.com/r/r_qfrb2zmyk0k",
     "source_level": "实测",
     "date": "2026-10-15",
     "measured_by": "llm-speed",
-    "metric": "窗口外补录（测于 2026-10-15，由 @llmspeed 窗口内引用）。llm-speed 签名跑分 r_qfrb2zmyk0k，suite-v1，llama.cpp b11669。chat-short decode 75.19，主值记 75.2（预填 563.4，TTFT p50 13.2 ms）；chat-long 74.57 另标。上下文 4K。基线无同组合（llama.cpp × Q4_K_M × 5090 × Qwen3.8-27B）条目。",
-    "metric_en": "Out-of-window makeup (measured 2026-10-15, cited in-window by @llmspeed). Signed llm-speed run r_qfrb2zmyk0k, suite-v1, llama.cpp b11669. chat-short decode 75.19, recorded as 75.2 (prefill 563.4, TTFT p50 13.2 ms); chat-long 74.57 is separate. Context 4K. No baseline row for llama.cpp × Q4_K_M × 5090 × Qwen3.8-27B.",
+    "metric": "窗口外补录（测于 2026-10-15，由 @llmspeed 窗口内引用）。llm-speed 签名跑分 r_qfrb2zmyk0k，suite-v1，llama.cpp b11669。chat-short decode 75.19，主值记 75.2（预填 563.4，TTFT 273 ms，逐 token 延迟 p50 13.2 ms）；chat-long 74.57 另标。配置的上下文上限未写，不填。基线无同组合（llama.cpp × Q4_K_M × 5090 × Qwen3.8-27B）条目。",
+    "metric_en": "Out-of-window makeup (measured 2026-10-15, cited in-window by @llmspeed). Signed llm-speed run r_qfrb2zmyk0k, suite-v1, llama.cpp b11669. chat-short decode 75.19, recorded as 75.2 (prefill 563.4, TTFT 273 ms, inter-token latency p50 13.2 ms); chat-long 74.57 is separate. The configured context limit is not stated, left null. No baseline row for llama.cpp × Q4_K_M × 5090 × Qwen3.8-27B.",
     "tok_s": 75.2,
     "concurrency": "单流",
     "source_note": "第一手来源；独立复核，未独立复现",
@@ -34219,7 +34219,6 @@
       "concurrency": "single stream",
       "source_note": "First-hand source; independently checked, not rerun",
       "quant": "lmstudio-community Q4_K_M",
-      "context": "4096",
       "engine_note": "llama.cpp b11669, llm-speed suite-v1, cli 0.0.7, signed"
     },
     "model_family": "Qwen",
