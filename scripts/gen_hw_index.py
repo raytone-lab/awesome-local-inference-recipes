@@ -104,6 +104,8 @@ def parse_hw(h):
 
 
 def single_stream(r):
+    if re.fullmatch(r'\s*未写\s*', str(r.get('concurrency') or '')):  # concurrency not stated: do not claim single-stream
+        return False
     return not r.get('superseded_by') and not re.search(r'并发|aggregate|总吞吐', (r.get('metric') or '') + ' ' + str(r.get('concurrency') or ''), re.I)
 
 
