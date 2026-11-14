@@ -17725,15 +17725,15 @@
     "hardware_family": "NVIDIA 消费级",
     "hardware_cost_text": "未核价",
     "hardware_cost_usd": null,
-    "metric": "V2 配方（仓库提交 a659d52056）：exllamav3 v1.6.4 + engine/patches（V2 补丁）+ TabbyAPI @564f8fb，6-bit KV，3M token 共享池，每请求上限 655,360，读入块 8192，DFlash2 草稿。代码提示，每请求输出 512 token，greedy，A/A/B/B 交替启动，每次启动 3 次，取中位数。1 用户 299.4 作主值；2 / 4 / 8 用户 合计 398.0 / 560.9 / 676.7，不作单流主值。发布配置单次 1 用户 305.3。短提示强制 2048 token decode：prose 125.8，code 287.3，chat 156.1，math 313.8。读入 32K / 128K 为 5,690 / 5,647。旧主值：v1（原版 exllamav3 1.6.4，8-bit KV）代码提示 C=1 233.9（2026-10-24 README，3 次中位数，同一仓库地址）；V2 表中 v1 同测为 231.1。X 帖 https://x.com/GPTWare/status/2121265574529339808",
-    "metric_en": "V2 recipe (repo commit a659d52056): exllamav3 v1.6.4 + engine/patches (V2 patches) + TabbyAPI @564f8fb, 6-bit KV, 3M-token shared pool, up to 655,360 tokens per request, 8192-token prefill chunks, DFlash2 drafter. Code prompt, 512 output tokens per request, greedy, A/A/B/B alternating server boots, 3 runs per boot, medians. Headline is 1 user, 299.4. 2 / 4 / 8 users aggregate 398.0 / 560.9 / 676.7, not single-stream values. The shipped config gave 305.3 at 1 user in a single run. Decode of 2048 forced tokens from a short prompt: prose 125.8, code 287.3, chat 156.1, math 313.8. Prompt read 32K / 128K: 5,690 / 5,647. Old headline: v1 (stock exllamav3 1.6.4, 8-bit KV) code prompt C=1 233.9 (README of 2026-10-24, median of 3, same repo URL); v1 in the V2 table measures 231.1. X post https://x.com/GPTWare/status/2121265574529339808",
+    "metric": "V2 配方（仓库提交 a659d52056）：exllamav3 v1.6.4 + engine/patches（V2 补丁）+ TabbyAPI @564f8fb，6-bit KV，3M token 共享池，每请求上限 655,360，读入块 8192，DFlash2 草稿。代码提示，每请求输出 512 token，greedy，A/A/B/B 交替启动，每次启动 3 次，取中位数。1 用户 299.4 作主值（测于 3,121,152 token 池、读入块 2048）；2 / 4 / 8 用户 合计 398.0 / 560.9 / 676.7，不作单流主值。发布配置单次 1 用户 305.3。短提示强制 2048 token decode：prose 125.8，code 287.3，chat 156.1，math 313.8。读入 32K / 128K 为 5,690 / 5,647。旧主值：v1（原版 exllamav3 1.6.4，8-bit KV）代码提示 C=1 233.9（2026-10-24 README，3 次中位数，同一仓库地址）；V2 表中 v1 同测为 231.1。作者仓库有方法和中位数表，无逐次原始数据，记为宣称。X 帖 https://x.com/GPTWare/status/2121265574529339808",
+    "metric_en": "V2 recipe (repo commit a659d52056): exllamav3 v1.6.4 + engine/patches (V2 patches) + TabbyAPI @564f8fb, 6-bit KV, 3M-token shared pool, up to 655,360 tokens per request, 8192-token prefill chunks, DFlash2 drafter. Code prompt, 512 output tokens per request, greedy, A/A/B/B alternating server boots, 3 runs per boot, medians. Headline is 1 user, 299.4 (measured with a 3,121,152-token pool and 2048-token prefill chunks). 2 / 4 / 8 users aggregate 398.0 / 560.9 / 676.7, not single-stream values. The shipped config gave 305.3 at 1 user in a single run. Decode of 2048 forced tokens from a short prompt: prose 125.8, code 287.3, chat 156.1, math 313.8. Prompt read 32K / 128K: 5,690 / 5,647. Old headline: v1 (stock exllamav3 1.6.4, 8-bit KV) code prompt C=1 233.9 (README of 2026-10-24, median of 3, same repo URL); v1 in the V2 table measures 231.1. The repo gives methods and median tables but no per-run raw data, so this is a claim. X post https://x.com/GPTWare/status/2121265574529339808",
     "tok_s": 299.4,
     "concurrency": "单流（另测 C=2–8 聚合）",
     "context": "655360",
     "launch_command": null,
     "source_url": "https://github.com/GPTwareAiTeam/Qwen3.8-Flash-Next-1RTX6000",
     "source_note": "配方作者仓库 README V2（2026-11-13；v1 旧值见描述）",
-    "source_level": "官方",
+    "source_level": "宣称",
     "date": "2026-11-13",
     "measured_by": "GPTWare",
     "model_family": "Qwen",
@@ -19423,7 +19423,7 @@
     "hardware_family": "DGX Spark",
     "hardware_cost_text": "≈$6,950（DGX Spark 128GB 2026-10-11 价）",
     "hardware_cost_usd": 6950,
-    "context": null,
+    "context": "262144",
     "launch_command": null,
     "source_url": "https://github.com/sxuff/qwen38-flash-next-flare",
     "source_level": "实测",
@@ -19438,6 +19438,7 @@
     "tags": [
       "4bit",
       "MoE",
+      "long-context",
       "speculative",
       "MTP"
     ],
@@ -19447,7 +19448,8 @@
       "hardware_cost_text": "≈$6,950 (DGX Spark 128GB price 2026-10-11)",
       "concurrency": "single stream (aggregate also measured)",
       "source_note": "Recipe author repository README and results/v2 raw data (the author's X post links this repo)",
-      "engine_note": "NVIDIA Flare 0.1.0 @ca1f960 + 4 recipe patches (filicroval recipe v2)"
+      "engine_note": "NVIDIA Flare 0.1.0 @ca1f960 + 4 recipe patches (filicroval recipe v2)",
+      "context": "262144"
     },
     "source_id": "src-af8cd41720",
     "streams": [
@@ -37127,44 +37129,6 @@
     "id": "x-310",
     "category": "text",
     "model": "Qwen3.8-27B",
-    "quant": "4-bit（作者只写 4-bit）+ DFlash2 草稿模型",
-    "engine": "TensorFold",
-    "hardware": "Mac Studio M5 Ultra 512GB",
-    "hardware_family": "Mac",
-    "hardware_cost_text": "未核价",
-    "hardware_cost_usd": null,
-    "context": null,
-    "launch_command": null,
-    "source_url": "https://x.com/LazyLocalLLM/status/2121282051588719000",
-    "source_level": "宣称",
-    "date": "2026-11-14",
-    "measured_by": "LazyLocalLLM",
-    "metric": "TensorFold 1.2.7 + DFlash2 草稿模型，作者首测帖。146；同机 Apple mlx-lm 44.5（mlx-lm 版本未写，不另列）。任务类型、上下文与同时处理的请求数未写。无原始数据，记为宣称。",
-    "metric_en": "TensorFold 1.2.7 with the DFlash2 draft model; the author's first test post. 146; on the same machine Apple mlx-lm gives 44.5 (mlx-lm version not stated, no separate row). Task type, context and requests at once are not stated. No raw data, so this is a claim.",
-    "tok_s": 146,
-    "concurrency": "未写",
-    "source_note": "第一手来源；独立复核，未独立复现",
-    "en": {
-      "hardware": "Mac Studio M5 Ultra 512GB",
-      "hardware_cost_text": "Not priced",
-      "concurrency": "not stated",
-      "source_note": "First-hand source; independently checked, not rerun",
-      "quant": "4-bit (the author writes only 4-bit) + DFlash2 draft model",
-      "context": null,
-      "engine_note": "TensorFold 1.2.7 with DFlash2 draft model"
-    },
-    "model_family": "Qwen",
-    "tags": [
-      "4bit",
-      "dense",
-      "speculative"
-    ],
-    "source_id": "src-3628fc664e"
-  },
-  {
-    "id": "x-311",
-    "category": "text",
-    "model": "Qwen3.8-27B",
     "quant": "Qwen3.8-27B-GSQ-RCO-IQ2_XS-mtp（GGUF）",
     "engine": "llama.cpp",
     "hardware": "1× RTX 4070 SUPER 12GB（用 11.3GB 显存）",
@@ -37201,14 +37165,14 @@
     "source_id": "src-0f640952bc"
   },
   {
-    "id": "x-312",
+    "id": "x-311",
     "category": "text",
     "model": "DeepSeek-V4.1-Flash-1017",
     "quant": "DeepSeek 官方 FP8 权重 + FP4 路由专家（rev 1bae0e10），DSpark 5 草稿",
     "engine": "spark-ds41f",
     "hardware": "4× DGX Spark 级 GB10（2 台 ASUS Ascent GX10、Gigabyte AI TOP ATOM、Lenovo ThinkStation PGX），TP4，CX7 线缆环（无交换机）",
     "hardware_family": "DGX Spark",
-    "hardware_cost_text": "≈$27,800（4×$6,950，计算值；交换机未计）",
+    "hardware_cost_text": "≈$27,800（4×$6,950，计算值）",
     "hardware_cost_usd": 27800,
     "context": "1M",
     "launch_command": null,
@@ -37223,7 +37187,7 @@
     "source_note": "第一手来源；独立复核，未独立复现",
     "en": {
       "hardware": "4× DGX Spark class GB10 (2 ASUS Ascent GX10, Gigabyte AI TOP ATOM, Lenovo ThinkStation PGX), TP4, CX7 cable ring (no switch)",
-      "hardware_cost_text": "≈$27,800 (4×$6,950, calculated; switch not included)",
+      "hardware_cost_text": "≈$27,800 (4×$6,950, calculated)",
       "concurrency": "single stream",
       "source_note": "First-hand source; independently checked, not rerun",
       "quant": "DeepSeek official FP8 weights with FP4 routed experts (rev 1bae0e10), DSpark 5 drafts",
@@ -37248,7 +37212,7 @@
     "source_id": "src-b78024a896"
   },
   {
-    "id": "x-313",
+    "id": "x-312",
     "category": "text",
     "model": "LFM2.5-24B-A2B",
     "quant": "Q4_K_M（Liquid 官方 GGUF，14.5GB）",
@@ -37285,7 +37249,7 @@
     "source_id": "src-06775935aa"
   },
   {
-    "id": "x-314",
+    "id": "x-313",
     "category": "text",
     "model": "LFM2.5-24B-A2B",
     "quant": "Q4_K_M（Liquid 官方 GGUF，14.5GB）",
@@ -37322,7 +37286,7 @@
     "source_id": "src-06775935aa"
   },
   {
-    "id": "x-315",
+    "id": "x-314",
     "category": "text",
     "model": "LFM2.5-24B-A2B",
     "quant": "Q4_K_M（Liquid 官方 GGUF，14.5GB）",
@@ -37359,7 +37323,7 @@
     "source_id": "src-06775935aa"
   },
   {
-    "id": "x-316",
+    "id": "x-315",
     "category": "text",
     "model": "Qwen3-0.6B",
     "quant": "Q8_0 GGUF",
@@ -37396,7 +37360,7 @@
     "source_id": "src-8c1e9f5d34"
   },
   {
-    "id": "x-317",
+    "id": "x-316",
     "category": "text",
     "model": "Qwen3.8-Flash-Next",
     "quant": "ISTA-DASLab GSQ-RCO IQ3_S",
@@ -37433,7 +37397,7 @@
     "source_id": "src-ff52bcd762"
   },
   {
-    "id": "x-318",
+    "id": "x-317",
     "category": "text",
     "model": "Qwen3.8-27B (AEON Ultimate)",
     "quant": "AEON NVFP4-MIXED（rev 02af3dcf）+ AEON DFlash2 草稿（NVFP4 W4A16，rev 964d336d），FP8 KV",
