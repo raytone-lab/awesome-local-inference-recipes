@@ -26,7 +26,7 @@ CHIPS = [
  ('RX 6800 XT', r'6800 ?XT', 16, 'gpu'), ('RX 6800', r'RX 6800', 16, 'gpu'), ('RX Vega 64', r'Vega 64', 8, 'gpu'),
  ('RX 7900 XTX', r'7900 ?XTX', 24, 'gpu'), ('RX 7900 XT', r'7900 ?XT', 20, 'gpu'), ('RX 5700 XT', r'5700 ?XT', 8, 'gpu'), ('RX 9070 XT', r'9070 ?XT', 16, 'gpu'), ('R9700', r'R9700', 32, 'gpu'),
  ('Arc B580', r'B580', 12, 'gpu'), ('Arc A770', r'A770', 16, 'gpu'),
- ('DGX Spark', r'DGX Spark|GB10|Spark', None, 'unified'), ('Strix Halo', r'Strix Halo|AI Max\+? ?3\d\d|Ryzen AI Max', None, 'unified'), ('Jetson Thor', r'Jetson (AGX )?Thor', None, 'unified'),
+ ('DGX Spark', r'DGX Spark|GB10|Spark', None, 'unified'), ('Strix Halo', r'Strix Halo|AI Max\+? ?3\d\d|Ryzen AI Max', None, 'unified'), ('Jetson Thor', r'Jetson (AGX )?Thor', None, 'unified'), ('Jetson Orin', r'Jetson (AGX )?Orin', None, 'unified'),
  ('M5 Ultra', r'M5 Ultra', None, 'unified'), ('M5 Max', r'M5 Max', None, 'unified'), ('M5 Pro', r'M5 Pro', None, 'unified'), ('M5', r'\bM5\b', None, 'unified'),
  ('M4 Max', r'M4 Max', None, 'unified'), ('M4 Pro', r'M4 Pro', None, 'unified'), ('M4', r'\bM4\b', None, 'unified'),
  ('M3 Ultra', r'M3 Ultra', None, 'unified'), ('M3 Max', r'M3 Max', None, 'unified'), ('M3 Pro', r'M3 Pro', None, 'unified'), ('M3', r'\bM3\b', None, 'unified'),
@@ -104,6 +104,8 @@ def parse_hw(h):
 
 
 def single_stream(r):
+    if re.fullmatch(r'\s*未写\s*', str(r.get('concurrency') or '')):  # concurrency not stated: do not claim single-stream
+        return False
     return not r.get('superseded_by') and not re.search(r'并发|aggregate|总吞吐', (r.get('metric') or '') + ' ' + str(r.get('concurrency') or ''), re.I)
 
 
